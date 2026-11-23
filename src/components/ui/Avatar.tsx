@@ -35,7 +35,10 @@ export function Avatar({
         alt={decorative ? "" : name}
         width={size}
         height={size}
-        className={cn("aspect-square rounded-m object-cover", className)}
+        className={cn(
+          "aspect-square shrink-0 rounded-m border border-line bg-cloud object-cover",
+          className,
+        )}
       />
     );
   }

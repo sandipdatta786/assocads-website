@@ -9,9 +9,9 @@
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
     "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
+    "photo": "/images/trustees/amit-kumar-das.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
+    "consentToPublish": true,
     "published": true
   },
   {
@@ -99,9 +99,9 @@
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
     "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
+    "photo": "/images/trustees/sayan-guha.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
+    "consentToPublish": true,
     "published": true
   },
   {
@@ -114,9 +114,9 @@
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
     "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
+    "photo": "/images/trustees/deb-kumar-majumder.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
+    "consentToPublish": true,
     "published": true
   },
   {
@@ -129,9 +129,9 @@
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
     "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
+    "photo": "/images/trustees/sandip-datta.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
+    "consentToPublish": true,
     "published": true
   },
   {
@@ -189,9 +189,9 @@
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
     "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
+    "photo": "/images/trustees/eshwar-boini.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
+    "consentToPublish": true,
     "published": true
   }
 ]

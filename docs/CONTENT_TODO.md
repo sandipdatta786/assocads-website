@@ -34,6 +34,8 @@ Run `pnpm content:check` for the current list with line numbers. Add one line he
 
 Each of the thirteen trustees has five placeholders: current role, current organisation, a biography of about sixty words, two to four areas of expertise, and a LinkedIn link. Each also needs a photograph, which is added only with `consentToPublish: true`.
 
+Photographs received with consent (23 November 2026): Amit Kumar Das, Eshwar Boini, Deb Kumar Majumder, Sandip Datta and Sayan Guha. Still needed from the other eight trustees.
+
 - [ ] `content/trustees.json` · Amit Kumar Das
 - [ ] `content/trustees.json` · Abhijit Pal
 - [ ] `content/trustees.json` · Prasun Nandy
