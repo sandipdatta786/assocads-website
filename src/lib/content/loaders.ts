@@ -16,6 +16,7 @@ import { isPublished, readingMinutes } from "../publishing.ts";
 import type { z } from "zod";
 
 import {
+  donationStatusLine,
   foreignContributionLine,
   isPlaceholderValue,
   legalStatusLine,
@@ -241,6 +242,9 @@ const FAQ_TOKENS: Record<string, () => string> = {
   legalStatus: legalStatusLine,
   taxStatus: taxStatusLine,
   foreignContributions: foreignContributionLine,
+  donationStatus: () =>
+    donationStatusLine() ??
+    `Yes. Giving is open, and every contribution is acknowledged in writing.`,
 };
 
 /**

@@ -62,6 +62,19 @@ export const site = {
     registerInterestLive: false,
     /** The same, for the communities interest form. */
     communityInterestLive: false,
+    /** The same, for the partnership enquiry form on /partner. */
+    partnerEnquiryLive: false,
+    /** The same, for the pledge or sponsor form on /support. */
+    supportPledgeLive: false,
+    /** The same, for the contact form on /contact. */
+    contactLive: false,
+  },
+
+  money: {
+    /** True only once the trust is registered and its bank account is in place.
+        Until then the site takes no money and shows no bank details, payment
+        button or QR code. */
+    donationsOpen: false,
   },
 
   contact: {
@@ -69,6 +82,8 @@ export const site = {
     phone: "[PLACEHOLDER: public phone number, if any]",
     dataProtectionEmail:
       "[PLACEHOLDER: email address for data protection requests]",
+    /** How soon we aim to reply, as the founders decide it, for example "within five working days". */
+    replyTime: "[PLACEHOLDER: expected reply time agreed by the founders]",
   },
 
   social: {
@@ -282,6 +297,20 @@ export function foreignContributionLine(): string {
     return `${site.shortName} holds registration under the Foreign Contribution (Regulation) Act, 2010, and can accept foreign contributions within its terms.`;
   }
   return `No. ${site.shortName} cannot accept foreign contributions until it holds registration or prior permission under the Foreign Contribution (Regulation) Act, 2010.`;
+}
+
+/**
+ * The site's answer to "can I donate now?", or null once giving is open.
+ * Driven by the legal status and the donationsOpen setting.
+ */
+export function donationStatusLine(): string | null {
+  if (!isRegistered()) {
+    return `${site.shortName} is not yet accepting donations. We will open giving once the trust is registered and its bank account is in place.`;
+  }
+  if (!site.money.donationsOpen) {
+    return `${site.shortName} is not yet accepting donations. We will open giving once the trust's bank account is in place.`;
+  }
+  return null;
 }
 
 /** Official profile links that have been filled in, for footers and structured data. */

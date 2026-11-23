@@ -136,5 +136,71 @@
     "answer": "ASSOCADS begins in West Bengal, with Kolkata as its base. The trust deed allows the Board to set up chapters in other cities and states. Each one needs the Board's approval.",
     "category": "membership",
     "pages": ["/faq", "/communities"]
+  },
+  {
+    "question": "How do I propose a partnership with ASSOCADS?",
+    "answer": "Fill in the partnership enquiry on the Partner with us page. We start with a conversation, then put a proposal in writing. A partnership begins only when a written agreement has been approved by the Board of Trustees.",
+    "category": "partnership",
+    "pages": ["/faq", "/partner"]
+  },
+  {
+    "question": "Will ASSOCADS name our organisation as a partner?",
+    "answer": "Only after a written agreement approved by the Board is in place, and with your permission. ASSOCADS does not name, or show the logo of, any organisation it is only talking to.",
+    "category": "partnership",
+    "pages": ["/faq", "/partner"]
+  },
+  {
+    "question": "Is a partnership the same as Associate membership?",
+    "answer": "No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.",
+    "category": "partnership",
+    "pages": ["/faq", "/partner", "/membership"]
+  },
+  {
+    "question": "Can a college have an ASSOCADS group on its campus?",
+    "answer": "A college or university can propose one through the partnership enquiry. Like every group, a campus group needs the approval of the Board of Trustees.",
+    "category": "partnership",
+    "pages": ["/faq", "/partner"]
+  },
+  {
+    "question": "Can I donate to ASSOCADS now?",
+    "answer": "{{donationStatus}}",
+    "category": "money",
+    "pages": ["/faq", "/support"]
+  },
+  {
+    "question": "What will donations be used for?",
+    "answer": "Only for the objects in the trust deed, such as training, events, research, responsible AI and AI for social good. Trustees are honorary and receive no payment for acting as trustees. If the trust were ever dissolved, its assets would pass to a similar charitable institution, never to trustees or members.",
+    "category": "money",
+    "pages": ["/faq", "/support"]
+  },
+  {
+    "question": "Is a pledge a commitment to pay?",
+    "answer": "No. A pledge tells us what you would like to give once ASSOCADS can accept it. Nothing is paid and no payment details are asked for. We will write to you when giving opens, and you decide then.",
+    "category": "money",
+    "pages": ["/faq", "/support"]
+  },
+  {
+    "question": "Can my company sponsor an event?",
+    "answer": "Sponsorship, like a donation, can be accepted only once giving opens. You can tell us now what you would like to sponsor through the pledge or sponsor form on the Support page, and we will be in touch.",
+    "category": "money",
+    "pages": ["/faq", "/support", "/partner"]
+  },
+  {
+    "question": "How do I contact ASSOCADS?",
+    "answer": "Use the form on the Contact page and choose what your message is about, so that it reaches the people who can answer it.",
+    "category": "contact",
+    "pages": ["/faq", "/contact"]
+  },
+  {
+    "question": "What is the address of ASSOCADS?",
+    "answer": "ASSOCADS has its registered office in West Bengal. The full address will be published on the Contact page once it is confirmed.",
+    "category": "contact",
+    "pages": ["/faq", "/contact"]
+  },
+  {
+    "question": "I am a journalist. How do I reach ASSOCADS?",
+    "answer": "Use the form on the Contact page and choose Media as the topic, so that your message is handled as a media enquiry.",
+    "category": "contact",
+    "pages": ["/faq", "/contact"]
   }
 ]
