@@ -219,7 +219,7 @@ export default async function AudiencePage({
               {guides.map((g) => (
                 <li key={`guide-${g.slug}`}>
                   <Link
-                    href={`/guides#${g.slug}`}
+                    href={`/guides/${g.slug}`}
                     className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
                   >
                     <span className="font-mono text-caption text-slate-600 uppercase">
@@ -237,7 +237,7 @@ export default async function AudiencePage({
               {terms.map((t) => (
                 <li key={`term-${t.slug}`}>
                   <Link
-                    href={`/glossary#${t.slug}`}
+                    href={`/glossary/${t.slug}`}
                     className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
                   >
                     <span className="font-mono text-caption text-slate-600 uppercase">

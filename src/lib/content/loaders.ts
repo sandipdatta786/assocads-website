@@ -448,17 +448,44 @@ export function getGuides(options: PublishedOptions) {
   const trusteeNames = new Set(
     getTrustees({ includeDrafts: true }).map((t) => t.name),
   );
+  const guideSlugs = new Set(items.map((g) => g.slug));
+  const termSlugs = new Set(
+    readMdxCollection("glossary", glossarySchema).map((t) => t.slug),
+  );
+  const placeholder = /^\[PLACEHOLDER: [^\]]+\]$/;
   for (const g of items) {
+    const problems: string[] = [];
     if (g.reviewedBy && !trusteeNames.has(g.reviewedBy)) {
-      throw new ContentError(g.file, [
-        `reviewedBy "${g.reviewedBy}" must be a Founder Trustee's name exactly as in content/trustees.json`,
-      ]);
+      if (!(g.draft && placeholder.test(g.reviewedBy))) {
+        problems.push(
+          `reviewedBy "${g.reviewedBy}" must be a Founder Trustee's name exactly as in content/trustees.json` +
+            (g.draft ? " (or a [PLACEHOLDER: ...] while it is a draft)" : ""),
+        );
+      }
     }
     if (!g.draft && !g.reviewedBy) {
-      throw new ContentError(g.file, [
+      problems.push(
         "a guide that is not a draft needs reviewedBy, the trustee who reviewed it",
-      ]);
+      );
     }
+    if (
+      ["kolkata", "careers"].includes(g.theme) &&
+      !g.dataAsOf &&
+      /salary|course|compan|employer|event|hackathon|internship/i.test(g.title)
+    ) {
+      problems.push(
+        "a guide built on lists or figures that go out of date needs dataAsOf",
+      );
+    }
+    const missingGuides = g.relatedGuides.filter((r) => !guideSlugs.has(r));
+    if (missingGuides.length > 0) {
+      problems.push(`relatedGuides not found: ${missingGuides.join(", ")}`);
+    }
+    const missingTerms = g.glossaryTerms.filter((t) => !termSlugs.has(t));
+    if (missingTerms.length > 0) {
+      problems.push(`glossaryTerms not found: ${missingTerms.join(", ")}`);
+    }
+    if (problems.length > 0) throw new ContentError(g.file, problems);
   }
 
   return withoutFuture(withoutDrafts(items, options), options).sort((a, b) =>

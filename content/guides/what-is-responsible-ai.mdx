@@ -1,0 +1,157 @@
+---
+slug: "what-is-responsible-ai"
+title: "What is responsible AI? A practical introduction"
+summary: "What responsible AI means in practice for teams that build or buy AI systems: the core principles, the main reference frameworks, and a checklist of steps across the AI lifecycle."
+theme: "fundamentals"
+directAnswer: "Responsible AI means designing, building and using AI systems so that they are fair, transparent, accountable, privacy-protecting and safe. In practice it is a set of habits across the whole lifecycle: assessing risk before building, documenting data and models, testing for bias and errors, keeping humans in charge, and monitoring systems after launch."
+author: "[PLACEHOLDER: author name]"
+reviewedBy: "[PLACEHOLDER: reviewing Founder Trustee]"
+publishedDate: "2026-11-23"
+lastReviewed: "2026-11-23"
+targetQuery: "what is responsible AI"
+audiences: ["students", "professionals", "industry", "government"]
+keyFacts:
+  - "NITI Aayog's Responsible AI paper of February 2021 sets out seven principles, including safety and reliability, inclusivity and non-discrimination, privacy and security, transparency and accountability."
+  - "The OECD AI Principles were adopted in 2019 and updated in May 2024."
+  - "NIST released its voluntary AI Risk Management Framework 1.0 on 26 January 2023, organised around four functions: Govern, Map, Measure and Manage."
+  - "ISO/IEC 42001:2023 specifies requirements for an AI management system within an organisation."
+  - "MeitY's India AI Governance Guidelines, released on 5 November 2025, set out seven guiding principles (sutras) for AI in India."
+sources:
+  - title: "Responsible AI: Approach Document for India, Part 1, Principles for Responsible AI (February 2021)"
+    publisher: "NITI Aayog"
+    url: "https://www.niti.gov.in/sites/default/files/2021-02/Responsible-AI-22022021.pdf"
+    accessed: "2026-11-23"
+  - title: "Responsible AI, Part 2: Operationalizing Principles for Responsible AI (August 2021)"
+    publisher: "NITI Aayog"
+    url: "https://www.niti.gov.in/sites/default/files/2021-08/Part2-Responsible-AI-12082021.pdf"
+    accessed: "2026-11-23"
+  - title: "OECD AI Principles"
+    publisher: "OECD"
+    url: "https://oecd.ai/en/ai-principles"
+    accessed: "2026-11-23"
+  - title: "AI Risk Management Framework"
+    publisher: "National Institute of Standards and Technology (NIST), United States"
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+    accessed: "2026-11-23"
+  - title: "ISO/IEC 42001:2023 Information technology — Artificial intelligence — Management system"
+    publisher: "International Organization for Standardization"
+    url: "https://www.iso.org/standard/42001"
+    accessed: "2026-11-23"
+  - title: "MeitY unveils India AI Governance Guidelines under IndiaAI Mission (5 November 2025)"
+    publisher: "Press Information Bureau, Government of India"
+    url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2186639"
+    accessed: "2026-11-23"
+  - title: "Safe and Trusted AI pillar under IndiaAI Mission strengthens citizen trust (27 July 2026)"
+    publisher: "Press Information Bureau, Government of India"
+    url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2289946"
+    accessed: "2026-11-23"
+faqs:
+  - question: "Is responsible AI the same as AI ethics?"
+    answer: "They overlap. AI ethics asks what is right; responsible AI is usually used for the practical work of putting those values into processes, tests and controls inside an organisation."
+  - question: "Is responsible AI a legal requirement in India?"
+    answer: "There is no single responsible AI law, but some duties are binding, such as those in the DPDP Act, 2023 and the IT Rules, 2021. Frameworks such as NITI Aayog's principles and the India AI Governance Guidelines are guidance."
+  - question: "Which framework should a small team start with?"
+    answer: "Many teams start with a short set of principles, such as NITI Aayog's or the OECD's, and use the NIST AI Risk Management Framework as a structure for practical steps. ISO/IEC 42001 suits organisations that want a formal, auditable management system."
+  - question: "Can an AI system be completely free of bias?"
+    answer: "Rarely. The realistic goal is to find, measure and reduce unfair differences in outcomes, explain the trade-offs, and keep checking after launch."
+relatedGuides: ["ai-governance-and-regulation-in-india", "dpdp-act-explained-for-data-teams", "ai-for-social-good-in-india"]
+glossaryTerms: ["responsible-ai", "algorithmic-bias", "explainable-ai", "ai-governance", "training-data"]
+cta: "communities"
+legalNotice: false
+draft: true
+---
+
+AI systems now help decide who gets a loan, which job applicant is shortlisted and what information people see. When they go wrong, the harm can fall on people who never chose to use them. Responsible AI is the practice of reducing that harm while still getting the benefits.
+
+This guide is for students, developers, data scientists and managers who want a working understanding. It explains the main principles, points to the frameworks most often used as references, and ends with a checklist you can adapt.
+
+## What principles does responsible AI rest on?
+
+Different organisations word them differently, but most lists share five core ideas:
+
+| Principle | What it means in practice |
+| --- | --- |
+| Fairness | The system should not treat people or groups unjustly, for example by gender, caste, religion, region or disability |
+| Transparency | People should know when AI is being used, and teams should be able to explain how a system reaches its outputs |
+| Accountability | A named person or team is answerable for the system and its effects, and there is a way to challenge decisions |
+| Privacy | Personal data is collected lawfully, kept to what is needed and protected |
+| Safety | The system is reliable, secure and tested against misuse and failure |
+
+In India, [NITI Aayog's Responsible AI paper](https://www.niti.gov.in/sites/default/files/2021-02/Responsible-AI-22022021.pdf) of February 2021 sets out seven principles: safety and reliability; equality; inclusivity and non-discrimination; privacy and security; transparency; accountability; and protection and reinforcement of positive human values. It grounds them in the Constitution of India. A [second paper](https://www.niti.gov.in/sites/default/files/2021-08/Part2-Responsible-AI-12082021.pdf) in August 2021 discussed how to put them into practice.
+
+The [India AI Governance Guidelines](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2186639), released by the Ministry of Electronics and Information Technology on 5 November 2025, add seven guiding principles, or sutras, for AI in India, along with recommendations and practical guidance for industry and regulators.
+
+## What frameworks do teams use?
+
+| Framework | Who publishes it | What it is | Binding? |
+| --- | --- | --- | --- |
+| [NITI Aayog Responsible AI papers](https://www.niti.gov.in/sites/default/files/2021-02/Responsible-AI-22022021.pdf) | NITI Aayog, India | Principles and ways to apply them in the Indian context | No |
+| [India AI Governance Guidelines](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2186639) | MeitY, India | National principles, recommendations and an action plan | No |
+| [OECD AI Principles](https://oecd.ai/en/ai-principles) | OECD | Five values-based principles and five recommendations for governments, adopted in 2019 and updated in May 2024 | No |
+| [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) | NIST, United States | A voluntary framework released on 26 January 2023, with four functions: Govern, Map, Measure and Manage | No |
+| [ISO/IEC 42001:2023](https://www.iso.org/standard/42001) | ISO and IEC | Requirements for setting up, running and improving an AI management system | Voluntary standard; organisations can seek certification |
+
+These work at different levels. Principles say what to aim for. The NIST framework gives a structure for managing risk. ISO/IEC 42001 turns this into a management system that can be audited. NIST has also published a profile for generative AI, NIST AI 600-1, released on 26 July 2024.
+
+Some duties are not optional. In India, the Digital Personal Data Protection Act, 2023 applies to AI systems that process personal data, and the IT Rules, 2021 cover AI-generated audio, images and video on platforms. Our guide on [AI governance and regulation in India](/guides/ai-governance-and-regulation-in-india) explains which rules are binding.
+
+## How does responsible AI work across a project?
+
+The NIST framework's four functions offer a simple way to think about the whole lifecycle:
+
+1. **Govern.** Set policies, roles and accountability before any model is built. Decide who can approve a system for use and who can stop it.
+2. **Map.** Understand the context: who will use the system, who will be affected, and what could go wrong.
+3. **Measure.** Test the system for accuracy, bias, robustness and security, using methods that suit the risk.
+4. **Manage.** Act on what you find, by fixing problems, adding safeguards, or deciding not to deploy, and keep monitoring after launch.
+
+## What does a practical responsible AI checklist look like?
+
+Use this as a starting point and adapt it to the risk of each system. A tool that suggests email subject lines needs far less than one that screens loan applications.
+
+### Before you build
+
+- Write down the purpose of the system and who it affects, including people who do not use it directly.
+- Ask whether AI is needed at all, or whether a simpler rule would do.
+- Rate the risk: could errors affect someone's money, health, job, education, safety or rights?
+- Name an owner who is accountable for the system.
+- Check legal duties, especially under the DPDP Act if personal data is involved.
+
+### Data
+
+- Record where each dataset came from, its licence, and whether people consented to this use.
+- Remove personal data you do not need, and protect what remains.
+- Check whether the data represents the people the system will serve, for example across languages, regions and genders.
+- Keep a short datasheet describing the data and its known gaps.
+
+### Model and testing
+
+- Choose measures of fairness that suit the use, and test results across relevant groups.
+- Test on realistic, messy inputs, including Indian languages and dialects where relevant.
+- Try to break the system: test for misuse, harmful outputs and security weaknesses.
+- For generative AI, test for false information and unsafe content.
+- Document the model, its intended use, its limits and its test results.
+
+### Deployment
+
+- Tell people when they are dealing with AI, and label AI-generated media where required.
+- Keep a human in the loop for decisions with serious effects on people.
+- Give people a clear way to question or appeal a decision.
+- Have a plan to switch the system off or roll it back if something goes wrong.
+
+### After launch
+
+- Monitor accuracy and fairness over time, because data and behaviour change.
+- Log incidents and complaints, and learn from them.
+- Review the system on a schedule, and again whenever its use changes.
+- Retire systems that no longer meet your standards.
+
+## What are common mistakes?
+
+- **Treating responsible AI as a final check.** Problems are cheaper to prevent at the design stage than to fix after launch.
+- **Testing only overall accuracy.** A model can be accurate on average and still fail badly for one group.
+- **Assuming a bought tool is someone else's problem.** If your organisation uses an AI system, it is still answerable for how it is used.
+- **Writing principles without owners.** Principles only work when a named person is responsible for each one.
+
+## Where is responsible AI work happening in India?
+
+Under the IndiaAI Mission's Safe and Trusted AI pillar, PIB reported in [July 2026](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2289946) that 13 responsible AI projects had been approved at educational institutions, covering areas such as bias mitigation, machine unlearning, privacy-preserving AI, explainability and deepfake detection. Our guide to [the IndiaAI Mission](/guides/indiaai-mission-explained) has more detail.

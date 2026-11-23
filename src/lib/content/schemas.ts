@@ -416,34 +416,97 @@ export const insightSchema = z
     path: ["imageAlt"],
   });
 
-export const guideSchema = z.object({
-  slug,
+/** A source for a guide or glossary entry. Prefer primary sources: the law
+    itself, the ministry, the university or the organisation concerned. */
+const source = z.object({
   title: z.string().min(1),
-  summary: z.string().min(1),
-  directAnswer: z.string().refine(wordRange(40, 60), "must be 40 to 60 words"),
-  author: z.string().min(1),
-  /** A Founder Trustee's name, exactly as in content/trustees.json. */
-  reviewedBy: z.string().default(""),
-  publishedDate: isoDate,
-  lastReviewed: isoDate,
-  targetQuery: z.string().min(1),
-  /** Slugs from content/audiences, so audience pages can list this guide. */
-  audiences: z.array(slug).default([]),
-  faqs: z
-    .array(z.object({ question: z.string().min(1), answer: z.string().min(1) }))
-    .default([]),
-  draft,
+  /** Who published it, for example "Ministry of Electronics and IT". */
+  publisher: z.string().min(1),
+  url: z.url(),
+  /** When the link was last opened and checked, as YYYY-MM-DD. */
+  accessed: isoDate,
 });
+
+export const guideThemes = [
+  "careers",
+  "kolkata",
+  "policy",
+  "fundamentals",
+] as const;
+
+export const guideCtas = [
+  "membership",
+  "events",
+  "communities",
+  "contact",
+] as const;
+
+/** A name, or a visible placeholder while the guide is a draft. */
+const personOrPlaceholder = z.string().min(1);
+
+export const guideSchema = z
+  .object({
+    slug,
+    /** A question or a clear statement. Up to 90 characters. */
+    title: z.string().min(1).max(90),
+    /** One or two sentences for cards, search results and the feed. */
+    summary: z.string().min(1).max(240),
+    /** Search title, if the title is longer than 60 characters. */
+    seoTitle: z.string().max(60).optional(),
+    theme: z.enum(guideThemes),
+    /** The "Short answer" under the title: 40 to 60 words. */
+    directAnswer: z
+      .string()
+      .refine(wordRange(40, 60), "must be 40 to 60 words"),
+    author: personOrPlaceholder,
+    /** A Founder Trustee's name, exactly as in content/trustees.json.
+        A placeholder is allowed only while the guide is a draft. */
+    reviewedBy: z.string().default(""),
+    publishedDate: isoDate,
+    lastReviewed: isoDate,
+    /** For guides built on figures or lists that go out of date. */
+    dataAsOf: isoDate.optional(),
+    targetQuery: z.string().min(1),
+    /** Slugs from content/audiences, so audience pages can list this guide. */
+    audiences: z.array(slug).default([]),
+    /** Three to six short statements, each supported by a listed source. */
+    keyFacts: z.array(z.string().min(1)).min(3).max(6),
+    sources: z.array(source).min(1),
+    faqs: z
+      .array(
+        z.object({ question: z.string().min(1), answer: z.string().min(1) }),
+      )
+      .default([]),
+    relatedGuides: z.array(slug).default([]),
+    glossaryTerms: z.array(slug).default([]),
+    /** Which soft call to action closes the guide. */
+    cta: z.enum(guideCtas).default("membership"),
+    /** Shows "general information, not legal advice". */
+    legalNotice: z.boolean().default(false),
+    draft,
+  })
+  .refine((g) => g.lastReviewed >= g.publishedDate, {
+    message: "must be on or after publishedDate",
+    path: ["lastReviewed"],
+  })
+  .refine((g) => g.draft || !isPlaceholder(g.author), {
+    message: "a published guide needs a real author",
+    path: ["author"],
+  });
 
 export const glossarySchema = z.object({
   term: z.string().min(1),
   slug,
+  /** One sentence in the form "X is ...". Under 40 words. */
   shortDefinition: z
     .string()
     .refine((t) => words(t) < 40, "must be under 40 words"),
+  /** Other forms people search for, for example "AI" or "ML". */
+  aliases: z.array(z.string().min(1)).default([]),
   related: z.array(slug).default([]),
   /** Slugs from content/audiences, so audience pages can list this term. */
   audiences: z.array(slug).default([]),
+  furtherReading: z.array(source).default([]),
   lastReviewed: isoDate,
   draft,
 });

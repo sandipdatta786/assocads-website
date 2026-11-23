@@ -1,0 +1,35 @@
+---
+term: "Training data"
+slug: "training-data"
+shortDefinition: "Training data is the set of examples a machine learning model learns from, as distinct from the separate validation and test data used to check how well it performs."
+aliases: ["training set", "training dataset"]
+related: ["machine-learning", "supervised-learning", "overfitting", "algorithmic-bias", "personal-data"]
+audiences: ["students", "professionals", "industry", "government"]
+furtherReading:
+  - title: "Datasets: Dividing the original dataset"
+    publisher: "Google for Developers, Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets"
+    accessed: "2026-11-23"
+  - title: "Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1"
+    publisher: "National Institute of Standards and Technology (NIST)"
+    url: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf"
+    accessed: "2026-11-23"
+lastReviewed: "2026-11-23"
+draft: true
+---
+
+## In plain English
+
+Training data is what a machine learning model learns from. It might be rows in a spreadsheet, photographs, recorded speech or pages of text. During training, the model adjusts itself until it fits the patterns in these examples as well as it can.
+
+Practitioners usually split their data into three parts. The training set is for learning. A validation set is used to check progress and tune the model during development. A test set is kept aside until the end to give an honest measure of how the model will do on data it has never seen. Keeping these parts separate, and free of duplicates, is what makes the results trustworthy.
+
+## An example
+
+A team building a speech recognition tool for Bengali collects recordings of people reading sentences aloud, each with a written transcript. Most recordings become training data. The rest are held back for validation and testing. If the training recordings came mostly from one city or one age group, the tool might struggle with other accents, so the team checks that the data covers the range of speakers it is meant to serve, and that every speaker has consented.
+
+## Why it matters
+
+A model can only be as good as the data it learns from. Gaps, errors or skews in training data become gaps, errors or skews in the model's behaviour, which is one of the main sources of algorithmic bias.
+
+Training data also raises legal and ethical questions. If it contains information about people, data protection law applies. Organisations should know where their data came from, whether they are allowed to use it and whether it fairly represents the people affected by the system.
