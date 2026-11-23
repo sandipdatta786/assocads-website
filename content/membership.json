@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "ordinary",
+    "name": "Ordinary Member",
+    "who": "Individuals",
+    "eligibility": "An individual aged eighteen or over.",
+    "terms": [
+      "Admission is by application and approval by the Board or a committee it appoints.",
+      "Pays an annual subscription fixed by the Board."
+    ],
+    "fee": null,
+    "benefits": [
+      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
+    ]
+  },
+  {
+    "slug": "life",
+    "name": "Life Member",
+    "who": "Individuals",
+    "eligibility": "An individual recommended by two trustees.",
+    "terms": [
+      "Admission is by application and approval by the Board or a committee it appoints.",
+      "Pays a one-time amount fixed by the Board."
+    ],
+    "fee": null,
+    "benefits": [
+      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
+    ]
+  },
+  {
+    "slug": "associate",
+    "name": "Associate Member",
+    "who": "Institutions and organisations",
+    "eligibility": "An institution, organisation, society or company.",
+    "terms": [
+      "Admission is by application and approval by the Board or a committee it appoints.",
+      "Pays a fee fixed by the Board.",
+      "Is represented by an official it nominates."
+    ],
+    "fee": null,
+    "benefits": [
+      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
+    ]
+  },
+  {
+    "slug": "honorary",
+    "name": "Honorary Member",
+    "who": "People of eminence",
+    "eligibility": "A person of eminence.",
+    "terms": [
+      "Admitted without a fee by a resolution passed by two-thirds of the Board.",
+      "Membership lasts three years and may be renewed."
+    ],
+    "fee": null,
+    "benefits": [
+      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
+    ]
+  }
+]
