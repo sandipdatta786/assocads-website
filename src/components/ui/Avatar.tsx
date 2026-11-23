@@ -6,6 +6,9 @@ type AvatarProps = {
   /** Path under public/, for example "/images/trustees/name.jpg". */
   photo?: string | null;
   size?: number;
+  /** Set when the name is also shown as text beside the avatar,
+      so screen readers do not hear it twice. */
+  decorative?: boolean;
   className?: string;
 };
 
@@ -18,12 +21,18 @@ function initials(name: string): string {
 
 /** Shows a photograph, or the person's initials on a Cloud tile when no
     photograph has been supplied. */
-export function Avatar({ name, photo, size = 96, className }: AvatarProps) {
+export function Avatar({
+  name,
+  photo,
+  size = 96,
+  decorative = false,
+  className,
+}: AvatarProps) {
   if (photo) {
     return (
       <Image
         src={photo}
-        alt={name}
+        alt={decorative ? "" : name}
         width={size}
         height={size}
         className={cn("aspect-square rounded-m object-cover", className)}
@@ -32,8 +41,9 @@ export function Avatar({ name, photo, size = 96, className }: AvatarProps) {
   }
   return (
     <span
-      role="img"
-      aria-label={name}
+      role={decorative ? undefined : "img"}
+      aria-label={decorative ? undefined : name}
+      aria-hidden={decorative || undefined}
       style={{ width: size, height: size, fontSize: size * 0.34 }}
       className={cn(
         "inline-grid shrink-0 place-items-center rounded-m border border-line bg-cloud font-display font-semibold text-slate-600",

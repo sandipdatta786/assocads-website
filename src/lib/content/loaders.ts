@@ -29,6 +29,7 @@ import {
   insightSchema,
   membershipCategorySchema,
   programmeSchema,
+  roadmapSchema,
   trusteeSchema,
 } from "./schemas.ts";
 
@@ -268,6 +269,13 @@ export function getDocuments() {
       ),
   );
   return items.sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getRoadmap() {
+  const order = { near: 0, mid: 1, long: 2 } as const;
+  return readJsonArray("roadmap", roadmapSchema).sort(
+    (a, b) => order[a.horizon] - order[b.horizon],
+  );
 }
 
 export function getProgrammes() {
