@@ -284,7 +284,7 @@ export default function Page() {
           <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
             <EnquiryForm
               formId={FORM_ID}
-              live={site.forms.partnerEnquiryLive}
+              kind="partner"
               consent="reply to my enquiry and discuss a partnership"
               submitLabel="Send enquiry"
               successText="We have received your enquiry and will reply to arrange a first conversation."
@@ -295,7 +295,6 @@ export default function Page() {
                   label: "Full name",
                   autoComplete: "name",
                   width: "half",
-                  message: "Enter your full name.",
                 },
                 {
                   kind: "text",
@@ -303,14 +302,12 @@ export default function Page() {
                   label: "Your role",
                   autoComplete: "organization-title",
                   width: "half",
-                  message: "Enter your role, for example Head of Department.",
                 },
                 {
                   kind: "text",
                   name: "organisation",
                   label: "Organisation",
                   autoComplete: "organization",
-                  message: "Enter the name of your organisation.",
                 },
                 {
                   kind: "select",
@@ -318,7 +315,6 @@ export default function Page() {
                   label: "Type of organisation",
                   options: [...organisationTypes],
                   queryKey: "type",
-                  message: "Choose the type of organisation.",
                 },
                 {
                   kind: "email",
@@ -326,7 +322,6 @@ export default function Page() {
                   label: "Email address",
                   autoComplete: "email",
                   width: "half",
-                  message: "Enter your email address.",
                 },
                 {
                   kind: "tel",
@@ -342,15 +337,12 @@ export default function Page() {
                   label: "What would you like to explore?",
                   hint: "Choose all that apply.",
                   options: partnershipAreas,
-                  message:
-                    "Choose at least one thing you would like to explore.",
                 },
                 {
                   kind: "textarea",
                   name: "message",
                   label: "Message",
                   hint: "What you have in mind, and any timing that matters.",
-                  message: "Enter a short message about what you have in mind.",
                 },
               ]}
             />

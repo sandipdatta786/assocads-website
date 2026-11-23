@@ -240,7 +240,6 @@ export default function Page() {
                 value: c.slug,
                 label: c.name,
               }))}
-              live={site.forms.communityInterestLive}
             />
           </div>
         </Container>

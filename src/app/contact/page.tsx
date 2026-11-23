@@ -143,7 +143,7 @@ export default function Page() {
             </h2>
             <EnquiryForm
               formId={FORM_ID}
-              live={site.forms.contactLive}
+              kind="contact"
               consent="reply to my message"
               submitLabel="Send message"
               successText="We have received your message and will reply by email."
@@ -154,7 +154,6 @@ export default function Page() {
                   label: "Full name",
                   autoComplete: "name",
                   width: "half",
-                  message: "Enter your full name.",
                 },
                 {
                   kind: "email",
@@ -162,7 +161,6 @@ export default function Page() {
                   label: "Email address",
                   autoComplete: "email",
                   width: "half",
-                  message: "Enter your email address.",
                 },
                 {
                   kind: "tel",
@@ -181,13 +179,11 @@ export default function Page() {
                   options: [...contactTopics],
                   queryKey: "topic",
                   notes: contactTopicNotes,
-                  message: "Choose what your message is about.",
                 },
                 {
                   kind: "textarea",
                   name: "message",
                   label: "Message",
-                  message: "Enter your message.",
                 },
               ]}
             />
