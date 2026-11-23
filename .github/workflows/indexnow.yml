@@ -1,8 +1,12 @@
 # After each successful production deployment on Vercel, tell IndexNow search
 # engines which addresses are new or changed. See docs/INDEXNOW.md.
+#
+# Vercel reports deployments to this repository as commit statuses (context
+# "Vercel"), not as GitHub deployments, so this runs on the status event and
+# only for a commit on main, which is what Vercel deploys to production.
 name: IndexNow
 
-on: deployment_status
+on: status
 
 permissions:
   contents: read
@@ -10,14 +14,15 @@ permissions:
 jobs:
   submit:
     if: >-
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'Production'
+      github.event.context == 'Vercel' &&
+      github.event.state == 'success' &&
+      contains(github.event.branches.*.name, 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.deployment.sha }}
+          ref: ${{ github.event.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 24

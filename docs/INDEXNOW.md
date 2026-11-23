@@ -4,8 +4,8 @@ IndexNow lets a website tell search engines straight away that an address is new
 
 ## How it works on this site
 
-1. Vercel deploys `main` to production and reports the deployment to GitHub.
-2. `.github/workflows/indexnow.yml` runs when that deployment succeeds.
+1. Vercel deploys `main` to production and marks the commit on GitHub with a "Vercel" status.
+2. `.github/workflows/indexnow.yml` runs when that status turns to success on a commit in `main`.
 3. It runs `scripts/indexnow.ts`, which:
    - checks that `/indexnow-key.txt` on the live site serves the key;
    - reads the live `/sitemap.xml`;
