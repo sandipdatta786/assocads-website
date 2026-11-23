@@ -47,3 +47,19 @@ Each of the thirteen trustees has five placeholders: current role, current organ
 - [ ] `content/trustees.json` · Kaushik Dey
 - [ ] `content/trustees.json` · Ayan Chakraborty
 - [ ] `content/trustees.json` · Eshwar Boini
+
+### Pages still to be built
+
+Every route in the site map exists, but most show only a heading and `[PLACEHOLDER: page content, built in a later playbook step]`. These are filled in by playbook prompts 5 to 17, not by the founders. `pnpm content:check` lists each one with its file.
+
+- [ ] `src/app/page.tsx` · home page content (Prompt 5)
+- [ ] `src/app/about/**` · About section pages (Prompts 6 and 7)
+- [ ] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
+- [ ] `src/app/for/[audience]` · four audience pages (Prompt 9)
+- [ ] `src/app/membership/**` · membership and register-your-interest pages (Prompts 10 and 16)
+- [ ] `src/app/events` · events (Prompt 11)
+- [ ] `src/app/communities` · communities (Prompt 12)
+- [ ] `src/app/insights` · insights (Prompt 13)
+- [ ] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guides, glossary and resources (Prompt 14)
+- [ ] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact (Prompts 15 and 16)
+- [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)

@@ -100,6 +100,8 @@ const draft = z.boolean().default(false);
 export const programmeSchema = z.object({
   slug,
   title: z.string().min(1),
+  /** One line for menus and cards, under 60 characters. */
+  tagline: z.string().min(1).max(60),
   summary: z.string().refine(wordRange(60, 90), "must be 60 to 90 words"),
   deedObjects: z.array(z.number().int().min(1).max(16)).min(1),
   status: z.enum(["active", "planned"]),

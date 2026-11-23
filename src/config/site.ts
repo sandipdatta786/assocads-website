@@ -9,6 +9,8 @@ export type ExemptionStatus = "not-applied" | "applied" | "granted";
 
 export type NavLink = { label: string; href: string };
 export type FooterGroup = { heading: string; links: NavLink[] };
+export type MenuLink = NavLink & { description: string };
+export type NavItem = NavLink & { menu?: MenuLink[] };
 
 function siteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
@@ -67,13 +69,84 @@ export const site = {
     github: "",
   },
 
+  /** The six main navigation items. Items with a menu open a dropdown on desktop.
+      The Programmes menu is filled from content/programmes and content/audiences. */
   navigation: [
-    { label: "About", href: "/about" },
-    { label: "Programmes", href: "/programmes" },
+    {
+      label: "About",
+      href: "/about",
+      menu: [
+        {
+          label: "About ASSOCADS",
+          href: "/about",
+          description: "Who we are and why the trust was set up",
+        },
+        {
+          label: "Aims and objects",
+          href: "/about/objects",
+          description:
+            "The sixteen objects of the trust deed, in plain English",
+        },
+        {
+          label: "Governance",
+          href: "/about/governance",
+          description: "How the trust is run, its principles and documents",
+        },
+        {
+          label: "Founder Trustees",
+          href: "/about/trustees",
+          description: "The thirteen people on the first Board",
+        },
+        {
+          label: "Roadmap",
+          href: "/about/roadmap",
+          description: "What we plan to do, and when",
+        },
+        {
+          label: "At a glance",
+          href: "/about/facts",
+          description: "Short, dated facts about ASSOCADS",
+        },
+      ],
+    },
+    { label: "Programmes", href: "/programmes", menu: [] },
     { label: "Membership", href: "/membership" },
     { label: "Events", href: "/events" },
     { label: "Insights", href: "/insights" },
-    { label: "Resources", href: "/resources" },
+    {
+      label: "Resources",
+      href: "/resources",
+      menu: [
+        {
+          label: "All resources",
+          href: "/resources",
+          description: "Guides, glossary, documents and the brand kit",
+        },
+        {
+          label: "Guides",
+          href: "/guides",
+          description: "Careers, Kolkata and policy, reviewed by a trustee",
+        },
+        {
+          label: "Glossary",
+          href: "/glossary",
+          description: "Plain definitions of AI and data terms",
+        },
+        {
+          label: "Questions",
+          href: "/faq",
+          description: "Answers about ASSOCADS, membership and more",
+        },
+      ],
+    },
+  ] satisfies NavItem[] as NavItem[],
+
+  /** Links shown in the mobile menu and the desktop header's extra slots. */
+  moreLinks: [
+    { label: "Communities", href: "/communities" },
+    { label: "Partner with us", href: "/partner" },
+    { label: "Support ASSOCADS", href: "/support" },
+    { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
 
   joinLink: { label: "Join", href: "/membership/apply" } satisfies NavLink,
@@ -102,15 +175,6 @@ export const site = {
       ],
     },
     {
-      heading: "Who we serve",
-      links: [
-        { label: "Students", href: "/for/students" },
-        { label: "Professionals", href: "/for/professionals" },
-        { label: "Industry", href: "/for/industry" },
-        { label: "Government bodies", href: "/for/government" },
-      ],
-    },
-    {
       heading: "Resources",
       links: [
         { label: "Programmes", href: "/programmes" },
@@ -121,7 +185,25 @@ export const site = {
         { label: "Questions", href: "/faq" },
       ],
     },
+    {
+      heading: "Legal",
+      links: [
+        { label: "Contact", href: "/contact" },
+        { label: "Privacy", href: "/legal/privacy" },
+        { label: "Terms", href: "/legal/terms" },
+        { label: "Disclaimer", href: "/legal/disclaimer" },
+        { label: "Accessibility", href: "/accessibility" },
+      ],
+    },
   ] satisfies FooterGroup[],
+
+  /** The audience pages, shown as a row in the footer. */
+  audienceLinks: [
+    { label: "Students", href: "/for/students" },
+    { label: "Professionals", href: "/for/professionals" },
+    { label: "Industry", href: "/for/industry" },
+    { label: "Government bodies", href: "/for/government" },
+  ] satisfies NavLink[],
 
   legalLinks: [
     { label: "Contact", href: "/contact" },
@@ -190,4 +272,26 @@ export function socialLinks(): { network: string; url: string }[] {
   return Object.entries(site.social)
     .filter(([, url]) => url)
     .map(([network, url]) => ({ network, url }));
+}
+
+/**
+ * The text of the slim banner under the header, or null when there should be
+ * no banner. Driven only by the legal status.
+ */
+export function statusBannerText(): string | null {
+  if (isRegistered()) return null;
+  return `${site.shortName} is a public charitable trust in formation. Registration is in progress.`;
+}
+
+// Built from two parts so the content check does not mistake this code for a placeholder.
+const PLACEHOLDER_START = "[PLACEHOLDER" + ": ";
+
+/** True when a setting still holds a placeholder rather than a real value. */
+export function isPlaceholderValue(value: string): boolean {
+  return value.startsWith(PLACEHOLDER_START) && value.endsWith("]");
+}
+
+/** The text inside a placeholder, for the Placeholder component. */
+export function placeholderNeed(value: string): string {
+  return value.slice(PLACEHOLDER_START.length, -1);
 }
