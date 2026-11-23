@@ -1,4 +1,3 @@
-import { Building2, HandHeart, Layers } from "lucide-react";
 import { AboutLinks } from "@/components/sections/AboutLinks";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { PageHeader } from "@/components/sections/PageHeader";
@@ -7,7 +6,6 @@ import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/Decor";
-import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { Heading } from "@/components/ui/Typography";
@@ -27,21 +25,25 @@ export const metadata = pageMetadata({
 
 /* Positioning from docs/BLUEPRINT.md, section 3.3, described by kind of
    organisation. The named organisations appear only in the FAQ below. */
+/** A comparison, so it is a table (blueprint 4.4). */
 const differences = [
   {
-    icon: HandHeart,
-    title: "Open to individuals",
-    text: "Industry trade bodies count companies as their members. ASSOCADS is a professional body open to individuals, including students.",
+    aspect: "Who can join",
+    others: "Industry trade bodies count companies as their members.",
+    assocads:
+      "A professional body open to individuals, including students, as well as organisations.",
   },
   {
-    icon: Building2,
-    title: "A public trust, not a business",
-    text: "Commercial certification providers sell credentials. ASSOCADS is a public charitable trust with named trustees, governed by a trust deed and run for public benefit.",
+    aspect: "What it is",
+    others: "Commercial certification providers sell credentials.",
+    assocads:
+      "A public charitable trust with named trustees, governed by a trust deed and run for public benefit.",
   },
   {
-    icon: Layers,
-    title: "Broad by design",
-    text: "Some societies focus on one field or one conference. ASSOCADS covers AI, Data Science and Analytics across academia, industry, startups and government: membership, training, research, startups, policy and social good.",
+    aspect: "What it covers",
+    others: "Some societies focus on one field or one conference.",
+    assocads:
+      "AI, Data Science and Analytics across academia, industry, startups and government: membership, training, research, startups, policy and social good.",
   },
 ];
 
@@ -62,7 +64,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="About ASSOCADS"
-        lead={`The ${site.name} is a not-for-profit public charitable trust, set up in ${site.location.city} in ${site.foundingYear}, to connect the people and institutions working in AI and Data Science in India.`}
+        lead={`${site.description} ${site.mission}`}
         breadcrumbs={[{ label: "About" }]}
       />
 
@@ -174,22 +176,62 @@ export default function AboutPage() {
             id="differs-heading"
             eyebrow="Where we sit"
             title="How ASSOCADS is different"
-            lead="Several organisations work in this field. Here is where ASSOCADS fits."
+            lead={`${site.shortName} is a public charitable trust open to individuals and broad by design, which sets it apart from trade bodies, certification providers and single-field societies.`}
           />
-          <ul className="grid gap-4 md:grid-cols-3 lg:gap-6">
-            {differences.map((item) => (
-              <li
-                key={item.title}
-                className="flex flex-col gap-4 rounded-l border border-line bg-paper p-6 sm:p-8"
-              >
-                <Icon icon={item.icon} size={28} className="text-indigo" />
-                <h3 className="font-display text-h3 font-semibold text-ink">
-                  {item.title}
-                </h3>
-                <p className="text-body text-slate-600">{item.text}</p>
-              </li>
-            ))}
-          </ul>
+          <div className="overflow-hidden rounded-l border border-line bg-paper">
+            <table className="w-full border-collapse text-left text-small">
+              <caption className="sr-only">
+                How ASSOCADS compares with other kinds of organisation in the
+                field
+              </caption>
+              <thead className="hidden md:table-header-group">
+                <tr className="border-b border-line">
+                  <th scope="col" className="w-1/5 p-5 font-semibold text-ink">
+                    Question
+                  </th>
+                  <th scope="col" className="p-5 font-semibold text-ink">
+                    Others in the field
+                  </th>
+                  <th scope="col" className="p-5 font-semibold text-ink">
+                    {site.shortName}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="block md:table-row-group">
+                {differences.map((d) => (
+                  <tr
+                    key={d.aspect}
+                    className="block border-b border-line last:border-b-0 md:table-row"
+                  >
+                    <th
+                      scope="row"
+                      className="block p-5 pb-3 align-top font-display text-body font-semibold text-ink md:table-cell md:pb-5"
+                    >
+                      {d.aspect}
+                    </th>
+                    <td className="block px-5 pb-4 align-top text-slate-600 md:table-cell md:p-5">
+                      <span
+                        aria-hidden="true"
+                        className="mb-1 block font-mono text-eyebrow font-medium text-slate-600 uppercase md:hidden"
+                      >
+                        Others in the field
+                      </span>
+                      {d.others}
+                    </td>
+                    <td className="block px-5 pb-4 align-top text-ink text-slate-600 md:table-cell md:p-5">
+                      <span
+                        aria-hidden="true"
+                        className="mb-1 block font-mono text-eyebrow font-medium text-slate-600 uppercase md:hidden"
+                      >
+                        {site.shortName}
+                      </span>
+                      {d.assocads}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="mt-10 flex flex-wrap gap-3">
             <ButtonLink href="/about/approach">Read our approach</ButtonLink>
             <ButtonLink href="/about/objects" variant="secondary">

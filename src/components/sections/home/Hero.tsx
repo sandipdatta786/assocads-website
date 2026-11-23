@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { NodeLines } from "@/components/ui/Decor";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow, Heading, Lead } from "@/components/ui/Typography";
-import { site } from "@/config/site";
+import { registrationLine, site } from "@/config/site";
 
 export function Hero() {
   return (
@@ -27,10 +27,7 @@ export function Hero() {
             Connecting talent, knowledge, innovation and opportunity in AI
           </Heading>
           <Lead>
-            {site.shortName} is a not-for-profit professional association
-            connecting students, professionals, academia, industry, startups and
-            government to advance AI and Data Science in India, beginning in
-            West Bengal.
+            {site.description} {site.mission} {registrationLine()}
           </Lead>
           <div className="mt-4 flex flex-wrap gap-3">
             <ButtonLink href="/membership" size="large">

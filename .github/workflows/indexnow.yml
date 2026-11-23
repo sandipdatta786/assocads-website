@@ -1,0 +1,32 @@
+# After each successful production deployment on Vercel, tell IndexNow search
+# engines which addresses are new or changed. See docs/INDEXNOW.md.
+name: IndexNow
+
+on: deployment_status
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Date of the deployed commit
+        id: commit
+        run: echo "date=$(git log -1 --format=%cs)" >> "$GITHUB_OUTPUT"
+      - name: Submit new and changed addresses
+        run: node scripts/indexnow.ts
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://assocads-website.vercel.app' }}
+          SINCE: ${{ steps.commit.outputs.date }}

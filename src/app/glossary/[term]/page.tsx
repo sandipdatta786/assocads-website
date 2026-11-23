@@ -14,7 +14,8 @@ import { clip } from "@/lib/guides";
 import { formatLongDate } from "@/lib/publishing";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
-import { definedTerm } from "@/lib/seo/schema";
+import { LastUpdated } from "@/components/ui/LastUpdated";
+import { definedTerm, plainPage, termId } from "@/lib/seo/schema";
 
 /* Drafts are listed so the route always has a path to prerender; the page
    returns "not found" for a draft on the live site. */
@@ -54,7 +55,18 @@ export default async function TermPage({
   );
   return (
     <>
-      <JsonLd items={[definedTerm(term)]} />
+      <JsonLd
+        items={[
+          plainPage({
+            path: `/glossary/${term.slug}`,
+            name: term.term,
+            description: term.shortDefinition,
+            dateModified: term.lastReviewed,
+            mainEntity: termId(term.slug),
+          }),
+          definedTerm(term),
+        ]}
+      />
       <article>
         <Section
           tone="paper"
@@ -88,11 +100,6 @@ export default async function TermPage({
             <h1 className="font-display text-display-l font-bold text-ink">
               {term.term}
             </h1>
-            {term.aliases.length > 0 && (
-              <p className="-mt-2 text-body text-slate-600">
-                Also called {term.aliases.join(", ")}
-              </p>
-            )}
             <section
               aria-labelledby="definition"
               className="flex flex-col gap-2 rounded-l border-l-4 border-indigo bg-indigo-tint p-6 sm:p-8"
@@ -105,6 +112,16 @@ export default async function TermPage({
               </h2>
               <p className="text-lead text-ink">{term.shortDefinition}</p>
             </section>
+            {term.aliases.length > 0 && (
+              <p className="-mt-2 text-body text-slate-600">
+                Also called {term.aliases.join(", ")}.
+              </p>
+            )}
+            <LastUpdated
+              date={term.lastReviewed}
+              label="Last reviewed"
+              className="-mt-2"
+            />
 
             {Body && (
               <Prose className="mt-6">
@@ -199,11 +216,6 @@ export default async function TermPage({
             )}
 
             <p className="mt-8 border-t border-line pt-6 text-small text-slate-600">
-              Last reviewed{" "}
-              <time dateTime={term.lastReviewed}>
-                {formatLongDate(term.lastReviewed)}
-              </time>
-              .{" "}
               <Link
                 href="/glossary"
                 className="font-medium text-indigo underline underline-offset-4"

@@ -12,7 +12,9 @@ import { Section } from "@/components/ui/Section";
 import { site } from "@/config/site";
 import { getMembershipCategories } from "@/lib/content/loaders";
 import type { MembershipCategory } from "@/lib/content/schemas";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { plainPage } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "Membership",
@@ -82,10 +84,21 @@ export default function Page() {
 
   return (
     <>
+      <JsonLd
+        items={[
+          plainPage({
+            path: "/membership",
+            name: "Membership",
+            description: String(metadata.description),
+            dateModified: site.updated.membership,
+          }),
+        ]}
+      />
       <PageHeader
         eyebrow="Membership"
         title="Membership"
-        lead="The trust deed provides four kinds of membership, for individuals and for organisations. Here is who can join, how admission works, and what membership does and does not mean."
+        updated={site.updated.membership}
+        lead={`The ${site.shortName} trust deed provides four kinds of membership: Ordinary and Life membership for individuals, Associate membership for institutions and organisations, and Honorary membership for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.`}
         actions={
           <ButtonLink href={site.joinLink.href} size="large">
             Register your interest

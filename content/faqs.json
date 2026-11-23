@@ -102,8 +102,8 @@
     "pages": ["/faq", "/support"]
   },
   {
-    "question": "Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI?",
-    "answer": "No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI.",
+    "question": "Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or DSCI?",
+    "answer": "No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or the Data Security Council of India (DSCI). It has no partners, members or supporters among these organisations, and their names appear here only to avoid confusion.",
     "category": "about",
     "pages": ["/", "/faq", "/about", "/about/facts"]
   },

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type Crumb } from "@/components/ui/Breadcrumbs";
 import { Container } from "@/components/ui/Container";
+import { LastUpdated } from "@/components/ui/LastUpdated";
 import { Section, type Tone } from "@/components/ui/Section";
 import { Eyebrow, Heading, Lead } from "@/components/ui/Typography";
 
@@ -8,6 +9,8 @@ type PageHeaderProps = {
   title: string;
   eyebrow?: string;
   lead?: ReactNode;
+  /** YYYY-MM-DD: shows "Last updated" under the lead. */
+  updated?: string;
   /** Buttons or links shown under the lead. */
   actions?: ReactNode;
   /** Trail to this page. "Home" is added at the start automatically. */
@@ -20,6 +23,7 @@ export function PageHeader({
   title,
   eyebrow,
   lead,
+  updated,
   actions,
   breadcrumbs,
   tone = "paper",
@@ -39,6 +43,7 @@ export function PageHeader({
             {title}
           </Heading>
           {lead && <Lead>{lead}</Lead>}
+          {updated && <LastUpdated date={updated} />}
           {actions && (
             <div className="mt-3 flex flex-wrap gap-3">{actions}</div>
           )}

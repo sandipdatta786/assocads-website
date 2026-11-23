@@ -78,7 +78,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Get involved"
         title="Communities"
-        lead="Special Interest Groups bring together people who work in one industry or domain. Chapters bring together people in one city or state."
+        lead={`${site.shortName} plans to form two kinds of community. Special Interest Groups will bring together people who work in one industry or domain, and chapters will bring together people in one city or state. None has been formed yet. Tell us which you would join, and whether you would help to run it.`}
         actions={
           <ButtonLink href={`#${FORM_ID}`} size="large">
             Register your interest

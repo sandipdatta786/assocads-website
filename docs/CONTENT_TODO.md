@@ -82,3 +82,7 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [ ] `src/app/legal/privacy/page.tsx` · name of the email service used for the secretariat mailbox
 - [ ] `src/app/legal/privacy/page.tsx` · retention periods agreed by the Board, for example how long enquiries and expressions of interest are kept
 - [ ] `/accessibility` · update "What has been tested" after the full audit (Prompt 22)
+- [x] AEO and GEO layer: `/llms.txt`, `/llms-full.txt`, named AI crawlers in `robots.txt`, answer-first page openings, "Last updated" dates, IndexNow (Prompt 20)
+- [ ] Trustee to re-review three small citation edits made on 24 November 2026, which add the source and date to the same sentence as each figure: `indiaai-mission-explained` (PIB figures list), `dpdp-act-explained-for-data-teams` (consent manager net worth, penalty table), `data-scientist-salary-in-india` (pharma and healthcare range). `lastReviewed` was left unchanged until that review.
+- [ ] Founders: create an IndexNow key and add it as `INDEXNOW_KEY` in Vercel (Production) and as a GitHub Actions secret of the same name (`docs/INDEXNOW.md`)
+- [ ] Founders: work through `docs/GEO_OFFSITE_CHECKLIST.md`, and run its ten test questions each month

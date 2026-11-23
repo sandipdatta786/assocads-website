@@ -130,7 +130,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Get involved"
         title="Support ASSOCADS"
-        lead="How you can help ASSOCADS get started, and what it can and cannot accept before the trust is registered."
+        lead={`${status ? `${status} ` : ""}You can help now by volunteering, offering a venue, mentoring or pledging support for later. This page explains each way to help, and what the trust can and cannot accept.`}
         actions={
           <ButtonLink href={`#${FORM_ID}`} size="large">
             Pledge or sponsor

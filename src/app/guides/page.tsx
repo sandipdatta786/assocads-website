@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import { BookOpen } from "lucide-react";
 import { GuideCard } from "@/components/guides/GuideCard";
 import { PageHeader } from "@/components/sections/PageHeader";
@@ -36,7 +37,7 @@ export default async function Page() {
       <PageHeader
         eyebrow="Resources"
         title="Guides"
-        lead="Practical, sourced guides on careers, Kolkata and AI policy. Every guide lists its sources and is reviewed by a named trustee before it is published."
+        lead={`${site.shortName} guides are practical, sourced explainers on careers in AI and Data Science, the field in Kolkata and West Bengal, AI policy in India and the fundamentals. Every guide lists its sources, gives the date of each figure it uses, and is reviewed by a named trustee before it is published.`}
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Guides" },

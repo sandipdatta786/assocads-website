@@ -1,0 +1,2152 @@
+# ASSOCADS: the main pages in plain text
+
+---
+
+This file holds the text of the About pages, the facts page, the programme pages, the membership page and the frequently asked questions, as published at {{SITE_URL}}. Each page starts with its address.
+
+---
+
+Source: {{SITE_URL}}/about
+
+About
+
+# About ASSOCADS
+
+ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. It aims to build a collaborative ecosystem that connects students, professionals, academia, industry, startups and government in AI, Data Science and Analytics across India, beginning with West Bengal.
+
+Why it exists
+
+## One shared home for AI and Data Science
+
+Work in AI, Data Science and Analytics happens in many places at once: in classrooms and research labs, in companies and startups, and in government departments. ASSOCADS was set up to connect them, so that students, professionals, academics, entrepreneurs, investors, institutions and government can learn, meet, research and build together.
+
+It is a not-for-profit public charitable trust. It is non-political, non-religious and open to everyone without discrimination, and its assets can never be shared among its trustees or members.
+
+Who started it
+
+## Founded by thirteen trustees in Kolkata
+
+Meet the trustees
+
+ASSOCADS was started in 2026 by thirteen Founder Trustees: professionals, academics and entrepreneurs in AI, Data Science and Analytics. Together they form its first Board of Trustees.
+
+They serve without payment. The Board will elect its office bearers from among the trustees at its first meeting after registration.
+
+Vision
+
+## An ecosystem enabler, and in time an apex professional body
+
+ASSOCADS aims to connect talent, knowledge, innovation and opportunity. In the long term, it aims to grow into an apex professional body for AI and Data Science.
+
+Scope
+
+## Across India, beginning with West Bengal
+
+ASSOCADS is building a collaborative ecosystem for AI, Data Science and Analytics professionals across India, beginning with West Bengal. It aims to connect industry, academia, startups, government and society.
+
+Where we sit
+
+## How ASSOCADS is different
+
+ASSOCADS is a public charitable trust open to individuals and broad by design, which sets it apart from trade bodies, certification providers and single-field societies.
+
+How ASSOCADS compares with other kinds of organisation in the field
+| Question | Others in the field | ASSOCADS |
+
+| Who can join | Others in the fieldIndustry trade bodies count companies as their members. | ASSOCADSA professional body open to individuals, including students, as well as organisations. |
+
+| What it is | Others in the fieldCommercial certification providers sell credentials. | ASSOCADSA public charitable trust with named trustees, governed by a trust deed and run for public benefit. |
+
+| What it covers | Others in the fieldSome societies focus on one field or one conference. | ASSOCADSAI, Data Science and Analytics across academia, industry, startups and government: membership, training, research, startups, policy and social good. |
+
+Read our approachRead our aims and objects
+
+Questions
+
+## Common questions
+
+All questions
+
+**What is ASSOCADS?**
+
+ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust set up in Kolkata in 2026. It aims to build a collaborative ecosystem for AI, Data Science and Analytics across India, beginning with West Bengal, that connects students, professionals, academia, industry, startups, government and society.
+
+**Is ASSOCADS registered?**
+
+ASSOCADS is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. Its registration is in progress.
+
+**Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or DSCI?**
+
+No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or the Data Security Council of India (DSCI). It has no partners, members or supporters among these organisations, and their names appear here only to avoid confusion.
+
+**How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
+
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+
+About
+
+## More about ASSOCADS
+
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- GovernanceHow the trust is run, its principles and documents
+- Founder TrusteesThe thirteen people on the first Board
+- RoadmapWhat we plan to do, and when
+- At a glanceShort, dated facts about ASSOCADS
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/facts
+
+About
+
+# ASSOCADS at a glance
+
+ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. This page sets out short, dated facts about its legal status, location, trustees and plans, and the organisations it is not connected with, each written to be quoted on its own.
+
+Last updated 23 November 2026
+
+Full name: The full name of ASSOCADS is the Association for AI and Data Science.
+
+Short name: ASSOCADS, always written in capital letters.
+
+What it is: ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026.
+
+Legal form: ASSOCADS is a public charitable trust. It is non-political, non-religious, not-for-profit and irrevocable.
+
+Legal status: ASSOCADS is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. Its registration is in progress.
+
+Founded: ASSOCADS was established in Kolkata, West Bengal, India, in 2026.
+
+Scope: Across India, beginning with West Bengal. It aims to build a collaborative ecosystem that connects students, professionals, academia, industry, startups and government in AI, Data Science and Analytics across India, beginning with West Bengal.
+
+Founder Trustees: ASSOCADS was founded by thirteen Founder Trustees, who form its first Board of Trustees and serve without payment. Office bearers will be elected at the Board's first meeting after registration. See the trustees
+
+Membership: The trust deed provides for four membership categories: Ordinary Member, Life Member, Associate Member and Honorary Member. Fees have not yet been fixed; they will be set by bye-laws adopted after registration.
+
+Programme areas: Eight areas of work: training and certification, events and community, research and publications, industry and academia collaboration, responsible AI, startups and innovation, policy and advisory and recognition and AI for social good. All are planned; none has started yet.
+
+Tax deductions: Not at present. ASSOCADS intends to apply for registration under sections 12AB and 80G of the Income Tax Act after the trust is registered. Until 80G approval is granted, donations do not qualify for a tax deduction.
+
+Foreign contributions: No. ASSOCADS cannot accept foreign contributions until it holds registration or prior permission under the Foreign Contribution (Regulation) Act, 2010.
+
+Not affiliated with: No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or the Data Security Council of India (DSCI). It has no partners, members or supporters among these organisations, and their names appear here only to avoid confusion.
+
+Questions
+
+## Questions
+
+All questions
+
+**What is ASSOCADS?**
+
+ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust set up in Kolkata in 2026. It aims to build a collaborative ecosystem for AI, Data Science and Analytics across India, beginning with West Bengal, that connects students, professionals, academia, industry, startups, government and society.
+
+**Is ASSOCADS registered?**
+
+ASSOCADS is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. Its registration is in progress.
+
+**Where is ASSOCADS based?**
+
+ASSOCADS was set up in Kolkata, and its registered office is in West Bengal. Its work is meant to serve people across India, beginning with West Bengal.
+
+**Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or DSCI?**
+
+No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or the Data Security Council of India (DSCI). It has no partners, members or supporters among these organisations, and their names appear here only to avoid confusion.
+
+**How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
+
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- GovernanceHow the trust is run, its principles and documents
+- Founder TrusteesThe thirteen people on the first Board
+- RoadmapWhat we plan to do, and when
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/approach
+
+Our approach
+
+# Building with AI, not just talking about it
+
+ASSOCADS aims to help shape how AI and Data Science are learned, built, adopted and used to make a difference. This page sets out how its Founder Trustees want it to work, by building with AI rather than only talking about it, and the values they want it to stand for.
+
+What sets us apart
+
+## More than conferences and networking
+
+Conferences, seminars, panels and networking events have their place, and ASSOCADS will hold them. But we do not want them to be what we are known for.
+
+We want to create lasting, practical value that people associate with us. People should want to take part not only to attend events or join a network, but for what they can do here.
+
+- Learnpractical skills from people who use them
+- Buildworking solutions to real problems
+- Experiencehow AI is used inside organisations
+- Contributeknowledge, code and research to the field
+- Achieverecognition that reflects what you can do
+
+Proposals
+
+## 12 ideas we plan to build on
+
+Each belongs to one of our eight programmes. Partnerships with companies and colleges, and a growing membership, remain priorities alongside them.
+
+These are proposals, not services
+
+None of these has started. After registration, the Board will weigh them, choose the most practical ones to begin with, and build on them step by step. Not everything will start at once.
+
+### Learn by doing
+
+Learning that leaves you with skills and work you can show.
+
+#### Hands-on masterclasses
+
+Practical sessions led by experienced practitioners, where participants work on real business problems, build AI applications, try new tools and see how these technologies are used inside organisations.
+
+You leave with working prototypes and skills you can show, not just slides.
+
+Part of Training and certification
+
+#### Practical certifications
+
+Certifications that test what you can do as well as what you know: a proctored online theory examination, followed by a real-world problem or project assessed by experienced industry professionals against published criteria.
+
+A certification that shows how well you apply your knowledge to real problems.
+
+Part of Training and certification
+
+#### Mentoring and career growth
+
+Structured mentoring that pairs experienced architects, data scientists, researchers and leaders with students, young professionals and people moving into AI. Mentors help with practical projects, portfolios and what employers expect. Members also mentor each other across specialisations.
+
+Real guidance and a portfolio of work, from people who do the job.
+
+Part of Training and certification
+
+### Build real solutions
+
+Mixed teams from industry and academia, working on problems that matter to someone.
+
+#### Collaborative use case development
+
+Professionals from different companies work with students and researchers to build practical solutions to real business problems. Working prototypes are then shown to enterprises, mid-sized businesses and startups that might adopt or develop them further.
+
+Cross-organisation teams that turn ideas into working prototypes.
+
+Part of Industry and academia collaboration
+
+#### Industry problem exchange
+
+A structured way for companies to share specific business challenges that AI or Data Science might help solve. Members study them, suggest approaches, build prototypes and demonstrate possible solutions.
+
+A steady link between what industry needs and what our community can do.
+
+Part of Industry and academia collaboration
+
+#### Innovation challenges and hackathons
+
+Regular challenges built around real problems from companies, startups, government bodies and social organisations, for mixed teams of professionals, students, researchers and independent experts. The work does not end with the winners: we aim to help promising solutions find mentors, sponsors and first users.
+
+Solutions that carry on after the event and get used.
+
+Part of Events and community
+
+#### Idea incubation and proofs of concept
+
+Members submit AI ideas or early-stage solutions. A panel of experienced architects, data scientists, business leaders and technologists picks the most promising, and ASSOCADS helps with mentoring, technical guidance, industry connections and the chance to build a proof of concept.
+
+A route from an individual idea to enterprises, customers and investors.
+
+Part of Startups and innovation
+
+#### Open-source contribution
+
+Members contribute together to open-source projects, reusable frameworks, datasets, reference architectures, evaluation benchmarks and implementation templates, gathered in a shared repository for everyone to use.
+
+Public work that builds your credibility and helps the wider community.
+
+Part of Research and publications
+
+### Share knowledge openly
+
+Knowledge that stays available long after an event ends.
+
+#### A knowledge and media platform
+
+Podcasts, webinars, expert interviews, panel discussions and technology demonstrations, published on YouTube, LinkedIn and other channels as a permanent library anyone can use at any time.
+
+Knowledge that reaches far beyond the people in the room.
+
+Part of Events and community
+
+#### An annual industry report
+
+A yearly report on how AI and Data Science are being adopted, with emerging technologies, industry challenges, research and talent trends, drawing on members, industry, academic institutions and organisations in different sectors.
+
+A dependable reference on the state of the field.
+
+Part of Research and publications
+
+### Serve industry and society
+
+Help for organisations and communities that need it most.
+
+#### A responsible AI working group
+
+A dedicated group to research data privacy, security, ethics, bias, explainability and regulation, publish practical guidelines, and help businesses, especially small and medium ones, adopt AI responsibly, securely and within the law.
+
+Practical help for organisations that want to use AI well.
+
+Part of Responsible AI
+
+#### AI for social good
+
+Members volunteer their expertise to build affordable, practical solutions for NGOs, schools, local communities and public services, in areas such as education, healthcare, agriculture, sustainability and accessibility.
+
+Advanced technology for people who could not otherwise reach it.
+
+Part of Recognition and AI for social good
+
+A closer look
+
+## Certification that tests what you can do
+
+Many certifications rely on theory, multiple-choice examinations and product-specific skills. We propose certifications in two parts, so that candidates show what they know and how well they apply it.
+
+- PART 1
+
+### Theory
+
+An online, remotely proctored examination of the concepts, technologies and methods involved.
+
+- PART 2
+
+### Practical assessment
+
+A real-world problem or project, evaluated by experienced industry professionals against clearly defined criteria.
+
+- Our aim is rigorous standards, credible assessors and transparent criteria, so that over time employers can rely on these certifications when they hire for AI and Data Science roles.
+
+Measuring success
+
+## What we want to be judged by
+
+Not only by how many conferences we hold, how many people attend or how many members we enrol, but by questions like these.
+
+- 01How many practical AI and Data Science solutions have we helped create?
+- 02How many businesses have we helped adopt AI?
+- 03How many professionals and students have we helped develop?
+- 04How much knowledge, research and intellectual contribution have we made to the field?
+- 05How many meaningful collaborations have we made possible?
+- 06How many ideas have we helped turn into working solutions?
+- 07How much positive impact have we had on society?
+- 08How many opportunities have we created for our members?
+
+## One place to learn, experiment, collaborate and solve real problems
+
+We want ASSOCADS to grow into a community where industry professionals, technologists, researchers, academics, students, startups and businesses come together, because they see something useful happening here. When people hear our name, we want them to think of practical knowledge, real contributions and real-world impact.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- GovernanceHow the trust is run, its principles and documents
+- Founder TrusteesThe thirteen people on the first Board
+- RoadmapWhat we plan to do, and when
+- At a glanceShort, dated facts about ASSOCADS
+
+## Help us build it
+
+If these ideas appeal to you, register your interest. If your organisation has a problem worth solving or could host a challenge, tell us.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/objects
+
+About
+
+# Aims and objects
+
+The trust deed sets out sixteen objects: the purposes ASSOCADS exists to pursue. Together they commit it to building a community for AI and Data Science in India that learns, researches, innovates and works for public good, always on a not-for-profit basis.
+
+These objects are taken from the ASSOCADS trust deed and written here in plain English. The numbers match the deed, so each object can be cited. The deed itself remains the authoritative text.
+
+## Community and learning
+
+- 01
+
+### An inclusive ecosystem
+
+Bring together everyone working in AI, Data Science, Machine Learning and Analytics: students, professionals, academics, researchers, industry, entrepreneurs, investors, institutions and government.
+
+Programme: Events and community
+
+- 02
+
+### Education and capacity building
+
+Run conferences, seminars, workshops, bootcamps, hackathons, meetups and training. This includes certification, faculty development, mentoring, career guidance, internships and apprenticeships.
+
+Programme: Training and certification, Events and community
+
+- 14
+
+### Training and advice by sector
+
+Offer training and advisory services across industries, directly or through Special Interest Groups.
+
+Programme: Training and certification
+
+## Research and knowledge
+
+- 05
+
+### Research and publishing
+
+Carry out research and publish it as journals, case studies, benchmark datasets, technical reports and white papers.
+
+Programme: Research and publications
+
+- 11
+
+### Open and community-driven work
+
+Encourage collaborative, open-source and community-led projects.
+
+Programme: Research and publications
+
+- 15
+
+### Intellectual property
+
+Create, protect and share intellectual property.
+
+Programme: Research and publications
+
+## Collaboration and policy
+
+- 04
+
+### Collaboration across sectors
+
+Help academia, industry, government, civil society and international institutions work together.
+
+Programme: Industry and academia collaboration
+
+- 09
+
+### National and international links
+
+Work with organisations in India and abroad, and take part in global initiatives.
+
+Programme: Industry and academia collaboration
+
+- 10
+
+### Policy and standards
+
+Contribute to policies, standards, frameworks and good practice, and advise governments, institutions and industry.
+
+Programme: Policy and advisory
+
+## Innovation and recognition
+
+- 07
+
+### Innovation and entrepreneurship
+
+Support innovation, incubation and new ventures, including mentoring, introductions to investors and access to markets.
+
+Programme: Startups and innovation
+
+- 08
+
+### Recognising excellence
+
+Recognise excellent work through awards, fellowships, certifications and accreditations.
+
+Programme: Recognition and AI for social good
+
+## Responsibility and public good
+
+- 06
+
+### Responsible AI
+
+Promote AI and Data Science that is responsible, ethical, transparent and trustworthy.
+
+Programme: Responsible AI
+
+- 12
+
+### AI for social good
+
+Design and support projects that use AI for public benefit: in healthcare, agriculture, education, governance, sustainability, climate resilience, public welfare, accessibility, rural development and social inclusion.
+
+Programme: Recognition and AI for social good
+
+## Institutions and support
+
+- 03
+
+### Centres, labs and hubs
+
+Set up or support centres, labs, academies, libraries and knowledge repositories, along with innovation hubs, incubation centres and Centres of Excellence.
+
+Programme: Research and publications
+
+- 13
+
+### Institutions and infrastructure
+
+Set up or support the institutions, facilities and infrastructure that these objects need.
+
+- 16
+
+### Other lawful activities
+
+Do anything else that is lawful and supports these objects, always on a not-for-profit basis.
+
+Questions
+
+## Questions
+
+All questions
+
+**What does ASSOCADS plan to do?**
+
+The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- GovernanceHow the trust is run, its principles and documents
+- Founder TrusteesThe thirteen people on the first Board
+- RoadmapWhat we plan to do, and when
+- At a glanceShort, dated facts about ASSOCADS
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/governance
+
+About
+
+# Governance
+
+ASSOCADS is governed by its Board of Trustees under a trust deed, and is run on a not-for-profit basis. This page explains who is responsible, the principles that bind the trust, how its money is to be accounted for, and which documents it will publish as they are adopted.
+
+Last updated 23 November 2026
+
+Registration in progress
+
+## Legal status
+
+Status: ASSOCADS is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. Its registration is in progress.
+
+Tax deductions: Not at present. ASSOCADS intends to apply for registration under sections 12AB and 80G of the Income Tax Act after the trust is registered. Until 80G approval is granted, donations do not qualify for a tax deduction.
+
+Foreign contributions: No. ASSOCADS cannot accept foreign contributions until it holds registration or prior permission under the Foreign Contribution (Regulation) Act, 2010.
+
+How it works
+
+## How the trust is run
+
+These rules come from the trust deed. Because the trust is new, they describe what the deed requires rather than a record of past practice.
+
+### A public charitable trust
+
+ASSOCADS is a public charitable trust. It is non-political, non-religious, not-for-profit and irrevocable: once made, the trust cannot be taken back by the people who set it up.
+
+### The Board of Trustees
+
+The trust is managed by a Board of between seven and fifteen trustees. The first Board has thirteen Founder Trustees.
+
+Meet the trustees
+
+### Office bearers
+
+The Board elects its office bearers from among the trustees, for terms of two years:
+
+- One President
+- Up to two Vice-Presidents
+- One General Secretary
+- Up to two Joint Secretaries
+- One Treasurer
+
+The first office bearers will be elected at the first Board meeting after registration. Until then, no trustee holds a title.
+
+### Honorary trustees
+
+Trustees are honorary. They receive no payment for acting as trustees.
+
+### Meetings
+
+The Board meets at least once every quarter.
+
+### Audit and annual report
+
+The accounts must be audited every year by a Chartered Accountant, and the Board adopts an annual report. The financial year runs from 1 April to 31 March.
+
+### Members and the Board
+
+Membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. The Board may set up chapters in other states and cities, Special Interest Groups and advisory councils.
+
+### If the trust is dissolved
+
+Its assets pass to a similar charitable institution. They can never go to the trustees or the members.
+
+Principles
+
+## Ten principles that bind the trust
+
+The trust deed commits ASSOCADS to these principles in everything it does.
+
+- 01
+
+### Compliance with the law
+
+The trust acts within the law at all times.
+
+- 02
+
+### Open to all
+
+Its programmes and membership are open to everyone, without discrimination.
+
+- 03
+
+### Not for profit
+
+It works on a not-for-profit basis. Its assets can never be shared among trustees or members.
+
+- 04
+
+### Responsible AI
+
+It promotes AI that is responsible, ethical, transparent and trustworthy.
+
+- 05
+
+### Data protection
+
+It protects the personal data it holds.
+
+- 06
+
+### Conflicts of interest
+
+Trustees follow the conflict-of-interest rules set in the trust deed.
+
+- 07
+
+### Academic integrity
+
+Its research, training and publications uphold academic integrity.
+
+- 08
+
+### Proper approvals
+
+It obtains the approvals and permissions its activities need.
+
+- 09
+
+### A focus on society
+
+Its work is aimed at public benefit.
+
+- 10
+
+### Tax registration
+
+It intends to apply for registration under sections 12AB and 80G of the Income Tax Act.
+
+Documents
+
+## Documents
+
+We will publish these documents here as they become available.
+
+### Certificate of registration
+
+Proof that the trust is registered. Published once registration is complete.
+
+To be published
+
+### Bye-laws
+
+The rules for membership, fees and committees, adopted by the Board after registration.
+
+To be published
+
+### Annual report 2026–27
+
+What the trust did in its first financial year, adopted by the Board.
+
+To be published
+
+### Audited accounts 2026–27
+
+The first year's accounts, audited by a Chartered Accountant.
+
+To be published
+
+Questions
+
+## Questions
+
+All questions
+
+**Who runs ASSOCADS?**
+
+ASSOCADS is run by a Board of Trustees. The first Board has thirteen Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+
+**Are the trustees paid?**
+
+No. Trustees are honorary and receive no payment for acting as trustees.
+
+**Is ASSOCADS political or religious?**
+
+No. ASSOCADS is non-political, non-religious and not-for-profit. It is open to everyone, without discrimination.
+
+**Can members vote or help manage ASSOCADS?**
+
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- Founder TrusteesThe thirteen people on the first Board
+- RoadmapWhat we plan to do, and when
+- At a glanceShort, dated facts about ASSOCADS
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/trustees
+
+About
+
+# Founder Trustees
+
+The first Board of Trustees of ASSOCADS has thirteen Founder Trustees, listed here in the order of the trust deed. Three of them are also Settlors, the people who created the trust. They serve in an honorary capacity, without payment. Office bearers will be elected at the Board's first meeting after registration, so no trustee holds a title yet.
+
+## Amit Kumar Das
+
+Settlor and Founder Trustee
+
+- AP
+
+Photo to be added
+
+## Abhijit Pal
+
+Settlor and Founder Trustee
+
+- PN
+
+Photo to be added
+
+## Prasun Nandy
+
+Settlor and Founder Trustee
+
+- SD
+
+Photo to be added
+
+## Sudip Dasgupta
+
+Founder Trustee
+
+- RB
+
+Photo to be added
+
+## Rahul Bhattacharya
+
+Founder Trustee
+
+- BC
+
+Photo to be added
+
+## Biswajeet Chaki
+
+Founder Trustee
+
+## Sayan Guha
+
+Founder Trustee
+
+## Deb Kumar Majumder
+
+Founder Trustee
+
+## Sandip Datta
+
+Founder Trustee
+
+- AB
+
+Photo to be added
+
+## Agnimitra Biswas
+
+Founder Trustee
+
+- KD
+
+Photo to be added
+
+## Kaushik Dey
+
+Founder Trustee
+
+- AC
+
+Photo to be added
+
+## Ayan Chakraborty
+
+Founder Trustee
+
+## Eshwar Boini
+
+Founder Trustee
+
+Questions
+
+## Questions
+
+All questions
+
+**Who runs ASSOCADS?**
+
+ASSOCADS is run by a Board of Trustees. The first Board has thirteen Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- GovernanceHow the trust is run, its principles and documents
+- RoadmapWhat we plan to do, and when
+- At a glanceShort, dated facts about ASSOCADS
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/about/roadmap
+
+About
+
+# Roadmap
+
+The ASSOCADS roadmap sets out what the trust plans to do in three stages: getting established in the first twelve months, running its first programmes in the second year, and widening its reach after that. Every item on it is a plan, not something that has already happened.
+
+This roadmap sets out intentions. Dates and details will be confirmed by the Board.
+
+- 01 · Near term · First 12 months
+
+## Getting established
+
+- Complete the registration of the trust.
+- Hold the first Board meeting and elect office bearers.
+- Adopt bye-laws that set membership categories and fees, then open membership.
+- Apply for registration under sections 12AB and 80G of the Income Tax Act.
+- Have our first year's accounts audited and adopt our first annual report after the financial year ends on 31 March.
+
+- 02 · Mid term · 12 to 24 months
+
+## First programmes
+
+- Run our first workshops, meetups and hackathons, beginning in West Bengal.
+- Form Special Interest Groups by industry or domain.
+- Publish our first guides and reports, each reviewed by a trustee.
+- Start training, mentoring and faculty development programmes with colleges and universities.
+- Build working links between academia, industry, startups and government.
+- Share plain-English guidance on responsible AI.
+
+- 03 · Long term · Beyond 24 months
+
+## Wider reach
+
+- Set up chapters in other states and cities.
+- Establish or support Centres of Excellence, labs and incubation hubs.
+- Grow into an apex professional body for AI and Data Science in India.
+- Support startups through mentoring, investor engagement and market access.
+- Contribute to policies, standards and frameworks, and advise governments and institutions.
+- Introduce awards and fellowships, and support AI-for-social-good projects.
+
+Questions
+
+## Questions
+
+All questions
+
+**What does ASSOCADS plan to do?**
+
+The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.
+
+About
+
+## More about ASSOCADS
+
+- About ASSOCADSWho we are and why the trust was set up
+- Our approachWhat we want to stand for, and the ideas we plan to build on
+- Aims and objectsThe sixteen objects of the trust deed, in plain English
+- GovernanceHow the trust is run, its principles and documents
+- Founder TrusteesThe thirteen people on the first Board
+- At a glanceShort, dated facts about ASSOCADS
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/programmes
+
+Programmes
+
+# Programmes
+
+ASSOCADS groups the sixteen objects of its trust deed into eight programme areas, from training and research to responsible AI and policy. All of them are planned: each will begin after the trust is registered, and its page will say when. Each page sets out what the programme aims to do and how it plans to work.
+
+## All programmes
+
+Planned
+
+### Training and certification
+
+Workshops, bootcamps, mentoring and certification
+
+- Planned
+
+### Events and community
+
+Conferences, seminars, meetups and hackathons
+
+- Planned
+
+### Research and publications
+
+Reports, white papers, datasets and open-source work
+
+- Planned
+
+### Industry and academia collaboration
+
+Knowledge exchange and workforce readiness
+
+- Planned
+
+### Responsible AI
+
+Fairness, accountability, privacy and governance
+
+- Planned
+
+### Startups and innovation
+
+Mentoring, incubation and investor engagement
+
+- Planned
+
+### Policy and advisory
+
+Standards, frameworks and guidance for institutions
+
+- Planned
+
+### Recognition and AI for social good
+
+Awards, fellowships and projects for public benefit
+
+From the trust deed
+
+## How the programmes map to the trust's objects
+
+Every programme carries out one or more objects of the trust deed. The numbers match the deed.
+
+All sixteen objects
+
+### Training and certification
+
+- 02Education and capacity building
+- 14Training and advice by sector
+
+### Events and community
+
+- 01An inclusive ecosystem
+- 02Education and capacity building
+
+### Research and publications
+
+- 03Centres, labs and hubs
+- 05Research and publishing
+- 11Open and community-driven work
+- 15Intellectual property
+
+### Industry and academia collaboration
+
+- 04Collaboration across sectors
+- 09National and international links
+
+### Responsible AI
+
+- 06Responsible AI
+
+### Startups and innovation
+
+- 07Innovation and entrepreneurship
+
+### Policy and advisory
+
+- 10Policy and standards
+
+### Recognition and AI for social good
+
+- 08Recognising excellence
+- 12AI for social good
+
+Objects 13 (institutions and infrastructure) and 16 (other lawful activities) support every programme rather than one in particular.
+
+Questions
+
+## Questions
+
+All questions
+
+**What does ASSOCADS plan to do?**
+
+The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.
+
+**What programmes does ASSOCADS plan to run?**
+
+ASSOCADS plans to work in eight areas: events and community; training and certification; research and publications; responsible AI; industry and academia collaboration; startups and innovation; policy and advisory; and recognition and AI for social good. The programmes page describes each area and says whether work has started.
+
+**Does ASSOCADS award certificates?**
+
+The trust deed allows ASSOCADS to offer training and certification, and the trust plans to do so. Any certificate will be announced on this website, with what it covers and who awards it. ASSOCADS does not issue certificates at present.
+
+## Be part of ASSOCADS from the start
+
+Membership opens after registration. Register your interest now and we will tell you when it does.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/programmes/training-and-certification
+
+Programme
+
+# Training and certification
+
+Training and certification is one of the eight planned programme areas of ASSOCADS. It aims to help students, professionals and teachers build practical skills in AI, Data Science and Analytics. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We plan to help students and working professionals build practical skills in AI, data science and analytics. The trust deed provides for workshops, bootcamps, training courses and certification, along with faculty development for teachers, mentoring, career guidance, internships and apprenticeships. It also allows training and advisory services for specific industries, offered directly or through Special Interest Groups. Courses, formats and any fees will be decided by the Board and announced on this site before they open.
+
+- Workshops, bootcamps and training courses in AI, Data Science and Analytics.
+- Hands-on masterclasses led by industry practitioners, built around real business problems.
+- Practical certifications in two parts, a proctored theory examination and a real-world project assessed by industry professionals.
+- Faculty development for teachers in colleges and universities.
+- Structured mentoring and career guidance, including help with practical projects and portfolios, and peer mentoring between members.
+- Internships and apprenticeships.
+- Training and advisory services for specific industries, directly or through Special Interest Groups.
+
+Based on the trust deed: object 2, education and capacity building, object 14, training and advice by sector.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+Training begins after the trust is registered. Register your interest and we will tell you when the first courses open. Colleges and companies that would like to host or shape a course can talk to us about a partnership.
+
+Register your interestPartner with us
+
+Questions
+
+## Questions about this programme
+
+**Are ASSOCADS courses open yet?**
+
+Not yet. Training will begin after the trust is registered. Courses, formats and dates will be announced on this page before they open.
+
+**Will ASSOCADS certificates be recognised?**
+
+ASSOCADS has not issued any certificates yet. How certification will work, and what it will cover, will be decided by the Board and explained here before any course opens.
+
+**How much will training cost?**
+
+No fees have been set. The Board will decide any fees after registration and publish them here before a course opens.
+
+**Is there anything for teachers?**
+
+Yes. The trust deed provides for faculty development, so that teachers in colleges and universities can build their own skills in AI and data science.
+
+## Related programmes
+
+- Events and communityConferences, seminars, meetups and hackathons
+- Industry and academia collaborationKnowledge exchange and workforce readiness
+- Research and publicationsReports, white papers, datasets and open-source work
+
+---
+
+Source: {{SITE_URL}}/programmes/events-and-community
+
+Programme
+
+# Events and community
+
+Events and community is one of the eight planned programme areas of ASSOCADS. It aims to bring together everyone working in AI and Data Science in India, beginning in West Bengal, so they can meet, learn and build together. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We aim to bring together the people who work with AI and data in India, starting in West Bengal: students, professionals, academics, researchers, entrepreneurs, investors, institutions and government. The trust deed provides for conferences, seminars, meetups and hackathons as the main ways to do this. No events have been held yet. Each event will be listed on this site, with its date, venue and how to register, once it has been confirmed.
+
+- Conferences and seminars.
+- Meetups for people working in AI, Data Science and Analytics.
+- Innovation challenges and hackathons on real problems, with help afterwards for promising solutions to find mentors, sponsors and first users.
+- Workshops that bring students, professionals and researchers together.
+- Podcasts, webinars, expert interviews and technology demonstrations, published online as a permanent library.
+- A community that connects academia, industry, entrepreneurs, investors, institutions and government.
+
+Based on the trust deed: object 1, an inclusive ecosystem, object 2, education and capacity building.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+- For government bodiesFor departments and public institutions interested in policy support, capacity building and AI for the public good.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+No events have been announced yet. Register your interest to hear about the first ones. Organisations that would like to host or support an event can talk to us about a partnership.
+
+Register your interestPartner with us
+
+Questions
+
+## Questions about this programme
+
+**When is the first ASSOCADS event?**
+
+No event has been announced yet. We plan to announce our first events after the trust is registered. Each one will be listed on the events page with its date, venue and how to register.
+
+**Do I need to be a member to attend?**
+
+That has not been decided yet. Each event page will say who can attend and how to register.
+
+**Where will events take place?**
+
+We plan to begin in West Bengal. Each event page will give its venue, or say if it is held online.
+
+## Related programmes
+
+- Training and certificationWorkshops, bootcamps, mentoring and certification
+- Startups and innovationMentoring, incubation and investor engagement
+- Industry and academia collaborationKnowledge exchange and workforce readiness
+
+---
+
+Source: {{SITE_URL}}/programmes/research-and-publications
+
+Programme
+
+# Research and publications
+
+Research and publications is one of the eight planned programme areas of ASSOCADS. It aims to produce and share research on AI and Data Science that others can use. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We plan to carry out and publish useful research on AI and data science. The trust deed provides for journals, case studies, benchmark datasets, technical reports and white papers, and for collaborative, open-source and community-driven work. It also allows the trust to set up or support labs, libraries, knowledge repositories and Centres of Excellence, and to create, protect and share intellectual property. Nothing has been published yet; each publication will appear here when it is ready.
+
+- Research published as journals, case studies, technical reports and white papers.
+- Benchmark datasets.
+- An open-source contribution programme for frameworks, datasets, reference architectures, evaluation benchmarks and templates in a shared repository.
+- An annual report on AI and Data Science adoption, technologies, talent and research.
+- Labs, libraries, knowledge repositories and Centres of Excellence, set up or supported by the trust.
+- Creating, protecting and sharing intellectual property.
+
+Based on the trust deed: object 3, centres, labs and hubs, object 5, research and publishing, object 11, open and community-driven work, object 15, intellectual property.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+Nothing has been published yet. Register your interest to hear when research work begins. Universities and companies interested in joint research can talk to us about a partnership.
+
+Register your interestPartner with us
+
+Questions
+
+## Questions about this programme
+
+**Has ASSOCADS published any research?**
+
+Not yet. Each publication will appear on this site when it is ready, and every guide or article will be reviewed by a named trustee before it is published.
+
+**Will ASSOCADS research be free to read?**
+
+We aim to share research openly where we can. The terms for each publication will be stated when it is released.
+
+**Can I contribute to an ASSOCADS project?**
+
+The trust deed encourages collaborative, open-source and community-driven work. How people can contribute will be explained here when the first projects start.
+
+## Related programmes
+
+- Industry and academia collaborationKnowledge exchange and workforce readiness
+- Responsible AIFairness, accountability, privacy and governance
+- Policy and advisoryStandards, frameworks and guidance for institutions
+
+---
+
+Source: {{SITE_URL}}/programmes/industry-and-academia
+
+Programme
+
+# Industry and academia collaboration
+
+Industry and academia collaboration is one of the eight planned programme areas of ASSOCADS. It aims to help academia, industry, government and civil society work together, so that knowledge flows both ways. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We aim to connect universities, colleges and research groups with companies, startups, government and civil society, so that knowledge moves in both directions and graduates are better prepared for work. The trust deed also provides for collaboration with national and international organisations and for taking part in global initiatives. Any partner will be named on this site only after a formal agreement and written permission are in place. No partnerships have been announced so far.
+
+- Collaboration between academia, industry, government and civil society.
+- Knowledge exchange between universities, colleges and companies.
+- Joint use case development, where professionals from different companies work with students and researchers on real business problems.
+- An exchange where companies share problem statements, and members propose approaches and build prototypes.
+- Work with international institutions.
+- Collaboration with national and international organisations.
+- Taking part in global initiatives in AI and Data Science.
+
+Based on the trust deed: object 4, collaboration across sectors, object 9, national and international links.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+- For government bodiesFor departments and public institutions interested in policy support, capacity building and AI for the public good.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+No partnerships have been announced. Universities, colleges, companies and public bodies that would like to work with ASSOCADS can start a conversation now. Partners are named on this site only after a formal agreement and written permission.
+
+Partner with usContact us
+
+Questions
+
+## Questions about this programme
+
+**Who does ASSOCADS partner with?**
+
+No partnerships have been announced yet. Any partner will be named on this site only after a formal agreement and written permission are in place.
+
+**Can a college or university work with ASSOCADS?**
+
+Yes. Connecting academia with industry is one of the trust's objects. Use the partner page to start a conversation.
+
+**Does ASSOCADS work outside India?**
+
+The trust deed allows it to work with national and international organisations and to take part in global initiatives. Its own activities will begin in West Bengal.
+
+## Related programmes
+
+- Training and certificationWorkshops, bootcamps, mentoring and certification
+- Research and publicationsReports, white papers, datasets and open-source work
+- Startups and innovationMentoring, incubation and investor engagement
+
+---
+
+Source: {{SITE_URL}}/programmes/responsible-ai
+
+Programme
+
+# Responsible AI
+
+Responsible AI is one of the eight planned programme areas of ASSOCADS. It aims to promote AI and Data Science that is responsible, ethical, transparent and trustworthy. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We plan to promote AI and data science that is responsible, ethical, transparent and trustworthy. This covers questions of fairness, accountability, privacy, security and governance, and helping the public understand what these systems can and cannot do. Responsible AI is also one of the principles that bind the trust itself, under its deed. We intend to publish plain-English explainers and practical guidance, each reviewed by a named trustee before it appears on this site, for readers in industry and government.
+
+- Plain-English guidance on fairness and accountability in AI systems.
+- Material on privacy and security in AI and data work.
+- Guidance on the governance of AI in organisations.
+- A working group on privacy, security, bias, explainability and regulation, publishing practical guidelines.
+- Help for small and medium businesses to adopt AI responsibly, securely and within the law.
+- Public awareness of what AI systems can and cannot do.
+
+Based on the trust deed: object 6, responsible ai.
+
+## Our own commitment
+
+Responsible AI is not only something ASSOCADS promotes. It is one of the principles that bind the trust itself under its deed.
+
+We intend to hold our own work to the same standard we promote. The guides we publish, the events we run and any AI tools we use or build should be responsible, ethical, transparent and trustworthy. The deed also binds the trust to data protection, academic integrity and conflict-of-interest rules. Read more about how the trust is run.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+- For government bodiesFor departments and public institutions interested in policy support, capacity building and AI for the public good.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+Register your interest to hear when our first guidance is published. Organisations that would like to discuss responsible AI with us can get in touch.
+
+Register your interestContact us
+
+Questions
+
+## Questions about this programme
+
+**What does ASSOCADS mean by responsible AI?**
+
+AI and data science that is responsible, ethical, transparent and trustworthy. In practice this covers fairness, accountability, privacy, security and governance.
+
+**Does ASSOCADS follow these principles itself?**
+
+Yes. Responsible AI is one of the principles that bind the trust under its deed, alongside data protection, academic integrity and conflict-of-interest rules.
+
+**Has ASSOCADS published guidance yet?**
+
+Not yet. Each guide will be reviewed by a named trustee before it appears on this site.
+
+## Related programmes
+
+- Policy and advisoryStandards, frameworks and guidance for institutions
+- Research and publicationsReports, white papers, datasets and open-source work
+- Recognition and AI for social goodAwards, fellowships and projects for public benefit
+
+---
+
+Source: {{SITE_URL}}/programmes/startups-and-innovation
+
+Programme
+
+# Startups and innovation
+
+Startups and innovation is one of the eight planned programme areas of ASSOCADS. It aims to support innovation, incubation and new ventures in AI and Data Science. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We aim to support innovation and entrepreneurship in AI and data science, with an initial focus on founders in West Bengal. The trust deed provides for mentoring, incubation, engagement with investors and help with market access. The form this support takes, and who can apply for it, will be decided by the Board after the trust is registered. Until then this programme is planned, and no incubation places, funding or investor introductions are being offered.
+
+- Mentoring for founders.
+- Incubation support.
+- Engagement with investors.
+- Help with access to markets.
+- Support for innovation in AI and Data Science.
+- A proof-of-concept programme, in which members submit ideas, an expert panel picks promising ones, and the trust helps them become working prototypes.
+
+Based on the trust deed: object 7, innovation and entrepreneurship.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+No incubation places, funding or investor introductions are offered yet. Founders can register their interest now. Investors and companies who would like to support startups can talk to us about a partnership.
+
+Register your interestPartner with us
+
+Questions
+
+## Questions about this programme
+
+**Can my startup apply for support now?**
+
+Not yet. Who can apply, and how, will be decided by the Board after the trust is registered and published on this page.
+
+**Does ASSOCADS invest in startups?**
+
+No. ASSOCADS is a not-for-profit trust. The trust deed provides for engagement with investors, not for the trust to invest itself.
+
+**Does ASSOCADS run an incubator?**
+
+Not at present. The trust deed allows it to set up or support incubation centres, and any plans will be announced here.
+
+## Related programmes
+
+- Events and communityConferences, seminars, meetups and hackathons
+- Industry and academia collaborationKnowledge exchange and workforce readiness
+- Recognition and AI for social goodAwards, fellowships and projects for public benefit
+
+---
+
+Source: {{SITE_URL}}/programmes/policy-and-advisory
+
+Programme
+
+# Policy and advisory
+
+Policy and advisory is one of the eight planned programme areas of ASSOCADS. It aims to help shape the policies, standards and practices that govern how AI and Data Science are used in India. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We plan to contribute to the policies, standards, frameworks and good practices that shape how AI and data science are used in India. The trust deed provides for advising governments, public institutions and industry on these questions. We expect this work to draw on the experience of our trustees and members, and to be published openly where it can be. No advisory engagements have been undertaken yet. Any that are agreed will be described here.
+
+- Contributions to policies on AI and Data Science.
+- Work on standards and frameworks.
+- Sharing good practice.
+- Advice to governments and public institutions.
+- Advice to industry.
+
+Based on the trust deed: object 10, policy and standards.
+
+## Who it is for
+
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+- For government bodiesFor departments and public institutions interested in policy support, capacity building and AI for the public good.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+No advisory work has been undertaken yet. Government departments, public institutions and companies that would like to discuss a policy question can contact us.
+
+Contact usPartner with us
+
+Questions
+
+## Questions about this programme
+
+**Does ASSOCADS advise the government?**
+
+Not yet. Advising governments and public institutions is one of the trust's objects. Any advisory work that is agreed will be described on this page.
+
+**Is ASSOCADS political?**
+
+No. ASSOCADS is non-political, non-religious and not-for-profit. Its policy work will focus on the use of AI and data science.
+
+**Will ASSOCADS publish its policy work?**
+
+We aim to publish it openly where we can. Each publication will be reviewed by a named trustee before it appears here.
+
+## Related programmes
+
+- Responsible AIFairness, accountability, privacy and governance
+- Research and publicationsReports, white papers, datasets and open-source work
+- Industry and academia collaborationKnowledge exchange and workforce readiness
+
+---
+
+Source: {{SITE_URL}}/programmes/awards-and-ai-for-good
+
+Programme
+
+# Recognition and AI for social good
+
+Recognition and AI for social good is one of the eight planned programme areas of ASSOCADS. It aims to recognise excellent work in AI and Data Science, and to put these tools to work for public benefit. It has not started yet, and will begin after the trust is registered.
+
+Planned
+
+Plans
+
+## What this will include
+
+We aim to recognise excellent work in AI and data science through awards and fellowships, and to support projects that use these tools for public benefit. The trust deed names healthcare, agriculture, education, governance, sustainability, climate resilience, public welfare, accessibility, rural development and social inclusion as areas for this work. No awards have been given and no projects have started yet. Criteria and calls for nominations will be published here first.
+
+### Recognition
+
+Recognising excellent work in AI and Data Science.
+
+- Awards for excellent work.
+- Fellowships.
+- Certifications and accreditations.
+
+### AI for social good
+
+Designing and supporting projects that use AI for public benefit, in areas the trust deed names.
+
+- Healthcare, agriculture and education.
+- Governance and public welfare.
+- Sustainability and climate resilience.
+- Accessibility, rural development and social inclusion.
+- Members volunteering their skills to build affordable solutions for NGOs, schools and local communities.
+
+Based on the trust deed: object 8, recognising excellence, object 12, ai for social good.
+
+## Who it is for
+
+- For studentsLearn practical AI and data science skills, find mentors, and meet the people already working in the field.
+- For professionalsFor practitioners, faculty and researchers who want to keep learning, share what they know and help shape the field.
+- For industryFor companies and startups looking to hire, train their teams, work with researchers or support the community.
+- For government bodiesFor departments and public institutions interested in policy support, capacity building and AI for the public good.
+
+Status
+
+## Planned
+
+This programme is planned and has not started yet. It will begin after ASSOCADS is registered, and details will be published on this page.
+
+Get involved
+
+## How to get involved
+
+No awards have been given and no projects have started. Register your interest to hear when the first calls open. People and organisations who would like to support this work can find out how on the support page.
+
+Register your interestSupport ASSOCADS
+
+Questions
+
+## Questions about this programme
+
+**Has ASSOCADS given any awards?**
+
+Not yet. The criteria and calls for nominations will be published on this page before any award is made.
+
+**Can I nominate someone?**
+
+Not yet. How nominations work will be explained here when the first call opens.
+
+**Which social causes will ASSOCADS work on?**
+
+The trust deed names healthcare, agriculture, education, governance, sustainability, climate resilience, public welfare, accessibility, rural development and social inclusion.
+
+## Related programmes
+
+- Responsible AIFairness, accountability, privacy and governance
+- Startups and innovationMentoring, incubation and investor engagement
+- Research and publicationsReports, white papers, datasets and open-source work
+
+---
+
+Source: {{SITE_URL}}/membership
+
+Membership
+
+# Membership
+
+The ASSOCADS trust deed provides four kinds of membership: Ordinary and Life membership for individuals, Associate membership for institutions and organisations, and Honorary membership for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.
+
+Last updated 23 November 2026
+
+Register your interest
+
+Membership is not open yet
+
+Membership will open after the trust is registered and the Board has adopted its bye-laws. Register your interest now and we will write to you when applications open.
+
+From the trust deed
+
+## Who can join
+
+- Individuals
+
+### Ordinary Member
+
+An individual aged eighteen or over.
+
+- Admission is by application and approval by the Board or a committee it appoints.
+- Pays an annual subscription fixed by the Board.
+
+Fee to be fixed by the Board
+
+- Individuals
+
+### Life Member
+
+An individual recommended by two trustees.
+
+- Admission is by application and approval by the Board or a committee it appoints.
+- Pays a one-time amount fixed by the Board.
+
+Fee to be fixed by the Board
+
+- Institutions and organisations
+
+### Associate Member
+
+An institution, organisation, society or company.
+
+- Admission is by application and approval by the Board or a committee it appoints.
+- Pays a fee fixed by the Board.
+- Is represented by an official it nominates.
+
+Fee to be fixed by the Board
+
+- People of eminence
+
+### Honorary Member
+
+A person of eminence.
+
+- Admitted without a fee by a resolution passed by two-thirds of the Board.
+- Membership lasts three years and may be renewed.
+
+By invitation of the Board
+
+## What members can take part in
+
+Under the trust deed, members may take part in these activities, as the Board decides.
+
+- ProgrammesTraining, research, events and the other programmes ASSOCADS plans to run.
+- Special Interest GroupsGroups by industry or domain, which the Board may set up under the trust deed.
+- EventsConferences, seminars, workshops, meetups and hackathons.
+- PublicationsCase studies, reports, white papers and other research.
+
+To be clear
+
+## What membership is not
+
+Members do not own a share of the trust or its funds. They do not manage it, and they do not vote on its affairs, unless bye-laws later provide otherwise.
+
+This is normal for a public charitable trust. Unlike a society or a company, a trust has no shareholders or voting members. It is run by its Board of Trustees, who must use its money only for its charitable objects.
+
+Membership is a way to take part in what ASSOCADS does, not to own or control it. How the trust is run
+
+## How admission works
+
+- 01
+
+### Apply
+
+Fill in the membership application once applications open. Life Members also need a recommendation from two trustees.
+
+- 02
+
+### Approval
+
+The Board of Trustees, or a committee it appoints, considers the application.
+
+- 03
+
+### Pay the fee
+
+Once approved, you pay the fee for your category. The Board will fix the fees in the bye-laws after registration.
+
+Honorary Members do not apply. The Board admits them by a resolution passed by two-thirds of its members.
+
+## The four categories side by side
+
+Membership categories compared: who can join, how they are admitted, and what they cost
+| Category | Who can join | How they are admitted | What it costs |
+
+| Ordinary Member | An individual aged eighteen or over. | Application and approval by the Board or its committee | Annual subscription, to be fixed by the Board |
+
+| Life Member | An individual recommended by two trustees. | Recommendation by two trustees, then application and approval | One-time amount, to be fixed by the Board |
+
+| Associate Member | An institution, organisation, society or company. | Application and approval by the Board or its committee | Fee to be fixed by the Board |
+
+| Honorary Member | A person of eminence. | By invitation of the Board, through a two-thirds resolution | No fee. Lasts three years and may be renewed |
+
+### Ordinary Member
+
+Who can join: An individual aged eighteen or over.
+
+How they are admitted: Application and approval by the Board or its committee
+
+What it costs: Annual subscription, to be fixed by the Board
+
+### Life Member
+
+Who can join: An individual recommended by two trustees.
+
+How they are admitted: Recommendation by two trustees, then application and approval
+
+What it costs: One-time amount, to be fixed by the Board
+
+### Associate Member
+
+Who can join: An institution, organisation, society or company.
+
+How they are admitted: Application and approval by the Board or its committee
+
+What it costs: Fee to be fixed by the Board
+
+### Honorary Member
+
+Who can join: A person of eminence.
+
+How they are admitted: By invitation of the Board, through a two-thirds resolution
+
+What it costs: No fee. Lasts three years and may be renewed
+
+Questions
+
+## Questions about membership
+
+All questions
+
+**Who can join ASSOCADS?**
+
+The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.
+
+**How much does membership cost?**
+
+Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.
+
+**Is there a student membership?**
+
+Not yet. The trust deed allows a student category, but it has to be created by bye-laws adopted after registration. Students aged eighteen or over may be eligible for Ordinary membership once it opens. Anyone can register their interest now.
+
+**How do I become a member?**
+
+Under the trust deed, admission is by application, approval by the Board or a committee it appoints, and payment of the fee. Because fees are not fixed yet, applications are not open. You can register your interest on the membership page, and we will contact you when membership opens.
+
+**Can members vote or help manage ASSOCADS?**
+
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+
+**Can a company or institution join?**
+
+Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.
+
+**How does a membership end?**
+
+Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.
+
+**Are membership fees refundable?**
+
+No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.
+
+**Is a partnership the same as Associate membership?**
+
+No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
+
+## Be among the first members
+
+Membership opens after registration. Register your interest now and we will write to you when applications open.
+
+Register your interestPartner with us
+
+---
+
+Source: {{SITE_URL}}/faq
+
+Questions
+
+# Frequently asked questions
+
+This page answers the questions people ask most often about ASSOCADS, the Association for AI and Data Science: what it is, its legal status, who can join, what it plans to do, how to partner with or support it, and how this website treats your data. Each answer is short and stands on its own.
+
+Find a question
+
+42 questions in 6 groups.
+
+## About ASSOCADS
+
+**What is ASSOCADS?**
+
+ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust set up in Kolkata in 2026. It aims to build a collaborative ecosystem for AI, Data Science and Analytics across India, beginning with West Bengal, that connects students, professionals, academia, industry, startups, government and society.
+
+Link to this question
+
+**Is ASSOCADS registered?**
+
+ASSOCADS is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. Its registration is in progress.
+
+Link to this question
+
+**Where is ASSOCADS based?**
+
+ASSOCADS was set up in Kolkata, and its registered office is in West Bengal. Its work is meant to serve people across India, beginning with West Bengal.
+
+Link to this question
+
+**What does ASSOCADS plan to do?**
+
+The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.
+
+Link to this question
+
+**Who runs ASSOCADS?**
+
+ASSOCADS is run by a Board of Trustees. The first Board has thirteen Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+
+Link to this question
+
+**Are the trustees paid?**
+
+No. Trustees are honorary and receive no payment for acting as trustees.
+
+Link to this question
+
+**Is ASSOCADS political or religious?**
+
+No. ASSOCADS is non-political, non-religious and not-for-profit. It is open to everyone, without discrimination.
+
+Link to this question
+
+**Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or DSCI?**
+
+No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM, IAMAI or the Data Security Council of India (DSCI). It has no partners, members or supporters among these organisations, and their names appear here only to avoid confusion.
+
+Link to this question
+
+**How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
+
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+
+Link to this question
+
+**How do I contact ASSOCADS?**
+
+Use the form on the Contact page and choose what your message is about, so that it reaches the people who can answer it.
+
+Link to this question
+
+**What is the address of ASSOCADS?**
+
+ASSOCADS has its registered office in West Bengal. The full address will be published on the Contact page once it is confirmed.
+
+Link to this question
+
+**I am a journalist. How do I reach ASSOCADS?**
+
+Use the form on the Contact page and choose Media as the topic, so that your message is handled as a media enquiry.
+
+Link to this question
+
+## Membership
+
+**Who can join ASSOCADS?**
+
+The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.
+
+Link to this question
+
+**How much does membership cost?**
+
+Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.
+
+Link to this question
+
+**Is there a student membership?**
+
+Not yet. The trust deed allows a student category, but it has to be created by bye-laws adopted after registration. Students aged eighteen or over may be eligible for Ordinary membership once it opens. Anyone can register their interest now.
+
+Link to this question
+
+**How do I become a member?**
+
+Under the trust deed, admission is by application, approval by the Board or a committee it appoints, and payment of the fee. Because fees are not fixed yet, applications are not open. You can register your interest on the membership page, and we will contact you when membership opens.
+
+Link to this question
+
+**Can members vote or help manage ASSOCADS?**
+
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+
+Link to this question
+
+**Can a company or institution join?**
+
+Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.
+
+Link to this question
+
+**How does a membership end?**
+
+Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.
+
+Link to this question
+
+**Are membership fees refundable?**
+
+No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.
+
+Link to this question
+
+**What is a Special Interest Group?**
+
+A group for people who work in, or care about, one industry or domain, such as healthcare or financial services. The trust deed allows the Board to set them up and to offer training and advice through them. None has been formed yet.
+
+Link to this question
+
+**Can I start a Special Interest Group or a chapter?**
+
+Every group and chapter is set up by the Board. If you would like one in your field or your city, register your interest on the communities page and say whether you would help organise it. The Board will consider proposals after registration.
+
+Link to this question
+
+**Do I need to be a member to join a group?**
+
+Under the trust deed, members may take part in Special Interest Groups as the Board decides. Who else can take part will be decided when each group is set up.
+
+Link to this question
+
+**How will chapters be set up?**
+
+ASSOCADS begins in West Bengal, with Kolkata as its base. The trust deed allows the Board to set up chapters in other cities and states. Each one needs the Board's approval.
+
+Link to this question
+
+## Programmes and events
+
+**What programmes does ASSOCADS plan to run?**
+
+ASSOCADS plans to work in eight areas: events and community; training and certification; research and publications; responsible AI; industry and academia collaboration; startups and innovation; policy and advisory; and recognition and AI for social good. The programmes page describes each area and says whether work has started.
+
+Link to this question
+
+**Where can I find ASSOCADS events?**
+
+Every announced event is listed on the events page, with its date, place and how to register. An event appears there only once its details are confirmed.
+
+Link to this question
+
+**Does ASSOCADS award certificates?**
+
+The trust deed allows ASSOCADS to offer training and certification, and the trust plans to do so. Any certificate will be announced on this website, with what it covers and who awards it. ASSOCADS does not issue certificates at present.
+
+Link to this question
+
+**Who checks the guides on this website?**
+
+Every guide is reviewed by a named trustee before it is published, and the reviewer's name is shown on the guide. Guides are general information, not legal, financial or career advice.
+
+Link to this question
+
+## Partnerships
+
+**How do I propose a partnership with ASSOCADS?**
+
+Fill in the partnership enquiry on the Partner with us page. We start with a conversation, then put a proposal in writing. A partnership begins only when a written agreement has been approved by the Board of Trustees.
+
+Link to this question
+
+**Will ASSOCADS name our organisation as a partner?**
+
+Only after a written agreement approved by the Board is in place, and with your permission. ASSOCADS does not name, or show the logo of, any organisation it is only talking to.
+
+Link to this question
+
+**Is a partnership the same as Associate membership?**
+
+No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
+
+Link to this question
+
+**Can a college have an ASSOCADS group on its campus?**
+
+A college or university can propose one through the partnership enquiry. Like every group, a campus group needs the approval of the Board of Trustees.
+
+Link to this question
+
+## Support and donations
+
+**Are donations to ASSOCADS tax-deductible?**
+
+Not at present. ASSOCADS intends to apply for registration under sections 12AB and 80G of the Income Tax Act after the trust is registered. Until 80G approval is granted, donations do not qualify for a tax deduction.
+
+Link to this question
+
+**Can ASSOCADS accept foreign donations?**
+
+No. ASSOCADS cannot accept foreign contributions until it holds registration or prior permission under the Foreign Contribution (Regulation) Act, 2010.
+
+Link to this question
+
+**Can I donate to ASSOCADS now?**
+
+ASSOCADS is not yet accepting donations. We will open giving once the trust is registered and its bank account is in place.
+
+Link to this question
+
+**What will donations be used for?**
+
+Only for the objects in the trust deed, such as training, events, research, responsible AI and AI for social good. Trustees are honorary and receive no payment for acting as trustees. If the trust were ever dissolved, its assets would pass to a similar charitable institution, never to trustees or members.
+
+Link to this question
+
+**Is a pledge a commitment to pay?**
+
+No. A pledge tells us what you would like to give once ASSOCADS can accept it. Nothing is paid and no payment details are asked for. We will write to you when giving opens, and you decide then.
+
+Link to this question
+
+**Can my company sponsor an event?**
+
+Sponsorship, like a donation, can be accepted only once giving opens. You can tell us now what you would like to sponsor through the pledge or sponsor form on the Support page, and we will be in touch.
+
+Link to this question
+
+## Website and privacy
+
+**What does ASSOCADS do with the details I send in a form?**
+
+The form is emailed to the ASSOCADS secretariat so that someone can reply, and you receive a short acknowledgement. The website does not keep a copy in a database. The privacy notice explains what each form collects, who processes it and how to ask for it to be corrected or deleted.
+
+Link to this question
+
+**Does this website use cookies?**
+
+ASSOCADS sets no cookies and uses no advertising or tracking tools. The website remembers only that you closed the notice at the top of the page, in your browser, until you close the tab. The privacy notice lists the services that process data for the website.
+
+Link to this question
+
+**How do I ask ASSOCADS to correct or delete my data?**
+
+Write to the data protection contact given in the privacy notice. Say what you would like us to do, and use the email address you used on the form, so that we can find your details.
+
+Link to this question
+
+**Is this website accessible?**
+
+ASSOCADS aims to meet the Web Content Accessibility Guidelines 2.2 at level AA. The accessibility statement says what has been tested, what is known not to work well yet, and how to report a problem.
+
+Link to this question
+
+## Did not find your answer?
+
+Send us your question. Choose a topic on the form so that it reaches the right person.
+
+Contact usRead the key facts

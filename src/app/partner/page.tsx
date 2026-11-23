@@ -137,7 +137,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Get involved"
         title="Partner with us"
-        lead="ASSOCADS wants to work with universities, companies, government bodies and community organisations to build skills, research and good practice in AI and Data Science, beginning in West Bengal."
+        lead={`${site.shortName} wants to work with universities, companies, government bodies and community organisations to build skills, research and good practice in AI and Data Science, beginning in West Bengal. No partnership has been agreed yet. Each one will be shaped with the partner, and no organisation is named here without its written permission.`}
         actions={
           <ButtonLink href={`#${FORM_ID}`} size="large">
             Start a conversation

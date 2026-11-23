@@ -1,4 +1,5 @@
 import { AboutLinks } from "@/components/sections/AboutLinks";
+import { site } from "@/config/site";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Questions } from "@/components/sections/Questions";
@@ -24,7 +25,7 @@ export default function RoadmapPage() {
       <PageHeader
         eyebrow="About"
         title="Roadmap"
-        lead="What we plan to do, in three stages. Every item here is a plan, not something that has already happened."
+        lead={`The ${site.shortName} roadmap sets out what the trust plans to do in three stages: getting established in the first twelve months, running its first programmes in the second year, and widening its reach after that. Every item on it is a plan, not something that has already happened.`}
         breadcrumbs={[{ label: "About", href: "/about" }, { label: "Roadmap" }]}
       />
 

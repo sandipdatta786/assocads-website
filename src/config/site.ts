@@ -20,21 +20,43 @@ function siteUrl(): string {
   return "http://localhost:3000";
 }
 
+/* The organisation's identity. These exact words are used in the header,
+   footer, About and facts pages, metadata, structured data and llms.txt.
+   "pnpm seo:check" fails if any of them drifts. */
+const NAME = "Association for AI and Data Science";
+const SHORT_NAME = "ASSOCADS";
+const FOUNDING_YEAR = 2026;
+const LOCATION = {
+  city: "Kolkata",
+  state: "West Bengal",
+  country: "India",
+};
+/** "Kolkata, West Bengal, India": how the location is always written in full. */
+const PLACE = `${LOCATION.city}, ${LOCATION.state}, ${LOCATION.country}`;
+
 export const site = {
-  name: "Association for AI and Data Science",
-  shortName: "ASSOCADS",
-  description:
-    "ASSOCADS is a not-for-profit public charitable trust building a collaborative ecosystem for AI, Data Science and Analytics professionals across India, beginning with West Bengal.",
+  name: NAME,
+  shortName: SHORT_NAME,
+  /** The one canonical sentence that says what ASSOCADS is. Under 155
+      characters, so it can also serve as a search description. */
+  description: `${SHORT_NAME}, the ${NAME}, is a not-for-profit public charitable trust established in ${PLACE}, in ${FOUNDING_YEAR}.`,
+  /** What it aims to do, worded as an aim. Follows the description. */
+  mission:
+    "It aims to build a collaborative ecosystem that connects students, professionals, academia, industry, startups and government in AI, Data Science and Analytics across India, beginning with West Bengal.",
   tagline: "Connecting talent, knowledge, innovation and opportunity.",
   url: siteUrl(),
-  foundingYear: 2026,
-  /** The "Last updated" date on /about/facts. Change it whenever a fact there changes. */
-  factsUpdated: "2026-11-23",
-  location: {
-    city: "Kolkata",
-    state: "West Bengal",
-    country: "India",
+  foundingYear: FOUNDING_YEAR,
+  /**
+   * The "Last updated" dates (YYYY-MM-DD) shown on these pages, and used in
+   * the sitemap and structured data. Change one whenever that page's facts
+   * change.
+   */
+  updated: {
+    facts: "2026-11-23",
+    governance: "2026-11-23",
+    membership: "2026-11-23",
   },
+  location: { ...LOCATION, full: PLACE },
 
   legal: {
     status: "pending" as LegalStatus,
@@ -247,11 +269,14 @@ export function isRegistered(): boolean {
  * Never write "registered" or "registration in progress" by hand in a page.
  */
 export function legalStatusLine(): string {
-  const base = `${site.shortName} is a not-for-profit public charitable trust established in ${site.location.city} in ${site.foundingYear}.`;
-  if (!isRegistered()) {
-    return `${base} Its registration is in progress.`;
-  }
-  return `${base} It is registered under registration number ${site.legal.registrationNumber}, dated ${site.legal.registrationDate}.`;
+  const base = `${site.shortName} is a not-for-profit public charitable trust established in ${site.location.full}, in ${site.foundingYear}.`;
+  return `${base} ${registrationLine()}`;
+}
+
+/** The second half of legalStatusLine: only whether, and how, it is registered. */
+export function registrationLine(): string {
+  if (!isRegistered()) return "Its registration is in progress.";
+  return `It is registered under registration number ${site.legal.registrationNumber}, dated ${site.legal.registrationDate}.`;
 }
 
 /** A short label for badges and footers. */

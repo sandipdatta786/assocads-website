@@ -25,7 +25,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Membership"
         title="Register your interest"
-        lead="Membership opens after the trust is registered and the Board has adopted its bye-laws. Tell us you would like to join, and we will write to you when applications open."
+        lead="Membership opens after the trust is registered and the Board has adopted its bye-laws. Tell us you would like to join, and we will write to you when applications open. Registering interest is not an application for membership, and you can ask us to erase your details at any time."
         breadcrumbs={[
           { label: "Membership", href: "/membership" },
           { label: "Register your interest" },

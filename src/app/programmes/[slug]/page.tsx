@@ -19,7 +19,7 @@ import {
 } from "@/lib/content/loaders";
 import { loadMdxBody } from "@/lib/content/mdx";
 import { contentIcon } from "@/lib/icons";
-import { programmeStatusText } from "@/lib/programmes";
+import { programmeLead, programmeStatusText } from "@/lib/programmes";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { faqPage, service } from "@/lib/seo/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -77,7 +77,7 @@ export default async function ProgrammePage({
       <PageHeader
         eyebrow="Programme"
         title={programme.title}
-        lead={programme.purpose}
+        lead={programmeLead(programme, programmes.length)}
         actions={
           <Badge
             status={programme.status === "active" ? "open" : "planned"}

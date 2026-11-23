@@ -49,6 +49,21 @@ export async function generateMetadata({
   });
 }
 
+/** Answer-first: who the trustee is, in the trust and outside it. */
+function trusteeLead(trustee: NonNullable<ReturnType<typeof profileFor>>) {
+  const work = filled([trustee.role, trustee.organisation]).join(", ");
+  return [
+    `${trustee.name} is a ${trustee.capacity} of ${site.shortName}, the ${site.name}, a not-for-profit public charitable trust in ${site.location.city}.`,
+    work && `Current role: ${work}.`,
+    "Trustees serve in an honorary capacity, without payment.",
+    trustee.officeTitle
+      ? ""
+      : "Office titles will be given only when the Board of Trustees elects them.",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export default async function TrusteeProfilePage({
   params,
 }: PageProps<"/about/trustees/[slug]">) {
@@ -65,9 +80,7 @@ export default async function TrusteeProfilePage({
       <PageHeader
         eyebrow={trustee.capacity}
         title={trustee.name}
-        lead={
-          filled([trustee.role, trustee.organisation]).join(", ") || undefined
-        }
+        lead={trusteeLead(trustee)}
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Founder Trustees", href: "/about/trustees" },

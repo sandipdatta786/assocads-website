@@ -53,7 +53,9 @@ const STATIC_PAGES = [
 
 /** Dates for pages whose content has its own "last changed" setting. */
 const KNOWN_DATES: Record<string, string> = {
-  "/about/facts": site.factsUpdated,
+  "/about/facts": site.updated.facts,
+  "/about/governance": site.updated.governance,
+  "/membership": site.updated.membership,
   "/legal/privacy": legalDates.privacy,
   "/legal/terms": legalDates.terms,
   "/legal/disclaimer": legalDates.disclaimer,

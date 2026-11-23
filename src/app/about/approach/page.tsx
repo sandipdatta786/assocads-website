@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AboutLinks } from "@/components/sections/AboutLinks";
@@ -51,7 +52,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Our approach"
         title="Building with AI, not just talking about it"
-        lead="ASSOCADS aims to help shape how AI and Data Science are learned, built, adopted and used to make a difference. Here is how our founders want it to work, and what they want it to stand for."
+        lead={`${site.shortName} aims to help shape how AI and Data Science are learned, built, adopted and used to make a difference. This page sets out how its Founder Trustees want it to work, by building with AI rather than only talking about it, and the values they want it to stand for.`}
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Our approach" },

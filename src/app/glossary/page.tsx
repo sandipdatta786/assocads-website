@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import { GlossaryIndex } from "@/components/glossary/GlossaryIndex";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
@@ -41,7 +42,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Resources"
         title="Glossary"
-        lead="Plain-English definitions of terms in artificial intelligence and data science, each with an example and sources."
+        lead={`The ${site.shortName} glossary gives plain-English definitions of terms used in artificial intelligence and data science. Each entry opens with a one-sentence definition, then gives an example and its sources. Every entry is reviewed by a named trustee before it is published, and shows the date it was last reviewed.`}
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Glossary" },
