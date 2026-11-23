@@ -76,14 +76,14 @@ export const membershipCategorySchema = z.object({
 export const faqSchema = z.object({
   question: z.string().min(1).endsWith("?", "must end with a question mark"),
   answer: z.string().min(1),
+  /** The group on /faq. Labels are in faqCategories in src/lib/content/faqs.ts. */
   category: z.enum([
     "about",
-    "governance",
     "membership",
-    "money",
+    "programmes",
     "partnership",
-    "contact",
-    "disambiguation",
+    "support",
+    "website",
   ]),
   /** Paths of the pages that should show this question, for example "/membership". */
   pages: z.array(z.string().startsWith("/")),

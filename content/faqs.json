@@ -26,19 +26,19 @@
   {
     "question": "Who runs ASSOCADS?",
     "answer": "ASSOCADS is run by a Board of Trustees. The first Board has thirteen Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.",
-    "category": "governance",
+    "category": "about",
     "pages": ["/faq", "/about/governance", "/about/trustees"]
   },
   {
     "question": "Are the trustees paid?",
     "answer": "No. Trustees are honorary and receive no payment for acting as trustees.",
-    "category": "governance",
+    "category": "about",
     "pages": ["/faq", "/about/governance"]
   },
   {
     "question": "Is ASSOCADS political or religious?",
     "answer": "No. ASSOCADS is non-political, non-religious and not-for-profit. It is open to everyone, without discrimination.",
-    "category": "governance",
+    "category": "about",
     "pages": ["/faq", "/about/governance"]
   },
   {
@@ -92,25 +92,25 @@
   {
     "question": "Are donations to ASSOCADS tax-deductible?",
     "answer": "{{taxStatus}}",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support"]
   },
   {
     "question": "Can ASSOCADS accept foreign donations?",
     "answer": "{{foreignContributions}}",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support"]
   },
   {
     "question": "Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI?",
     "answer": "No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI.",
-    "category": "disambiguation",
+    "category": "about",
     "pages": ["/", "/faq", "/about", "/about/facts"]
   },
   {
     "question": "How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?",
     "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
-    "category": "disambiguation",
+    "category": "about",
     "pages": ["/faq", "/about/facts", "/about"]
   },
   {
@@ -164,43 +164,91 @@
   {
     "question": "Can I donate to ASSOCADS now?",
     "answer": "{{donationStatus}}",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support"]
   },
   {
     "question": "What will donations be used for?",
     "answer": "Only for the objects in the trust deed, such as training, events, research, responsible AI and AI for social good. Trustees are honorary and receive no payment for acting as trustees. If the trust were ever dissolved, its assets would pass to a similar charitable institution, never to trustees or members.",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support"]
   },
   {
     "question": "Is a pledge a commitment to pay?",
     "answer": "No. A pledge tells us what you would like to give once ASSOCADS can accept it. Nothing is paid and no payment details are asked for. We will write to you when giving opens, and you decide then.",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support"]
   },
   {
     "question": "Can my company sponsor an event?",
     "answer": "Sponsorship, like a donation, can be accepted only once giving opens. You can tell us now what you would like to sponsor through the pledge or sponsor form on the Support page, and we will be in touch.",
-    "category": "money",
+    "category": "support",
     "pages": ["/faq", "/support", "/partner"]
   },
   {
     "question": "How do I contact ASSOCADS?",
     "answer": "Use the form on the Contact page and choose what your message is about, so that it reaches the people who can answer it.",
-    "category": "contact",
+    "category": "about",
     "pages": ["/faq", "/contact"]
   },
   {
     "question": "What is the address of ASSOCADS?",
     "answer": "ASSOCADS has its registered office in West Bengal. The full address will be published on the Contact page once it is confirmed.",
-    "category": "contact",
+    "category": "about",
     "pages": ["/faq", "/contact"]
   },
   {
     "question": "I am a journalist. How do I reach ASSOCADS?",
     "answer": "Use the form on the Contact page and choose Media as the topic, so that your message is handled as a media enquiry.",
-    "category": "contact",
+    "category": "about",
     "pages": ["/faq", "/contact"]
+  },
+  {
+    "question": "What programmes does ASSOCADS plan to run?",
+    "answer": "ASSOCADS plans to work in eight areas: events and community; training and certification; research and publications; responsible AI; industry and academia collaboration; startups and innovation; policy and advisory; and recognition and AI for social good. The programmes page describes each area and says whether work has started.",
+    "category": "programmes",
+    "pages": ["/faq", "/programmes"]
+  },
+  {
+    "question": "Where can I find ASSOCADS events?",
+    "answer": "Every announced event is listed on the events page, with its date, place and how to register. An event appears there only once its details are confirmed.",
+    "category": "programmes",
+    "pages": ["/faq", "/events"]
+  },
+  {
+    "question": "Does ASSOCADS award certificates?",
+    "answer": "The trust deed allows ASSOCADS to offer training and certification, and the trust plans to do so. Any certificate will be announced on this website, with what it covers and who awards it. ASSOCADS does not issue certificates at present.",
+    "category": "programmes",
+    "pages": ["/faq", "/programmes"]
+  },
+  {
+    "question": "Who checks the guides on this website?",
+    "answer": "Every guide is reviewed by a named trustee before it is published, and the reviewer's name is shown on the guide. Guides are general information, not legal, financial or career advice.",
+    "category": "programmes",
+    "pages": ["/faq", "/guides"]
+  },
+  {
+    "question": "What does ASSOCADS do with the details I send in a form?",
+    "answer": "The form is emailed to the ASSOCADS secretariat so that someone can reply, and you receive a short acknowledgement. The website does not keep a copy in a database. The privacy notice explains what each form collects, who processes it and how to ask for it to be corrected or deleted.",
+    "category": "website",
+    "pages": ["/faq", "/legal/privacy", "/contact"]
+  },
+  {
+    "question": "Does this website use cookies?",
+    "answer": "ASSOCADS sets no cookies and uses no advertising or tracking tools. The website remembers only that you closed the notice at the top of the page, in your browser, until you close the tab. The privacy notice lists the services that process data for the website.",
+    "category": "website",
+    "pages": ["/faq", "/legal/privacy"]
+  },
+  {
+    "question": "How do I ask ASSOCADS to correct or delete my data?",
+    "answer": "Write to the data protection contact given in the privacy notice. Say what you would like us to do, and use the email address you used on the form, so that we can find your details.",
+    "category": "website",
+    "pages": ["/faq", "/legal/privacy"]
+  },
+  {
+    "question": "Is this website accessible?",
+    "answer": "ASSOCADS aims to meet the Web Content Accessibility Guidelines 2.2 at level AA. The accessibility statement says what has been tested, what is known not to work well yet, and how to report a problem.",
+    "category": "website",
+    "pages": ["/faq", "/accessibility"]
   }
 ]

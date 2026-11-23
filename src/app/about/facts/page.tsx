@@ -59,7 +59,7 @@ export default function FactsPage() {
   const categories = getMembershipCategories();
   const programmes = getProgrammes();
   const planned = programmes.every((p) => p.status === "planned");
-  const affiliation = getFaqs({ category: "disambiguation" }).find((f) =>
+  const affiliation = getFaqs().find((f) =>
     f.question.startsWith("Is ASSOCADS affiliated"),
   );
   const { city, state, country } = site.location;
