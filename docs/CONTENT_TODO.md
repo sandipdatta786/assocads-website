@@ -69,7 +69,7 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/insights` · insights list, article pages, `/feed.xml` and a draft template (Prompt 13). See `docs/HOW_TO_PUBLISH_NEWS.md`.
 - [ ] First real news item, written and approved by the founders (no news has been published)
 - [x] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guide and glossary templates, Resources hub and brand kit (Prompt 14)
-- [ ] Review the 12 draft guides and 25 draft glossary entries, resolve every `[PLACEHOLDER: verify ...]` and publish them. See `docs/EDITORIAL_REVIEW.md`.
+- [x] Review the 12 guides and 25 glossary entries and publish them. Reviewed by Sandip Datta on 23 November 2026; see `docs/EDITORIAL_REVIEW.md`.
 - [ ] Board to adopt the logo and check it against registered trademarks, then remove the notice in the Resources brand kit
 - [ ] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact (Prompts 15 and 16)
 - [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)

@@ -106,7 +106,10 @@ export default async function GuidePage({
         abstract: guide.directAnswer,
         datePublished: guide.publishedDate,
         dateModified: guide.lastReviewed,
-        author: { "@type": "Person", name: guide.author },
+        // A team byline such as "ASSOCADS editorial team" is not a person.
+        author: guide.author.includes(site.shortName)
+          ? { "@type": "Organization", name: guide.author, url: site.url }
+          : { "@type": "Person", name: guide.author },
         publisher: { "@type": "NGO", name: site.name, url: site.url },
         citation: guide.sources.map((s) => s.url),
         mainEntityOfPage: pageUrl,
