@@ -93,6 +93,14 @@ export const documentSchema = z.object({
   available: z.boolean(),
 });
 
+/** The roadmap. Every item is a plan, never a claim that something has happened. */
+export const roadmapSchema = z.object({
+  horizon: z.enum(["near", "mid", "long"]),
+  label: z.string().min(1),
+  title: z.string().min(1),
+  items: z.array(z.string().min(1)).min(1),
+});
+
 /* ---------- MDX collections (front matter) ---------- */
 
 const draft = z.boolean().default(false);
@@ -186,6 +194,7 @@ export type Trustee = z.infer<typeof trusteeSchema>;
 export type MembershipCategory = z.infer<typeof membershipCategorySchema>;
 export type Faq = z.infer<typeof faqSchema>;
 export type ContentDocument = z.infer<typeof documentSchema>;
+export type RoadmapStage = z.infer<typeof roadmapSchema>;
 export type Programme = z.infer<typeof programmeSchema>;
 export type Audience = z.infer<typeof audienceSchema>;
 export type ContentEvent = z.infer<typeof eventSchema>;

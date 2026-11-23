@@ -21,7 +21,7 @@
     "question": "What does ASSOCADS plan to do?",
     "answer": "The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.",
     "category": "about",
-    "pages": ["/", "/faq", "/programmes"]
+    "pages": ["/faq", "/programmes"]
   },
   {
     "question": "Who runs ASSOCADS?",
@@ -45,13 +45,13 @@
     "question": "Who can join ASSOCADS?",
     "answer": "The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.",
     "category": "membership",
-    "pages": ["/faq", "/membership", "/for/students", "/for/professionals"]
+    "pages": ["/", "/faq", "/membership", "/for/students", "/for/professionals"]
   },
   {
     "question": "How much does membership cost?",
     "answer": "Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.",
     "category": "membership",
-    "pages": ["/faq", "/membership"]
+    "pages": ["/", "/faq", "/membership"]
   },
   {
     "question": "Is there a student membership?",
@@ -87,7 +87,7 @@
     "question": "Is ASSOCADS affiliated with ADaSci, the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI?",
     "answer": "No. ASSOCADS is an independent public charitable trust. It is not affiliated with, and does not speak for, the Association of Data Scientists (ADaSci), the Artificial Intelligence Association of India, the Analytics Society of India, NASSCOM or IAMAI.",
     "category": "disambiguation",
-    "pages": ["/faq", "/about", "/about/facts"]
+    "pages": ["/", "/faq", "/about", "/about/facts"]
   },
   {
     "question": "How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?",

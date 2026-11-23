@@ -22,6 +22,7 @@ import {
   getInsights,
   getMembershipCategories,
   getProgrammes,
+  getRoadmap,
   getTrustees,
 } from "../src/lib/content/loaders.ts";
 import { PLACEHOLDER_PATTERN } from "../src/lib/content/schemas.ts";
@@ -39,6 +40,7 @@ const collections: [string, () => unknown[]][] = [
   ["guides", () => getGuides(all)],
   ["glossary", () => getGlossary(all)],
   ["faqs", () => getFaqs()],
+  ["roadmap stages", () => getRoadmap()],
   ["documents", () => getDocuments()],
 ];
 

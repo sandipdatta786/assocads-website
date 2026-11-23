@@ -1,0 +1,32 @@
+[
+  {
+    "horizon": "near",
+    "label": "Near term",
+    "title": "Getting established",
+    "items": [
+      "Complete the registration of the trust.",
+      "Hold the first Board meeting and elect office bearers.",
+      "Adopt bye-laws that set membership categories and fees, then open membership."
+    ]
+  },
+  {
+    "horizon": "mid",
+    "label": "Mid term",
+    "title": "First programmes",
+    "items": [
+      "Run our first workshops, meetups and hackathons, beginning in West Bengal.",
+      "Form Special Interest Groups by industry or domain.",
+      "Publish our first guides and reports, each reviewed by a trustee."
+    ]
+  },
+  {
+    "horizon": "long",
+    "label": "Long term",
+    "title": "Wider reach",
+    "items": [
+      "Set up chapters in other states and cities.",
+      "Establish or support Centres of Excellence, labs and incubation hubs.",
+      "Grow into an apex professional body for AI and Data Science in India."
+    ]
+  }
+]
