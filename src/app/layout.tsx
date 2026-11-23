@@ -62,6 +62,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: bannerScript }} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${site.shortName}: insights and guides`}
+          href="/feed.xml"
+        />
       </head>
       <body className="flex min-h-dvh flex-col">
         <a

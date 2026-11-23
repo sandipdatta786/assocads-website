@@ -12,6 +12,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { parse as parseYaml } from "yaml";
 import { isPast } from "../events.ts";
+import { isPublished, readingMinutes } from "../publishing.ts";
 import type { z } from "zod";
 
 import {
@@ -410,15 +411,36 @@ export function getCommunities(options?: LoadOptions) {
   return withoutDrafts(items, options).sort((a, b) => a.order - b.order);
 }
 
-export function getInsights(options?: LoadOptions) {
-  const items = readMdxCollection("insights", insightSchema);
-  uniqueSlugs("content/insights", items);
-  return withoutDrafts(items, options).sort((a, b) =>
-    b.publishedDate.localeCompare(a.publishedDate),
-  );
+/** Options for dated collections. Pages pass the build time as "now" (from
+    builtAt) so that the rule below is applied; the content check passes
+    includeFuture to validate everything. */
+export type PublishedOptions = LoadOptions &
+  ({ now: number; includeFuture?: never } | { includeFuture: true });
+
+/** The rule for every dated collection: an item whose publishedDate is after
+    today in Kolkata is not shown, so news dated in the future by mistake
+    cannot appear early. It appears on its date, when the site next rebuilds. */
+function withoutFuture<T extends { publishedDate: string }>(
+  items: T[],
+  options: PublishedOptions,
+): T[] {
+  if (options.includeFuture) return items;
+  return items.filter((item) => isPublished(item, options.now));
 }
 
-export function getGuides(options?: LoadOptions) {
+export function getInsights(options: PublishedOptions) {
+  const items = readMdxCollection("insights", insightSchema);
+  uniqueSlugs("content/insights", items);
+  return withoutFuture(withoutDrafts(items, options), options)
+    .map((i) => ({ ...i, readingMinutes: readingMinutes(i.body) }))
+    .sort(
+      (a, b) =>
+        b.publishedDate.localeCompare(a.publishedDate) ||
+        a.title.localeCompare(b.title),
+    );
+}
+
+export function getGuides(options: PublishedOptions) {
   const items = readMdxCollection("guides", guideSchema);
   uniqueSlugs("content/guides", items);
 
@@ -439,7 +461,7 @@ export function getGuides(options?: LoadOptions) {
     }
   }
 
-  return withoutDrafts(items, options).sort((a, b) =>
+  return withoutFuture(withoutDrafts(items, options), options).sort((a, b) =>
     b.publishedDate.localeCompare(a.publishedDate),
   );
 }

@@ -7,3 +7,5 @@ next-env.d.ts
 public
 docs/logo
 _working
+# Prettier parses MDX as version 1 and breaks MDX 3 comments ({/* ... */})
+content/**/*.mdx

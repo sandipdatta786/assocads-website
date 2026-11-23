@@ -1,0 +1,90 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# EXAMPLE ARTICLE: A TEMPLATE, NOT REAL NEWS
+#
+# This file shows every field a news item can have, and how the body is
+# written. Because "draft: true" is set at the bottom, it appears only on a
+# local copy of the site (pnpm dev) and never on the live site or in the feed.
+#
+# To publish a real item:
+#   1. Copy this file and rename the copy, for example
+#      content/insights/trust-registration-completed.mdx
+#   2. Change "slug" below to match the new file name exactly, without .mdx.
+#   3. Replace every value and the whole body with the real article.
+#   4. Delete "draft: true" (or set it to false) when it is ready to publish.
+# Full instructions in plain language: docs/HOW_TO_PUBLISH_NEWS.md
+#
+# Rules that always apply (CLAUDE.md, truthfulness rules):
+#   - Only real, confirmed facts. No invented figures, quotations or partners.
+#   - Plans are written as plans: "we plan to", "we aim to", "proposed".
+#   - No third-party names or logos without written permission on file.
+#   - Photographs of people only with their consent.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Must match the file name. Lower case, words joined by hyphens.
+slug: example-news-template
+
+# The headline. Sentence case, up to 100 characters.
+title: Example headline written in sentence case
+
+# One or two sentences that say what happened and why it matters.
+# Shown on cards, in search results and in the RSS feed. Up to 240 characters.
+summary: An example summary that says what happened, who it affects and what happens next. Replace it with the real summary.
+
+# One of: announcement, news, report
+#   announcement  something ASSOCADS itself is announcing
+#   news          something that happened, for example an event that took place
+#   report        a longer write-up, for example of a survey or a programme
+category: announcement
+
+# The day the article is published, as YYYY-MM-DD.
+# A date in the future keeps the article hidden until that day (Indian
+# Standard Time), so you can prepare an article in advance. It then appears
+# when the site next rebuilds, which happens at least once a day.
+publishedDate: 2026-11-20
+
+# Optional. Only if the article is changed after it was published.
+# Must be on or after publishedDate. The page then shows "Updated" as well.
+# updatedDate: 2026-11-25
+
+# The person who wrote it, as their name should appear on the page.
+author: Name of the author
+
+# Optional. A picture for the top of the article, stored in public/images/insights/.
+# If you add one, imageAlt is required: say what the picture shows.
+# image: /images/insights/example.jpg
+# imageAlt: A short description of what the picture shows
+
+# Remove this line, or set it to false, to publish.
+draft: true
+---
+
+{/* Everything below the second line of dashes is the article body.
+    Write it in plain paragraphs. Notes written between curly brackets,
+    like this one, are for editors and never appear on the page. */}
+
+The first paragraph says the most important thing: what happened, when, and who it is for. Many readers stop here, so it should make sense on its own.
+
+The second paragraph gives the detail a reader needs next. Keep sentences short and direct. Write ASSOCADS in capitals and give the full name, Association for AI and Data Science, the first time it appears.
+
+{/* A heading starts with two hash signs and a space. Use sentence case. */}
+
+## What happens next
+
+Use a heading when the article moves to a new topic. Most news items need one or two at most.
+
+{/* A list: each line starts with a hyphen and a space. */}
+
+- Use a list when there are three or more separate points.
+- Keep each point to one line where you can.
+- Write plans as plans, for example "we plan to" or "we aim to".
+
+### A smaller heading
+
+Use three hash signs for a heading inside a section. A link is written like this: read the [guides](/guides) for practical advice on careers and policy.
+
+{/* End with what the reader can do, if anything. */}
+
+## How to take part
+
+If readers can act on the news, say how in the last paragraph, and link to the right page, such as [register your interest](/membership/apply) or [contact us](/contact).
