@@ -5,6 +5,12 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow, Heading, Lead } from "@/components/ui/Typography";
 import { registrationLine, site } from "@/config/site";
 
+const HEADLINE = [
+  "Connecting talent,",
+  "knowledge, innovation",
+  "and opportunity in AI",
+];
+
 export function Hero() {
   return (
     <Section
@@ -22,14 +28,20 @@ export function Hero() {
 
       <Container>
         <div className="flex max-w-[54rem] flex-col gap-6">
-          <Eyebrow>{site.name}</Eyebrow>
+          <Eyebrow className="hero-follow">{site.name}</Eyebrow>
+          {/* Each span is one line on wide screens and reveals in turn. */}
           <Heading level={1} size="display-xl">
-            Connecting talent, knowledge, innovation and opportunity in AI
+            {HEADLINE.map((line, i) => (
+              <span key={line} className="hero-line">
+                {line}
+                {i < HEADLINE.length - 1 && " "}
+              </span>
+            ))}
           </Heading>
-          <Lead>
+          <Lead className="hero-follow">
             {site.description} {site.mission} {registrationLine()}
           </Lead>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="hero-follow-late mt-4 flex flex-wrap gap-3">
             <ButtonLink href="/membership" size="large">
               Become a member
             </ButtonLink>

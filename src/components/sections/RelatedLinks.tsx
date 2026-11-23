@@ -31,7 +31,7 @@ export function RelatedLinks({
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="group flex h-full flex-col gap-2 rounded-m border border-tone-line bg-tone-card p-6 transition-colors duration-150 hover:border-indigo"
+                className="group card-link flex h-full flex-col gap-2 rounded-m border border-tone-line bg-tone-card p-6"
               >
                 <span className="flex items-center justify-between gap-3 font-display text-h3 font-semibold text-tone-fg">
                   {link.label}

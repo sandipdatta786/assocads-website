@@ -57,7 +57,7 @@ export function Placeholder({
     <span
       data-placeholder
       className={cn(
-        "inline-block rounded-s border border-dashed border-slate-500 bg-cloud px-3 py-2 font-mono text-caption text-slate-600",
+        "inline-block max-w-full rounded-s border border-dashed border-slate-500 bg-cloud px-3 py-2 font-mono text-caption break-words text-slate-600 in-data-[tone=ink]:border-slate-400 in-data-[tone=ink]:bg-night in-data-[tone=ink]:text-slate-400",
         className,
       )}
     >

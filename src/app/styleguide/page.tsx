@@ -154,7 +154,7 @@ function ToneDemo({ tone }: { tone: Tone }) {
           Lead text sits under a heading and introduces the section in one or
           two sentences.
         </Lead>
-        <p className="max-w-[62ch] text-tone-muted">
+        <p className="max-w-[34em] text-tone-muted">
           Body text in the muted colour for this tone, with a{" "}
           <a
             href="#buttons"
@@ -244,7 +244,7 @@ export default function StyleGuidePage() {
           </Block>
 
           <Block title="Approved text and background pairings">
-            <p className="max-w-[68ch] text-tone-muted">
+            <p className="max-w-[34em] text-tone-muted">
               Ratios are calculated on this page to WCAG 2.2. Normal text needs
               4.5 to 1 for AA and 7 to 1 for AAA.
             </p>

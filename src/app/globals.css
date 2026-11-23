@@ -36,6 +36,7 @@
   --text-eyebrow: 0.75rem;
 
   /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-fast: 150ms;
   --dur-base: 300ms;
   --dur-slow: 600ms;
@@ -219,9 +220,23 @@
     text-wrap: pretty;
   }
 
+  /* Running text stays within about 75 characters a line (brand guide 3.1).
+     An average Inter letter is about 0.47em wide, so 34em is roughly 72
+     characters. ("ch" is the width of a zero, far wider than an average
+     letter, so it would allow about 90.) Zero specificity: any max-width
+     class wins. */
+  :where(main) :where(p, dd) {
+    max-width: 34em;
+  }
+
   ::selection {
     background: var(--indigo);
     color: var(--paper);
+  }
+
+  [data-tone="ink"] ::selection {
+    background: var(--indigo-bright);
+    color: var(--ink);
   }
 
   :focus-visible {
@@ -239,8 +254,10 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
     }
   }
 }
@@ -254,6 +271,11 @@
 
   .prose > :first-child {
     margin-top: 0;
+  }
+
+  /* Lines of body text stay within the brand's 60 to 75 characters. */
+  .prose :is(p, ul, ol, blockquote, h2, h3) {
+    max-width: 34em;
   }
 
   .prose > * + * {
@@ -416,4 +438,205 @@
 /* The status banner, once dismissed for the session. */
 [data-status-banner-dismissed] [data-status-banner] {
   display: none;
+}
+
+/* ---------------------------------------------------------------- motion
+   Brand guide 5.1: 150ms for hover and press, 300ms for menus and reveals,
+   600ms for large hero transitions, one easing curve. Everything here is
+   removed by the reduced-motion rule in the base layer. */
+
+/* Cards that are links lift slightly on hover and settle when pressed. */
+.card-link {
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.card-link:hover {
+  border-color: var(--tone-link);
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 8px 24px rgba(11, 16, 32, 0.06);
+  transform: translateY(-2px);
+}
+
+.card-link:active {
+  box-shadow: none;
+  transform: translateY(0) scale(0.99);
+}
+
+/* Sections and cards fade in and rise 16px once (see Reveal.tsx). Nothing is
+   hidden without JavaScript, and nothing already on screen is hidden. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal-run {
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--reveal-index, 0) * 70ms);
+}
+
+/* The home headline reveals line by line on first load, then the lead and
+   the actions follow. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.hero-line {
+  display: block;
+  animation: rise-in var(--dur-slow) var(--ease-out) both;
+}
+
+.hero-line:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.hero-line:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.hero-follow {
+  animation: rise-in var(--dur-slow) var(--ease-out) 300ms both;
+}
+
+.hero-follow-late {
+  animation: rise-in var(--dur-slow) var(--ease-out) 420ms both;
+}
+
+/* Accordions open and close with a 300ms ease where the browser supports
+   animating details; elsewhere they open instantly. */
+@supports selector(::details-content) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size var(--dur-base) var(--ease-out),
+      content-visibility var(--dur-base) allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
+}
+
+/* Page navigation: a short crossfade with a slight rise, through the View
+   Transitions API (see src/app/template.tsx). Browsers without it simply
+   change page. */
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+::view-transition-old(.page-out) {
+  animation: var(--dur-fast) ease-in both page-out;
+}
+
+::view-transition-new(.page-in) {
+  animation: var(--dur-base) var(--ease-out) both page-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* ---------------------------------------------------------------- print
+   Facts, governance and guide pages are written to be printed: black on
+   white, no navigation, forms or buttons, and the address of every link. */
+@media print {
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  html {
+    font-size: 11pt;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  header,
+  footer,
+  nav,
+  form,
+  button,
+  [data-status-banner],
+  [data-print="hide"],
+  a[href^="#main-content"] {
+    display: none !important;
+  }
+
+  [data-tone] {
+    background: #fff !important;
+    color: #000 !important;
+    --tone-fg: #000;
+    --tone-muted: #000;
+    --tone-faint: #333;
+    --tone-link: #000;
+    --tone-line: #999;
+    --tone-card: #fff;
+  }
+
+  section {
+    padding-block: 0.5rem !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+    color: #000 !important;
+  }
+
+  li,
+  tr,
+  dl > div,
+  .card-link {
+    break-inside: avoid;
+  }
+
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  main a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .reveal-pending {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [aria-hidden="true"]:is(svg, div) {
+    display: none !important;
+  }
 }

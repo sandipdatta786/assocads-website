@@ -10,7 +10,8 @@ export type Option = { value: string; label: string };
 
 export const inputClass =
   "block w-full min-h-12 rounded-s border border-slate-500 bg-paper px-4 py-3 text-body text-ink " +
-  "placeholder:text-slate-500 focus-visible:border-indigo " +
+  "placeholder:text-slate-500 transition-[border-color,box-shadow] duration-150 ease-out hover:border-ink " +
+  "focus-visible:border-indigo focus-visible:shadow-[0_0_0_4px_var(--indigo-tint)] focus-visible:rounded-s " +
   "aria-invalid:border-error aria-invalid:border-2";
 
 export function Field({

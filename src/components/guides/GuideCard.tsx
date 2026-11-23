@@ -20,7 +20,7 @@ export function GuideCard({
   showTheme?: boolean;
 }) {
   return (
-    <article className="group relative flex h-full flex-col gap-3 rounded-l border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo">
+    <article className="group card-link relative flex h-full flex-col gap-3 rounded-m border border-line bg-paper p-6">
       {(showTheme || guide.draft) && (
         <div className="flex flex-wrap gap-2">
           {showTheme && <Tag className="w-fit">{themeLabels[guide.theme]}</Tag>}

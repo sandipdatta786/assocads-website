@@ -84,7 +84,7 @@ export default async function EventPage({
     >
       {register.external ? "Register" : "Contact us to register"}
       {register.external && (
-        <ExternalLink aria-hidden="true" size={18} strokeWidth={1.5} />
+        <ExternalLink aria-hidden="true" size={16} strokeWidth={1.5} />
       )}
       {register.external && (
         <span className="sr-only">(opens in a new tab)</span>
@@ -150,11 +150,11 @@ export default async function EventPage({
                   This event has taken place
                 </h2>
                 {event.recap?.summary ? (
-                  <p className="max-w-[68ch] text-body text-slate-400">
+                  <p className="max-w-[34em] text-body text-slate-400">
                     {event.recap.summary}
                   </p>
                 ) : (
-                  <p className="max-w-[68ch] text-body text-slate-400">
+                  <p className="max-w-[34em] text-body text-slate-400">
                     A summary of the event, with photographs and slides, will be
                     added here.
                   </p>

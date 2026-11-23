@@ -43,7 +43,7 @@ export function InsightCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col gap-4 rounded-l border p-6 transition-colors duration-150 hover:border-indigo",
+        "group card-link relative flex h-full flex-col gap-4 rounded-m border p-6",
         featured
           ? "border-transparent bg-indigo-tint sm:p-10 lg:p-12"
           : "border-line bg-paper",
@@ -68,7 +68,7 @@ export function InsightCard({
       <p
         className={cn(
           "text-slate-600",
-          featured ? "max-w-[62ch] text-lead" : "text-body",
+          featured ? "max-w-[34em] text-lead" : "text-body",
         )}
       >
         {item.summary}

@@ -46,7 +46,7 @@ export async function WhatsNext() {
               <li key={event.slug}>
                 <Link
                   href={`/events/${event.slug}`}
-                  className="flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo sm:p-8"
+                  className="card-link flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 sm:p-8"
                 >
                   <EventStatusBadge
                     event={event}

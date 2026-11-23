@@ -101,7 +101,7 @@ export default async function TrusteeProfilePage({
             {trustee.officeTitle && (
               <p className="font-medium text-ink">{trustee.officeTitle}</p>
             )}
-            <p className="max-w-[62ch] text-lead text-slate-600">
+            <p className="max-w-[34em] text-lead text-slate-600">
               {trustee.bio}
             </p>
             {expertise.length > 0 && (

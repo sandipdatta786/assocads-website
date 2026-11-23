@@ -75,7 +75,7 @@ export default async function Page() {
                 <li key={theme}>
                   <Link
                     href={count > 0 ? `/guides#${theme}` : "/guides"}
-                    className="group flex h-full flex-col gap-3 rounded-l border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                    className="group card-link flex h-full flex-col gap-3 rounded-m border border-line bg-paper p-6"
                   >
                     <Icon icon={BookOpen} size={24} className="text-indigo" />
                     <span className="font-display text-h3 font-semibold text-ink group-hover:text-indigo">
@@ -218,7 +218,7 @@ export default async function Page() {
               <h3 className="font-display text-h3 font-semibold text-ink">
                 Logo files
               </h3>
-              <p className="max-w-[68ch] text-body text-slate-600">
+              <p className="max-w-[34em] text-body text-slate-600">
                 SVG files scale to any size and suit the web and print. PNG
                 files have a transparent background. Keep clear space equal to
                 the height of the letter A on every side, and never stretch,

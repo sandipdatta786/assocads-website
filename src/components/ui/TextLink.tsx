@@ -26,7 +26,7 @@ export function TextLink({
       {arrow && (
         <ArrowRight
           aria-hidden="true"
-          size={18}
+          size={16}
           strokeWidth={1.5}
           className="transition-transform duration-150 ease-out group-hover:translate-x-0.5"
         />

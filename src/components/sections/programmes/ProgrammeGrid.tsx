@@ -25,7 +25,7 @@ export function ProgrammeGrid() {
             <Link
               href={`/programmes/${programme.slug}`}
               className={cn(
-                "group relative isolate flex h-full flex-col gap-5 overflow-hidden rounded-m border border-line p-6 transition-colors duration-150 hover:border-indigo sm:p-8",
+                "group card-link relative isolate flex h-full flex-col gap-5 overflow-hidden rounded-m border border-line p-6 sm:p-8",
                 featured ? "bg-indigo-tint" : "bg-paper",
               )}
             >
