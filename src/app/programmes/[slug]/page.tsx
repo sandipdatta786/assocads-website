@@ -21,6 +21,8 @@ import { loadMdxBody } from "@/lib/content/mdx";
 import { contentIcon } from "@/lib/icons";
 import { programmeStatusText } from "@/lib/programmes";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { faqPage, service } from "@/lib/seo/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
   return getProgrammes().map((p) => ({ slug: p.slug }));
@@ -65,6 +67,13 @@ export default async function ProgrammePage({
 
   return (
     <>
+      {/* Service only once the programme is active; the questions as shown below. */}
+      <JsonLd
+        items={[
+          service(programme),
+          faqPage(`/programmes/${programme.slug}`, programme.faqs),
+        ]}
+      />
       <PageHeader
         eyebrow="Programme"
         title={programme.title}

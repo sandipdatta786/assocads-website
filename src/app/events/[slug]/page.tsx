@@ -28,7 +28,9 @@ import {
   modeLabels,
   typeLabels,
 } from "@/lib/events";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { event as schemaEvent } from "@/lib/seo/schema";
 
 /* Drafts are included here so that the route always has one path to prerender;
    the page itself returns "not found" for a draft in production. */
@@ -48,12 +50,6 @@ export async function generateMetadata({
     noindex: event.draft,
   });
 }
-
-const attendance = {
-  "in-person": "https://schema.org/OfflineEventAttendanceMode",
-  online: "https://schema.org/OnlineEventAttendanceMode",
-  hybrid: "https://schema.org/MixedEventAttendanceMode",
-} as const;
 
 export default async function EventPage({
   params,
@@ -78,61 +74,6 @@ export default async function EventPage({
     ? { href: event.registrationUrl, external: true }
     : { href: "/contact", external: false };
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    name: event.title,
-    description: event.summary,
-    startDate: event.startDate,
-    ...(event.endDate ? { endDate: event.endDate } : {}),
-    eventStatus: "https://schema.org/EventScheduled",
-    eventAttendanceMode: attendance[event.mode],
-    location: [
-      ...(inPerson
-        ? [
-            {
-              "@type": "Place",
-              name: event.venue,
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: event.city,
-                addressCountry: "IN",
-              },
-            },
-          ]
-        : []),
-      ...(event.mode !== "in-person"
-        ? [
-            {
-              "@type": "VirtualLocation",
-              url: event.registrationUrl || pageUrl,
-            },
-          ]
-        : []),
-    ],
-    organizer: { "@type": "NGO", name: site.name, url: site.url },
-    url: pageUrl,
-    ...(event.registrationUrl
-      ? {
-          offers: {
-            "@type": "Offer",
-            url: event.registrationUrl,
-            ...(event.registrationOpens
-              ? { validFrom: event.registrationOpens }
-              : {}),
-          },
-        }
-      : {}),
-    ...(event.speakers.length > 0
-      ? {
-          performer: event.speakers.map((s) => ({
-            "@type": "Person",
-            name: s.name,
-          })),
-        }
-      : {}),
-  };
-
   const registerButton = (
     <ButtonLink
       href={register.href}
@@ -156,15 +97,8 @@ export default async function EventPage({
 
   return (
     <>
-      {!event.draft && (
-        <script
-          type="application/ld+json"
-          // JSON-LD for search engines, built only from this event's own fields.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
+      {/* Built only from this event's own fields. Drafts never reach the live site. */}
+      <JsonLd items={[schemaEvent(event)]} />
 
       <PageHeader
         eyebrow={`${typeLabels[event.type]} · ${modeLabels[event.mode]}`}

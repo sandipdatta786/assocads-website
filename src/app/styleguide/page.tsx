@@ -201,6 +201,7 @@ function ToneDemo({ tone }: { tone: Tone }) {
             { label: "About", href: "/styleguide" },
             { label: "Governance" },
           ]}
+          structuredData={false}
         />
       </div>
     </Section>

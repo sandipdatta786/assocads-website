@@ -6,7 +6,9 @@ import {
   BANNER_STORAGE_KEY,
   StatusBanner,
 } from "@/components/layout/StatusBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/config/site";
+import { organisation, website } from "@/lib/seo/schema";
 import "./globals.css";
 
 // The three brand typefaces, self-hosted by next/font. See docs/BRAND_GUIDE.md.
@@ -76,6 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <JsonLd items={[organisation(), website()]} />
         <SiteHeader />
         <StatusBanner />
         <main id="main-content" tabIndex={-1} className="flex-1 outline-none">

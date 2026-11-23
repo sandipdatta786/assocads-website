@@ -12,7 +12,9 @@ import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/config/site";
 import { getTrustees, hasTrusteeProfile } from "@/lib/content/loaders";
 import type { Trustee } from "@/lib/content/schemas";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { person } from "@/lib/seo/schema";
 
 /** A trustee with their own page, or undefined. */
 function profileFor(slug: string): Trustee | undefined {
@@ -59,6 +61,7 @@ export default async function TrusteeProfilePage({
 
   return (
     <>
+      <JsonLd items={[person(trustee)]} />
       <PageHeader
         eyebrow={trustee.capacity}
         title={trustee.name}
