@@ -29,19 +29,21 @@ const logo = `data:image/png;base64,${await readFile(
   "base64",
 )}`;
 
-/** Inter Tight in TrueType, which the image renderer needs. next/font
-    loads the same family for the pages. */
+/** Inter Tight in TrueType, which the image renderer needs, kept in the
+    repository (src/assets/fonts, SIL Open Font Licence) so that the build
+    never depends on the network. next/font loads the same family for the
+    pages. */
 async function interTight(weight: 500 | 700): Promise<ArrayBuffer> {
-  const css = await fetch(
-    `https://fonts.googleapis.com/css2?family=Inter+Tight:wght@${weight}`,
-  ).then((r) => r.text());
-  const url = css.match(/src: url\((.+?)\) format\('truetype'\)/)?.[1];
-  if (!url) throw new Error(`Inter Tight ${weight} not found for share images`);
-  return fetch(url).then((r) => r.arrayBuffer());
+  const file = await readFile(
+    join(process.cwd(), `src/assets/fonts/InterTight-${weight}.ttf`),
+  );
+  return file.buffer.slice(
+    file.byteOffset,
+    file.byteOffset + file.byteLength,
+  ) as ArrayBuffer;
 }
 
-/** Fetched once and cached, so that prerendering the images does not wait
-    on the network for every page. */
+/** Read once and cached for every share image. */
 async function fonts(): Promise<[ArrayBuffer, ArrayBuffer]> {
   "use cache";
   cacheLife("max");
