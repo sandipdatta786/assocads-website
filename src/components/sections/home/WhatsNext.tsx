@@ -1,31 +1,18 @@
 import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
+import { EventStatusBadge } from "@/components/events/EventStatusBadge";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/Decor";
 import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
-import { Badge } from "@/components/ui/Tag";
 import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/config/site";
 import { getEventsByTime } from "@/lib/content/loaders";
-
-const modeLabel = {
-  "in-person": "In person",
-  online: "Online",
-  hybrid: "In person and online",
-};
-
-function formatDate(value: string) {
-  return new Intl.DateTimeFormat("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "Asia/Kolkata",
-  }).format(new Date(value));
-}
+import { builtAt } from "@/lib/clock";
+import { formatDateRange, modeLabels } from "@/lib/events";
 
 /**
  * The next three events, or an honest note when none have been announced.
@@ -36,7 +23,8 @@ export async function WhatsNext() {
   "use cache";
   cacheLife("days");
 
-  const upcoming = getEventsByTime(new Date()).upcoming.slice(0, 3);
+  const now = await builtAt();
+  const upcoming = getEventsByTime(new Date(now)).upcoming.slice(0, 3);
 
   return (
     <Section tone="cloud" aria-labelledby="next-heading">
@@ -60,20 +48,16 @@ export async function WhatsNext() {
                   href={`/events/${event.slug}`}
                   className="flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo sm:p-8"
                 >
-                  <Badge
-                    status={event.registrationStatus}
-                    label={
-                      event.registrationStatus === "open"
-                        ? "Registration open"
-                        : undefined
-                    }
+                  <EventStatusBadge
+                    event={event}
+                    builtAt={now}
                     className="w-fit"
                   />
                   <h3 className="font-display text-h3 font-semibold text-ink">
                     {event.title}
                   </h3>
                   <p className="text-body text-slate-600">
-                    {formatDate(event.startDate)} · {modeLabel[event.mode]}
+                    {formatDateRange(event)} · {modeLabels[event.mode]}
                     {event.city ? `, ${event.city}` : ""}
                   </p>
                 </Link>

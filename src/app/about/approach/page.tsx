@@ -81,9 +81,9 @@ export default function Page() {
             {gains.map((g) => (
               <li
                 key={g.word}
-                className="flex flex-col gap-1 rounded-m sm:flex-row sm:items-baseline sm:gap-4 border border-line bg-paper px-5 py-4"
+                className="flex flex-col gap-1 rounded-m border border-line bg-paper px-5 py-4 sm:flex-row sm:items-baseline sm:gap-4"
               >
-                <span className="shrink-0 sm:w-40 font-display text-h3 font-semibold text-indigo">
+                <span className="shrink-0 font-display text-h3 font-semibold text-indigo sm:w-40">
                   {g.word}
                 </span>
                 <span className="text-body text-slate-600">{g.text}</span>

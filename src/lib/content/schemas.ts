@@ -274,31 +274,97 @@ export const audienceSchema = z.object({
   order: z.number().int().positive(),
 });
 
-export const eventSchema = z.object({
-  slug,
-  title: z.string().min(1),
-  summary: z.string().min(1),
-  type: z.enum([
-    "conference",
-    "seminar",
-    "workshop",
-    "meetup",
-    "hackathon",
-    "webinar",
-    "other",
-  ]),
-  startDate: isoDateOrDateTime,
-  endDate: isoDateOrDateTime.optional(),
-  mode: z.enum(["in-person", "online", "hybrid"]),
-  venue: z.string().default(""),
-  city: z.string().default(""),
-  registrationUrl: urlOrPlaceholder.default(""),
-  registrationStatus: z.enum(["open", "upcoming", "closed"]),
-  speakers: z
-    .array(z.object({ name: z.string().min(1), role: z.string().optional() }))
-    .default([]),
-  draft,
-});
+const eventSpeakerSchema = z
+  .object({
+    name: z.string().min(1),
+    role: z.string().optional(),
+    organisation: z.string().optional(),
+    /** Path under public/. Only with the speaker's written consent (truthfulness rule 9). */
+    photo: z.string().startsWith("/").optional(),
+    photoConsent: z.boolean().default(false),
+  })
+  .refine((s) => !s.photo || s.photoConsent, {
+    message: "a speaker photo needs photoConsent: true",
+    path: ["photoConsent"],
+  });
+
+export const eventSchema = z
+  .object({
+    slug,
+    title: z.string().min(1).max(90),
+    summary: z.string().min(1).max(220),
+    type: z.enum([
+      "conference",
+      "seminar",
+      "workshop",
+      "masterclass",
+      "meetup",
+      "hackathon",
+      "webinar",
+      "other",
+    ]),
+    startDate: isoDateOrDateTime,
+    endDate: isoDateOrDateTime.optional(),
+    mode: z.enum(["in-person", "online", "hybrid"]),
+    venue: z.string().default(""),
+    city: z.string().default(""),
+    /** A map link for the venue. If empty, one is made from the venue and city. */
+    mapUrl: urlOrPlaceholder.default(""),
+    /** Where people register. If empty, the button goes to the contact page. */
+    registrationUrl: urlOrPlaceholder.default(""),
+    /** When registration opens. If empty, it is open as soon as the event is published. */
+    registrationOpens: isoDateOrDateTime.optional(),
+    /** When registration closes. If empty, it closes when the event starts. */
+    registrationCloses: isoDateOrDateTime.optional(),
+    speakers: z.array(eventSpeakerSchema).default([]),
+    agenda: z
+      .array(
+        z.object({
+          /** For example "10:00" or "10:00 to 11:30", in Indian Standard Time. */
+          time: z.string().min(1),
+          title: z.string().min(1),
+          detail: z.string().optional(),
+        }),
+      )
+      .default([]),
+    /** Added after the event: a short summary, photographs (with consent) and slides. */
+    recap: z
+      .object({
+        summary: z.string().optional(),
+        photos: z
+          .array(
+            z.object({
+              src: z.string().startsWith("/"),
+              alt: z.string().min(1),
+            }),
+          )
+          .default([]),
+        slidesUrl: urlOrPlaceholder.optional(),
+      })
+      .optional(),
+    draft,
+  })
+  .refine(
+    (e) => !e.endDate || e.endDate.slice(0, 10) >= e.startDate.slice(0, 10),
+    {
+      message: "endDate must not be before startDate",
+      path: ["endDate"],
+    },
+  )
+  .refine((e) => e.mode === "online" || (e.venue && e.city), {
+    message: "an in-person or hybrid event needs a venue and a city",
+    path: ["venue"],
+  })
+  .refine(
+    (e) =>
+      !e.registrationOpens ||
+      !e.registrationCloses ||
+      e.registrationOpens.slice(0, 10) <= e.registrationCloses.slice(0, 10),
+    {
+      message: "registrationOpens must not be after registrationCloses",
+      path: ["registrationOpens"],
+    },
+  );
 
 export const insightSchema = z.object({
   slug,
