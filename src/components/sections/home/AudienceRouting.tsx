@@ -36,7 +36,7 @@ export function AudienceRouting() {
             <li key={audience.slug}>
               <Link
                 href={`/for/${audience.slug}`}
-                className="group flex h-full flex-col gap-6 rounded-l border border-tone-line bg-paper p-6 transition-colors duration-150 hover:border-indigo sm:p-8 lg:p-10"
+                className="group card-link flex h-full flex-col gap-6 rounded-m border border-tone-line bg-paper p-6 sm:p-8 lg:p-10"
               >
                 <Icon
                   icon={icons[audience.slug as keyof typeof icons] ?? UserRound}
@@ -57,7 +57,7 @@ export function AudienceRouting() {
                   </span>
                   <ArrowRight
                     aria-hidden="true"
-                    size={18}
+                    size={16}
                     strokeWidth={1.5}
                     className="transition-transform duration-150 group-hover:translate-x-0.5"
                   />

@@ -34,7 +34,7 @@ function EventCard({ event, now }: { event: EventListItem; now: number }) {
   return (
     <Link
       href={`/events/${event.slug}`}
-      className="group flex h-full gap-5 rounded-l border border-line bg-paper p-5 transition-colors duration-150 hover:border-indigo sm:gap-6 sm:p-7"
+      className="group card-link flex h-full gap-5 rounded-m border border-line bg-paper p-5 sm:gap-6 sm:p-7"
     >
       <span
         aria-hidden="true"

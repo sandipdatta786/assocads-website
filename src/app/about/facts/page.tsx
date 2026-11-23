@@ -58,7 +58,7 @@ export default function FactsPage() {
                 <dt className="font-display text-h3 font-semibold text-ink md:col-span-4 lg:col-span-3">
                   {fact.label}
                 </dt>
-                <dd className="max-w-[68ch] text-body text-slate-600 md:col-span-8 lg:col-span-9">
+                <dd className="max-w-[34em] text-body text-slate-600 md:col-span-8 lg:col-span-9">
                   <WithPlaceholders text={fact.text} />
                   {fact.link && (
                     <>

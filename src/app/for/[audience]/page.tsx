@@ -107,7 +107,7 @@ export default async function AudiencePage({
             eyebrow="Plans"
             title="What you can expect"
           />
-          <p className="-mt-4 mb-10 max-w-[68ch] text-body text-slate-600 lg:-mt-8 lg:mb-14">
+          <p className="-mt-4 mb-10 max-w-[34em] text-body text-slate-600 lg:-mt-8 lg:mb-14">
             ASSOCADS is new, and its registration is in progress. These are
             plans, each part of one of our programmes. None has started yet.
           </p>
@@ -116,7 +116,7 @@ export default async function AudiencePage({
               <li key={benefit.title}>
                 <Link
                   href={`/programmes/${benefit.programme}`}
-                  className="group flex h-full flex-col gap-3 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-3 rounded-m border border-line bg-paper p-6"
                 >
                   <span className="font-display text-h3 font-semibold text-ink">
                     {benefit.title}
@@ -195,7 +195,7 @@ export default async function AudiencePage({
               <li key={p.slug}>
                 <Link
                   href={`/programmes/${p.slug}`}
-                  className="group flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6"
                 >
                   <Icon
                     icon={contentIcon(p.icon)}
@@ -223,7 +223,7 @@ export default async function AudiencePage({
                 <li key={`guide-${g.slug}`}>
                   <Link
                     href={`/guides/${g.slug}`}
-                    className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                    className="group card-link flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6"
                   >
                     <span className="font-mono text-caption text-slate-600 uppercase">
                       Guide
@@ -241,7 +241,7 @@ export default async function AudiencePage({
                 <li key={`term-${t.slug}`}>
                   <Link
                     href={`/glossary/${t.slug}`}
-                    className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                    className="group card-link flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6"
                   >
                     <span className="font-mono text-caption text-slate-600 uppercase">
                       Glossary

@@ -132,7 +132,7 @@ export default function Page() {
                     >
                       {group.title}
                     </h3>
-                    <p className="max-w-[68ch] text-body text-slate-600">
+                    <p className="max-w-[34em] text-body text-slate-600">
                       {groupIntros[group.slug]}
                     </p>
                   </div>

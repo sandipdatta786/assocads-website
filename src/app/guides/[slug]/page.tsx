@@ -286,7 +286,7 @@ export default async function GuidePage({
                 <h2 id="sources" className={sectionHeading}>
                   Sources
                 </h2>
-                <ol className="flex list-decimal flex-col gap-3 pl-6 text-small text-slate-600 marker:text-slate-500">
+                <ol className="flex max-w-[40em] list-decimal flex-col gap-3 pl-6 text-small text-slate-600 marker:text-slate-500">
                   {guide.sources.map((s) => (
                     <li key={s.url} className="pl-1">
                       <a

@@ -4,7 +4,7 @@ import { cn } from "@/lib/cn";
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-pill font-medium whitespace-nowrap " +
-  "transition-colors duration-150 ease-out select-none " +
+  "transition-[color,background-color,border-color,transform] duration-150 ease-out select-none active:scale-[0.97] " +
   "disabled:cursor-not-allowed disabled:opacity-60 aria-disabled:pointer-events-none aria-disabled:opacity-60";
 
 const variants = {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
@@ -17,6 +17,7 @@ import {
   getDeedObjects,
   getProgrammes,
 } from "@/lib/content/loaders";
+import { cn } from "@/lib/cn";
 import { loadMdxBody } from "@/lib/content/mdx";
 import { contentIcon } from "@/lib/icons";
 import { programmeLead, programmeStatusText } from "@/lib/programmes";
@@ -98,7 +99,7 @@ export default async function ProgrammePage({
             eyebrow="Plans"
             title="What this will include"
           />
-          <p className="-mt-4 mb-10 max-w-[68ch] text-body text-slate-600 lg:-mt-8 lg:mb-14">
+          <p className="-mt-4 mb-10 max-w-[34em] text-body text-slate-600 lg:-mt-8 lg:mb-14">
             {programme.summary}
           </p>
           <div
@@ -111,7 +112,7 @@ export default async function ProgrammePage({
                 key={group.title ?? groupIndex}
                 className={
                   halves
-                    ? "flex flex-col gap-5 rounded-l border border-line bg-paper p-6 sm:p-8"
+                    ? "flex flex-col gap-5 rounded-m border border-line bg-paper p-6 sm:p-8"
                     : undefined
                 }
               >
@@ -129,7 +130,7 @@ export default async function ProgrammePage({
                   className={
                     halves
                       ? "flex flex-col gap-3"
-                      : "grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+                      : "grid overflow-hidden rounded-m border border-line bg-paper sm:grid-cols-2"
                   }
                 >
                   {group.items.map((item) => (
@@ -138,13 +139,22 @@ export default async function ProgrammePage({
                       className={
                         halves
                           ? "flex gap-3 text-body text-slate-600"
-                          : "flex gap-3 rounded-m border border-line bg-paper p-5 text-body text-slate-600"
+                          : "flex gap-3 border-t border-line p-5 text-body text-slate-600 first:border-t-0 sm:p-6 sm:odd:border-r sm:[&:nth-child(2)]:border-t-0"
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                        className="mt-[0.6em] size-1.5 shrink-0 rounded-pill bg-indigo"
-                      />
+                      {halves ? (
+                        <span
+                          aria-hidden="true"
+                          className="mt-[0.6em] size-1.5 shrink-0 rounded-pill bg-indigo"
+                        />
+                      ) : (
+                        <Check
+                          aria-hidden="true"
+                          size={20}
+                          strokeWidth={1.5}
+                          className="mt-0.5 shrink-0 text-indigo"
+                        />
+                      )}
                       {item}
                     </li>
                   ))}
@@ -185,12 +195,18 @@ export default async function ProgrammePage({
       <Section tone="paper" aria-labelledby="audiences-heading">
         <Container>
           <SectionIntro id="audiences-heading" title="Who it is for" />
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ul
+            className={cn(
+              "grid gap-4 sm:grid-cols-2 lg:gap-6",
+              audiences.length === 3 && "lg:grid-cols-3",
+              audiences.length >= 4 && "lg:grid-cols-4",
+            )}
+          >
             {audiences.map((audience) => (
               <li key={audience.slug}>
                 <Link
                   href={`/for/${audience.slug}`}
-                  className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6"
                 >
                   <span className="flex items-center justify-between gap-3 font-display text-h3 font-semibold text-ink">
                     {audience.title}
@@ -286,7 +302,7 @@ export default async function ProgrammePage({
               <li key={p.slug}>
                 <Link
                   href={`/programmes/${p.slug}`}
-                  className="group flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6"
                 >
                   <Icon
                     icon={contentIcon(p.icon)}

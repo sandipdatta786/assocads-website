@@ -184,7 +184,7 @@ export default function Page() {
               <li key={item.title}>
                 <Link
                   href={item.href}
-                  className="group flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-2 rounded-m border border-line bg-paper p-6"
                 >
                   <span className="flex items-center justify-between gap-3 font-display text-h3 font-semibold text-ink">
                     {item.title}
@@ -266,7 +266,7 @@ export default function Page() {
               </li>
             ))}
           </ol>
-          <p className="mt-10 max-w-[68ch] text-small text-slate-600">
+          <p className="mt-10 max-w-[34em] text-small text-slate-600">
             Honorary Members do not apply. The Board admits them by a resolution
             passed by two-thirds of its members.
           </p>

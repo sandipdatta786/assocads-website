@@ -46,7 +46,7 @@ export function Eyebrow({ className, ...props }: ComponentProps<"p">) {
 export function Lead({ className, ...props }: ComponentProps<"p">) {
   return (
     <p
-      className={cn("max-w-[62ch] text-lead text-tone-muted", className)}
+      className={cn("max-w-[34em] text-lead text-tone-muted", className)}
       {...props}
     />
   );

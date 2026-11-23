@@ -33,7 +33,7 @@ export function AccordionItem({
           className="shrink-0 text-tone-faint transition-transform duration-300 ease-out group-open:rotate-45"
         />
       </summary>
-      <div className="max-w-[68ch] pb-6 text-tone-muted">{children}</div>
+      <div className="max-w-[34em] pb-6 text-tone-muted">{children}</div>
     </details>
   );
 }

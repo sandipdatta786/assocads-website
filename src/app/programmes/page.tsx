@@ -90,7 +90,7 @@ export default function ProgrammesPage() {
             ))}
           </ul>
           {unmapped.length > 0 && (
-            <p className="mt-8 max-w-[62ch] text-body text-slate-600">
+            <p className="mt-8 max-w-[34em] text-body text-slate-600">
               {unmapped.length === 1 ? "Object" : "Objects"}{" "}
               {unmapped
                 .map((o) => `${o.number} (${o.title.toLowerCase()})`)

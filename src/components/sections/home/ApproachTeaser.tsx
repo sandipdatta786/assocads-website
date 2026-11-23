@@ -28,7 +28,7 @@ export function ApproachTeaser() {
               <li key={group.slug}>
                 <Link
                   href="/about/approach#initiatives-heading"
-                  className="group flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6 transition-colors duration-150 hover:border-indigo"
+                  className="group card-link flex h-full flex-col gap-4 rounded-m border border-line bg-paper p-6"
                 >
                   <span className="flex items-center justify-between gap-3 font-display text-h3 font-semibold text-ink">
                     {group.title}
