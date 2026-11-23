@@ -200,8 +200,49 @@ export const programmeSchema = z
 
 export const audienceSchema = z.object({
   slug,
+  /** Short title for menus and cards, for example "For students". */
   title: z.string().min(1),
   summary: z.string().min(1),
+  /** The page's h1, written for this reader. */
+  headline: z.string().min(1).max(80),
+  /** One or two sentences under the headline, in the second person. */
+  lead: z.string().min(1),
+  primaryAction: internalLink,
+  seo: z.object({
+    title: z.string().min(1).max(60),
+    description: z.string().min(110).max(160),
+  }),
+  /** "What you can expect": each benefit is tied to a programme. */
+  benefits: z
+    .array(
+      z.object({
+        title: z.string().min(1).max(60),
+        text: z.string().min(1),
+        /** Slug of the programme that delivers it. */
+        programme: slug,
+      }),
+    )
+    .min(4)
+    .max(6),
+  /** An important note for this reader, such as who can join. */
+  notice: z
+    .object({ title: z.string().min(1), text: z.string().min(1) })
+    .optional(),
+  /** "How to take part": exactly three steps. */
+  steps: z
+    .array(z.object({ title: z.string().min(1), text: z.string().min(1) }))
+    .length(3),
+  /** Slugs of the programmes most relevant to this reader. */
+  programmes: z.array(slug).min(2).max(4),
+  faqs: z
+    .array(
+      z.object({
+        question: z.string().min(1).endsWith("?"),
+        answer: z.string().min(1),
+      }),
+    )
+    .min(3)
+    .max(5),
   order: z.number().int().positive(),
 });
 
@@ -253,6 +294,8 @@ export const guideSchema = z.object({
   publishedDate: isoDate,
   lastReviewed: isoDate,
   targetQuery: z.string().min(1),
+  /** Slugs from content/audiences, so audience pages can list this guide. */
+  audiences: z.array(slug).default([]),
   faqs: z
     .array(z.object({ question: z.string().min(1), answer: z.string().min(1) }))
     .default([]),
@@ -266,6 +309,8 @@ export const glossarySchema = z.object({
     .string()
     .refine((t) => words(t) < 40, "must be under 40 words"),
   related: z.array(slug).default([]),
+  /** Slugs from content/audiences, so audience pages can list this term. */
+  audiences: z.array(slug).default([]),
   lastReviewed: isoDate,
   draft,
 });

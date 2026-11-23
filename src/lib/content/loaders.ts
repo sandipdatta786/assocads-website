@@ -342,6 +342,22 @@ export function getProgrammes() {
 export function getAudiences() {
   const items = readMdxCollection("audiences", audienceSchema);
   uniqueSlugs("content/audiences", items);
+
+  // Every programme an audience page links to must exist.
+  const programmeSlugs = new Set(
+    readMdxCollection("programmes", programmeSchema).map((p) => p.slug),
+  );
+  const problems: string[] = [];
+  for (const a of items) {
+    const linked = [...a.programmes, ...a.benefits.map((b) => b.programme)];
+    for (const slug of linked) {
+      if (!programmeSlugs.has(slug)) {
+        problems.push(`${a.file}: unknown programme "${slug}"`);
+      }
+    }
+  }
+  check("content/audiences", problems);
+
   return items.sort((a, b) => a.order - b.order);
 }
 
