@@ -60,6 +60,8 @@ export const site = {
     /** False until the register-your-interest form is connected to a mail service (Prompt 16).
         While false, the form says plainly that nothing is sent. */
     registerInterestLive: false,
+    /** The same, for the communities interest form. */
+    communityInterestLive: false,
   },
 
   contact: {

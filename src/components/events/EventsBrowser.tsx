@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSyncExternalStore } from "react";
 import { Badge } from "@/components/ui/Tag";
 import { cn } from "@/lib/cn";
 import {
@@ -16,6 +15,7 @@ import {
   typeLabels,
   type EventDates,
 } from "@/lib/events";
+import { setQuery, useQuery } from "@/lib/query";
 import { useNow } from "./useNow";
 
 export type EventListItem = EventDates & {
@@ -26,41 +26,6 @@ export type EventListItem = EventDates & {
   mode: keyof typeof modeLabels;
   city: string;
 };
-
-/* ---------- Filters kept in the address, without a page reload ---------- */
-
-const QUERY_EVENT = "assocads:query";
-
-function subscribeQuery(onChange: () => void) {
-  window.addEventListener("popstate", onChange);
-  window.addEventListener(QUERY_EVENT, onChange);
-  return () => {
-    window.removeEventListener("popstate", onChange);
-    window.removeEventListener(QUERY_EVENT, onChange);
-  };
-}
-
-function useQuery(): URLSearchParams {
-  const search = useSyncExternalStore(
-    subscribeQuery,
-    () => window.location.search,
-    () => "",
-  );
-  return new URLSearchParams(search);
-}
-
-function setQuery(key: string, value: string | null) {
-  const params = new URLSearchParams(window.location.search);
-  if (value) params.set(key, value);
-  else params.delete(key);
-  const query = params.toString();
-  window.history.replaceState(
-    null,
-    "",
-    `${window.location.pathname}${query ? `?${query}` : ""}`,
-  );
-  window.dispatchEvent(new Event(QUERY_EVENT));
-}
 
 /* ---------- Pieces ---------- */
 
