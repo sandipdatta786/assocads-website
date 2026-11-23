@@ -314,6 +314,28 @@ export function getDeedObjects() {
 export function getProgrammes() {
   const items = readMdxCollection("programmes", programmeSchema);
   uniqueSlugs("content/programmes", items);
+
+  // Cross-references must point at real audiences and programmes.
+  const programmeSlugs = new Set(items.map((p) => p.slug));
+  const audienceSlugs = new Set(
+    readMdxCollection("audiences", audienceSchema).map((a) => a.slug),
+  );
+  const problems: string[] = [];
+  for (const p of items) {
+    for (const a of p.audiences) {
+      if (!audienceSlugs.has(a))
+        problems.push(`${p.file}: unknown audience "${a}"`);
+    }
+    for (const r of p.related) {
+      if (!programmeSlugs.has(r) || r === p.slug) {
+        problems.push(
+          `${p.file}: related programme "${r}" is not another programme`,
+        );
+      }
+    }
+  }
+  check("content/programmes", problems);
+
   return items.sort((a, b) => a.order - b.order);
 }
 

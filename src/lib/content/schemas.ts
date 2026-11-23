@@ -133,18 +133,70 @@ export const deedObjectSchema = z.object({
 
 const draft = z.boolean().default(false);
 
-export const programmeSchema = z.object({
-  slug,
-  title: z.string().min(1),
-  /** One line for menus and cards, under 60 characters. */
-  tagline: z.string().min(1).max(60),
-  summary: z.string().refine(wordRange(60, 90), "must be 60 to 90 words"),
-  deedObjects: z.array(z.number().int().min(1).max(16)).min(1),
-  status: z.enum(["active", "planned"]),
-  /** A Lucide icon name, for example "graduation-cap". */
-  icon: z.string().min(1),
-  order: z.number().int().positive(),
+/** A link to a page on this site. */
+const internalLink = z.object({
+  label: z.string().min(1).max(32),
+  href: z.string().startsWith("/"),
 });
+
+export const programmeSchema = z
+  .object({
+    slug,
+    title: z.string().min(1),
+    /** One line for menus and cards, under 60 characters. */
+    tagline: z.string().min(1).max(60),
+    summary: z.string().refine(wordRange(60, 90), "must be 60 to 90 words"),
+    /** One sentence: what the programme is for. */
+    purpose: z.string().min(1).max(220),
+    /** Search title and description for the page's metadata. */
+    seo: z.object({
+      title: z.string().min(1).max(60),
+      description: z.string().min(110).max(160),
+    }),
+    deedObjects: z.array(z.number().int().min(1).max(16)).min(1),
+    /** "What this will include": activities drawn only from the mapped deed objects.
+        Most programmes have one untitled group; a programme with two halves has two titled groups. */
+    includes: z
+      .array(
+        z.object({
+          title: z.string().min(1).optional(),
+          intro: z.string().min(1).optional(),
+          items: z.array(z.string().min(1)).min(2),
+        }),
+      )
+      .min(1),
+    /** Slugs from content/audiences. */
+    audiences: z.array(slug).min(1),
+    involvement: z.object({
+      text: z.string().min(1),
+      actions: z.array(internalLink).min(1).max(2),
+    }),
+    faqs: z
+      .array(
+        z.object({
+          question: z.string().min(1).endsWith("?"),
+          answer: z.string().min(1),
+        }),
+      )
+      .min(3)
+      .max(4),
+    /** Slugs of related programmes. */
+    related: z.array(slug).min(1).max(3),
+    status: z.enum(["active", "planned"]),
+    /** A Lucide icon name, for example "graduation-cap". */
+    icon: z.string().min(1),
+    order: z.number().int().positive(),
+  })
+  .refine(
+    (p) => {
+      const total = p.includes.reduce((n, g) => n + g.items.length, 0);
+      return total >= 4 && total <= 10;
+    },
+    {
+      message: "includes must list four to ten activities in all",
+      path: ["includes"],
+    },
+  );
 
 export const audienceSchema = z.object({
   slug,
