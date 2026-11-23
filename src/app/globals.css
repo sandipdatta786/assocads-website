@@ -1,4 +1,380 @@
 @import "tailwindcss";
 
-/* The brand tokens, fonts and base styles are added in the design-system step.
-   See docs/BRAND_GUIDE.md. Do not add colours or fonts that are not in that guide. */
+/* ASSOCADS design tokens. Source of truth: docs/BRAND_GUIDE.md, section 8.
+   Never add a colour or a font that is not in the brand guide. */
+
+:root {
+  /* Colour */
+  --ink: #0b1020;
+  --paper: #ffffff;
+  --cloud: #f5f6f8;
+  --night: #141a2e;
+  --indigo: #2f3bd9;
+  --indigo-deep: #232cb0;
+  --indigo-bright: #8791ff;
+  --indigo-tint: #eef0ff;
+  --marigold: #f2a31b;
+  --marigold-tint: #fff6e5;
+  --amber-deep: #9a5b00;
+  --teal: #0b7a6e;
+  --slate-600: #4a5165;
+  --slate-500: #626a7e;
+  --slate-400: #9aa1b2;
+  --line: #d9dce5;
+  --success: #157a3e;
+  --error: #c4281c;
+
+  /* Type sizes */
+  --text-display-xl: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
+  --text-display-l: clamp(2.125rem, 1.6rem + 2.6vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 1.45rem + 1.4vw, 2.5rem);
+  --text-h3: clamp(1.3125rem, 1.2rem + 0.5vw, 1.625rem);
+  --text-lead: clamp(1.1875rem, 1.12rem + 0.3vw, 1.375rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-caption: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+
+  /* Layout */
+  --content-max: 1200px;
+  --reading-max: 720px;
+
+  /* Tone: the colours a component should use for the surface it sits on.
+     Section sets data-tone and these change with it. */
+  --tone-bg: var(--paper);
+  --tone-fg: var(--ink);
+  --tone-muted: var(--slate-600);
+  --tone-faint: var(--slate-500);
+  --tone-link: var(--indigo);
+  --tone-line: var(--line);
+  --tone-card: var(--paper);
+  --tone-focus: var(--indigo);
+  --tone-primary-bg: var(--indigo);
+  --tone-primary-fg: var(--paper);
+  --tone-primary-hover: var(--indigo-deep);
+}
+
+[data-tone="cloud"] {
+  --tone-bg: var(--cloud);
+  --tone-card: var(--paper);
+}
+
+[data-tone="tint"] {
+  --tone-bg: var(--indigo-tint);
+  --tone-muted: var(--ink);
+  --tone-faint: var(--ink);
+  --tone-link: var(--indigo-deep);
+  --tone-card: var(--paper);
+}
+
+[data-tone="paper"] {
+  --tone-bg: var(--paper);
+  --tone-fg: var(--ink);
+  --tone-muted: var(--slate-600);
+  --tone-faint: var(--slate-500);
+  --tone-link: var(--indigo);
+  --tone-line: var(--line);
+  --tone-card: var(--paper);
+  --tone-focus: var(--indigo);
+  --tone-primary-bg: var(--indigo);
+  --tone-primary-fg: var(--paper);
+  --tone-primary-hover: var(--indigo-deep);
+}
+
+[data-tone="ink"] {
+  --tone-bg: var(--ink);
+  --tone-fg: var(--paper);
+  --tone-muted: var(--slate-400);
+  --tone-faint: var(--slate-400);
+  --tone-link: var(--indigo-bright);
+  --tone-line: #2a3150;
+  --tone-card: var(--night);
+  --tone-focus: var(--indigo-bright);
+  --tone-primary-bg: var(--indigo-bright);
+  --tone-primary-fg: var(--ink);
+  --tone-primary-hover: var(--paper);
+}
+
+/* Remove Tailwind's default palette, type scale, radii and shadows so that
+   only brand values can be used. */
+@theme inline {
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-cloud: var(--cloud);
+  --color-night: var(--night);
+  --color-indigo: var(--indigo);
+  --color-indigo-deep: var(--indigo-deep);
+  --color-indigo-bright: var(--indigo-bright);
+  --color-indigo-tint: var(--indigo-tint);
+  --color-marigold: var(--marigold);
+  --color-marigold-tint: var(--marigold-tint);
+  --color-amber-deep: var(--amber-deep);
+  --color-teal: var(--teal);
+  --color-slate-600: var(--slate-600);
+  --color-slate-500: var(--slate-500);
+  --color-slate-400: var(--slate-400);
+  --color-line: var(--line);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Tone-aware colours */
+  --color-tone-bg: var(--tone-bg);
+  --color-tone-fg: var(--tone-fg);
+  --color-tone-muted: var(--tone-muted);
+  --color-tone-faint: var(--tone-faint);
+  --color-tone-link: var(--tone-link);
+  --color-tone-line: var(--tone-line);
+  --color-tone-card: var(--tone-card);
+  --color-tone-focus: var(--tone-focus);
+  --color-tone-primary-bg: var(--tone-primary-bg);
+  --color-tone-primary-fg: var(--tone-primary-fg);
+  --color-tone-primary-hover: var(--tone-primary-hover);
+
+  --font-display:
+    var(--font-inter-tight), var(--font-inter), system-ui, -apple-system,
+    "Segoe UI", Arial, sans-serif;
+  --font-text:
+    var(--font-inter), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-display-xl: var(--text-display-xl);
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-l: var(--text-display-l);
+  --text-display-l--line-height: 1.08;
+  --text-display-l--letter-spacing: -0.025em;
+  --text-h2: var(--text-h2);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: var(--text-h3);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lead: var(--text-lead);
+  --text-lead--line-height: 1.5;
+  --text-body: var(--text-body);
+  --text-body--line-height: 1.6;
+  --text-small: var(--text-small);
+  --text-small--line-height: 1.5;
+  --text-caption: var(--text-caption);
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.01em;
+  --text-eyebrow: var(--text-eyebrow);
+  --text-eyebrow--line-height: 1.3;
+  --text-eyebrow--letter-spacing: 0.08em;
+
+  --radius-s: 12px;
+  --radius-m: 20px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+
+  --shadow-card:
+    0 1px 2px rgba(11, 16, 32, 0.04), 0 8px 24px rgba(11, 16, 32, 0.06);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --container-content: var(--content-max);
+  --container-reading: var(--reading-max);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--indigo);
+    color: var(--paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--tone-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Long-form content written in MDX. Used by the Prose component. */
+@layer components {
+  .prose {
+    max-width: var(--reading-max);
+    color: var(--tone-fg);
+  }
+
+  .prose > * + * {
+    margin-top: 1.25em;
+  }
+
+  .prose h2 {
+    font-size: var(--text-h2);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-top: 2em;
+  }
+
+  .prose h3 {
+    font-size: var(--text-h3);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-top: 1.75em;
+  }
+
+  .prose a {
+    color: var(--tone-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .prose a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .prose strong {
+    font-weight: 600;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-left: 1.4em;
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ol {
+    list-style: decimal;
+  }
+
+  .prose li + li {
+    margin-top: 0.5em;
+  }
+
+  .prose li::marker {
+    color: var(--tone-faint);
+  }
+
+  .prose blockquote {
+    border-left: 3px solid var(--indigo);
+    padding-left: 1.25em;
+    font-size: var(--text-lead);
+    line-height: 1.5;
+    color: var(--tone-muted);
+  }
+
+  .prose hr {
+    border: 0;
+    border-top: 1px solid var(--tone-line);
+    margin-block: 2.5em;
+  }
+
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--cloud);
+    color: var(--ink);
+    padding: 0.1em 0.35em;
+    border-radius: 6px;
+  }
+
+  .prose .table-scroll {
+    overflow-x: auto;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-small);
+  }
+
+  .prose th {
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid var(--tone-fg);
+    padding: 0.6em 1em 0.6em 0;
+  }
+
+  .prose td {
+    border-bottom: 1px solid var(--tone-line);
+    padding: 0.7em 1em 0.7em 0;
+    vertical-align: top;
+  }
+}
+
+/* The Logo component shows the version that suits the surrounding tone. */
+.logo-on-dark {
+  display: none;
+}
+
+[data-tone="ink"] .logo-on-light {
+  display: none;
+}
+
+[data-tone="ink"] .logo-on-dark {
+  display: block;
+}
+
+[data-tone="ink"]
+  :is([data-tone="paper"], [data-tone="cloud"], [data-tone="tint"])
+  .logo-on-light {
+  display: block;
+}
+
+[data-tone="ink"]
+  :is([data-tone="paper"], [data-tone="cloud"], [data-tone="tint"])
+  .logo-on-dark {
+  display: none;
+}

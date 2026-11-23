@@ -42,3 +42,6 @@ next-env.d.ts
 
 # keep the example env file in Git
 !.env.example
+
+# working copies of planning documents and logo drafts (masters are in docs/)
+/_working/
