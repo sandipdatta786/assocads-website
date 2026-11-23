@@ -4,29 +4,11 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { getTrustees } from "@/lib/content/loaders";
-
-const numberWords = [
-  "zero",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-  "ten",
-  "eleven",
-  "twelve",
-  "thirteen",
-  "fourteen",
-  "fifteen",
-];
+import { numberWord } from "@/lib/words";
 
 export function TrusteesPreview() {
   const trustees = getTrustees();
-  const count = numberWords[trustees.length] ?? String(trustees.length);
+  const count = numberWord(trustees.length);
 
   return (
     <Section tone="paper" aria-labelledby="trustees-heading">

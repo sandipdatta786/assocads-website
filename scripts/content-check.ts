@@ -14,6 +14,7 @@ import path from "node:path";
 import {
   CONTENT_DIR,
   getAudiences,
+  getDeedObjects,
   getDocuments,
   getEvents,
   getFaqs,
@@ -42,6 +43,7 @@ const collections: [string, () => unknown[]][] = [
   ["faqs", () => getFaqs()],
   ["roadmap stages", () => getRoadmap()],
   ["documents", () => getDocuments()],
+  ["deed objects", () => getDeedObjects()],
 ];
 
 let failed = false;

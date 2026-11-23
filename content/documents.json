@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "title": "Certificate of registration",
+    "description": "Proof that the trust is registered. Published once registration is complete.",
+    "file": "/documents/certificate-of-registration.pdf",
+    "category": "governance",
+    "available": false
+  },
+  {
+    "title": "Bye-laws",
+    "description": "The rules for membership, fees and committees, adopted by the Board after registration.",
+    "file": "/documents/bye-laws.pdf",
+    "category": "governance",
+    "available": false
+  },
+  {
+    "title": "Annual report 2026–27",
+    "description": "What the trust did in its first financial year, adopted by the Board.",
+    "file": "/documents/annual-report-2026-27.pdf",
+    "category": "report",
+    "available": false
+  },
+  {
+    "title": "Audited accounts 2026–27",
+    "description": "The first year's accounts, audited by a Chartered Accountant.",
+    "file": "/documents/audited-accounts-2026-27.pdf",
+    "category": "report",
+    "available": false
+  }
+]

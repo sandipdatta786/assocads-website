@@ -21,6 +21,7 @@ import {
 } from "../../config/site.ts";
 import {
   audienceSchema,
+  deedObjectSchema,
   documentSchema,
   eventSchema,
   faqSchema,
@@ -268,7 +269,8 @@ export function getDocuments() {
           `${d.title}: marked available but ${d.file} does not exist in public/`,
       ),
   );
-  return items.sort((a, b) => b.date.localeCompare(a.date));
+  // Published documents first, newest first; the rest keep their order in the file.
+  return items.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
 }
 
 export function getRoadmap() {
@@ -276,6 +278,24 @@ export function getRoadmap() {
   return readJsonArray("roadmap", roadmapSchema).sort(
     (a, b) => order[a.horizon] - order[b.horizon],
   );
+}
+
+export function getDeedObjects() {
+  const file = "content/objects.json";
+  const items = readJsonArray("objects", deedObjectSchema).sort(
+    (a, b) => a.number - b.number,
+  );
+  const numbers = items.map((o) => o.number).join(",");
+  const expected = Array.from({ length: 16 }, (_, i) => i + 1).join(",");
+  check(
+    file,
+    numbers === expected
+      ? []
+      : [
+          `must list each of the sixteen objects exactly once (found ${numbers})`,
+        ],
+  );
+  return items;
 }
 
 export function getProgrammes() {
