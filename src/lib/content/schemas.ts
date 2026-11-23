@@ -388,16 +388,33 @@ export const communitySchema = z
     path: ["city"],
   });
 
-export const insightSchema = z.object({
-  slug,
-  title: z.string().min(1),
-  summary: z.string().min(1),
-  category: z.enum(["announcement", "news", "report"]),
-  publishedDate: isoDate,
-  author: z.string().min(1),
-  image: z.string().startsWith("/").optional(),
-  draft,
-});
+export const insightCategories = ["announcement", "news", "report"] as const;
+
+export const insightSchema = z
+  .object({
+    slug,
+    title: z.string().min(1).max(100),
+    /** One or two sentences, shown on cards, in search results and in the feed. */
+    summary: z.string().min(1).max(240),
+    category: z.enum(insightCategories),
+    /** An item dated in the future stays hidden until that day (Indian Standard Time). */
+    publishedDate: isoDate,
+    /** Only when the article was changed after publication. */
+    updatedDate: isoDate.optional(),
+    author: z.string().min(1),
+    image: z.string().startsWith("/").optional(),
+    /** Describes the image for people who cannot see it. Required with an image. */
+    imageAlt: z.string().optional(),
+    draft,
+  })
+  .refine((i) => !i.updatedDate || i.updatedDate >= i.publishedDate, {
+    message: "must be on or after publishedDate",
+    path: ["updatedDate"],
+  })
+  .refine((i) => !i.image || Boolean(i.imageAlt?.trim()), {
+    message: "an image needs imageAlt, a short description of it",
+    path: ["imageAlt"],
+  });
 
 export const guideSchema = z.object({
   slug,

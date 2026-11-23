@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/Tag";
-import { cn } from "@/lib/cn";
 import {
   dayOfMonth,
   eventStatus,
@@ -16,6 +15,7 @@ import {
   type EventDates,
 } from "@/lib/events";
 import { setQuery, useQuery } from "@/lib/query";
+import { FilterGroup } from "@/components/ui/FilterGroup";
 import { useNow } from "./useNow";
 
 export type EventListItem = EventDates & {
@@ -28,48 +28,6 @@ export type EventListItem = EventDates & {
 };
 
 /* ---------- Pieces ---------- */
-
-function FilterGroup<T extends string>({
-  label,
-  allLabel,
-  options,
-  value,
-  onChange,
-}: {
-  label: string;
-  allLabel: string;
-  options: { value: T; label: string }[];
-  value: T | null;
-  onChange: (value: T | null) => void;
-}) {
-  const chip =
-    "min-h-11 rounded-pill border px-4 text-small font-medium transition-colors duration-150";
-  const on = "border-ink bg-ink text-paper";
-  const off = "border-slate-500 bg-paper text-ink hover:border-ink";
-  return (
-    <div role="group" aria-label={label} className="flex flex-wrap gap-2">
-      <button
-        type="button"
-        aria-pressed={value === null}
-        onClick={() => onChange(null)}
-        className={cn(chip, value === null ? on : off)}
-      >
-        {allLabel}
-      </button>
-      {options.map((o) => (
-        <button
-          key={o.value}
-          type="button"
-          aria-pressed={value === o.value}
-          onClick={() => onChange(value === o.value ? null : o.value)}
-          className={cn(chip, value === o.value ? on : off)}
-        >
-          {o.label}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 function EventCard({ event, now }: { event: EventListItem; now: number }) {
   const status = eventStatus(event, now);

@@ -66,7 +66,8 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/events` · events list, event pages and a draft template (Prompt 11). See `docs/HOW_TO_ADD_AN_EVENT.md`.
 - [x] `src/app/communities` · communities page, nine proposed Special Interest Groups and the interest form interface (Prompt 12)
 - [ ] Communities interest form sending: connect it, then set `site.forms.communityInterestLive` to `true` (Prompt 16)
-- [ ] `src/app/insights` · insights (Prompt 13)
+- [x] `src/app/insights` · insights list, article pages, `/feed.xml` and a draft template (Prompt 13). See `docs/HOW_TO_PUBLISH_NEWS.md`.
+- [ ] First real news item, written and approved by the founders (no news has been published)
 - [ ] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guides, glossary and resources (Prompt 14)
 - [ ] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact (Prompts 15 and 16)
 - [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)

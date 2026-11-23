@@ -20,6 +20,7 @@ import {
   getProgrammes,
 } from "@/lib/content/loaders";
 import { contentIcon } from "@/lib/icons";
+import { builtAt } from "@/lib/clock";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export function generateStaticParams() {
@@ -73,7 +74,9 @@ export default async function AudiencePage({
   const relevant = audience.programmes
     .map((slug) => bySlug(programmes, slug))
     .filter((p) => p !== undefined);
-  const guides = getGuides().filter((g) => g.audiences.includes(audience.slug));
+  const guides = getGuides({ now: await builtAt() }).filter((g) =>
+    g.audiences.includes(audience.slug),
+  );
   const terms = getGlossary().filter((t) =>
     t.audiences.includes(audience.slug),
   );
