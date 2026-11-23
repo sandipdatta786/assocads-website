@@ -81,6 +81,8 @@ export const faqSchema = z.object({
     "governance",
     "membership",
     "money",
+    "partnership",
+    "contact",
     "disambiguation",
   ]),
   /** Paths of the pages that should show this question, for example "/membership". */

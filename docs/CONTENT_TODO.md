@@ -27,6 +27,7 @@ Run `pnpm content:check` for the current list with line numbers. Add one line he
 - [ ] `src/config/site.ts` · public contact email address (`contact.email`)
 - [ ] `src/config/site.ts` · public phone number, if any (`contact.phone`)
 - [ ] `src/config/site.ts` · email address for data protection requests (`contact.dataProtectionEmail`)
+- [ ] `src/config/site.ts` · expected reply time agreed by the founders, shown on /contact (`contact.replyTime`)
 - [ ] `src/config/site.ts` · official social profile links, currently empty and so not shown (`social`)
 - [ ] `src/config/site.ts` · registration number and date, then `legal.status: "registered"`. These are empty settings rather than placeholders, and the site keeps saying "registration in progress" until they are filled in.
 
@@ -71,5 +72,6 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guide and glossary templates, Resources hub and brand kit (Prompt 14)
 - [x] Review the 12 guides and 25 glossary entries and publish them. Reviewed by Sandip Datta on 23 November 2026; see `docs/EDITORIAL_REVIEW.md`.
 - [ ] Board to adopt the logo and check it against registered trademarks, then remove the notice in the Resources brand kit
-- [ ] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact (Prompts 15 and 16)
+- [x] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact pages, with their forms as interface only (Prompt 15)
+- [ ] Connect the partnership, pledge or sponsor, and contact forms, routing contact messages by topic (Prompt 16)
 - [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)
