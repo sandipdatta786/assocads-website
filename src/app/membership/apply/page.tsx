@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { site } from "@/config/site";
 import { getProgrammes } from "@/lib/content/loaders";
 import { pageMetadata } from "@/lib/seo/metadata";
 
@@ -35,10 +34,7 @@ export default function Page() {
       <Section tone="cloud" spacing="none" className="py-12 lg:py-20">
         <Container className="grid gap-12 lg:grid-cols-12">
           <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
-            <RegisterInterestForm
-              programmes={programmes}
-              live={site.forms.registerInterestLive}
-            />
+            <RegisterInterestForm programmes={programmes} />
           </div>
           <aside
             aria-labelledby="apply-aside-heading"

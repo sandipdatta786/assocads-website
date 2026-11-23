@@ -1,77 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { CircleCheck } from "lucide-react";
-import { useId, useRef, useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/Button";
+import { useState } from "react";
 import { cn } from "@/lib/cn";
+import { membershipCategories, membershipRoles } from "@/lib/enquiries";
+import { MEMBERSHIP_MESSAGE_LIMIT } from "@/lib/forms/schemas";
 import {
   CheckRow,
   ChoiceGroup,
   ErrorSummary,
   ErrorText,
-  NotConnectedNote,
   Field,
   describedBy,
   inputClass,
   type Option,
 } from "./fields";
+import {
+  FormNotice,
+  SentPanel,
+  SpamGuards,
+  SubmitButton,
+  useServerForm,
+} from "./serverForm";
 
-const roles: Option[] = [
-  { value: "student", label: "A student" },
-  { value: "professional", label: "A working professional" },
-  { value: "faculty-researcher", label: "Faculty or a researcher" },
-  { value: "organisation", label: "Representing an organisation" },
-  { value: "other", label: "Other" },
-];
+const FORM_ID = "register-interest";
 
-const categories: Option[] = [
-  { value: "ordinary", label: "Ordinary membership" },
-  { value: "life", label: "Life membership" },
-  { value: "associate", label: "Associate membership (for organisations)" },
-  { value: "not-sure", label: "Not sure yet" },
-];
-
-type Values = {
-  name: string;
-  email: string;
-  phone: string;
-  city: string;
-  role: string;
-  organisation: string;
-  category: string;
-  areas: string[];
-  message: string;
-  consent: boolean;
-  updates: boolean;
-};
-
-type Errors = Partial<Record<keyof Values, string>>;
-
-const MESSAGE_LIMIT = 1000;
-
-function validate(v: Values): Errors {
-  const e: Errors = {};
-  if (!v.name.trim()) e.name = "Enter your full name.";
-  if (!v.email.trim()) e.email = "Enter your email address.";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim()))
-    e.email = "Enter an email address in the form name@example.com.";
-  if (v.phone.trim() && !/^[+()\d\s-]{7,20}$/.test(v.phone.trim()))
-    e.phone = "Enter a phone number using digits only, or leave it blank.";
-  if (!v.city.trim()) e.city = "Enter the city where you live or work.";
-  if (!v.role) e.role = "Choose the option that describes you best.";
-  if (v.role === "organisation" && !v.organisation.trim())
-    e.organisation = "Enter the name of the organisation you represent.";
-  if (!v.category) e.category = "Choose a category, or choose Not sure yet.";
-  if (v.message.length > MESSAGE_LIMIT)
-    e.message = `Keep your message under ${MESSAGE_LIMIT} characters.`;
-  if (!v.consent)
-    e.consent = "Tick this box so that we can store your details and reply.";
-  return e;
-}
-
-/** Field order, so the first error can receive focus. */
-const order: (keyof Values)[] = [
+/** Field order, for the error summary. */
+const order = [
   "name",
   "email",
   "phone",
@@ -86,118 +41,56 @@ const order: (keyof Values)[] = [
 
 export function RegisterInterestForm({
   programmes,
-  live,
 }: {
   /** The eight programmes, for "Areas of interest". */
   programmes: Option[];
-  /** Whether submissions are actually sent. False until Prompt 16 wires the form. */
-  live: boolean;
 }) {
-  const uid = useId();
-  const id = (name: string) => `${uid}-${name}`;
-  const formRef = useRef<HTMLFormElement>(null);
-  const summaryRef = useRef<HTMLDivElement>(null);
-  const resultRef = useRef<HTMLDivElement>(null);
+  const form = useServerForm("membership");
+  const { errors, returned } = form;
+  const id = (name: string) => `${FORM_ID}-${name}`;
 
-  const [values, setValues] = useState<Values>({
-    name: "",
-    email: "",
-    phone: "",
-    city: "",
-    role: "",
-    organisation: "",
-    category: "",
-    areas: [],
-    message: "",
-    consent: false,
-    updates: false,
+  const text = (k: string) => String(returned[k] ?? "");
+  const [values, setValues] = useState({
+    name: text("name"),
+    email: text("email"),
+    phone: text("phone"),
+    city: text("city"),
+    role: text("role"),
+    organisation: text("organisation"),
+    category: text("category"),
+    message: text("message"),
   });
-  const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [state, setState] = useState<"editing" | "done">("editing");
+  const [areas, setAreas] = useState<string[]>(() =>
+    Array.isArray(returned.areas) ? returned.areas : [],
+  );
+  const [consented, setConsented] = useState(returned.consent === "on");
+  const [updates, setUpdates] = useState(returned.updates === "on");
 
-  function set<K extends keyof Values>(key: K, value: Values[K]) {
-    const next = { ...values, [key]: value };
-    setValues(next);
-    // Once the visitor has tried to submit, re-check as they correct each field.
-    if (submitted) setErrors(validate(next));
+  function set(key: keyof typeof values, value: string) {
+    setValues((prev) => ({ ...prev, [key]: value }));
   }
 
   function toggleArea(slug: string) {
-    set(
-      "areas",
-      values.areas.includes(slug)
-        ? values.areas.filter((a) => a !== slug)
-        : [...values.areas, slug],
+    setAreas((prev) =>
+      prev.includes(slug) ? prev.filter((a) => a !== slug) : [...prev, slug],
     );
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-    const found = validate(values);
-    setErrors(found);
-    if (Object.keys(found).length > 0) {
-      requestAnimationFrame(() => summaryRef.current?.focus());
-      return;
-    }
-    // Sending is wired in Prompt 16. Until then nothing leaves the browser.
-    setState("done");
-    requestAnimationFrame(() => resultRef.current?.focus());
-  }
-
-  function startAgain() {
-    setState("editing");
-    requestAnimationFrame(() =>
-      formRef.current?.querySelector<HTMLInputElement>("input")?.focus(),
-    );
-  }
-
-  if (state === "done") {
+  if (form.done) {
     return (
-      <div
-        ref={resultRef}
-        tabIndex={-1}
-        role="status"
-        className={cn(
-          "flex flex-col gap-4 rounded-m p-6 outline-none sm:p-8",
-          live ? "bg-indigo-tint" : "bg-marigold-tint",
-        )}
+      <SentPanel
+        state={form.state}
+        resultRef={form.resultRef}
+        title="Thank you"
+        onBack={form.dismiss}
+        backLabel="Register someone else"
       >
-        {live ? (
-          <>
-            <CircleCheck
-              aria-hidden="true"
-              size={32}
-              strokeWidth={1.5}
-              className="text-success"
-            />
-            <h2 className="font-display text-h3 font-semibold text-ink">
-              Thank you, {values.name.trim().split(/\s+/)[0]}
-            </h2>
-            <p className="text-body text-ink">
-              We have your details. We will write to {values.email.trim()} when
-              membership opens. Nothing more is needed from you now.
-            </p>
-          </>
-        ) : (
-          <>
-            <h2 className="font-display text-h3 font-semibold text-ink">
-              Your answers are complete, but they have not been sent
-            </h2>
-            <p className="text-body text-ink">
-              This form is not connected yet, so nothing you entered has left
-              your browser. Please come back soon. It will be switched on
-              shortly.
-            </p>
-          </>
-        )}
-        <div>
-          <Button variant="secondary" onClick={startAgain}>
-            {live ? "Register someone else" : "Back to the form"}
-          </Button>
-        </div>
-      </div>
+        <p>
+          We have your details and have sent you a short acknowledgement. We
+          will write to you when membership opens. Nothing more is needed from
+          you now.
+        </p>
+      </SentPanel>
     );
   }
 
@@ -205,17 +98,15 @@ export function RegisterInterestForm({
 
   return (
     <form
-      ref={formRef}
-      noValidate
-      onSubmit={onSubmit}
-      aria-describedby={`${uid}-required`}
+      {...form.formProps}
+      aria-describedby={`${FORM_ID}-required`}
       className="flex flex-col gap-8"
     >
-      {!live && <NotConnectedNote />}
+      <FormNotice state={form.state} noticeRef={form.noticeRef} />
 
       {errorList.length > 0 && (
         <ErrorSummary
-          summaryRef={summaryRef}
+          summaryRef={form.summaryRef}
           errors={errorList.map((k) => [
             `#${id(k === "areas" ? "areas-0" : k)}`,
             errors[k] ?? "",
@@ -223,7 +114,7 @@ export function RegisterInterestForm({
         />
       )}
 
-      <p id={`${uid}-required`} className="text-small text-slate-600">
+      <p id={`${FORM_ID}-required`} className="text-small text-slate-600">
         All fields are required unless they say optional.
       </p>
 
@@ -303,7 +194,7 @@ export function RegisterInterestForm({
       <ChoiceGroup
         name="role"
         legend="I am"
-        options={roles}
+        options={[...membershipRoles]}
         value={values.role}
         onChange={(v) => set("role", v)}
         error={errors.role}
@@ -349,7 +240,7 @@ export function RegisterInterestForm({
             </Link>
           </>
         }
-        options={categories}
+        options={[...membershipCategories]}
         value={values.category}
         onChange={(v) => set("category", v)}
         error={errors.category}
@@ -371,7 +262,7 @@ export function RegisterInterestForm({
               id={id(`areas-${i}`)}
               name="areas"
               value={p.value}
-              checked={values.areas.includes(p.value)}
+              checked={areas.includes(p.value)}
               onChange={() => toggleArea(p.value)}
             >
               {p.label}
@@ -400,12 +291,12 @@ export function RegisterInterestForm({
         <p
           className={cn(
             "text-caption",
-            values.message.length > MESSAGE_LIMIT
+            values.message.length > MEMBERSHIP_MESSAGE_LIMIT
               ? "text-error"
               : "text-slate-600",
           )}
         >
-          {values.message.length} of {MESSAGE_LIMIT} characters
+          {values.message.length} of {MEMBERSHIP_MESSAGE_LIMIT} characters
         </p>
       </Field>
 
@@ -416,8 +307,8 @@ export function RegisterInterestForm({
         <CheckRow
           id={id("consent")}
           name="consent"
-          checked={values.consent}
-          onChange={(c) => set("consent", c)}
+          checked={consented}
+          onChange={setConsented}
           invalid={Boolean(errors.consent)}
           describedBy={errors.consent ? `${id("consent")}-error` : undefined}
         >
@@ -434,18 +325,20 @@ export function RegisterInterestForm({
         <CheckRow
           id={id("updates")}
           name="updates"
-          checked={values.updates}
-          onChange={(c) => set("updates", c)}
+          checked={updates}
+          onChange={setUpdates}
         >
           Also send me occasional news about ASSOCADS events and programmes.
           (Optional. You can stop these at any time.)
         </CheckRow>
       </div>
 
+      <SpamGuards kind="membership" formId={FORM_ID} attempt={form.attempt} />
+
       <div>
-        <Button type="submit" size="large">
+        <SubmitButton pending={form.pending}>
           Register your interest
-        </Button>
+        </SubmitButton>
       </div>
     </form>
   );

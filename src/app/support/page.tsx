@@ -263,7 +263,7 @@ export default function Page() {
           <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
             <EnquiryForm
               formId={FORM_ID}
-              live={site.forms.supportPledgeLive}
+              kind="support"
               consent="reply to me about my offer and tell me when giving opens"
               submitLabel="Send my offer"
               successText="Thank you. We have noted your offer and will be in touch."
@@ -274,7 +274,6 @@ export default function Page() {
                   label: "Full name",
                   autoComplete: "name",
                   width: "half",
-                  message: "Enter your full name.",
                 },
                 {
                   kind: "text",
@@ -290,7 +289,6 @@ export default function Page() {
                   label: "Email address",
                   autoComplete: "email",
                   width: "half",
-                  message: "Enter your email address.",
                 },
                 {
                   kind: "tel",
@@ -306,7 +304,6 @@ export default function Page() {
                   label: "How would you like to help?",
                   options: [...supportOffers],
                   queryKey: "offer",
-                  message: "Choose how you would like to help.",
                   notes: {
                     pledge: {
                       text: "Tell us roughly what you would like to give. We will write to you when giving opens, and you decide then.",
@@ -321,7 +318,6 @@ export default function Page() {
                   name: "message",
                   label: "Tell us more",
                   hint: "For a venue, say where it is and how many people it holds.",
-                  message: "Tell us a little more about your offer.",
                 },
               ]}
             />

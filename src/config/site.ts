@@ -56,20 +56,6 @@ export const site = {
     feesFixed: false,
   },
 
-  forms: {
-    /** False until the register-your-interest form is connected to a mail service (Prompt 16).
-        While false, the form says plainly that nothing is sent. */
-    registerInterestLive: false,
-    /** The same, for the communities interest form. */
-    communityInterestLive: false,
-    /** The same, for the partnership enquiry form on /partner. */
-    partnerEnquiryLive: false,
-    /** The same, for the pledge or sponsor form on /support. */
-    supportPledgeLive: false,
-    /** The same, for the contact form on /contact. */
-    contactLive: false,
-  },
-
   money: {
     /** True only once the trust is registered and its bank account is in place.
         Until then the site takes no money and shows no bank details, payment

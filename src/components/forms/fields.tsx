@@ -213,19 +213,3 @@ export function ErrorSummary({
     </div>
   );
 }
-
-/** Shown above a form whose sending has not been switched on yet. */
-export function NotConnectedNote() {
-  return (
-    <div
-      role="note"
-      className="rounded-s bg-marigold-tint p-4 text-small text-ink sm:p-5"
-    >
-      <p className="font-semibold">This form is not connected yet</p>
-      <p>
-        You can fill it in, but nothing will be sent until it is switched on. It
-        will be soon.
-      </p>
-    </div>
-  );
-}

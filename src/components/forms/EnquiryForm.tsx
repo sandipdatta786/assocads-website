@@ -1,18 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { CircleCheck } from "lucide-react";
-import {
-  useRef,
-  useState,
-  type FormEvent,
-  type MouseEvent,
-  type ReactNode,
-} from "react";
-import { Button } from "@/components/ui/Button";
+import { useState, type MouseEvent, type ReactNode } from "react";
 import { TextLink } from "@/components/ui/TextLink";
 import { cn } from "@/lib/cn";
 import type { Choice, ChoiceNote } from "@/lib/enquiries";
+import { MESSAGE_LIMIT, type FormKind } from "@/lib/forms/schemas";
 import { setQuery, useQuery } from "@/lib/query";
 import {
   CheckRow,
@@ -20,23 +13,27 @@ import {
   ErrorSummary,
   ErrorText,
   Field,
-  NotConnectedNote,
   describedBy,
   inputClass,
 } from "./fields";
+import {
+  FormNotice,
+  SentPanel,
+  SpamGuards,
+  SubmitButton,
+  useServerForm,
+} from "./serverForm";
 
 /* One form for the site's enquiries: partnership, pledge or sponsor, and
-   contact. Each page describes its fields; this component lays them out,
-   checks them and shows the result. Sending is wired in Prompt 16. */
+   contact. Each page describes its fields for layout; the rules live in the
+   form's schema in src/lib/forms/schemas.ts. */
 
 type Base = {
   name: string;
   label: string;
   hint?: string;
-  /** Required unless this is true. */
+  /** Marked "(optional)". The schema decides what is really required. */
   optional?: boolean;
-  /** The error shown when a required field is empty. */
-  message?: string;
   /** "half" fields sit two to a row on wider screens. */
   width?: "half" | "full";
 };
@@ -50,24 +47,19 @@ type Choosing = {
 };
 
 export type FieldSpec =
-  | (Base & {
-      kind: "text" | "email" | "tel";
-      autoComplete?: string;
-    })
+  | (Base & { kind: "text" | "email" | "tel"; autoComplete?: string })
   | (Base & { kind: "textarea"; rows?: number })
   | (Base & { kind: "select" } & Choosing)
   | (Base & { kind: "choice" } & Choosing)
   | (Base & { kind: "checks"; options: Choice[] });
-
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_TEXT = 3000;
 
 function fieldId(formId: string, name: string) {
   return `${formId}-${name}`;
 }
 
 /** A link that pre-fills one choice in a form and moves to it. Without
-    JavaScript it is an ordinary link to the form. */
+    JavaScript it is an ordinary link to the form. Only the choice goes in
+    the address, never anything personal. */
 export function PrefillLink({
   formId,
   field,
@@ -91,10 +83,9 @@ export function PrefillLink({
     document
       .getElementById(formId)
       ?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
-    // A choice group's first radio carries the field id; focus the chosen one.
     const target =
       document.querySelector<HTMLElement>(
-        `[name="${field}"][value="${value}"]`,
+        `input[name="${field}"][value="${value}"]`,
       ) ?? document.getElementById(fieldId(formId, field));
     target?.focus({ preventScroll: true });
   }
@@ -110,175 +101,88 @@ export function PrefillLink({
   );
 }
 
-type Values = Record<string, string>;
-type Checks = Record<string, string[]>;
-type Errors = Record<string, string>;
-
 export function EnquiryForm({
+  kind,
   formId,
   fields,
   consent,
   submitLabel,
-  live,
+  successTitle = "Thank you",
   successText,
-  intro,
 }: {
+  kind: FormKind;
   /** Prefix for field ids, and the id of the section that holds the form. */
   formId: string;
   fields: FieldSpec[];
   /** What the details will be used for, completing "use them to …". */
   consent: string;
   submitLabel: string;
-  live: boolean;
-  /** Shown after sending, once the form is connected. */
+  successTitle?: string;
+  /** Shown after sending. */
   successText: string;
-  /** A short note above the fields. */
-  intro?: ReactNode;
 }) {
+  const form = useServerForm(kind);
+  const { errors, returned } = form;
   const id = (name: string) => fieldId(formId, name);
-  const summaryRef = useRef<HTMLDivElement>(null);
-  const resultRef = useRef<HTMLDivElement>(null);
   const query = useQuery();
 
-  const [values, setValues] = useState<Values>(() =>
+  const [values, setValues] = useState<Record<string, string>>(() =>
     Object.fromEntries(
       fields
-        .filter((f) => f.kind !== "checks" && !("queryKey" in f && f.queryKey))
-        .map((f) => [f.name, ""]),
+        .filter((f) => f.kind !== "checks")
+        .map((f) => [f.name, String(returned[f.name] ?? "")]),
     ),
   );
-  const [checks, setChecks] = useState<Checks>({});
-  const [consented, setConsented] = useState(false);
-  const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [done, setDone] = useState(false);
+  const [checks, setChecks] = useState<Record<string, string[]>>(() =>
+    Object.fromEntries(
+      fields
+        .filter((f) => f.kind === "checks")
+        .map((f) => {
+          const r = returned[f.name];
+          return [f.name, Array.isArray(r) ? r : []];
+        }),
+    ),
+  );
+  const [consented, setConsented] = useState(returned.consent === "on");
 
   /** The current value of a field, reading choices kept in the address. */
-  function valueOf(f: FieldSpec, from: Values = values): string {
+  function valueOf(f: FieldSpec): string {
     if ((f.kind === "select" || f.kind === "choice") && f.queryKey) {
-      const v = query.get(f.queryKey) ?? "";
+      const v = query.get(f.queryKey) ?? values[f.name] ?? "";
       return f.options.some((o) => o.value === v) ? v : "";
     }
-    return from[f.name] ?? "";
-  }
-
-  function validate(
-    v: Values,
-    c: Checks,
-    agreed: boolean,
-    override?: [string, string],
-  ): Errors {
-    const e: Errors = {};
-    for (const f of fields) {
-      if (f.kind === "checks") {
-        if (!f.optional && !(c[f.name]?.length ?? 0))
-          e[f.name] = f.message ?? `Choose at least one option.`;
-        continue;
-      }
-      const value = (
-        override && override[0] === f.name ? override[1] : valueOf(f, v)
-      ).trim();
-      if (!value) {
-        if (!f.optional)
-          e[f.name] = f.message ?? `Enter ${f.label.toLowerCase()}.`;
-        continue;
-      }
-      if (f.kind === "email" && !EMAIL.test(value))
-        e[f.name] = "Enter an email address in the form name@example.com.";
-      if (f.kind === "tel" && (value.match(/\d/g)?.length ?? 0) < 8)
-        e[f.name] =
-          "Enter a phone number with at least eight digits, or leave it blank.";
-    }
-    if (!agreed)
-      e.consent = "Tick this box so that we can store your details and reply.";
-    return e;
+    return values[f.name] ?? "";
   }
 
   function set(name: string, value: string) {
-    const next = { ...values, [name]: value };
-    setValues(next);
-    if (submitted) setErrors(validate(next, checks, consented));
+    setValues((prev) => ({ ...prev, [name]: value }));
   }
 
   function choose(f: FieldSpec & { queryKey?: string }, value: string) {
-    if (f.queryKey) {
-      setQuery(f.queryKey, value || null);
-      if (submitted)
-        setErrors(validate(values, checks, consented, [f.name, value]));
-    } else set(f.name, value);
+    if (f.queryKey) setQuery(f.queryKey, value || null);
+    set(f.name, value);
   }
 
   function toggle(name: string, value: string, on: boolean) {
-    const list = checks[name] ?? [];
-    const next = {
-      ...checks,
-      [name]: on ? [...list, value] : list.filter((x) => x !== value),
-    };
-    setChecks(next);
-    if (submitted) setErrors(validate(values, next, consented));
+    setChecks((prev) => {
+      const list = prev[name] ?? [];
+      return {
+        ...prev,
+        [name]: on ? [...list, value] : list.filter((x) => x !== value),
+      };
+    });
   }
 
-  function agree(on: boolean) {
-    setConsented(on);
-    if (submitted) setErrors(validate(values, checks, on));
-  }
-
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-    const found = validate(values, checks, consented);
-    setErrors(found);
-    if (Object.keys(found).length > 0) {
-      requestAnimationFrame(() => summaryRef.current?.focus());
-      return;
-    }
-    // Sending is wired in Prompt 16. Until then nothing leaves the browser.
-    setDone(true);
-    requestAnimationFrame(() => resultRef.current?.focus());
-  }
-
-  if (done) {
+  if (form.done) {
     return (
-      <div
-        ref={resultRef}
-        tabIndex={-1}
-        role="status"
-        className={cn(
-          "flex flex-col gap-4 rounded-m p-6 outline-none sm:p-8",
-          live ? "bg-indigo-tint" : "bg-marigold-tint",
-        )}
+      <SentPanel
+        state={form.state}
+        resultRef={form.resultRef}
+        title={successTitle}
+        onBack={form.dismiss}
       >
-        {live ? (
-          <>
-            <CircleCheck
-              aria-hidden="true"
-              size={32}
-              strokeWidth={1.5}
-              className="text-success"
-            />
-            <h3 className="font-display text-h3 font-semibold text-ink">
-              Thank you
-            </h3>
-            <p className="text-body text-ink">{successText}</p>
-          </>
-        ) : (
-          <>
-            <h3 className="font-display text-h3 font-semibold text-ink">
-              Your answers are complete, but they have not been sent
-            </h3>
-            <p className="text-body text-ink">
-              This form is not connected yet, so nothing you entered has left
-              your browser. Please come back soon. It will be switched on
-              shortly.
-            </p>
-          </>
-        )}
-        <div>
-          <Button variant="secondary" onClick={() => setDone(false)}>
-            Back to the form
-          </Button>
-        </div>
-      </div>
+        <p>{successText}</p>
+      </SentPanel>
     );
   }
 
@@ -389,7 +293,7 @@ export function EnquiryForm({
         <textarea
           {...common}
           rows={f.rows ?? 6}
-          maxLength={MAX_TEXT}
+          maxLength={MESSAGE_LIMIT}
           onChange={(e) => set(f.name, e.target.value)}
           className={cn(inputClass, "resize-y")}
         />
@@ -430,17 +334,15 @@ export function EnquiryForm({
 
   return (
     <form
-      noValidate
-      onSubmit={onSubmit}
+      {...form.formProps}
       aria-describedby={`${formId}-required`}
       className="flex flex-col gap-8"
     >
-      {!live && <NotConnectedNote />}
-      {intro}
+      <FormNotice state={form.state} noticeRef={form.noticeRef} />
 
       {errorList.length > 0 && (
         <ErrorSummary
-          summaryRef={summaryRef}
+          summaryRef={form.summaryRef}
           errors={errorList.map((k) => [errorHref(k), errors[k] ?? ""])}
         />
       )}
@@ -461,7 +363,7 @@ export function EnquiryForm({
           id={id("consent")}
           name="consent"
           checked={consented}
-          onChange={agree}
+          onChange={setConsented}
           invalid={Boolean(errors.consent)}
           describedBy={errors.consent ? `${id("consent")}-error` : undefined}
         >
@@ -477,10 +379,10 @@ export function EnquiryForm({
         </CheckRow>
       </div>
 
+      <SpamGuards kind={kind} formId={formId} attempt={form.attempt} />
+
       <div>
-        <Button type="submit" size="large">
-          {submitLabel}
-        </Button>
+        <SubmitButton pending={form.pending}>{submitLabel}</SubmitButton>
       </div>
     </form>
   );

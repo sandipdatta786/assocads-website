@@ -1,16 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { CircleCheck } from "lucide-react";
-import {
-  useId,
-  useRef,
-  useState,
-  type FormEvent,
-  type MouseEvent,
-} from "react";
-import { Button } from "@/components/ui/Button";
+import { useState, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
+import { organiseOptions } from "@/lib/enquiries";
 import { setQuery, useQuery } from "@/lib/query";
 import {
   CheckRow,
@@ -18,12 +11,18 @@ import {
   ErrorSummary,
   ErrorText,
   Field,
-  NotConnectedNote,
   describedBy,
   inputClass,
   type Option,
 } from "./fields";
 import { FORM_ID, PROPOSE_CHAPTER, SELECT_ID } from "./communityInterest";
+import {
+  FormNotice,
+  SentPanel,
+  SpamGuards,
+  SubmitButton,
+  useServerForm,
+} from "./serverForm";
 
 const NOT_SURE = "not-sure";
 
@@ -61,24 +60,7 @@ export function InterestLink({
   );
 }
 
-const organiseOptions: Option[] = [
-  { value: "yes", label: "Yes, I would like to help organise it" },
-  { value: "maybe", label: "Maybe, tell me more" },
-  { value: "no", label: "No, I would just like to take part" },
-];
-
-type Values = {
-  name: string;
-  email: string;
-  city: string;
-  place: string;
-  organise: string;
-  consent: boolean;
-};
-type Key = keyof Values | "interest";
-type Errors = Partial<Record<Key, string>>;
-
-const order: Key[] = [
+const order = [
   "name",
   "email",
   "city",
@@ -91,19 +73,16 @@ const order: Key[] = [
 export function CommunityInterestForm({
   groups,
   chapters,
-  live,
 }: {
   /** Special Interest Groups, proposed and active. */
   groups: Option[];
   /** Chapters the Board has set up. */
   chapters: Option[];
-  live: boolean;
 }) {
-  const uid = useId();
+  const form = useServerForm("community");
+  const { errors, returned } = form;
   const id = (name: string) =>
-    name === "interest" ? SELECT_ID : `${uid}-${name}`;
-  const summaryRef = useRef<HTMLDivElement>(null);
-  const resultRef = useRef<HTMLDivElement>(null);
+    name === "interest" ? SELECT_ID : `${FORM_ID}-${name}`;
 
   // The chosen group or chapter lives in the address, so the cards above can set it.
   const allValues = [
@@ -112,109 +91,37 @@ export function CommunityInterestForm({
     PROPOSE_CHAPTER,
     NOT_SURE,
   ];
-  const requested = useQuery().get("interest") ?? "";
+  const requested =
+    useQuery().get("interest") ?? String(returned.interest ?? "");
   const interest = allValues.includes(requested) ? requested : "";
 
-  const [values, setValues] = useState<Values>({
-    name: "",
-    email: "",
-    city: "",
-    place: "",
-    organise: "",
-    consent: false,
+  const text = (k: string) => String(returned[k] ?? "");
+  const [values, setValues] = useState({
+    name: text("name"),
+    email: text("email"),
+    city: text("city"),
+    place: text("place"),
+    organise: text("organise"),
   });
-  const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [done, setDone] = useState(false);
+  const [consented, setConsented] = useState(returned.consent === "on");
 
-  function validate(v: Values, chosen: string): Errors {
-    const e: Errors = {};
-    if (!v.name.trim()) e.name = "Enter your full name.";
-    if (!v.email.trim()) e.email = "Enter your email address.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim()))
-      e.email = "Enter an email address in the form name@example.com.";
-    if (!v.city.trim()) e.city = "Enter the city where you live or work.";
-    if (!chosen)
-      e.interest = "Choose a group or a chapter, or choose Not sure yet.";
-    if (chosen === PROPOSE_CHAPTER && !v.place.trim())
-      e.place = "Enter the city or state for the chapter you propose.";
-    if (!v.organise)
-      e.organise = "Tell us whether you would like to help organise.";
-    if (!v.consent)
-      e.consent = "Tick this box so that we can store your details and reply.";
-    return e;
+  function set(key: keyof typeof values, value: string) {
+    setValues((prev) => ({ ...prev, [key]: value }));
   }
 
-  function set<K extends keyof Values>(key: K, value: Values[K]) {
-    const next = { ...values, [key]: value };
-    setValues(next);
-    if (submitted) setErrors(validate(next, interest));
-  }
-
-  function choose(value: string) {
-    setQuery("interest", value || null);
-    if (submitted) setErrors(validate(values, value));
-  }
-
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-    const found = validate(values, interest);
-    setErrors(found);
-    if (Object.keys(found).length > 0) {
-      requestAnimationFrame(() => summaryRef.current?.focus());
-      return;
-    }
-    // Sending is wired in Prompt 16. Until then nothing leaves the browser.
-    setDone(true);
-    requestAnimationFrame(() => resultRef.current?.focus());
-  }
-
-  if (done) {
+  if (form.done) {
     return (
-      <div
-        ref={resultRef}
-        tabIndex={-1}
-        role="status"
-        className={cn(
-          "flex flex-col gap-4 rounded-m p-6 outline-none sm:p-8",
-          live ? "bg-indigo-tint" : "bg-marigold-tint",
-        )}
+      <SentPanel
+        state={form.state}
+        resultRef={form.resultRef}
+        title="Thank you"
+        onBack={form.dismiss}
       >
-        {live ? (
-          <>
-            <CircleCheck
-              aria-hidden="true"
-              size={32}
-              strokeWidth={1.5}
-              className="text-success"
-            />
-            <h3 className="font-display text-h3 font-semibold text-ink">
-              Thank you
-            </h3>
-            <p className="text-body text-ink">
-              We have noted your interest. We will write to{" "}
-              {values.email.trim()} when the Board sets up groups and chapters.
-            </p>
-          </>
-        ) : (
-          <>
-            <h3 className="font-display text-h3 font-semibold text-ink">
-              Your answers are complete, but they have not been sent
-            </h3>
-            <p className="text-body text-ink">
-              This form is not connected yet, so nothing you entered has left
-              your browser. Please come back soon. It will be switched on
-              shortly.
-            </p>
-          </>
-        )}
-        <div>
-          <Button variant="secondary" onClick={() => setDone(false)}>
-            Back to the form
-          </Button>
-        </div>
-      </div>
+        <p>
+          We have noted your interest and sent you a short acknowledgement. We
+          will write to you when the Board sets up groups and chapters.
+        </p>
+      </SentPanel>
     );
   }
 
@@ -222,21 +129,20 @@ export function CommunityInterestForm({
 
   return (
     <form
-      noValidate
-      onSubmit={onSubmit}
-      aria-describedby={`${uid}-required`}
+      {...form.formProps}
+      aria-describedby={`${FORM_ID}-required`}
       className="flex flex-col gap-8"
     >
-      {!live && <NotConnectedNote />}
+      <FormNotice state={form.state} noticeRef={form.noticeRef} />
 
       {errorList.length > 0 && (
         <ErrorSummary
-          summaryRef={summaryRef}
+          summaryRef={form.summaryRef}
           errors={errorList.map((k) => [`#${id(k)}`, errors[k] ?? ""])}
         />
       )}
 
-      <p id={`${uid}-required`} className="text-small text-slate-600">
+      <p id={`${FORM_ID}-required`} className="text-small text-slate-600">
         All fields are required.
       </p>
 
@@ -298,7 +204,7 @@ export function CommunityInterestForm({
           id={SELECT_ID}
           name="interest"
           value={interest}
-          onChange={(e) => choose(e.target.value)}
+          onChange={(e) => setQuery("interest", e.target.value || null)}
           aria-invalid={errors.interest ? true : undefined}
           aria-describedby={describedBy(SELECT_ID, errors.interest)}
           className={cn(inputClass, "appearance-auto")}
@@ -348,7 +254,7 @@ export function CommunityInterestForm({
       <ChoiceGroup
         name="organise"
         legend="Would you like to help organise it?"
-        options={organiseOptions}
+        options={[...organiseOptions]}
         value={values.organise}
         onChange={(v) => set("organise", v)}
         error={errors.organise}
@@ -362,8 +268,8 @@ export function CommunityInterestForm({
         <CheckRow
           id={id("consent")}
           name="consent"
-          checked={values.consent}
-          onChange={(c) => set("consent", c)}
+          checked={consented}
+          onChange={setConsented}
           invalid={Boolean(errors.consent)}
           describedBy={errors.consent ? `${id("consent")}-error` : undefined}
         >
@@ -379,10 +285,10 @@ export function CommunityInterestForm({
         </CheckRow>
       </div>
 
+      <SpamGuards kind="community" formId={FORM_ID} attempt={form.attempt} />
+
       <div>
-        <Button type="submit" size="large">
-          Send my interest
-        </Button>
+        <SubmitButton pending={form.pending}>Send my interest</SubmitButton>
       </div>
     </form>
   );

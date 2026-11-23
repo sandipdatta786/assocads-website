@@ -63,15 +63,18 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
 - [x] `src/app/for/[audience]` · four audience pages (Prompt 9)
 - [x] `src/app/membership/**` · membership page and register-your-interest form interface (Prompt 10)
-- [ ] Register-your-interest form sending: connect it, then set `site.forms.registerInterestLive` to `true` (Prompt 16)
+- [x] Register-your-interest form sending (Prompt 16)
 - [x] `src/app/events` · events list, event pages and a draft template (Prompt 11). See `docs/HOW_TO_ADD_AN_EVENT.md`.
 - [x] `src/app/communities` · communities page, nine proposed Special Interest Groups and the interest form interface (Prompt 12)
-- [ ] Communities interest form sending: connect it, then set `site.forms.communityInterestLive` to `true` (Prompt 16)
+- [x] Communities interest form sending (Prompt 16)
 - [x] `src/app/insights` · insights list, article pages, `/feed.xml` and a draft template (Prompt 13). See `docs/HOW_TO_PUBLISH_NEWS.md`.
 - [ ] First real news item, written and approved by the founders (no news has been published)
 - [x] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guide and glossary templates, Resources hub and brand kit (Prompt 14)
 - [x] Review the 12 guides and 25 glossary entries and publish them. Reviewed by Sandip Datta on 23 November 2026; see `docs/EDITORIAL_REVIEW.md`.
 - [ ] Board to adopt the logo and check it against registered trademarks, then remove the notice in the Resources brand kit
 - [x] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact pages, with their forms as interface only (Prompt 15)
-- [ ] Connect the partnership, pledge or sponsor, and contact forms, routing contact messages by topic (Prompt 16)
+- [x] Connect the partnership, pledge or sponsor, and contact forms, routing contact messages by topic (Prompt 16)
+- [ ] Founders: create the Resend account, verify the sending domain and add `RESEND_API_KEY`, `FORMS_FROM` and `FORMS_TO` in Vercel (`docs/FORMS_SETUP.md`). Until then, forms on the live site show a polite "could not send" message.
+- [ ] Founders: create the Cloudflare Turnstile widget and add `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY` in Vercel, then redeploy (`docs/FORMS_SETUP.md`)
+- [ ] Founders: decide whether membership, communities, partnerships, support, events and media messages go to separate addresses (`FORMS_TO_*`), or all to `FORMS_TO`
 - [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)

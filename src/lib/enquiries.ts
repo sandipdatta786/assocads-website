@@ -75,3 +75,28 @@ export const contactTopicNotes: Record<string, ChoiceNote> = {
     linkLabel: "See events",
   },
 };
+
+/** "I am" on the membership interest form. */
+export const membershipRoles = [
+  { value: "student", label: "A student" },
+  { value: "professional", label: "A working professional" },
+  { value: "faculty-researcher", label: "Faculty or a researcher" },
+  { value: "organisation", label: "Representing an organisation" },
+  { value: "other", label: "Other" },
+] as const satisfies Choice[];
+
+/** Membership categories a visitor can register interest in. Honorary
+    membership is by invitation of the Board, so it is not listed. */
+export const membershipCategories = [
+  { value: "ordinary", label: "Ordinary membership" },
+  { value: "life", label: "Life membership" },
+  { value: "associate", label: "Associate membership (for organisations)" },
+  { value: "not-sure", label: "Not sure yet" },
+] as const satisfies Choice[];
+
+/** "Would you like to help organise it?" on the communities form. */
+export const organiseOptions = [
+  { value: "yes", label: "Yes, I would like to help organise it" },
+  { value: "maybe", label: "Maybe, tell me more" },
+  { value: "no", label: "No, I would just like to take part" },
+] as const satisfies Choice[];
