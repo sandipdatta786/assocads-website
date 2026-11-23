@@ -36,6 +36,10 @@ Each of the thirteen trustees has five placeholders: current role, current organ
 
 Photographs received with consent (23 November 2026): Amit Kumar Das, Eshwar Boini, Deb Kumar Majumder, Sandip Datta and Sayan Guha. Still needed from the other eight trustees.
 
+### Documents: `content/documents.json`
+
+The governance page lists four documents as "To be published": the certificate of registration, the bye-laws, the annual report 2026–27 and the audited accounts 2026–27. When one is ready, put the PDF in `public/documents/`, set `available: true` and add its `date`.
+
 - [ ] `content/trustees.json` · Amit Kumar Das
 - [ ] `content/trustees.json` · Abhijit Pal
 - [ ] `content/trustees.json` · Prasun Nandy
@@ -54,8 +58,9 @@ Photographs received with consent (23 November 2026): Amit Kumar Das, Eshwar Boi
 
 Every route in the site map exists, but most show only a heading and `[PLACEHOLDER: page content, built in a later playbook step]`. These are filled in by playbook prompts 5 to 17, not by the founders. `pnpm content:check` lists each one with its file.
 
-- [ ] `src/app/page.tsx` · home page content (Prompt 5)
-- [ ] `src/app/about/**` · About section pages (Prompts 6 and 7)
+- [x] `src/app/page.tsx` · home page content (Prompt 5)
+- [x] `src/app/about`, `objects`, `governance`, `roadmap`, `facts` · About pages (Prompt 6)
+- [ ] `src/app/about/trustees` · Founder Trustees page (Prompt 7)
 - [ ] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
 - [ ] `src/app/for/[audience]` · four audience pages (Prompt 9)
 - [ ] `src/app/membership/**` · membership and register-your-interest pages (Prompts 10 and 16)

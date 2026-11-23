@@ -2,31 +2,42 @@
   {
     "horizon": "near",
     "label": "Near term",
+    "period": "First 12 months",
     "title": "Getting established",
     "items": [
       "Complete the registration of the trust.",
       "Hold the first Board meeting and elect office bearers.",
-      "Adopt bye-laws that set membership categories and fees, then open membership."
+      "Adopt bye-laws that set membership categories and fees, then open membership.",
+      "Apply for registration under sections 12AB and 80G of the Income Tax Act.",
+      "Have our first year's accounts audited and adopt our first annual report after the financial year ends on 31 March."
     ]
   },
   {
     "horizon": "mid",
     "label": "Mid term",
+    "period": "12 to 24 months",
     "title": "First programmes",
     "items": [
       "Run our first workshops, meetups and hackathons, beginning in West Bengal.",
       "Form Special Interest Groups by industry or domain.",
-      "Publish our first guides and reports, each reviewed by a trustee."
+      "Publish our first guides and reports, each reviewed by a trustee.",
+      "Start training, mentoring and faculty development programmes with colleges and universities.",
+      "Build working links between academia, industry, startups and government.",
+      "Share plain-English guidance on responsible AI."
     ]
   },
   {
     "horizon": "long",
     "label": "Long term",
+    "period": "Beyond 24 months",
     "title": "Wider reach",
     "items": [
       "Set up chapters in other states and cities.",
       "Establish or support Centres of Excellence, labs and incubation hubs.",
-      "Grow into an apex professional body for AI and Data Science in India."
+      "Grow into an apex professional body for AI and Data Science in India.",
+      "Support startups through mentoring, investor engagement and market access.",
+      "Contribute to policies, standards and frameworks, and advise governments and institutions.",
+      "Introduce awards and fellowships, and support AI-for-social-good projects."
     ]
   }
 ]

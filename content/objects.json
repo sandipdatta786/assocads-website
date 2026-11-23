@@ -1,0 +1,98 @@
+[
+  {
+    "number": 1,
+    "group": "community",
+    "title": "An inclusive ecosystem",
+    "text": "Bring together everyone working in AI, Data Science, Machine Learning and Analytics: students, professionals, academics, researchers, industry, entrepreneurs, investors, institutions and government."
+  },
+  {
+    "number": 2,
+    "group": "community",
+    "title": "Education and capacity building",
+    "text": "Run conferences, seminars, workshops, bootcamps, hackathons, meetups and training. This includes certification, faculty development, mentoring, career guidance, internships and apprenticeships."
+  },
+  {
+    "number": 3,
+    "group": "foundations",
+    "title": "Centres, labs and hubs",
+    "text": "Set up or support centres, labs, academies, libraries and knowledge repositories, along with innovation hubs, incubation centres and Centres of Excellence."
+  },
+  {
+    "number": 4,
+    "group": "collaboration",
+    "title": "Collaboration across sectors",
+    "text": "Help academia, industry, government, civil society and international institutions work together."
+  },
+  {
+    "number": 5,
+    "group": "knowledge",
+    "title": "Research and publishing",
+    "text": "Carry out research and publish it as journals, case studies, benchmark datasets, technical reports and white papers."
+  },
+  {
+    "number": 6,
+    "group": "public-good",
+    "title": "Responsible AI",
+    "text": "Promote AI and Data Science that is responsible, ethical, transparent and trustworthy."
+  },
+  {
+    "number": 7,
+    "group": "innovation",
+    "title": "Innovation and entrepreneurship",
+    "text": "Support innovation, incubation and new ventures, including mentoring, introductions to investors and access to markets."
+  },
+  {
+    "number": 8,
+    "group": "innovation",
+    "title": "Recognising excellence",
+    "text": "Recognise excellent work through awards, fellowships, certifications and accreditations."
+  },
+  {
+    "number": 9,
+    "group": "collaboration",
+    "title": "National and international links",
+    "text": "Work with organisations in India and abroad, and take part in global initiatives."
+  },
+  {
+    "number": 10,
+    "group": "collaboration",
+    "title": "Policy and standards",
+    "text": "Contribute to policies, standards, frameworks and good practice, and advise governments, institutions and industry."
+  },
+  {
+    "number": 11,
+    "group": "knowledge",
+    "title": "Open and community-driven work",
+    "text": "Encourage collaborative, open-source and community-led projects."
+  },
+  {
+    "number": 12,
+    "group": "public-good",
+    "title": "AI for social good",
+    "text": "Design and support projects that use AI for public benefit: in healthcare, agriculture, education, governance, sustainability, climate resilience, public welfare, accessibility, rural development and social inclusion."
+  },
+  {
+    "number": 13,
+    "group": "foundations",
+    "title": "Institutions and infrastructure",
+    "text": "Set up or support the institutions, facilities and infrastructure that these objects need."
+  },
+  {
+    "number": 14,
+    "group": "community",
+    "title": "Training and advice by sector",
+    "text": "Offer training and advisory services across industries, directly or through Special Interest Groups."
+  },
+  {
+    "number": 15,
+    "group": "knowledge",
+    "title": "Intellectual property",
+    "text": "Create, protect and share intellectual property."
+  },
+  {
+    "number": 16,
+    "group": "foundations",
+    "title": "Other lawful activities",
+    "text": "Do anything else that is lawful and supports these objects, always on a not-for-profit basis."
+  }
+]

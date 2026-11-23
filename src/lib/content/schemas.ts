@@ -83,22 +83,50 @@ export const faqSchema = z.object({
   pages: z.array(z.string().startsWith("/")),
 });
 
-export const documentSchema = z.object({
-  title: z.string().min(1),
-  description: z.string().min(1),
-  /** Path under public/, for example /documents/annual-report-2027.pdf. */
-  file: z.string().startsWith("/documents/"),
-  category: z.enum(["governance", "policy", "report", "brand", "other"]),
-  date: isoDate,
-  available: z.boolean(),
-});
+/** A document. Until it is available it is listed as "To be published" and is not a link. */
+export const documentSchema = z
+  .object({
+    title: z.string().min(1),
+    description: z.string().min(1),
+    /** Path under public/, for example /documents/annual-report-2027.pdf. */
+    file: z.string().startsWith("/documents/"),
+    category: z.enum(["governance", "policy", "report", "brand", "other"]),
+    /** The document's date. Required once it is available. */
+    date: isoDate.optional(),
+    available: z.boolean(),
+  })
+  .refine((d) => !d.available || d.date, {
+    message: "an available document needs a date",
+    path: ["date"],
+  });
 
 /** The roadmap. Every item is a plan, never a claim that something has happened. */
 export const roadmapSchema = z.object({
   horizon: z.enum(["near", "mid", "long"]),
   label: z.string().min(1),
+  /** The time span, for example "First 12 months". */
+  period: z.string().min(1),
   title: z.string().min(1),
+  /** The first three are shown on the home page. */
   items: z.array(z.string().min(1)).min(1),
+});
+
+/** The sixteen objects of the trust deed, in plain English, grouped for reading. */
+export const objectGroups = [
+  { slug: "community", title: "Community and learning" },
+  { slug: "knowledge", title: "Research and knowledge" },
+  { slug: "collaboration", title: "Collaboration and policy" },
+  { slug: "innovation", title: "Innovation and recognition" },
+  { slug: "public-good", title: "Responsibility and public good" },
+  { slug: "foundations", title: "Institutions and support" },
+] as const;
+
+export const deedObjectSchema = z.object({
+  /** The object's number in the trust deed, 1 to 16. */
+  number: z.number().int().min(1).max(16),
+  group: z.enum(objectGroups.map((g) => g.slug) as [string, ...string[]]),
+  title: z.string().min(1).max(60),
+  text: z.string().min(1),
 });
 
 /* ---------- MDX collections (front matter) ---------- */
@@ -201,3 +229,4 @@ export type ContentEvent = z.infer<typeof eventSchema>;
 export type Insight = z.infer<typeof insightSchema>;
 export type Guide = z.infer<typeof guideSchema>;
 export type GlossaryTerm = z.infer<typeof glossarySchema>;
+export type DeedObject = z.infer<typeof deedObjectSchema>;

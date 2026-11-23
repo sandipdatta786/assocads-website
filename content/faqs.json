@@ -3,7 +3,7 @@
     "question": "What is ASSOCADS?",
     "answer": "ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust set up in Kolkata in 2026. It aims to build a collaborative ecosystem for AI, Data Science and Analytics across India, beginning with West Bengal, that connects students, professionals, academia, industry, startups, government and society.",
     "category": "about",
-    "pages": ["/", "/faq", "/about"]
+    "pages": ["/", "/faq", "/about", "/about/facts"]
   },
   {
     "question": "Is ASSOCADS registered?",
@@ -21,7 +21,7 @@
     "question": "What does ASSOCADS plan to do?",
     "answer": "The trust deed sets out sixteen objects, which ASSOCADS groups into eight programme areas: training and certification; events and community; research and publications; industry and academia collaboration; responsible AI; startups and innovation; policy and advisory; and recognition and AI for social good. All eight are planned, and the site states clearly when any activity starts.",
     "category": "about",
-    "pages": ["/faq", "/programmes"]
+    "pages": ["/faq", "/programmes", "/about/objects", "/about/roadmap"]
   },
   {
     "question": "Who runs ASSOCADS?",
@@ -69,7 +69,7 @@
     "question": "Can members vote or help manage ASSOCADS?",
     "answer": "No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.",
     "category": "membership",
-    "pages": ["/faq", "/membership"]
+    "pages": ["/faq", "/membership", "/about/governance"]
   },
   {
     "question": "Are donations to ASSOCADS tax-deductible?",
@@ -93,6 +93,6 @@
     "question": "How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?",
     "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
     "category": "disambiguation",
-    "pages": ["/faq", "/about/facts"]
+    "pages": ["/faq", "/about/facts", "/about"]
   }
 ]

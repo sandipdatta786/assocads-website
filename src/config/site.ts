@@ -28,6 +28,8 @@ export const site = {
   tagline: "Connecting talent, knowledge, innovation and opportunity.",
   url: siteUrl(),
   foundingYear: 2026,
+  /** The "Last updated" date on /about/facts. Change it whenever a fact there changes. */
+  factsUpdated: "2026-11-23",
   location: {
     city: "Kolkata",
     state: "West Bengal",
