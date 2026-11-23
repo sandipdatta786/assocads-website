@@ -115,6 +115,30 @@ export const roadmapSchema = z.object({
   items: z.array(z.string().min(1)).min(1),
 });
 
+/** The groups on /about/approach, in reading order. */
+export const initiativeGroups = [
+  { slug: "learn", title: "Learn by doing" },
+  { slug: "build", title: "Build real solutions" },
+  { slug: "share", title: "Share knowledge openly" },
+  { slug: "serve", title: "Serve industry and society" },
+] as const;
+
+/** A proposed initiative, from the founders' thinking on what ASSOCADS should stand for.
+    Every one is a proposal; the Board decides which to start, and when. */
+export const initiativeSchema = z.object({
+  slug,
+  group: z.enum(["learn", "build", "share", "serve"]),
+  title: z.string().min(1).max(50),
+  summary: z.string().min(1),
+  /** One sentence on what a participant or the field gains. */
+  outcome: z.string().min(1).max(110),
+  /** The programme this belongs to, from content/programmes. */
+  programme: slug,
+});
+
+/** A question ASSOCADS aims to judge its success by. Never a number until there is real data. */
+export const successMeasureSchema = z.string().min(1).endsWith("?");
+
 /** The sixteen objects of the trust deed, in plain English, grouped for reading. */
 export const objectGroups = [
   { slug: "community", title: "Community and learning" },
@@ -330,4 +354,5 @@ export type ContentEvent = z.infer<typeof eventSchema>;
 export type Insight = z.infer<typeof insightSchema>;
 export type Guide = z.infer<typeof guideSchema>;
 export type GlossaryTerm = z.infer<typeof glossarySchema>;
+export type Initiative = z.infer<typeof initiativeSchema>;
 export type DeedObject = z.infer<typeof deedObjectSchema>;

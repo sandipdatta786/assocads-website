@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CallToAction } from "@/components/sections/CallToAction";
+import { ApproachTeaser } from "@/components/sections/home/ApproachTeaser";
 import { AudienceRouting } from "@/components/sections/home/AudienceRouting";
 import { Hero } from "@/components/sections/home/Hero";
 import { HomeQuestions } from "@/components/sections/home/HomeQuestions";
@@ -37,6 +38,7 @@ export default function HomePage() {
       <Hero />
       <AudienceRouting />
       <WhatWeDo />
+      <ApproachTeaser />
       <WhyAssocads />
       <TrusteesPreview />
       <WhatsNext />

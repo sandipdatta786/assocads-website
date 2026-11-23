@@ -32,6 +32,8 @@ import {
   membershipCategorySchema,
   programmeSchema,
   roadmapSchema,
+  initiativeSchema,
+  successMeasureSchema,
   trusteeSchema,
 } from "./schemas.ts";
 
@@ -291,6 +293,26 @@ export function getRoadmap() {
   return readJsonArray("roadmap", roadmapSchema).sort(
     (a, b) => order[a.horizon] - order[b.horizon],
   );
+}
+
+export function getInitiatives() {
+  const file = "content/initiatives.json";
+  const items = readJsonArray("initiatives", initiativeSchema);
+  uniqueSlugs(file, items);
+  const programmes = new Set(
+    readMdxCollection("programmes", programmeSchema).map((p) => p.slug),
+  );
+  check(
+    file,
+    items
+      .filter((i) => !programmes.has(i.programme))
+      .map((i) => `${i.slug}: programme "${i.programme}" not found`),
+  );
+  return items;
+}
+
+export function getSuccessMeasures() {
+  return readJsonArray("success-measures", successMeasureSchema);
 }
 
 export function getDeedObjects() {

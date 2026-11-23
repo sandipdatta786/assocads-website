@@ -180,6 +180,7 @@ export default function AboutPage() {
             ))}
           </ul>
           <div className="mt-10 flex flex-wrap gap-3">
+            <ButtonLink href="/about/approach">Read our approach</ButtonLink>
             <ButtonLink href="/about/objects" variant="secondary">
               Read our aims and objects
             </ButtonLink>

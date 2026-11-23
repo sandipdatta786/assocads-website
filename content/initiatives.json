@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "masterclasses",
+    "group": "learn",
+    "title": "Hands-on masterclasses",
+    "summary": "Practical sessions led by experienced practitioners, where participants work on real business problems, build AI applications, try new tools and see how these technologies are used inside organisations.",
+    "outcome": "You leave with working prototypes and skills you can show, not just slides.",
+    "programme": "training-and-certification"
+  },
+  {
+    "slug": "practical-certification",
+    "group": "learn",
+    "title": "Practical certifications",
+    "summary": "Certifications that test what you can do as well as what you know: a proctored online theory examination, followed by a real-world problem or project assessed by experienced industry professionals against published criteria.",
+    "outcome": "A certification that shows how well you apply your knowledge to real problems.",
+    "programme": "training-and-certification"
+  },
+  {
+    "slug": "mentorship",
+    "group": "learn",
+    "title": "Mentoring and career growth",
+    "summary": "Structured mentoring that pairs experienced architects, data scientists, researchers and leaders with students, young professionals and people moving into AI. Mentors help with practical projects, portfolios and what employers expect. Members also mentor each other across specialisations.",
+    "outcome": "Real guidance and a portfolio of work, from people who do the job.",
+    "programme": "training-and-certification"
+  },
+  {
+    "slug": "use-case-development",
+    "group": "build",
+    "title": "Collaborative use case development",
+    "summary": "Professionals from different companies work with students and researchers to build practical solutions to real business problems. Working prototypes are then shown to enterprises, mid-sized businesses and startups that might adopt or develop them further.",
+    "outcome": "Cross-organisation teams that turn ideas into working prototypes.",
+    "programme": "industry-and-academia"
+  },
+  {
+    "slug": "problem-exchange",
+    "group": "build",
+    "title": "Industry problem exchange",
+    "summary": "A structured way for companies to share specific business challenges that AI or Data Science might help solve. Members study them, suggest approaches, build prototypes and demonstrate possible solutions.",
+    "outcome": "A steady link between what industry needs and what our community can do.",
+    "programme": "industry-and-academia"
+  },
+  {
+    "slug": "innovation-challenges",
+    "group": "build",
+    "title": "Innovation challenges and hackathons",
+    "summary": "Regular challenges built around real problems from companies, startups, government bodies and social organisations, for mixed teams of professionals, students, researchers and independent experts. The work does not end with the winners: we aim to help promising solutions find mentors, sponsors and first users.",
+    "outcome": "Solutions that carry on after the event and get used.",
+    "programme": "events-and-community"
+  },
+  {
+    "slug": "proof-of-concept",
+    "group": "build",
+    "title": "Idea incubation and proofs of concept",
+    "summary": "Members submit AI ideas or early-stage solutions. A panel of experienced architects, data scientists, business leaders and technologists picks the most promising, and ASSOCADS helps with mentoring, technical guidance, industry connections and the chance to build a proof of concept.",
+    "outcome": "A route from an individual idea to enterprises, customers and investors.",
+    "programme": "startups-and-innovation"
+  },
+  {
+    "slug": "open-source",
+    "group": "build",
+    "title": "Open-source contribution",
+    "summary": "Members contribute together to open-source projects, reusable frameworks, datasets, reference architectures, evaluation benchmarks and implementation templates, gathered in a shared repository for everyone to use.",
+    "outcome": "Public work that builds your credibility and helps the wider community.",
+    "programme": "research-and-publications"
+  },
+  {
+    "slug": "knowledge-platform",
+    "group": "share",
+    "title": "A knowledge and media platform",
+    "summary": "Podcasts, webinars, expert interviews, panel discussions and technology demonstrations, published on YouTube, LinkedIn and other channels as a permanent library anyone can use at any time.",
+    "outcome": "Knowledge that reaches far beyond the people in the room.",
+    "programme": "events-and-community"
+  },
+  {
+    "slug": "impact-report",
+    "group": "share",
+    "title": "An annual industry report",
+    "summary": "A yearly report on how AI and Data Science are being adopted, with emerging technologies, industry challenges, research and talent trends, drawing on members, industry, academic institutions and organisations in different sectors.",
+    "outcome": "A dependable reference on the state of the field.",
+    "programme": "research-and-publications"
+  },
+  {
+    "slug": "responsible-ai-working-group",
+    "group": "serve",
+    "title": "A responsible AI working group",
+    "summary": "A dedicated group to research data privacy, security, ethics, bias, explainability and regulation, publish practical guidelines, and help businesses, especially small and medium ones, adopt AI responsibly, securely and within the law.",
+    "outcome": "Practical help for organisations that want to use AI well.",
+    "programme": "responsible-ai"
+  },
+  {
+    "slug": "social-good",
+    "group": "serve",
+    "title": "AI for social good",
+    "summary": "Members volunteer their expertise to build affordable, practical solutions for NGOs, schools, local communities and public services, in areas such as education, healthcare, agriculture, sustainability and accessibility.",
+    "outcome": "Advanced technology for people who could not otherwise reach it.",
+    "programme": "awards-and-ai-for-good"
+  }
+]
