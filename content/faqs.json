@@ -72,6 +72,24 @@
     "pages": ["/faq", "/membership", "/about/governance"]
   },
   {
+    "question": "Can a company or institution join?",
+    "answer": "Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.",
+    "category": "membership",
+    "pages": ["/faq", "/membership", "/for/industry"]
+  },
+  {
+    "question": "How does a membership end?",
+    "answer": "Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.",
+    "category": "membership",
+    "pages": ["/faq", "/membership"]
+  },
+  {
+    "question": "Are membership fees refundable?",
+    "answer": "No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.",
+    "category": "membership",
+    "pages": ["/faq", "/membership"]
+  },
+  {
     "question": "Are donations to ASSOCADS tax-deductible?",
     "answer": "{{taxStatus}}",
     "category": "money",

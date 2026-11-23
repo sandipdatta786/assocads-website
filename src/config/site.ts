@@ -56,6 +56,12 @@ export const site = {
     feesFixed: false,
   },
 
+  forms: {
+    /** False until the register-your-interest form is connected to a mail service (Prompt 16).
+        While false, the form says plainly that nothing is sent. */
+    registerInterestLive: false,
+  },
+
   contact: {
     email: "[PLACEHOLDER: public contact email address]",
     phone: "[PLACEHOLDER: public phone number, if any]",

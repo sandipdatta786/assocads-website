@@ -4,6 +4,8 @@
     "name": "Ordinary Member",
     "who": "Individuals",
     "eligibility": "An individual aged eighteen or over.",
+    "admission": "Application and approval by the Board or its committee",
+    "payment": "Annual subscription, to be fixed by the Board",
     "terms": [
       "Admission is by application and approval by the Board or a committee it appoints.",
       "Pays an annual subscription fixed by the Board."
@@ -18,6 +20,8 @@
     "name": "Life Member",
     "who": "Individuals",
     "eligibility": "An individual recommended by two trustees.",
+    "admission": "Recommendation by two trustees, then application and approval",
+    "payment": "One-time amount, to be fixed by the Board",
     "terms": [
       "Admission is by application and approval by the Board or a committee it appoints.",
       "Pays a one-time amount fixed by the Board."
@@ -32,6 +36,8 @@
     "name": "Associate Member",
     "who": "Institutions and organisations",
     "eligibility": "An institution, organisation, society or company.",
+    "admission": "Application and approval by the Board or its committee",
+    "payment": "Fee to be fixed by the Board",
     "terms": [
       "Admission is by application and approval by the Board or a committee it appoints.",
       "Pays a fee fixed by the Board.",
@@ -47,6 +53,8 @@
     "name": "Honorary Member",
     "who": "People of eminence",
     "eligibility": "A person of eminence.",
+    "admission": "By invitation of the Board, through a two-thirds resolution",
+    "payment": "No fee. Lasts three years and may be renewed",
     "terms": [
       "Admitted without a fee by a resolution passed by two-thirds of the Board.",
       "Membership lasts three years and may be renewed."

@@ -57,6 +57,10 @@ export const membershipCategorySchema = z.object({
   name: z.string().min(1),
   who: z.string().min(1),
   eligibility: z.string().min(1),
+  /** One line for the comparison table: how someone is admitted. */
+  admission: z.string().min(1),
+  /** One line for the comparison table: what it costs. Never a figure until the Board fixes fees. */
+  payment: z.string().min(1),
   terms: z.array(z.string().min(1)).min(1),
   /** Null until the Board fixes fees. */
   fee: z
