@@ -24,6 +24,8 @@ import {
   getMembershipCategories,
   getProgrammes,
   getRoadmap,
+  getInitiatives,
+  getSuccessMeasures,
   getTrustees,
 } from "../src/lib/content/loaders.ts";
 import { PLACEHOLDER_PATTERN } from "../src/lib/content/schemas.ts";
@@ -42,6 +44,8 @@ const collections: [string, () => unknown[]][] = [
   ["glossary", () => getGlossary(all)],
   ["faqs", () => getFaqs()],
   ["roadmap stages", () => getRoadmap()],
+  ["initiatives", () => getInitiatives()],
+  ["success measures", () => getSuccessMeasures()],
   ["documents", () => getDocuments()],
   ["deed objects", () => getDeedObjects()],
 ];

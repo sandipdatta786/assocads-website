@@ -90,6 +90,12 @@ export const site = {
           description: "Who we are and why the trust was set up",
         },
         {
+          label: "Our approach",
+          href: "/about/approach",
+          description:
+            "What we want to stand for, and the ideas we plan to build on",
+        },
+        {
           label: "Aims and objects",
           href: "/about/objects",
           description:
@@ -164,6 +170,7 @@ export const site = {
       heading: "About",
       links: [
         { label: "About ASSOCADS", href: "/about" },
+        { label: "Our approach", href: "/about/approach" },
         { label: "Aims and objects", href: "/about/objects" },
         { label: "Governance", href: "/about/governance" },
         { label: "Founder Trustees", href: "/about/trustees" },
