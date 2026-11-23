@@ -8,33 +8,26 @@ import { RoadmapTeaser } from "@/components/sections/home/RoadmapTeaser";
 import { TrusteesPreview } from "@/components/sections/home/TrusteesPreview";
 import { WhatsNext } from "@/components/sections/home/WhatsNext";
 import { WhatWeDo } from "@/components/sections/home/WhatWeDo";
+import { OldAnchorRedirect } from "@/components/seo/OldAnchorRedirect";
 import { WhyAssocads } from "@/components/sections/home/WhyAssocads";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo/metadata";
 
 const title = `${site.shortName} | ${site.name}`;
 const description =
   "ASSOCADS is a not-for-profit association connecting students, professionals, academia, industry and government to advance AI and Data Science in India.";
 
-export const metadata: Metadata = {
-  title: { absolute: title },
+export const metadata: Metadata = pageMetadata({
+  title,
   description,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    url: "/",
-    title,
-    description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-  },
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function HomePage() {
   return (
     <>
+      <OldAnchorRedirect />
       <Hero />
       <AudienceRouting />
       <WhatWeDo />

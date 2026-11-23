@@ -41,6 +41,8 @@ export async function generateMetadata({
     title: guide.seoTitle ?? guide.title,
     description: clip(guide.summary),
     path: `/guides/${guide.slug}`,
+    type: "article",
+    noindex: guide.draft,
   });
   return {
     ...base,
@@ -51,7 +53,6 @@ export async function generateMetadata({
       modifiedTime: guide.lastReviewed,
       authors: [guide.author],
     },
-    ...(guide.draft ? { robots: { index: false, follow: false } } : {}),
   };
 }
 

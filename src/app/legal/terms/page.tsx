@@ -194,6 +194,7 @@ export default function Page() {
 
   return (
     <LegalPage
+      path="/legal/terms"
       title="Terms of use"
       lead={`The rules for using the ${name} website and its content.`}
       breadcrumbs={[{ label: "Terms of use" }]}

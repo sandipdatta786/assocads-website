@@ -26,14 +26,12 @@ export async function generateMetadata({
 }: PageProps<"/glossary/[term]">): Promise<Metadata> {
   const term = bySlug(getGlossary(), (await params).term);
   if (!term) return {};
-  return {
-    ...pageMetadata({
-      title: `${term.term}: meaning and example`,
-      description: clip(term.shortDefinition),
-      path: `/glossary/${term.slug}`,
-    }),
-    ...(term.draft ? { robots: { index: false, follow: false } } : {}),
-  };
+  return pageMetadata({
+    title: `${term.term}: meaning and example`,
+    description: clip(term.shortDefinition),
+    path: `/glossary/${term.slug}`,
+    noindex: term.draft,
+  });
 }
 
 export default async function TermPage({

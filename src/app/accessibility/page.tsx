@@ -160,6 +160,7 @@ export default function Page() {
 
   return (
     <LegalPage
+      path="/accessibility"
       eyebrow="About this website"
       title="Accessibility statement"
       lead={`How ${name} makes this website usable by everyone, what has been tested, and how to report a problem.`}
