@@ -83,42 +83,42 @@ Guides with figures or lists (salaries, courses, employers, events, government s
 
 ## The drafts
 
-| #   | Type     | File                                                             | Theme        | Reviewer | Date reviewed | Published |
-| --- | -------- | ---------------------------------------------------------------- | ------------ | -------- | ------------- | --------- |
-| 1   | Guide    | `content/guides/how-to-become-a-data-scientist-in-india.mdx`     | Careers      |          |               | No        |
-| 2   | Guide    | `content/guides/data-science-roadmap-for-students.mdx`           | Careers      |          |               | No        |
-| 3   | Guide    | `content/guides/data-scientist-salary-in-india.mdx`              | Careers      |          |               | No        |
-| 4   | Guide    | `content/guides/how-to-find-a-data-science-or-ai-internship.mdx` | Careers      |          |               | No        |
-| 5   | Guide    | `content/guides/ai-and-data-science-courses-in-kolkata.mdx`      | Kolkata      |          |               | No        |
-| 6   | Guide    | `content/guides/ai-and-data-science-employers-in-kolkata.mdx`    | Kolkata      |          |               | No        |
-| 7   | Guide    | `content/guides/ai-and-data-science-events-in-kolkata.mdx`       | Kolkata      |          |               | No        |
-| 8   | Guide    | `content/guides/dpdp-act-explained-for-data-teams.mdx`           | Policy       |          |               | No        |
-| 9   | Guide    | `content/guides/indiaai-mission-explained.mdx`                   | Policy       |          |               | No        |
-| 10  | Guide    | `content/guides/ai-governance-and-regulation-in-india.mdx`       | Policy       |          |               | No        |
-| 11  | Guide    | `content/guides/what-is-responsible-ai.mdx`                      | Fundamentals |          |               | No        |
-| 12  | Guide    | `content/guides/ai-for-social-good-in-india.mdx`                 | Fundamentals |          |               | No        |
-| 13  | Glossary | `content/glossary/artificial-intelligence.mdx`                   |              |          |               | No        |
-| 14  | Glossary | `content/glossary/machine-learning.mdx`                          |              |          |               | No        |
-| 15  | Glossary | `content/glossary/data-science.mdx`                              |              |          |               | No        |
-| 16  | Glossary | `content/glossary/generative-ai.mdx`                             |              |          |               | No        |
-| 17  | Glossary | `content/glossary/large-language-model.mdx`                      |              |          |               | No        |
-| 18  | Glossary | `content/glossary/responsible-ai.mdx`                            |              |          |               | No        |
-| 19  | Glossary | `content/glossary/ai-governance.mdx`                             |              |          |               | No        |
-| 20  | Glossary | `content/glossary/data-analytics.mdx`                            |              |          |               | No        |
-| 21  | Glossary | `content/glossary/deep-learning.mdx`                             |              |          |               | No        |
-| 22  | Glossary | `content/glossary/mlops.mdx`                                     |              |          |               | No        |
-| 23  | Glossary | `content/glossary/neural-network.mdx`                            |              |          |               | No        |
-| 24  | Glossary | `content/glossary/natural-language-processing.mdx`               |              |          |               | No        |
-| 25  | Glossary | `content/glossary/computer-vision.mdx`                           |              |          |               | No        |
-| 26  | Glossary | `content/glossary/supervised-learning.mdx`                       |              |          |               | No        |
-| 27  | Glossary | `content/glossary/unsupervised-learning.mdx`                     |              |          |               | No        |
-| 28  | Glossary | `content/glossary/reinforcement-learning.mdx`                    |              |          |               | No        |
-| 29  | Glossary | `content/glossary/training-data.mdx`                             |              |          |               | No        |
-| 30  | Glossary | `content/glossary/algorithmic-bias.mdx`                          |              |          |               | No        |
-| 31  | Glossary | `content/glossary/explainable-ai.mdx`                            |              |          |               | No        |
-| 32  | Glossary | `content/glossary/big-data.mdx`                                  |              |          |               | No        |
-| 33  | Glossary | `content/glossary/data-engineering.mdx`                          |              |          |               | No        |
-| 34  | Glossary | `content/glossary/overfitting.mdx`                               |              |          |               | No        |
-| 35  | Glossary | `content/glossary/prompt-engineering.mdx`                        |              |          |               | No        |
-| 36  | Glossary | `content/glossary/ai-agent.mdx`                                  |              |          |               | No        |
-| 37  | Glossary | `content/glossary/personal-data.mdx`                             |              |          |               | No        |
+| #   | Type     | File                                                             | Theme        | Reviewer     | Date reviewed    | Published |
+| --- | -------- | ---------------------------------------------------------------- | ------------ | ------------ | ---------------- | --------- |
+| 1   | Guide    | `content/guides/how-to-become-a-data-scientist-in-india.mdx`     | Careers      | Sandip Datta | 23 November 2026 | Yes       |
+| 2   | Guide    | `content/guides/data-science-roadmap-for-students.mdx`           | Careers      | Sandip Datta | 23 November 2026 | Yes       |
+| 3   | Guide    | `content/guides/data-scientist-salary-in-india.mdx`              | Careers      | Sandip Datta | 23 November 2026 | Yes       |
+| 4   | Guide    | `content/guides/how-to-find-a-data-science-or-ai-internship.mdx` | Careers      | Sandip Datta | 23 November 2026 | Yes       |
+| 5   | Guide    | `content/guides/ai-and-data-science-courses-in-kolkata.mdx`      | Kolkata      | Sandip Datta | 23 November 2026 | Yes       |
+| 6   | Guide    | `content/guides/ai-and-data-science-employers-in-kolkata.mdx`    | Kolkata      | Sandip Datta | 23 November 2026 | Yes       |
+| 7   | Guide    | `content/guides/ai-and-data-science-events-in-kolkata.mdx`       | Kolkata      | Sandip Datta | 23 November 2026 | Yes       |
+| 8   | Guide    | `content/guides/dpdp-act-explained-for-data-teams.mdx`           | Policy       | Sandip Datta | 23 November 2026 | Yes       |
+| 9   | Guide    | `content/guides/indiaai-mission-explained.mdx`                   | Policy       | Sandip Datta | 23 November 2026 | Yes       |
+| 10  | Guide    | `content/guides/ai-governance-and-regulation-in-india.mdx`       | Policy       | Sandip Datta | 23 November 2026 | Yes       |
+| 11  | Guide    | `content/guides/what-is-responsible-ai.mdx`                      | Fundamentals | Sandip Datta | 23 November 2026 | Yes       |
+| 12  | Guide    | `content/guides/ai-for-social-good-in-india.mdx`                 | Fundamentals | Sandip Datta | 23 November 2026 | Yes       |
+| 13  | Glossary | `content/glossary/artificial-intelligence.mdx`                   |              | Sandip Datta | 23 November 2026 | Yes       |
+| 14  | Glossary | `content/glossary/machine-learning.mdx`                          |              | Sandip Datta | 23 November 2026 | Yes       |
+| 15  | Glossary | `content/glossary/data-science.mdx`                              |              | Sandip Datta | 23 November 2026 | Yes       |
+| 16  | Glossary | `content/glossary/generative-ai.mdx`                             |              | Sandip Datta | 23 November 2026 | Yes       |
+| 17  | Glossary | `content/glossary/large-language-model.mdx`                      |              | Sandip Datta | 23 November 2026 | Yes       |
+| 18  | Glossary | `content/glossary/responsible-ai.mdx`                            |              | Sandip Datta | 23 November 2026 | Yes       |
+| 19  | Glossary | `content/glossary/ai-governance.mdx`                             |              | Sandip Datta | 23 November 2026 | Yes       |
+| 20  | Glossary | `content/glossary/data-analytics.mdx`                            |              | Sandip Datta | 23 November 2026 | Yes       |
+| 21  | Glossary | `content/glossary/deep-learning.mdx`                             |              | Sandip Datta | 23 November 2026 | Yes       |
+| 22  | Glossary | `content/glossary/mlops.mdx`                                     |              | Sandip Datta | 23 November 2026 | Yes       |
+| 23  | Glossary | `content/glossary/neural-network.mdx`                            |              | Sandip Datta | 23 November 2026 | Yes       |
+| 24  | Glossary | `content/glossary/natural-language-processing.mdx`               |              | Sandip Datta | 23 November 2026 | Yes       |
+| 25  | Glossary | `content/glossary/computer-vision.mdx`                           |              | Sandip Datta | 23 November 2026 | Yes       |
+| 26  | Glossary | `content/glossary/supervised-learning.mdx`                       |              | Sandip Datta | 23 November 2026 | Yes       |
+| 27  | Glossary | `content/glossary/unsupervised-learning.mdx`                     |              | Sandip Datta | 23 November 2026 | Yes       |
+| 28  | Glossary | `content/glossary/reinforcement-learning.mdx`                    |              | Sandip Datta | 23 November 2026 | Yes       |
+| 29  | Glossary | `content/glossary/training-data.mdx`                             |              | Sandip Datta | 23 November 2026 | Yes       |
+| 30  | Glossary | `content/glossary/algorithmic-bias.mdx`                          |              | Sandip Datta | 23 November 2026 | Yes       |
+| 31  | Glossary | `content/glossary/explainable-ai.mdx`                            |              | Sandip Datta | 23 November 2026 | Yes       |
+| 32  | Glossary | `content/glossary/big-data.mdx`                                  |              | Sandip Datta | 23 November 2026 | Yes       |
+| 33  | Glossary | `content/glossary/data-engineering.mdx`                          |              | Sandip Datta | 23 November 2026 | Yes       |
+| 34  | Glossary | `content/glossary/overfitting.mdx`                               |              | Sandip Datta | 23 November 2026 | Yes       |
+| 35  | Glossary | `content/glossary/prompt-engineering.mdx`                        |              | Sandip Datta | 23 November 2026 | Yes       |
+| 36  | Glossary | `content/glossary/ai-agent.mdx`                                  |              | Sandip Datta | 23 November 2026 | Yes       |
+| 37  | Glossary | `content/glossary/personal-data.mdx`                             |              | Sandip Datta | 23 November 2026 | Yes       |
