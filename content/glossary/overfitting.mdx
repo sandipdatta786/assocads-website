@@ -1,0 +1,35 @@
+---
+term: "Overfitting"
+slug: "overfitting"
+shortDefinition: "Overfitting is when a machine learning model fits its training data so closely, including its noise and quirks, that it performs poorly on new data it has not seen."
+aliases: ["overfit"]
+related: ["machine-learning", "training-data", "supervised-learning", "deep-learning"]
+audiences: ["students", "professionals"]
+furtherReading:
+  - title: "Overfitting"
+    publisher: "Google for Developers, Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course/overfitting/overfitting"
+    accessed: "2026-11-23"
+  - title: "Datasets: Dividing the original dataset"
+    publisher: "Google for Developers, Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets"
+    accessed: "2026-11-23"
+lastReviewed: "2026-11-23"
+draft: true
+---
+
+## In plain English
+
+A model overfits when it learns its training examples too well. Instead of picking up the general pattern, it memorises details and accidents that happen to be in that particular data. It then looks excellent in testing on familiar examples but disappoints on real, new cases.
+
+The opposite quality is generalisation: doing well on data the model has never seen. Overfitting is usually spotted by keeping some data aside. If performance on the training data keeps improving while performance on the held-back validation data gets worse, the model is probably overfitting. Common causes are a model that is too complex for the problem and training data that does not represent the real world.
+
+## An example
+
+A student in Kolkata builds a model to predict flat prices using a few hundred listings from one neighbourhood. The model scores almost perfectly on those listings because it has effectively memorised them, down to one unusual sale. When tried on listings from another part of the city, its predictions are far off. A simpler model, more varied data and a proper held-back test set would give a more honest picture.
+
+## Why it matters
+
+Overfitting is one of the most common reasons a model that looks impressive in development fails after deployment. Learning to recognise it is a basic skill for anyone studying machine learning.
+
+For organisations, it is a reminder to ask how a model was tested. Claims of high accuracy mean little unless the model was evaluated on separate data that resembles the conditions it will actually face.

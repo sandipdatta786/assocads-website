@@ -1,0 +1,35 @@
+---
+term: "Supervised learning"
+slug: "supervised-learning"
+shortDefinition: "Supervised learning is a type of machine learning in which a model learns from examples that already carry the correct answer, so that it can predict the answer for new examples."
+aliases: ["supervised machine learning"]
+related: ["machine-learning", "unsupervised-learning", "training-data", "overfitting"]
+audiences: ["students", "professionals"]
+furtherReading:
+  - title: "What is machine learning?"
+    publisher: "Google for Developers"
+    url: "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml"
+    accessed: "2026-11-23"
+  - title: "Datasets: Dividing the original dataset"
+    publisher: "Google for Developers, Machine Learning Crash Course"
+    url: "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets"
+    accessed: "2026-11-23"
+lastReviewed: "2026-11-23"
+draft: true
+---
+
+## In plain English
+
+In supervised learning, a model is shown many examples together with the right answer for each one. These answers are called labels. By comparing its guesses with the labels again and again, the model gradually learns which features of the input lead to which answer.
+
+It is a little like a student practising with past exam papers that come with an answer key. The aim is not to memorise those papers but to do well on new questions. There are two main kinds of task: classification, where the answer is a category such as "spam" or "not spam", and regression, where the answer is a number such as a price or a temperature.
+
+## An example
+
+A bank in India wants to flag loan applications that may need a closer look. It gathers past applications, each labelled with whether the loan was later repaid. A supervised model learns from these labelled records and then gives a score to new applications. Because the labels reflect past decisions, the bank also checks that the model does not simply repeat unfair patterns from the past.
+
+## Why it matters
+
+Supervised learning sits behind many everyday AI systems, from spam filters to demand forecasting and medical image screening. For students, it is usually the first kind of machine learning taught, and it introduces core ideas such as training and test data, evaluation and overfitting.
+
+For organisations, the main cost is often the labels themselves. Good labels need time, domain experts and clear definitions, and the quality of the model depends heavily on them.

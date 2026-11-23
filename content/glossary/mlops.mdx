@@ -1,0 +1,31 @@
+---
+term: "MLOps"
+slug: "mlops"
+shortDefinition: "MLOps is a set of engineering practices for building, deploying, monitoring and updating machine learning models reliably in real use, by applying automation and testing ideas from software operations to machine learning."
+aliases: ["Machine learning operations", "ML Ops"]
+related: ["machine-learning", "data-engineering", "training-data", "overfitting"]
+audiences: ["professionals", "industry"]
+furtherReading:
+  - title: "MLOps: Continuous delivery and automation pipelines in machine learning"
+    publisher: "Google Cloud Architecture Center"
+    url: "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning"
+    accessed: "2026-11-23"
+lastReviewed: "2026-11-23"
+draft: true
+---
+
+## In plain English
+
+Training a machine learning model on a laptop is one thing. Keeping it working correctly inside a real product, day after day, is much harder. MLOps is the discipline that deals with that second part.
+
+It covers how data and models are versioned, how models are tested before release, how they are deployed, and how their performance is watched once they are live. When the real world changes and the model starts to perform worse, MLOps practices help teams notice and retrain it in a controlled way.
+
+The idea borrows from DevOps in software engineering, where automation and monitoring make releases faster and safer.
+
+## An example
+
+An online grocery service in Kolkata uses a model to forecast demand for fresh vegetables at each warehouse. After a festival season, forecasts become noticeably less accurate. Because the team has MLOps practices in place, a monitoring dashboard flags the drop, the data pipeline gathers recent sales, a new version of the model is trained and tested against the old one, and it is released only after it performs better.
+
+## Why it matters
+
+Many machine learning projects never reach real use, or quietly get worse after launch. MLOps is how organisations avoid that. For professionals, it is a growing area of work that combines data, software and infrastructure skills. For businesses and government bodies, it brings the traceability and control needed to trust a model over time and to explain what changed when something goes wrong.
