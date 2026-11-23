@@ -11,6 +11,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { parse as parseYaml } from "yaml";
+import { isPast } from "../events.ts";
 import type { z } from "zod";
 
 import {
@@ -391,15 +392,14 @@ export function getEvents(options?: LoadOptions) {
   );
 }
 
-/** Upcoming events, soonest first, and past events, most recent first. */
+/** Upcoming events, soonest first, and past events, most recent first.
+    An event counts as past once it has ended in Indian Standard Time. */
 export function getEventsByTime(now = new Date(), options?: LoadOptions) {
-  const today = now.toISOString().slice(0, 10);
   const all = getEvents(options);
-  const ends = (e: (typeof all)[number]) =>
-    (e.endDate ?? e.startDate).slice(0, 10);
+  const ms = now.getTime();
   return {
-    upcoming: all.filter((e) => ends(e) >= today),
-    past: all.filter((e) => ends(e) < today).reverse(),
+    upcoming: all.filter((e) => !isPast(e, ms)),
+    past: all.filter((e) => isPast(e, ms)).reverse(),
   };
 }
 

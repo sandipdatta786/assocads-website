@@ -1,0 +1,107 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# EXAMPLE EVENT: A TEMPLATE, NOT A REAL EVENT
+#
+# This file shows every field an event can have. Because "draft: true" is set
+# at the bottom, it appears only on a local copy of the site (pnpm dev) and
+# never on the live site.
+#
+# To add a real event:
+#   1. Copy this file and rename the copy, for example
+#      content/events/ai-for-healthcare-workshop-2027.mdx
+#   2. Change "slug" below to match the new file name exactly, without .mdx.
+#   3. Replace every value with the real details.
+#   4. Delete "draft: true" (or set it to false) when it is ready to publish.
+# Full instructions: docs/HOW_TO_ADD_AN_EVENT.md
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Must match the file name. Lower case, words joined by hyphens.
+slug: example-event-template
+
+# The event's name. Up to 90 characters.
+title: Example workshop title
+
+# One or two sentences that say what the event is and who it is for.
+# Shown on cards and in search results. Up to 220 characters.
+summary: An example summary that says what participants will do and who the event is for. Replace this with the real summary.
+
+# One of: conference, seminar, workshop, masterclass, meetup, hackathon, webinar, other
+type: workshop
+
+# When it starts and ends, in Indian Standard Time (+05:30).
+# With times:    2027-03-20T10:00:00+05:30
+# Whole day:     2027-03-20
+# endDate is optional. For an event over several days, give the last day.
+startDate: 2027-03-20T10:00:00+05:30
+endDate: 2027-03-20T17:00:00+05:30
+
+# One of: in-person, online, hybrid
+mode: in-person
+
+# Needed for in-person and hybrid events. Leave both empty for online events.
+venue: Example venue name
+city: Kolkata
+
+# Optional. A map link for the venue. If left empty, the site makes a
+# Google Maps search link from the venue and city.
+mapUrl: ""
+
+# Where people register: a full web address, for example a Google Form.
+# If left empty, the Register button goes to the site's contact page.
+registrationUrl: ""
+
+# Optional. The status badge ("Registration open", "Opening soon",
+# "Registration closed", "Past") is worked out from these dates and the
+# event dates, so it never needs changing by hand.
+# If registrationOpens is empty, registration is open as soon as the event is published.
+# If registrationCloses is empty, registration closes when the event starts.
+registrationOpens: 2027-02-01
+registrationCloses: 2027-03-15
+
+# Optional. Only list people who have agreed to speak.
+# A photo is shown only with "photoConsent: true", meaning the speaker has
+# given written consent. Photos go in public/images/events/.
+speakers:
+  - name: Speaker Name
+    role: Role
+    organisation: Organisation
+  - name: Second Speaker
+    role: Role
+    organisation: Organisation
+
+# Optional. Times are in Indian Standard Time.
+agenda:
+  - time: 10:00 to 10:30
+    title: Welcome and introductions
+  - time: 10:30 to 13:00
+    title: Hands-on session, part one
+    detail: What participants will build or practise.
+  - time: 14:00 to 16:30
+    title: Hands-on session, part two
+  - time: 16:30 to 17:00
+    title: Show and tell, and close
+
+# Add this after the event: a short summary, photographs (only with the
+# consent of the people shown) and a link to the slides. Until it is added,
+# a past event shows a visible placeholder.
+# recap:
+#   summary: What happened, who took part and what was produced.
+#   photos:
+#     - src: /images/events/example-1.jpg
+#       alt: Participants working in small groups
+#   slidesUrl: https://example.org/slides
+
+# Remove this line, or set it to false, to publish.
+draft: true
+---
+
+Write the full description of the event here, below the front matter. Use
+ordinary paragraphs, and `##` for any headings.
+
+## Who it is for
+
+Say who should attend, and anything they need to know or bring.
+
+## What you will do
+
+Describe what participants will learn, build or take away.
