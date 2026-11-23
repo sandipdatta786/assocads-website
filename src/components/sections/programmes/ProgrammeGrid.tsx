@@ -54,8 +54,9 @@ export function ProgrammeGrid() {
                 </h3>
                 <p
                   className={cn(
-                    "text-body text-slate-600",
-                    featured && "max-w-md",
+                    "text-body",
+                    // Ink on Indigo Tint is the approved pairing for body text.
+                    featured ? "max-w-md text-ink" : "text-slate-600",
                   )}
                 >
                   {programme.tagline}

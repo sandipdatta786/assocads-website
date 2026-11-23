@@ -54,7 +54,10 @@ export function SiteFooter() {
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="flex flex-col gap-5 lg:col-span-4">
-            <Link href="/" className="inline-flex w-fit rounded-s">
+            <Link
+              href="/"
+              className="inline-flex min-h-11 w-fit items-center rounded-s"
+            >
               <Logo layout="horizontal" version="colour-on-dark" height={38} />
             </Link>
             <p className="max-w-sm text-small text-slate-400">

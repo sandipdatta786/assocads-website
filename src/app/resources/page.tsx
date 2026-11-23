@@ -392,7 +392,7 @@ export default async function Page() {
                 <h3 className="font-display text-h3 font-semibold text-ink">
                   The full brand guide
                 </h3>
-                <p className="text-body text-slate-600">
+                <p className="text-body text-ink">
                   Colours with contrast ratios, typography, logo rules and the
                   voice, in one document.
                 </p>

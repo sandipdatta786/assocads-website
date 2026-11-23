@@ -58,6 +58,9 @@
   --tone-primary-bg: var(--indigo);
   --tone-primary-fg: var(--paper);
   --tone-primary-hover: var(--indigo-deep);
+  /* Text on a tone-fg fill (the secondary button's hover): Paper on Ink,
+     or Ink on Paper in ink sections. Both are approved pairings. */
+  --tone-invert: var(--paper);
 }
 
 [data-tone="cloud"] {
@@ -85,6 +88,7 @@
   --tone-primary-bg: var(--indigo);
   --tone-primary-fg: var(--paper);
   --tone-primary-hover: var(--indigo-deep);
+  --tone-invert: var(--paper);
 }
 
 [data-tone="ink"] {
@@ -99,6 +103,7 @@
   --tone-primary-bg: var(--indigo-bright);
   --tone-primary-fg: var(--ink);
   --tone-primary-hover: var(--paper);
+  --tone-invert: var(--ink);
 }
 
 /* Remove Tailwind's default palette, type scale, radii and shadows so that
@@ -142,6 +147,7 @@
   --color-tone-focus: var(--tone-focus);
   --color-tone-primary-bg: var(--tone-primary-bg);
   --color-tone-primary-fg: var(--tone-primary-fg);
+  --color-tone-invert: var(--tone-invert);
   --color-tone-primary-hover: var(--tone-primary-hover);
 
   --font-display:
@@ -214,6 +220,10 @@
   h4 {
     font-family: var(--font-display);
     text-wrap: balance;
+    /* With large text on a narrow screen a single word can be wider than
+       the screen; it then breaks instead of pushing the page sideways.
+       Normal sizes are unaffected. */
+    overflow-wrap: break-word;
   }
 
   p {
@@ -307,6 +317,14 @@
 
   .prose a:hover {
     text-decoration-thickness: 2px;
+  }
+
+  /* A heading that is only a link is not running text, so the link gets
+     a 44px touch target. */
+  .prose :is(h2, h3, h4) > a:only-child {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
   }
 
   .prose strong {

@@ -16,7 +16,11 @@ export function StatusBanner() {
   if (!text) return null;
 
   return (
-    <div data-status-banner className="bg-marigold-tint text-ink">
+    <aside
+      data-status-banner
+      aria-label="Registration status"
+      className="bg-marigold-tint text-ink"
+    >
       <Container className="flex min-h-11 items-center justify-between gap-3 py-1.5">
         <p className="text-caption sm:text-small">
           {text}{" "}
@@ -29,6 +33,6 @@ export function StatusBanner() {
         </p>
         <DismissBanner storageKey={BANNER_STORAGE_KEY} />
       </Container>
-    </div>
+    </aside>
   );
 }

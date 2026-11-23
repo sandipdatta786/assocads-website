@@ -93,6 +93,8 @@ AA needs 4.5:1 for normal text and 3:1 for large text (24px and above, or 19px b
 | Indigo `#2F3BD9`        | Paper                 | 7.6:1  | AAA                          |
 | Indigo `#2F3BD9`        | Cloud                 | 7.1:1  | AAA                          |
 | Indigo `#2F3BD9`        | Indigo Tint           | 6.8:1  | AA                           |
+| Indigo Deep `#232CB0`   | Indigo Tint           | 9.0:1  | AAA (tags, notes)            |
+| Ink `#0B1020`           | Marigold Tint         | 17.6:1 | AAA (notice banners)         |
 | Paper `#FFFFFF`         | Indigo `#2F3BD9`      | 7.6:1  | AAA (primary button)         |
 | Paper `#FFFFFF`         | Indigo Deep `#232CB0` | 10.2:1 | AAA (button hover)           |
 | Paper `#FFFFFF`         | Ink `#0B1020`         | 18.9:1 | AAA                          |
@@ -101,6 +103,7 @@ AA needs 4.5:1 for normal text and 3:1 for large text (24px and above, or 19px b
 | Slate 400 `#9AA1B2`     | Night                 | 6.7:1  | AA                           |
 | Indigo Bright `#8791FF` | Ink                   | 6.8:1  | AA                           |
 | Indigo Bright `#8791FF` | Night                 | 6.2:1  | AA                           |
+| Ink `#0B1020`           | Indigo Bright         | 6.8:1  | AA (primary button on Ink)   |
 | Marigold `#F2A31B`      | Ink                   | 9.0:1  | AAA                          |
 | Ink `#0B1020`           | Marigold `#F2A31B`    | 9.0:1  | AAA (marigold button or tag) |
 | Amber Deep `#9A5B00`    | Paper                 | 5.4:1  | AA                           |

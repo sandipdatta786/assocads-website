@@ -143,19 +143,17 @@ export default function GovernancePage() {
             <dl className="flex flex-col gap-6 lg:col-span-8">
               <div className="flex flex-col gap-1">
                 <dt className="font-semibold text-ink">Status</dt>
-                <dd className="text-body text-slate-600">
-                  {legalStatusLine()}
-                </dd>
+                <dd className="text-body text-ink">{legalStatusLine()}</dd>
               </div>
               <div className="flex flex-col gap-1">
                 <dt className="font-semibold text-ink">Tax deductions</dt>
-                <dd className="text-body text-slate-600">{taxStatusLine()}</dd>
+                <dd className="text-body text-ink">{taxStatusLine()}</dd>
               </div>
               <div className="flex flex-col gap-1">
                 <dt className="font-semibold text-ink">
                   Foreign contributions
                 </dt>
-                <dd className="text-body text-slate-600">
+                <dd className="text-body text-ink">
                   {foreignContributionLine()}
                 </dd>
               </div>

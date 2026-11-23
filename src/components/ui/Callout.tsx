@@ -31,11 +31,11 @@ export function Callout({
         size={20}
         strokeWidth={1.5}
         className={cn(
-          "mt-0.5 shrink-0",
+          "mt-1 shrink-0",
           variant === "note" ? "text-indigo-deep" : "text-amber-deep",
         )}
       />
-      <div className="min-w-0 text-small">
+      <div className="min-w-0 text-body">
         {title && <p className="font-semibold">{title}</p>}
         <div>{children}</div>
       </div>

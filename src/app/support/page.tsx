@@ -335,18 +335,16 @@ export default function Page() {
           />
           <dl className="grid gap-x-12 gap-y-8 md:grid-cols-2">
             {goodToKnow.map((g) => (
-              <div key={g.title} className="flex gap-4">
-                <Icon
-                  icon={g.icon}
-                  size={24}
-                  className="mt-1 shrink-0 text-indigo"
-                />
-                <div className="flex flex-col gap-1">
-                  <dt className="font-display text-h3 font-semibold text-ink">
-                    {g.title}
-                  </dt>
-                  <dd className="text-body text-slate-600">{g.text}</dd>
-                </div>
+              <div key={g.title} className="flex flex-col gap-1">
+                <dt className="flex gap-4 font-display text-h3 font-semibold text-ink">
+                  <Icon
+                    icon={g.icon}
+                    size={24}
+                    className="mt-1 shrink-0 text-indigo"
+                  />
+                  {g.title}
+                </dt>
+                <dd className="pl-10 text-body text-slate-600">{g.text}</dd>
               </div>
             ))}
           </dl>

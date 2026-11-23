@@ -81,7 +81,8 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [ ] `src/app/legal/privacy`, `src/app/legal/terms`, `src/app/legal/disclaimer`, `src/app/accessibility` · this page must be reviewed by the trust's legal advisor before launch. Once a page is approved, set its date in `src/lib/legal.ts` and remove its `reviewNote`
 - [ ] `src/app/legal/privacy/page.tsx` · name of the email service used for the secretariat mailbox
 - [ ] `src/app/legal/privacy/page.tsx` · retention periods agreed by the Board, for example how long enquiries and expressions of interest are kept
-- [ ] `/accessibility` · update "What has been tested" after the full audit (Prompt 22)
+- [x] `/accessibility` · update "What has been tested" after the full audit (Prompt 22)
+- [ ] `/accessibility` · test with screen readers (NVDA, VoiceOver, TalkBack), in Safari and Firefox, and with disabled users before launch, then update the statement
 - [x] AEO and GEO layer: `/llms.txt`, `/llms-full.txt`, named AI crawlers in `robots.txt`, answer-first page openings, "Last updated" dates, IndexNow (Prompt 20)
 - [ ] Trustee to re-review three small citation edits made on 24 November 2026, which add the source and date to the same sentence as each figure: `indiaai-mission-explained` (PIB figures list), `dpdp-act-explained-for-data-teams` (consent manager net worth, penalty table), `data-scientist-salary-in-india` (pharma and healthcare range). `lastReviewed` was left unchanged until that review.
 - [ ] Founders: create an IndexNow key and add it as `INDEXNOW_KEY` in Vercel (Production) and as a GitHub Actions secret of the same name (`docs/INDEXNOW.md`)
