@@ -14,7 +14,10 @@
  *    link text, alt text on every image, no broken internal links or anchors;
  * 5. internal linking: every page is within three clicks of the home page,
  *    and links to at least two other pages from its main content;
- * 6. addresses: lower case, hyphenated, no trailing slash, one per page.
+ * 6. addresses: lower case, hyphenated, no trailing slash, one per page;
+ * 7. structured data: the JSON-LD parses, has the required properties, refers
+ *    to the one organisation, claims nothing not yet true, and matches the
+ *    visible page (see scripts/structured-data.ts).
  *
  * It writes a table of every route to test-results/seo-report.md and exits
  * with code 1 if anything fails.
@@ -22,6 +25,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { checkStructuredData } from "./structured-data.ts";
 
 const PORT = Number(process.env.SEO_CHECK_PORT ?? 3300);
 const ORIGIN = `http://localhost:${PORT}`;
@@ -75,6 +79,8 @@ type Page = {
   ogImage?: string;
   h1: number;
   mainLinks: Set<string>;
+  /** Structured data types found, for the report. */
+  schemaTypes?: string[];
 };
 
 const problems: string[] = [];
@@ -407,6 +413,25 @@ async function checkPage(page: Page, origin: string) {
       );
   }
 
+  // Structured data
+  const nav =
+    body.match(/<nav aria-label="Breadcrumb"[\s\S]*?<\/nav>/i)?.[0] ?? "";
+  page.schemaTypes = checkStructuredData(
+    {
+      path: page.path,
+      html: page.html,
+      text: textOf(body),
+      h1: textOf(body.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? ""),
+      crumbs: [...nav.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((m) => ({
+        label: textOf(m[1]),
+        href: m[1].match(/<a\b[^>]*\shref="([^"]*)"/i)?.[1],
+      })),
+      hrefs: [...body.matchAll(/\shref="([^"]*)"/gi)].map((m) => decode(m[1])),
+    },
+    origin,
+    fail,
+  );
+
   // Internal linking
   if (!page.noindex) {
     if (page.depth > MAX_DEPTH)
@@ -480,6 +505,14 @@ try {
         fail(paths.join(", "), `share the same ${key} "${value}"`);
   }
 
+  // The organisation's logo loads
+  const logo = await get("/brand/kit/png/assocads-logo-stacked-colour.png");
+  if (logo.status !== 200 || !logo.type?.startsWith("image/"))
+    fail(
+      "structured data",
+      `the organisation's logo does not load (${logo.status})`,
+    );
+
   // Redirects
   for (const [from, to] of Object.entries(OLD_PATHS)) {
     const r = await fetch(`${ORIGIN}${from}`, { redirect: "manual" });
@@ -503,11 +536,11 @@ try {
   // Report
   const rows = [...pages.values()].sort((a, b) => a.path.localeCompare(b.path));
   const report = [
-    "| Route | Title | Chars | Description chars | Clicks from home | Related links | Indexed |",
-    "| --- | --- | --: | --: | --: | --: | --- |",
+    "| Route | Title | Chars | Description chars | Clicks from home | Related links | Indexed | Structured data |",
+    "| --- | --- | --: | --: | --: | --: | --- | --- |",
     ...rows.map(
       (p) =>
-        `| ${p.path} | ${(p.title ?? "").replace(/\|/g, "\\|")} | ${p.title?.length ?? 0} | ${p.description?.length ?? 0} | ${p.depth === Infinity ? "none" : p.depth} | ${p.mainLinks.size} | ${p.noindex ? "no" : "yes"} |`,
+        `| ${p.path} | ${(p.title ?? "").replace(/\|/g, "\\|")} | ${p.title?.length ?? 0} | ${p.description?.length ?? 0} | ${p.depth === Infinity ? "none" : p.depth} | ${p.mainLinks.size} | ${p.noindex ? "no" : "yes"} | ${(p.schemaTypes ?? []).join(", ")} |`,
     ),
   ].join("\n");
   fs.mkdirSync("test-results", { recursive: true });

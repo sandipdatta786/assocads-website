@@ -7,13 +7,14 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { Prose } from "@/components/ui/Typography";
-import { site } from "@/config/site";
 import { builtAt } from "@/lib/clock";
 import { bySlug, getGlossary, getGuides } from "@/lib/content/loaders";
 import { loadMdxBody } from "@/lib/content/mdx";
 import { clip } from "@/lib/guides";
 import { formatLongDate } from "@/lib/publishing";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { definedTerm } from "@/lib/seo/schema";
 
 /* Drafts are listed so the route always has a path to prerender; the page
    returns "not found" for a draft on the live site. */
@@ -51,33 +52,9 @@ export default async function TermPage({
   const guides = getGuides({ now: await builtAt() }).filter((g) =>
     g.glossaryTerms.includes(term.slug),
   );
-  const pageUrl = `${site.url}/glossary/${term.slug}`;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    "@id": pageUrl,
-    name: term.term,
-    ...(term.aliases.length > 0 ? { alternateName: term.aliases } : {}),
-    description: term.shortDefinition,
-    url: pageUrl,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      "@id": `${site.url}/glossary`,
-      name: `${site.shortName} glossary of AI and Data Science terms`,
-    },
-  };
-
   return (
     <>
-      {!term.draft && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
+      <JsonLd items={[definedTerm(term)]} />
       <article>
         <Section
           tone="paper"

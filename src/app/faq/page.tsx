@@ -5,7 +5,9 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { faqAnchor, faqCategories } from "@/lib/content/faqs";
 import { getFaqs } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { faqPage } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "Frequently asked questions",
@@ -32,6 +34,15 @@ export default function Page() {
 
   return (
     <>
+      {/* Every question shown on this page, in the order shown. */}
+      <JsonLd
+        items={[
+          faqPage(
+            "/faq",
+            groups.flatMap((g) => g.items),
+          ),
+        ]}
+      />
       <PageHeader
         eyebrow="Questions"
         title="Frequently asked questions"

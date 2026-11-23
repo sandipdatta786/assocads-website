@@ -4,9 +4,10 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { site } from "@/config/site";
 import { getGlossary } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { definedTerm, definedTermSet } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "Glossary of AI and Data Science terms",
@@ -25,32 +26,18 @@ export default function Page() {
     draft: t.draft,
   }));
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    "@id": `${site.url}/glossary`,
-    name: `${site.shortName} glossary of AI and Data Science terms`,
-    url: `${site.url}/glossary`,
-    hasDefinedTerm: terms
-      .filter((t) => !t.draft)
-      .map((t) => ({
-        "@type": "DefinedTerm",
-        name: t.term,
-        description: t.shortDefinition,
-        url: `${site.url}/glossary/${t.slug}`,
-      })),
-  };
+  // The glossary, with each published term as shown in the list below.
+  const published = terms.filter((t) => !t.draft);
 
   return (
     <>
-      {jsonLd.hasDefinedTerm.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
+      <JsonLd
+        items={
+          published.length > 0
+            ? [definedTermSet(published), ...published.map(definedTerm)]
+            : []
+        }
+      />
       <PageHeader
         eyebrow="Resources"
         title="Glossary"

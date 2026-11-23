@@ -13,7 +13,9 @@ import { TextLink } from "@/components/ui/TextLink";
 import { Heading } from "@/components/ui/Typography";
 import { site } from "@/config/site";
 import { getTrustees } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { aboutPage } from "@/lib/seo/schema";
 import { numberWord } from "@/lib/words";
 
 export const metadata = pageMetadata({
@@ -48,6 +50,15 @@ export default function AboutPage() {
 
   return (
     <>
+      <JsonLd
+        items={[
+          aboutPage({
+            path: "/about",
+            name: "About ASSOCADS",
+            description: String(metadata.description),
+          }),
+        ]}
+      />
       <PageHeader
         eyebrow="About"
         title="About ASSOCADS"

@@ -21,7 +21,9 @@ import {
   getProgrammes,
   getTrustees,
 } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { aboutPage } from "@/lib/seo/schema";
 import { numberWord } from "@/lib/words";
 
 export const metadata = pageMetadata({
@@ -140,6 +142,15 @@ export default function FactsPage() {
 
   return (
     <>
+      <JsonLd
+        items={[
+          aboutPage({
+            path: "/about/facts",
+            name: "ASSOCADS at a glance",
+            description: String(metadata.description),
+          }),
+        ]}
+      />
       <PageHeader
         eyebrow="About"
         title="ASSOCADS at a glance"

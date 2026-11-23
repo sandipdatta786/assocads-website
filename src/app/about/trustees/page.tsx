@@ -7,7 +7,9 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { site } from "@/config/site";
 import { getTrustees, hasTrusteeProfile } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { person } from "@/lib/seo/schema";
 import { numberWord } from "@/lib/words";
 
 export const metadata = pageMetadata({
@@ -28,6 +30,8 @@ export default function TrusteesPage() {
 
   return (
     <>
+      {/* A Person only for trustees who are published and have consented. */}
+      <JsonLd items={trustees.map(person)} />
       <PageHeader
         eyebrow="About"
         title="Founder Trustees"

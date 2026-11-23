@@ -14,7 +14,9 @@ import {
   socialLinks,
 } from "@/config/site";
 import { contactTopicNotes, contactTopics, formIds } from "@/lib/enquiries";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { contactPage } from "@/lib/seo/schema";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact ASSOCADS",
@@ -70,6 +72,16 @@ export default function Page() {
 
   return (
     <>
+      {/* The ContactPoint is on the organisation, emitted on every page. */}
+      <JsonLd
+        items={[
+          contactPage({
+            path: "/contact",
+            name: "Contact us",
+            description: String(metadata.description),
+          }),
+        ]}
+      />
       <PageHeader
         eyebrow="Contact"
         title="Contact us"

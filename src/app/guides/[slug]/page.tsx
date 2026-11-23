@@ -13,12 +13,19 @@ import { Tag } from "@/components/ui/Tag";
 import { Prose } from "@/components/ui/Typography";
 import { site } from "@/config/site";
 import { builtAt } from "@/lib/clock";
-import { bySlug, getGlossary, getGuides } from "@/lib/content/loaders";
+import {
+  bySlug,
+  getGlossary,
+  getGuides,
+  getTrustees,
+} from "@/lib/content/loaders";
 import { loadMdxBody } from "@/lib/content/mdx";
 import { clip, guideCtas, themeLabels } from "@/lib/guides";
 import { outline } from "@/lib/headings";
 import { formatLongDate } from "@/lib/publishing";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { faqPage, guideArticle } from "@/lib/seo/schema";
 
 /* Every guide, drafts and future-dated ones included, is listed so the route
    always has a path to prerender. The page returns "not found" for anything
@@ -87,48 +94,13 @@ export default async function GuidePage({
     { id: "sources", text: "Sources" },
   ];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": pageUrl,
-        url: pageUrl,
-        name: guide.title,
-        lastReviewed: guide.lastReviewed,
-        reviewedBy: { "@type": "Person", name: guide.reviewedBy },
-        mainEntity: { "@id": `${pageUrl}#article` },
-      },
-      {
-        "@type": "Article",
-        "@id": `${pageUrl}#article`,
-        headline: guide.title,
-        description: guide.summary,
-        abstract: guide.directAnswer,
-        datePublished: guide.publishedDate,
-        dateModified: guide.lastReviewed,
-        // A team byline such as "ASSOCADS editorial team" is not a person.
-        author: guide.author.includes(site.shortName)
-          ? { "@type": "Organization", name: guide.author, url: site.url }
-          : { "@type": "Person", name: guide.author },
-        publisher: { "@type": "NGO", name: site.name, url: site.url },
-        citation: guide.sources.map((s) => s.url),
-        mainEntityOfPage: pageUrl,
-      },
-      ...(guide.faqs.length > 0
-        ? [
-            {
-              "@type": "FAQPage",
-              mainEntity: guide.faqs.map((f) => ({
-                "@type": "Question",
-                name: f.question,
-                acceptedAnswer: { "@type": "Answer", text: f.answer },
-              })),
-            },
-          ]
-        : []),
-    ],
-  };
+  // Built only from this guide's own fields: the page with its trustee
+  // review, the article, and the questions exactly as shown below.
+  const reviewer = getTrustees().find((t) => t.name === guide.reviewedBy);
+  const jsonLd = [
+    ...guideArticle(guide, reviewer),
+    guide.faqs.length > 0 ? faqPage(`/guides/${guide.slug}`, guide.faqs) : null,
+  ];
 
   const facts: [string, string][] = [
     ["Written by", guide.author],
@@ -142,15 +114,7 @@ export default async function GuidePage({
 
   return (
     <>
-      {!guide.draft && (
-        <script
-          type="application/ld+json"
-          // JSON-LD for search engines, built only from this guide's own fields.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
+      <JsonLd items={jsonLd} />
 
       <article>
         <Section

@@ -22,6 +22,8 @@ import {
 import { contentIcon } from "@/lib/icons";
 import { builtAt } from "@/lib/clock";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { faqPage } from "@/lib/seo/schema";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
   return getAudiences().map((a) => ({ audience: a.slug }));
@@ -84,6 +86,7 @@ export default async function AudiencePage({
 
   return (
     <>
+      <JsonLd items={[faqPage(`/for/${audience.slug}`, audience.faqs)]} />
       <PageHeader
         eyebrow={audience.title}
         title={audience.headline}

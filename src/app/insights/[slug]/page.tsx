@@ -15,7 +15,9 @@ import { builtAt } from "@/lib/clock";
 import { bySlug, getInsights } from "@/lib/content/loaders";
 import { loadMdxBody } from "@/lib/content/mdx";
 import { formatLongDate, insightCategoryLabels } from "@/lib/publishing";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { newsArticle } from "@/lib/seo/schema";
 
 /* Every item, drafts and future-dated ones included, is listed so the route
    always has a path to prerender. The page returns "not found" for anything
@@ -81,30 +83,10 @@ export default async function InsightPage({
     ...others.filter((i) => i.category !== item.category),
   ].slice(0, 3);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    headline: item.title,
-    description: item.summary,
-    datePublished: item.publishedDate,
-    dateModified: updated ?? item.publishedDate,
-    author: { "@type": "Person", name: item.author },
-    publisher: { "@type": "NGO", name: site.name, url: site.url },
-    mainEntityOfPage: pageUrl,
-    ...(item.image ? { image: `${site.url}${item.image}` } : {}),
-  };
-
   return (
     <>
-      {!item.draft && (
-        <script
-          type="application/ld+json"
-          // JSON-LD for search engines, built only from this item's own fields.
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
-      )}
+      {/* Built only from this item's own fields. Drafts never reach the live site. */}
+      <JsonLd items={[newsArticle(item)]} />
 
       <article>
         <Section
