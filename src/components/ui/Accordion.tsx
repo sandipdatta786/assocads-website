@@ -22,7 +22,7 @@ export function AccordionItem({
     <details
       id={id}
       open={defaultOpen}
-      className="group border-b border-tone-line"
+      className="group scroll-mt-24 border-b border-tone-line"
     >
       <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium text-tone-fg [&::-webkit-details-marker]:hidden">
         <span>{question}</span>

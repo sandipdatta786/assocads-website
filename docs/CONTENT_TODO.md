@@ -77,4 +77,8 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [ ] Founders: create the Resend account, verify the sending domain and add `RESEND_API_KEY`, `FORMS_FROM` and `FORMS_TO` in Vercel (`docs/FORMS_SETUP.md`). Until then, forms on the live site show a polite "could not send" message.
 - [ ] Founders: create the Cloudflare Turnstile widget and add `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY` in Vercel, then redeploy (`docs/FORMS_SETUP.md`)
 - [ ] Founders: decide whether membership, communities, partnerships, support, events and media messages go to separate addresses (`FORMS_TO_*`), or all to `FORMS_TO`
-- [ ] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)
+- [x] `src/app/faq`, `src/app/legal/**`, `src/app/accessibility` · questions and legal pages (Prompt 17)
+- [ ] `src/app/legal/privacy`, `src/app/legal/terms`, `src/app/legal/disclaimer`, `src/app/accessibility` · this page must be reviewed by the trust's legal advisor before launch. Once a page is approved, set its date in `src/lib/legal.ts` and remove its `reviewNote`
+- [ ] `src/app/legal/privacy/page.tsx` · name of the email service used for the secretariat mailbox
+- [ ] `src/app/legal/privacy/page.tsx` · retention periods agreed by the Board, for example how long enquiries and expressions of interest are kept
+- [ ] `/accessibility` · update "What has been tested" after the full audit (Prompt 22)
