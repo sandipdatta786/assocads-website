@@ -59,7 +59,7 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/page.tsx` · home page content (Prompt 5)
 - [x] `src/app/about`, `objects`, `governance`, `roadmap`, `facts` · About pages (Prompt 6)
 - [x] `src/app/about/trustees` · Founder Trustees page (Prompt 7)
-- [ ] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
+- [x] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
 - [ ] `src/app/for/[audience]` · four audience pages (Prompt 9)
 - [ ] `src/app/membership/**` · membership and register-your-interest pages (Prompts 10 and 16)
 - [ ] `src/app/events` · events (Prompt 11)
