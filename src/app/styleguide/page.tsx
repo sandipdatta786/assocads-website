@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
 import { CalendarDays, GraduationCap, Landmark, Rocket } from "lucide-react";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { Avatar } from "@/components/ui/Avatar";
@@ -16,11 +17,13 @@ import { TextLink } from "@/components/ui/TextLink";
 import { Eyebrow, Heading, Lead, Prose } from "@/components/ui/Typography";
 import { contrastGrade, contrastRatio } from "@/lib/contrast";
 
-export const metadata: Metadata = {
-  title: "Style guide | ASSOCADS",
-  description: "Internal reference for the ASSOCADS design system.",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Style guide",
+  description:
+    "Internal reference for the ASSOCADS design system: colours, type, components and approved pairings. Not part of the public site.",
+  path: "/styleguide",
+  noindex: true,
+});
 
 const colours: Array<{ name: string; hex: string; role: string }> = [
   { name: "Ink", hex: "#0B1020", role: "Headings, body text, dark sections" },

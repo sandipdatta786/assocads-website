@@ -26,7 +26,7 @@ import { formatLongDate } from "@/lib/publishing";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Resources: guides, glossary, documents and brand kit",
+  title: "Resources: guides, glossary and brand kit",
   description:
     "ASSOCADS guides on careers, Kolkata and AI policy, a glossary of AI and Data Science terms, official documents and the logo files and brand guide.",
   path: "/resources",

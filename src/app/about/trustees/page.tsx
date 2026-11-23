@@ -13,7 +13,7 @@ import { numberWord } from "@/lib/words";
 export const metadata = pageMetadata({
   title: "Founder Trustees",
   description:
-    "The thirteen Founder Trustees who set up ASSOCADS and form its first Board of Trustees. They serve without payment; office bearers are elected after registration.",
+    "The thirteen Founder Trustees who set up ASSOCADS and form its first Board. They serve without pay; office bearers are elected after registration.",
   path: "/about/trustees",
 });
 

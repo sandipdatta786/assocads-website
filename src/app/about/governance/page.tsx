@@ -26,7 +26,7 @@ import { numberWord } from "@/lib/words";
 export const metadata = pageMetadata({
   title: "Governance",
   description:
-    "How ASSOCADS is run: a public charitable trust led by an honorary Board of Trustees, bound by ten principles, with yearly audited accounts and an annual report.",
+    "How ASSOCADS is run: a public charitable trust with an honorary Board of Trustees, ten binding principles, yearly audited accounts and an annual report.",
   path: "/about/governance",
 });
 

@@ -10,8 +10,9 @@
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "pnpm lint && pnpm typecheck && pnpm content:check && pnpm build",
+    "check": "pnpm lint && pnpm typecheck && pnpm content:check && pnpm build && pnpm seo:check",
     "content:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/content-check.ts",
+    "seo:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/seo-check.ts",
     "test:e2e": "playwright test"
   },
   "dependencies": {

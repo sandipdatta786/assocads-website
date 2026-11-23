@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/seo/metadata";
 export const metadata = pageMetadata({
   title: "Roadmap",
   description:
-    "What ASSOCADS plans to do in its first twelve months, in the following year and beyond: registration, first programmes, chapters and Centres of Excellence.",
+    "What ASSOCADS plans for its first twelve months, the following year and beyond: registration, first programmes, chapters and Centres of Excellence.",
   path: "/about/roadmap",
 });
 

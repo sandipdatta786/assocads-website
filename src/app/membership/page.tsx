@@ -17,7 +17,7 @@ import { pageMetadata } from "@/lib/seo/metadata";
 export const metadata: Metadata = pageMetadata({
   title: "Membership",
   description:
-    "The four kinds of ASSOCADS membership set out in the trust deed: Ordinary, Life, Associate and Honorary. Who can join, how admission works, and what it is not.",
+    "The four kinds of ASSOCADS membership in the trust deed: Ordinary, Life, Associate and Honorary. Who can join, how admission works, and what it is not.",
   path: "/membership",
 });
 

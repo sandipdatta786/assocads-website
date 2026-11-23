@@ -128,6 +128,7 @@ export default function Page() {
 
   return (
     <LegalPage
+      path="/legal/disclaimer"
       title="Disclaimer"
       lead={`What the information on the ${name} website is, and what it is not.`}
       breadcrumbs={[{ label: "Disclaimer" }]}

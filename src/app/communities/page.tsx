@@ -22,7 +22,7 @@ import type { Community } from "@/lib/content/schemas";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Communities: Special Interest Groups and chapters",
+  title: "Special Interest Groups and chapters",
   description:
     "ASSOCADS Special Interest Groups by industry or domain, and chapters in other cities and states. See the proposed groups and register your interest.",
   path: "/communities",

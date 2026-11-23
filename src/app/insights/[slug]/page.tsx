@@ -39,6 +39,8 @@ export async function generateMetadata({
     title: item.title,
     description: item.summary,
     path: `/insights/${item.slug}`,
+    type: "article",
+    noindex: item.draft,
   });
   return {
     ...base,
@@ -52,7 +54,6 @@ export async function generateMetadata({
         ? { images: [{ url: item.image, alt: item.imageAlt }] }
         : {}),
     },
-    ...(item.draft ? { robots: { index: false, follow: false } } : {}),
   };
 }
 

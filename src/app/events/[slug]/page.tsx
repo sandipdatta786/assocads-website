@@ -41,14 +41,12 @@ export async function generateMetadata({
 }: PageProps<"/events/[slug]">): Promise<Metadata> {
   const event = bySlug(getEvents(), (await params).slug);
   if (!event) return {};
-  return {
-    ...pageMetadata({
-      title: event.title,
-      description: event.summary,
-      path: `/events/${event.slug}`,
-    }),
-    ...(event.draft ? { robots: { index: false, follow: false } } : {}),
-  };
+  return pageMetadata({
+    title: event.title,
+    description: event.summary,
+    path: `/events/${event.slug}`,
+    noindex: event.draft,
+  });
 }
 
 const attendance = {

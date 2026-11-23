@@ -1,7 +1,44 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 
+/** Paths the old one-page site or common guesses may have used. The old
+    site's #anchors are handled on the home page, because the part after #
+    never reaches the server. */
+const oldPaths: Array<[string, string]> = [
+  ["/index.html", "/"],
+  ["/home", "/"],
+  ["/about-us", "/about"],
+  ["/leaders", "/about/trustees"],
+  ["/trustees", "/about/trustees"],
+  ["/programs", "/programmes"],
+  ["/programs/:slug", "/programmes/:slug"],
+  ["/plan", "/about/roadmap"],
+  ["/goals", "/about/objects"],
+  ["/news", "/insights"],
+  ["/blog", "/insights"],
+  ["/join", "/membership/apply"],
+  ["/privacy", "/legal/privacy"],
+  ["/terms", "/legal/terms"],
+];
+
 const nextConfig: NextConfig = {
+  async redirects() {
+    return oldPaths.map(([source, destination]) => ({
+      source,
+      destination,
+      permanent: true,
+    }));
+  },
+  async headers() {
+    // Preview deployments must never be indexed: only the real domain.
+    if (process.env.VERCEL_ENV !== "preview") return [];
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

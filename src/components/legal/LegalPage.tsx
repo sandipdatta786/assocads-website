@@ -1,11 +1,45 @@
 import type { ReactNode } from "react";
 import { PageHeader } from "@/components/sections/PageHeader";
+import {
+  RelatedLinks,
+  type RelatedLink,
+} from "@/components/sections/RelatedLinks";
 import { Callout, Placeholder } from "@/components/ui/Callout";
 import { Container } from "@/components/ui/Container";
 import { isPlaceholderValue, placeholderNeed } from "@/config/site";
 import { formatShortDate } from "@/lib/events";
 
 export type LegalSection = { id: string; title: string; body: ReactNode };
+
+/** The pages about how the site and the trust treat visitors. Each legal
+    page links to the others, and to the contact page. */
+const SITE_INFORMATION: RelatedLink[] = [
+  {
+    label: "Privacy notice",
+    href: "/legal/privacy",
+    description: "What the forms collect, who processes it, and your rights.",
+  },
+  {
+    label: "Terms of use",
+    href: "/legal/terms",
+    description: "The rules for using this website and its content.",
+  },
+  {
+    label: "Disclaimer",
+    href: "/legal/disclaimer",
+    description: "General information, not advice. Plans may change.",
+  },
+  {
+    label: "Accessibility statement",
+    href: "/accessibility",
+    description: "The standard we aim for, and how to report a problem.",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    description: "Questions about anything on these pages.",
+  },
+];
 
 /** A setting such as an email address: a link when it is filled in, or a
     visible placeholder while it is missing. */
@@ -32,6 +66,7 @@ export function LegalPage({
   effective,
   reviewNote,
   sections,
+  path,
 }: {
   eyebrow?: string;
   title: string;
@@ -44,6 +79,8 @@ export function LegalPage({
       Leave it out once the advisor has approved the page. */
   reviewNote?: ReactNode;
   sections: LegalSection[];
+  /** This page's path, left out of the related pages. */
+  path: string;
 }) {
   return (
     <>
@@ -108,6 +145,12 @@ export function LegalPage({
           ))}
         </div>
       </Container>
+      <RelatedLinks
+        id="site-information"
+        title="More about how this website works"
+        links={SITE_INFORMATION.filter((l) => l.href !== path)}
+        tone="cloud"
+      />
     </>
   );
 }

@@ -385,6 +385,7 @@ export default function Page() {
 
   return (
     <LegalPage
+      path="/legal/privacy"
       title="Privacy notice"
       lead={`How ${site.shortName} collects, uses and protects personal data, and how you can see, correct or erase what we hold about you.`}
       breadcrumbs={[{ label: "Privacy notice" }]}
