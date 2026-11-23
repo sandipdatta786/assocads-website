@@ -193,6 +193,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -376,5 +377,39 @@
 [data-tone="ink"]
   :is([data-tone="paper"], [data-tone="cloud"], [data-tone="tint"])
   .logo-on-dark {
+  display: none;
+}
+
+/* Header: a small Indigo mark under the current section on desktop. */
+.nav-current {
+  position: relative;
+}
+
+.nav-current::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 999px;
+  background: var(--indigo);
+}
+
+/* Menus fade in and settle once. Reduced motion removes this (see base layer). */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.menu-panel:not([hidden]) {
+  animation: menu-in var(--dur-base) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The status banner, once dismissed for the session. */
+[data-status-banner-dismissed] [data-status-banner] {
   display: none;
 }

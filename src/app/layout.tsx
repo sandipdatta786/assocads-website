@@ -1,5 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import {
+  BANNER_STORAGE_KEY,
+  StatusBanner,
+} from "@/components/layout/StatusBanner";
+import { site } from "@/config/site";
 import "./globals.css";
 
 // The three brand typefaces, self-hosted by next/font. See docs/BRAND_GUIDE.md.
@@ -25,18 +32,51 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ASSOCADS | Association for AI and Data Science",
-  description:
-    "ASSOCADS is a not-for-profit professional association for AI and Data Science in India, beginning in West Bengal.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.shortName} | ${site.name}`,
+    template: `%s | ${site.shortName}`,
+  },
+  description: site.description,
+  applicationName: site.shortName,
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: `${site.shortName}, ${site.name}`,
+  },
 };
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+};
+
+// Hides the status banner before first paint if it was dismissed this session.
+const bannerScript = `try{if(sessionStorage.getItem(${JSON.stringify(BANNER_STORAGE_KEY)}))document.documentElement.dataset.statusBannerDismissed=""}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-IN"
       className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
-      <body>{children}</body>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bannerScript }} />
+      </head>
+      <body className="flex min-h-dvh flex-col">
+        <a
+          href="#main-content"
+          className="sr-only rounded-pill bg-indigo px-5 py-3 text-small font-medium text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+        >
+          Skip to content
+        </a>
+        <SiteHeader />
+        <StatusBanner />
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+          {children}
+        </main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

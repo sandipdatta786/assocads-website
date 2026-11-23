@@ -63,14 +63,19 @@ function walk(dir: string): string[] {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) return walk(full);
-    return /\.(mdx|json|ts)$/.test(entry.name) ? [full] : [];
+    return /\.(mdx|json|tsx?)$/.test(entry.name) ? [full] : [];
   });
 }
 
 const files = [
   ...walk(CONTENT_DIR),
   path.join(process.cwd(), "src/config/site.ts"),
+  // Pages and components that render <Placeholder needed="..." />.
+  ...walk(path.join(process.cwd(), "src/app")).filter(
+    (f) => !f.includes("styleguide"),
+  ),
 ];
+const PLACEHOLDER_PROP = /<Placeholder\s+needed="([^"]+)"/g;
 const found: { file: string; line: number; text: string }[] = [];
 for (const file of files) {
   fs.readFileSync(file, "utf8")
@@ -81,6 +86,13 @@ for (const file of files) {
           file: path.relative(process.cwd(), file),
           line: index + 1,
           text: match[0],
+        });
+      }
+      for (const match of line.matchAll(PLACEHOLDER_PROP)) {
+        found.push({
+          file: path.relative(process.cwd(), file),
+          line: index + 1,
+          text: `[PLACEHOLDER: ${match[1]}]`,
         });
       }
     });
