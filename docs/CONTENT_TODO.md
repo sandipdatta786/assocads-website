@@ -19,6 +19,31 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 
 ## Placeholders on the site
 
-None yet. Add one line per placeholder as pages are built, in the form:
+Run `pnpm content:check` for the current list with line numbers. Add one line here for every new placeholder, in the form `path/to/file` · what is needed.
 
-- [ ] `path/to/file` · what is needed
+### Organisation settings: `src/config/site.ts`
+
+- [ ] `src/config/site.ts` · registered office address in West Bengal (`legal.registeredOffice`)
+- [ ] `src/config/site.ts` · public contact email address (`contact.email`)
+- [ ] `src/config/site.ts` · public phone number, if any (`contact.phone`)
+- [ ] `src/config/site.ts` · email address for data protection requests (`contact.dataProtectionEmail`)
+- [ ] `src/config/site.ts` · official social profile links, currently empty and so not shown (`social`)
+- [ ] `src/config/site.ts` · registration number and date, then `legal.status: "registered"`. These are empty settings rather than placeholders, and the site keeps saying "registration in progress" until they are filled in.
+
+### Founder Trustees: `content/trustees.json`
+
+Each of the thirteen trustees has five placeholders: current role, current organisation, a biography of about sixty words, two to four areas of expertise, and a LinkedIn link. Each also needs a photograph, which is added only with `consentToPublish: true`.
+
+- [ ] `content/trustees.json` · Amit Kumar Das
+- [ ] `content/trustees.json` · Abhijit Pal
+- [ ] `content/trustees.json` · Prasun Nandy
+- [ ] `content/trustees.json` · Sudip Dasgupta
+- [ ] `content/trustees.json` · Rahul Bhattacharya
+- [ ] `content/trustees.json` · Biswajeet Chaki
+- [ ] `content/trustees.json` · Sayan Guha
+- [ ] `content/trustees.json` · Deb Kumar Majumder
+- [ ] `content/trustees.json` · Sandip Datta
+- [ ] `content/trustees.json` · Agnimitra Biswas
+- [ ] `content/trustees.json` · Kaushik Dey
+- [ ] `content/trustees.json` · Ayan Chakraborty
+- [ ] `content/trustees.json` · Eshwar Boini
