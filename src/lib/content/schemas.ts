@@ -366,6 +366,28 @@ export const eventSchema = z
     },
   );
 
+/** A Special Interest Group or a chapter. The Board sets each one up under the
+    trust deed. Until then it is "proposed" and has no page of its own. */
+export const communitySchema = z
+  .object({
+    slug,
+    kind: z.enum(["sig", "chapter"]),
+    name: z.string().min(1).max(60),
+    /** One sentence. For a proposed group, worded as a plan. */
+    summary: z.string().min(1).max(200),
+    /** "active" only once the Board has set it up. Active ones get their own page. */
+    status: z.enum(["proposed", "active"]),
+    /** For chapters. */
+    city: z.string().optional(),
+    state: z.string().optional(),
+    order: z.number().int().positive(),
+    draft,
+  })
+  .refine((c) => c.kind === "sig" || Boolean(c.city || c.state), {
+    message: "a chapter needs a city or a state",
+    path: ["city"],
+  });
+
 export const insightSchema = z.object({
   slug,
   title: z.string().min(1),
@@ -417,6 +439,7 @@ export type RoadmapStage = z.infer<typeof roadmapSchema>;
 export type Programme = z.infer<typeof programmeSchema>;
 export type Audience = z.infer<typeof audienceSchema>;
 export type ContentEvent = z.infer<typeof eventSchema>;
+export type Community = z.infer<typeof communitySchema>;
 export type Insight = z.infer<typeof insightSchema>;
 export type Guide = z.infer<typeof guideSchema>;
 export type GlossaryTerm = z.infer<typeof glossarySchema>;

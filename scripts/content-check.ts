@@ -25,6 +25,7 @@ import {
   getProgrammes,
   getRoadmap,
   getInitiatives,
+  getCommunities,
   getSuccessMeasures,
   getTrustees,
 } from "../src/lib/content/loaders.ts";
@@ -45,6 +46,7 @@ const collections: [string, () => unknown[]][] = [
   ["faqs", () => getFaqs()],
   ["roadmap stages", () => getRoadmap()],
   ["initiatives", () => getInitiatives()],
+  ["communities", () => getCommunities()],
   ["success measures", () => getSuccessMeasures()],
   ["documents", () => getDocuments()],
   ["deed objects", () => getDeedObjects()],

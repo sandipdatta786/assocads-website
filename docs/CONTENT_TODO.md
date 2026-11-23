@@ -64,7 +64,8 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [x] `src/app/membership/**` · membership page and register-your-interest form interface (Prompt 10)
 - [ ] Register-your-interest form sending: connect it, then set `site.forms.registerInterestLive` to `true` (Prompt 16)
 - [x] `src/app/events` · events list, event pages and a draft template (Prompt 11). See `docs/HOW_TO_ADD_AN_EVENT.md`.
-- [ ] `src/app/communities` · communities (Prompt 12)
+- [x] `src/app/communities` · communities page, nine proposed Special Interest Groups and the interest form interface (Prompt 12)
+- [ ] Communities interest form sending: connect it, then set `site.forms.communityInterestLive` to `true` (Prompt 16)
 - [ ] `src/app/insights` · insights (Prompt 13)
 - [ ] `src/app/guides`, `src/app/glossary`, `src/app/resources` · guides, glossary and resources (Prompt 14)
 - [ ] `src/app/partner`, `src/app/support`, `src/app/contact` · partner, support and contact (Prompts 15 and 16)

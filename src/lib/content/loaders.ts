@@ -33,6 +33,7 @@ import {
   membershipCategorySchema,
   programmeSchema,
   roadmapSchema,
+  communitySchema,
   initiativeSchema,
   successMeasureSchema,
   trusteeSchema,
@@ -401,6 +402,12 @@ export function getEventsByTime(now = new Date(), options?: LoadOptions) {
     upcoming: all.filter((e) => !isPast(e, ms)),
     past: all.filter((e) => isPast(e, ms)).reverse(),
   };
+}
+
+export function getCommunities(options?: LoadOptions) {
+  const items = readMdxCollection("communities", communitySchema);
+  uniqueSlugs("content/communities", items);
+  return withoutDrafts(items, options).sort((a, b) => a.order - b.order);
 }
 
 export function getInsights(options?: LoadOptions) {

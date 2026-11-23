@@ -112,5 +112,29 @@
     "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
     "category": "disambiguation",
     "pages": ["/faq", "/about/facts", "/about"]
+  },
+  {
+    "question": "What is a Special Interest Group?",
+    "answer": "A group for people who work in, or care about, one industry or domain, such as healthcare or financial services. The trust deed allows the Board to set them up and to offer training and advice through them. None has been formed yet.",
+    "category": "membership",
+    "pages": ["/faq", "/communities"]
+  },
+  {
+    "question": "Can I start a Special Interest Group or a chapter?",
+    "answer": "Every group and chapter is set up by the Board. If you would like one in your field or your city, register your interest on the communities page and say whether you would help organise it. The Board will consider proposals after registration.",
+    "category": "membership",
+    "pages": ["/faq", "/communities"]
+  },
+  {
+    "question": "Do I need to be a member to join a group?",
+    "answer": "Under the trust deed, members may take part in Special Interest Groups as the Board decides. Who else can take part will be decided when each group is set up.",
+    "category": "membership",
+    "pages": ["/faq", "/communities"]
+  },
+  {
+    "question": "How will chapters be set up?",
+    "answer": "ASSOCADS begins in West Bengal, with Kolkata as its base. The trust deed allows the Board to set up chapters in other cities and states. Each one needs the Board's approval.",
+    "category": "membership",
+    "pages": ["/faq", "/communities"]
   }
 ]

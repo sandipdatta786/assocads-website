@@ -1,7 +1,13 @@
 import type { MDXContent } from "mdx/types";
 
 export type MdxCollection =
-  "programmes" | "audiences" | "events" | "insights" | "guides" | "glossary";
+  | "programmes"
+  | "audiences"
+  | "events"
+  | "insights"
+  | "guides"
+  | "glossary"
+  | "communities";
 
 /**
  * The compiled body of one MDX file, ready to render as <Body />.
