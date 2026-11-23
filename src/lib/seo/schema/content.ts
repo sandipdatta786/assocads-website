@@ -172,6 +172,7 @@ export function guideArticle(
       isPartOf: websiteRef,
       publisher: organisationRef,
       lastReviewed: g.lastReviewed,
+      dateModified: g.lastReviewed,
       reviewedBy: real(g.reviewedBy)
         ? {
             "@type": "Person",
@@ -234,16 +235,19 @@ export function definedTermSet(terms: GlossaryTerm[]): SchemaNode {
     url: glossaryId,
     publisher: organisationRef,
     inLanguage: "en-IN",
-    hasDefinedTerm: terms.map((t) => ({ "@id": url(`/glossary/${t.slug}`) })),
+    hasDefinedTerm: terms.map((t) => ({ "@id": termId(t.slug) })),
   };
 }
+
+/** The @id of a glossary term. Its page is a separate WebPage node. */
+export const termId = (slug: string) => `${url(`/glossary/${slug}`)}#term`;
 
 /** One glossary term, inside the glossary. */
 export function definedTerm(t: GlossaryTerm): SchemaNode {
   const pageUrl = url(`/glossary/${t.slug}`);
   return {
     "@type": "DefinedTerm",
-    "@id": pageUrl,
+    "@id": termId(t.slug),
     name: t.term,
     alternateName: t.aliases,
     description: t.shortDefinition,

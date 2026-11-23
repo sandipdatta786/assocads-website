@@ -24,18 +24,32 @@ type PageInput = {
   /** The page's h1. */
   name: string;
   description: string;
+  /** YYYY-MM-DD: the "Last updated" date the page shows. */
+  dateModified?: string;
+  /** The @id of the page's main subject, such as a glossary term. */
+  mainEntity?: string;
 };
 
-function webPage(type: string, { path, name, description }: PageInput) {
+function webPage(
+  type: string,
+  { path, name, description, dateModified, mainEntity }: PageInput,
+) {
   return {
     "@type": type,
     "@id": url(path),
     url: url(path),
     name,
     description,
+    dateModified,
     inLanguage: "en-IN",
     isPartOf: websiteRef,
+    mainEntity: mainEntity ? { "@id": mainEntity } : undefined,
   };
+}
+
+/** An ordinary page, published by the organisation. */
+export function plainPage(page: PageInput): SchemaNode {
+  return { ...webPage("WebPage", page), publisher: organisationRef };
 }
 
 /** An About page: about the organisation. */

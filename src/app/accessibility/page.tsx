@@ -163,7 +163,7 @@ export default function Page() {
       path="/accessibility"
       eyebrow="About this website"
       title="Accessibility statement"
-      lead={`How ${name} makes this website usable by everyone, what has been tested, and how to report a problem.`}
+      lead={`${name} aims for this website to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA, so that it works with a screen reader, a keyboard, screen magnification or a slow mobile connection. This statement explains how the site is built for access, what has been tested, its known limitations and how to report a problem.`}
       breadcrumbs={[{ label: "Accessibility" }]}
       effective={legalDates.accessibility}
       reviewNote={

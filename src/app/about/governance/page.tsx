@@ -20,7 +20,9 @@ import {
   taxStatusLine,
 } from "@/config/site";
 import { getDocuments, getTrustees } from "@/lib/content/loaders";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { aboutPage } from "@/lib/seo/schema";
 import { numberWord } from "@/lib/words";
 
 export const metadata = pageMetadata({
@@ -102,10 +104,21 @@ export default function GovernancePage() {
 
   return (
     <>
+      <JsonLd
+        items={[
+          aboutPage({
+            path: "/about/governance",
+            name: "Governance",
+            description: String(metadata.description),
+            dateModified: site.updated.governance,
+          }),
+        ]}
+      />
       <PageHeader
         eyebrow="About"
         title="Governance"
-        lead="How the trust is run: who is responsible, the principles that bind it, how its money is accounted for, and the documents it will publish."
+        updated={site.updated.governance}
+        lead={`${site.shortName} is governed by its Board of Trustees under a trust deed, and is run on a not-for-profit basis. This page explains who is responsible, the principles that bind the trust, how its money is to be accounted for, and which documents it will publish as they are adopted.`}
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Governance" },

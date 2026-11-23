@@ -196,7 +196,7 @@ export default function Page() {
     <LegalPage
       path="/legal/terms"
       title="Terms of use"
-      lead={`The rules for using the ${name} website and its content.`}
+      lead={`These terms apply to everyone who uses the ${name} website, which is run by the ${site.name}. By using the website you accept them. They cover acceptable use, who owns the content and how you may reuse it, links to other websites, the limits of our responsibility and the law that applies.`}
       breadcrumbs={[{ label: "Terms of use" }]}
       effective={legalDates.terms}
       reviewNote={

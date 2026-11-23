@@ -40,7 +40,7 @@ export default async function Page() {
       <PageHeader
         eyebrow="Events"
         title="Events"
-        lead="Conferences, workshops, masterclasses, meetups and hackathons that bring students, professionals, researchers and industry together."
+        lead={`${site.shortName} plans to hold conferences, workshops, masterclasses, meetups and hackathons that bring students, professionals, researchers and industry together, beginning in West Bengal. An event is listed here only once it is confirmed, with its own page giving the date, the place and how to register.`}
         breadcrumbs={[{ label: "Events" }]}
       />
 

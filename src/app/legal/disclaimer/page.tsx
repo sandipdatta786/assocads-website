@@ -130,7 +130,7 @@ export default function Page() {
     <LegalPage
       path="/legal/disclaimer"
       title="Disclaimer"
-      lead={`What the information on the ${name} website is, and what it is not.`}
+      lead={`The guides, glossary and other information on the ${name} website are general information about artificial intelligence, data science, careers and policy. They are not legal, financial, tax or career advice. Plans described on the site may change, and a mention of another organisation is not an endorsement. Take qualified advice before any important decision.`}
       breadcrumbs={[{ label: "Disclaimer" }]}
       effective={legalDates.disclaimer}
       reviewNote={

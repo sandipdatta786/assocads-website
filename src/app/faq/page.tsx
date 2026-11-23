@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { site } from "@/config/site";
 import { FaqBrowser, type FaqGroup } from "@/components/faq/FaqBrowser";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { PageHeader } from "@/components/sections/PageHeader";
@@ -46,7 +47,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Questions"
         title="Frequently asked questions"
-        lead="Short answers about ASSOCADS: what it is, who can join, what it plans to do, and how this website treats your data."
+        lead={`This page answers the questions people ask most often about ${site.shortName}, the ${site.name}: what it is, its legal status, who can join, what it plans to do, how to partner with or support it, and how this website treats your data. Each answer is short and stands on its own.`}
         breadcrumbs={[{ label: "Questions" }]}
       />
       <Container className="pb-24">

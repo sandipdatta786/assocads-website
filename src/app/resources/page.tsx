@@ -54,7 +54,7 @@ export default async function Page() {
       <PageHeader
         eyebrow="Resources"
         title="Resources"
-        lead={`Guides, the glossary, official documents and the ${site.shortName} brand kit, in one place.`}
+        lead={`This page brings together the ${site.shortName} guides, its glossary of AI and Data Science terms, the official documents it publishes as they are adopted, and its brand kit. Guides and glossary entries are reviewed by a named trustee before they are published. The logo is not yet final, as explained below.`}
         breadcrumbs={[{ label: "Resources" }]}
       />
 

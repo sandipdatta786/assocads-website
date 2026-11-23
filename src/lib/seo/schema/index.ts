@@ -9,6 +9,7 @@ export {
   breadcrumbList,
   contactPage,
   faqPage,
+  plainPage,
   type QuestionAndAnswer,
 } from "./pages";
 export * from "./content";

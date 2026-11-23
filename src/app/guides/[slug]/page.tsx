@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -102,13 +103,21 @@ export default async function GuidePage({
     guide.faqs.length > 0 ? faqPage(`/guides/${guide.slug}`, guide.faqs) : null,
   ];
 
-  const facts: [string, string][] = [
+  const facts: [string, ReactNode][] = [
     ["Written by", guide.author],
     ["Reviewed by", guide.reviewedBy || "Not yet reviewed"],
     ["Published", formatLongDate(guide.publishedDate)],
-    ["Last reviewed", formatLongDate(guide.lastReviewed)],
+    [
+      "Last reviewed",
+      <time key="reviewed" dateTime={guide.lastReviewed} data-page-date="">
+        {formatLongDate(guide.lastReviewed)}
+      </time>,
+    ],
     ...(guide.dataAsOf
-      ? ([["Data as of", formatLongDate(guide.dataAsOf)]] as [string, string][])
+      ? ([["Data as of", formatLongDate(guide.dataAsOf)]] as [
+          string,
+          ReactNode,
+        ][])
       : []),
   ];
 

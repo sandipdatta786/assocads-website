@@ -17,7 +17,10 @@
  * 6. addresses: lower case, hyphenated, no trailing slash, one per page;
  * 7. structured data: the JSON-LD parses, has the required properties, refers
  *    to the one organisation, claims nothing not yet true, and matches the
- *    visible page (see scripts/structured-data.ts).
+ *    visible page (see scripts/structured-data.ts);
+ * 8. answer engines: 40 to 60 word openings, matching "Last updated" dates,
+ *    one canonical description everywhere, /llms.txt, /llms-full.txt and the
+ *    AI crawlers in robots.txt (see scripts/aeo-check.ts).
  *
  * It writes a table of every route to test-results/seo-report.md and exits
  * with code 1 if anything fails.
@@ -25,6 +28,13 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import {
+  checkAnswerFirst,
+  checkCrawlers,
+  checkEntity,
+  checkFreshness,
+  checkLlms,
+} from "./aeo-check.ts";
 import { checkStructuredData } from "./structured-data.ts";
 
 const PORT = Number(process.env.SEO_CHECK_PORT ?? 3300);
@@ -81,6 +91,7 @@ type Page = {
   mainLinks: Set<string>;
   /** Structured data types found, for the report. */
   schemaTypes?: string[];
+  leadWords?: number;
 };
 
 const problems: string[] = [];
@@ -481,6 +492,35 @@ try {
 
   for (const page of pages.values()) await checkPage(page, origin);
 
+  // Answer engines and AI assistants
+  const lastmods = new Map(
+    sitemapXml
+      .split("<url>")
+      .slice(1)
+      .map((block) => [
+        new URL(block.match(/<loc>([^<]+)/)?.[1] ?? ORIGIN).pathname,
+        block.match(/<lastmod>([^<]+)/)?.[1],
+      ]),
+  );
+  for (const page of pages.values()) {
+    page.leadWords = checkAnswerFirst(page, textOf, fail);
+    checkFreshness(page, origin, lastmods.get(page.path), fail);
+  }
+  checkEntity(pages, textOf, pages.get("/")?.description, fail);
+  checkCrawlers(robots, fail);
+  await checkLlms(
+    async (p) => {
+      const r = await fetch(`${ORIGIN}${p}`);
+      return {
+        status: r.status,
+        type: r.headers.get("content-type") ?? "",
+        text: await r.text(),
+      };
+    },
+    pages,
+    fail,
+  );
+
   // Sitemap against the pages found
   const inSitemap = new Set(sitemapPaths);
   for (const page of pages.values()) {
@@ -536,11 +576,11 @@ try {
   // Report
   const rows = [...pages.values()].sort((a, b) => a.path.localeCompare(b.path));
   const report = [
-    "| Route | Title | Chars | Description chars | Clicks from home | Related links | Indexed | Structured data |",
-    "| --- | --- | --: | --: | --: | --: | --- | --- |",
+    "| Route | Title | Chars | Description chars | Opening words | Clicks from home | Related links | Indexed | Structured data |",
+    "| --- | --- | --: | --: | --: | --: | --: | --- | --- |",
     ...rows.map(
       (p) =>
-        `| ${p.path} | ${(p.title ?? "").replace(/\|/g, "\\|")} | ${p.title?.length ?? 0} | ${p.description?.length ?? 0} | ${p.depth === Infinity ? "none" : p.depth} | ${p.mainLinks.size} | ${p.noindex ? "no" : "yes"} | ${(p.schemaTypes ?? []).join(", ")} |`,
+        `| ${p.path} | ${(p.title ?? "").replace(/\|/g, "\\|")} | ${p.title?.length ?? 0} | ${p.description?.length ?? 0} | ${p.leadWords ?? ""} | ${p.depth === Infinity ? "none" : p.depth} | ${p.mainLinks.size} | ${p.noindex ? "no" : "yes"} | ${(p.schemaTypes ?? []).join(", ")} |`,
     ),
   ].join("\n");
   fs.mkdirSync("test-results", { recursive: true });

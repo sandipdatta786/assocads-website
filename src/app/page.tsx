@@ -14,8 +14,8 @@ import { site } from "@/config/site";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 const title = `${site.shortName} | ${site.name}`;
-const description =
-  "ASSOCADS is a not-for-profit association connecting students, professionals, academia, industry and government to advance AI and Data Science in India.";
+// The canonical sentence, word for word, as everywhere else.
+const description = site.description;
 
 export const metadata: Metadata = pageMetadata({
   title,

@@ -387,7 +387,7 @@ export default function Page() {
     <LegalPage
       path="/legal/privacy"
       title="Privacy notice"
-      lead={`How ${site.shortName} collects, uses and protects personal data, and how you can see, correct or erase what we hold about you.`}
+      lead={`${site.shortName} collects only what you type into a form on this website, and uses it only for the purpose that form describes. Each form is emailed to its secretariat: nothing is kept in a database, no cookies are set and nothing is sold. This notice explains how to see, correct or erase your data.`}
       breadcrumbs={[{ label: "Privacy notice" }]}
       effective={legalDates.privacy}
       reviewNote={

@@ -12,8 +12,10 @@
     "format:check": "prettier --check .",
     "check": "pnpm lint && pnpm typecheck && pnpm content:check && pnpm build && pnpm seo:check",
     "content:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/content-check.ts",
+    "llms:full": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/llms-full.ts",
     "seo:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/seo-check.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "indexnow": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/indexnow.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

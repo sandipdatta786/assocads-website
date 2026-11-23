@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
 import {
   isPlaceholderValue,
-  legalStatusLine,
+  legalStatusLabel,
   placeholderNeed,
   site,
   socialLinks,
@@ -127,7 +127,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 flex flex-col gap-2 border-t border-tone-line pt-6 text-caption text-slate-400">
-          <p>{legalStatusLine()}</p>
+          <p>{legalStatusLabel()}.</p>
           {office && !isPlaceholderValue(office) && (
             <p>Registered office: {office}</p>
           )}

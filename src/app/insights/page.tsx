@@ -35,7 +35,7 @@ export default async function Page() {
       <PageHeader
         eyebrow="Insights"
         title="Insights"
-        lead={`News, announcements and reports from ${site.shortName}.`}
+        lead={`News, announcements and reports from ${site.shortName}, the ${site.name}, are published here, newest first, each with the date it was published. They record what the trust has actually done; its plans are on the programme and roadmap pages.${items.length === 0 ? " Nothing has been published yet." : ""}`}
         breadcrumbs={[{ label: "Insights" }]}
       />
 

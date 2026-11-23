@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/config/site";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ProgrammeGrid } from "@/components/sections/programmes/ProgrammeGrid";
@@ -33,7 +34,7 @@ export default function ProgrammesPage() {
       <PageHeader
         eyebrow="Programmes"
         title="Programmes"
-        lead={`ASSOCADS groups the sixteen objects of its trust deed into ${count} areas of work. ${allPlanned ? "All of them are planned. Each will begin after the trust is registered, and its page will say when." : "Each page says whether work has started."}`}
+        lead={`${site.shortName} groups the sixteen objects of its trust deed into ${count} programme areas, from training and research to responsible AI and policy. ${allPlanned ? "All of them are planned: each will begin after the trust is registered, and its page will say when." : "Each programme page says whether work has started."} Each page sets out what the programme aims to do and how it plans to work.`}
         breadcrumbs={[{ label: "Programmes" }]}
       />
 
