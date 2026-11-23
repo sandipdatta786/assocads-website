@@ -5,7 +5,10 @@ type AvatarProps = {
   name: string;
   /** Path under public/, for example "/images/trustees/name.jpg". */
   photo?: string | null;
-  size?: number;
+  /** Width in pixels, or "fill" to fill the width of its container as a square. */
+  size?: number | "fill";
+  /** For size "fill": the image sizes hint, for example "(min-width: 900px) 33vw, 100vw". */
+  sizes?: string;
   /** Set when the name is also shown as text beside the avatar,
       so screen readers do not hear it twice. */
   decorative?: boolean;
@@ -19,37 +22,83 @@ function initials(name: string): string {
   return (first + last).toUpperCase();
 }
 
+const frame = "rounded-m border border-line bg-cloud";
+
 /** Shows a photograph, or the person's initials on a Cloud tile when no
     photograph has been supplied. */
 export function Avatar({
   name,
   photo,
   size = 96,
+  sizes = "100vw",
   decorative = false,
   className,
 }: AvatarProps) {
+  const alt = decorative ? "" : name;
+  const fill = size === "fill";
+
+  if (photo && fill) {
+    return (
+      <div
+        className={cn(
+          "relative aspect-square w-full overflow-hidden",
+          frame,
+          className,
+        )}
+      >
+        <Image
+          src={photo}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   if (photo) {
     return (
       <Image
         src={photo}
-        alt={decorative ? "" : name}
-        width={size}
-        height={size}
-        className={cn(
-          "aspect-square shrink-0 rounded-m border border-line bg-cloud object-cover",
-          className,
-        )}
+        alt={alt}
+        width={size as number}
+        height={size as number}
+        className={cn("aspect-square shrink-0 object-cover", frame, className)}
       />
     );
   }
+
+  const label = {
+    role: decorative ? undefined : "img",
+    "aria-label": decorative ? undefined : name,
+    "aria-hidden": decorative || undefined,
+  } as const;
+
+  if (fill) {
+    // The container query unit sizes the initials to the tile's width.
+    return (
+      <div className={cn("@container w-full", className)}>
+        <span
+          {...label}
+          className={cn(
+            "grid aspect-square w-full place-items-center font-display text-[30cqw] font-semibold text-slate-600",
+            frame,
+          )}
+        >
+          {initials(name)}
+        </span>
+      </div>
+    );
+  }
+
   return (
     <span
-      role={decorative ? undefined : "img"}
-      aria-label={decorative ? undefined : name}
-      aria-hidden={decorative || undefined}
-      style={{ width: size, height: size, fontSize: size * 0.34 }}
+      {...label}
+      style={{ width: size, height: size, fontSize: (size as number) * 0.34 }}
       className={cn(
-        "inline-grid shrink-0 place-items-center rounded-m border border-line bg-cloud font-display font-semibold text-slate-600",
+        "inline-grid shrink-0 place-items-center font-display font-semibold text-slate-600",
+        frame,
         className,
       )}
     >

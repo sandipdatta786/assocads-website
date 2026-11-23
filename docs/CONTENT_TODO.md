@@ -32,27 +32,25 @@ Run `pnpm content:check` for the current list with line numbers. Add one line he
 
 ### Founder Trustees: `content/trustees.json`
 
-Each of the thirteen trustees has five placeholders: current role, current organisation, a biography of about sixty words, two to four areas of expertise, and a LinkedIn link. Each also needs a photograph, which is added only with `consentToPublish: true`.
+Send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLATE.md`. Each still needs a current role, organisation, a biography of about sixty words in the third person, up to five areas of expertise and a LinkedIn link. Photographs follow the specification in the README and are shown only with `consentToPublish: true`. A trustee gets an individual page once their biography is in.
 
-Photographs received with consent (23 November 2026): Amit Kumar Das, Eshwar Boini, Deb Kumar Majumder, Sandip Datta and Sayan Guha. Still needed from the other eight trustees.
+- [ ] Amit Kumar Das · role, organisation, biography, expertise and LinkedIn needed; photo received (only 525 px; a larger one of at least 800 px is wanted)
+- [ ] Abhijit Pal · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Prasun Nandy · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Sudip Dasgupta · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Rahul Bhattacharya · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Biswajeet Chaki · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Sayan Guha · role, organisation, biography, expertise and LinkedIn needed; photo received
+- [ ] Deb Kumar Majumder · role, organisation, biography, expertise and LinkedIn needed; photo received
+- [ ] Sandip Datta · role, organisation, biography, expertise and LinkedIn needed; photo received
+- [ ] Agnimitra Biswas · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Kaushik Dey · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Ayan Chakraborty · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Eshwar Boini · role, organisation, biography, expertise and LinkedIn needed; photo received
 
 ### Documents: `content/documents.json`
 
 The governance page lists four documents as "To be published": the certificate of registration, the bye-laws, the annual report 2026–27 and the audited accounts 2026–27. When one is ready, put the PDF in `public/documents/`, set `available: true` and add its `date`.
-
-- [ ] `content/trustees.json` · Amit Kumar Das
-- [ ] `content/trustees.json` · Abhijit Pal
-- [ ] `content/trustees.json` · Prasun Nandy
-- [ ] `content/trustees.json` · Sudip Dasgupta
-- [ ] `content/trustees.json` · Rahul Bhattacharya
-- [ ] `content/trustees.json` · Biswajeet Chaki
-- [ ] `content/trustees.json` · Sayan Guha
-- [ ] `content/trustees.json` · Deb Kumar Majumder
-- [ ] `content/trustees.json` · Sandip Datta
-- [ ] `content/trustees.json` · Agnimitra Biswas
-- [ ] `content/trustees.json` · Kaushik Dey
-- [ ] `content/trustees.json` · Ayan Chakraborty
-- [ ] `content/trustees.json` · Eshwar Boini
 
 ### Pages still to be built
 
@@ -60,7 +58,7 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 
 - [x] `src/app/page.tsx` · home page content (Prompt 5)
 - [x] `src/app/about`, `objects`, `governance`, `roadmap`, `facts` · About pages (Prompt 6)
-- [ ] `src/app/about/trustees` · Founder Trustees page (Prompt 7)
+- [x] `src/app/about/trustees` · Founder Trustees page (Prompt 7)
 - [ ] `src/app/programmes/**` · programmes overview and eight programme pages (Prompt 8)
 - [ ] `src/app/for/[audience]` · four audience pages (Prompt 9)
 - [ ] `src/app/membership/**` · membership and register-your-interest pages (Prompts 10 and 16)
