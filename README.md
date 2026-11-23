@@ -36,6 +36,20 @@ There is no admin screen and no database. The site's words live in files in this
 
 To make a change, open this folder in Claude Code, describe the change in plain language, look at the result in the browser, then say "commit and push".
 
+## Trustee photographs
+
+A trustee's photograph appears only after that trustee has agreed to publish it. Each photograph must be:
+
+- **square**, at least **800 × 800 pixels**;
+- **head and shoulders**, in colour;
+- on a **plain, light background**;
+- a **JPG** file;
+- named with the trustee's slug from `content/trustees.json`, for example `amit-kumar-das.jpg`.
+
+Put it in `public/images/trustees/`, then in `content/trustees.json` set that trustee's `photo` to `/images/trustees/[slug].jpg` and `consentToPublish` to `true`. The content check stops the build if a photo is set without consent or the file is missing.
+
+To collect profiles, send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLATE.md`. A trustee gets an individual page at `/about/trustees/[slug]` once they are published, have given consent and have a real biography.
+
 ## How changes reach the live site
 
 1. A change is made in this folder on your computer.

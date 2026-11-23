@@ -15,6 +15,7 @@ import type { z } from "zod";
 
 import {
   foreignContributionLine,
+  isPlaceholderValue,
   legalStatusLine,
   site,
   taxStatusLine,
@@ -201,6 +202,18 @@ export function getTrustees(options?: LoadOptions) {
     ? items
     : items.filter((t) => t.published);
   return visible.sort((a, b) => a.order - b.order);
+}
+
+/**
+ * Whether a trustee gets an individual page at /about/trustees/[slug]:
+ * published, consent to publish given, and a real biography supplied.
+ */
+export function hasTrusteeProfile(t: {
+  published: boolean;
+  consentToPublish: boolean;
+  bio: string;
+}): boolean {
+  return t.published && t.consentToPublish && !isPlaceholderValue(t.bio);
 }
 
 export function getMembershipCategories() {
