@@ -53,6 +53,6 @@
   "packageManager": "pnpm@11.3.0",
   "description": "Website of ASSOCADS, the Association for AI and Data Science",
   "engines": {
-    "node": ">=22"
+    "node": "24.x"
   }
 }
