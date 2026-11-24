@@ -10,15 +10,22 @@ import { Section } from "@/components/ui/Section";
 import { Tag } from "@/components/ui/Tag";
 import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/config/site";
-import { getTrustees, hasTrusteeProfile } from "@/lib/content/loaders";
+import {
+  getFounderMembers,
+  getTrustees,
+  hasTrusteeProfile,
+} from "@/lib/content/loaders";
 import type { Trustee } from "@/lib/content/schemas";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { person } from "@/lib/seo/schema";
 
-/** A trustee with their own page, or undefined. */
+/** Founder Trustees, then founder members: both can have a page. */
+const people = () => [...getTrustees(), ...getFounderMembers()];
+
+/** A trustee or founder member with their own page, or undefined. */
 function profileFor(slug: string): Trustee | undefined {
-  return getTrustees().find((t) => t.slug === slug && hasTrusteeProfile(t));
+  return people().find((t) => t.slug === slug && hasTrusteeProfile(t));
 }
 
 /**
@@ -28,7 +35,7 @@ function profileFor(slug: string): Trustee | undefined {
  * prerendered, and it renders "not found" like every other path without a profile.
  */
 export function generateStaticParams() {
-  const trustees = getTrustees();
+  const trustees = people();
   const withProfiles = trustees.filter(hasTrusteeProfile);
   const slugs = (
     withProfiles.length > 0 ? withProfiles : trustees.slice(0, 1)
@@ -44,7 +51,12 @@ export async function generateMetadata({
   if (!trustee) return {};
   return pageMetadata({
     title: trustee.name,
-    description: `${trustee.name}, ${trustee.capacity} of ${site.shortName}, the ${site.name}. ${trustee.role}, ${trustee.organisation}.`,
+    description: [
+      `${trustee.name}, ${trustee.capacity} of ${site.shortName}.`,
+      filled([trustee.role, trustee.organisation]).join(", "),
+    ]
+      .filter(Boolean)
+      .join(" "),
     path: `/about/trustees/${trustee.slug}`,
   });
 }
@@ -55,10 +67,16 @@ function trusteeLead(trustee: NonNullable<ReturnType<typeof profileFor>>) {
   return [
     `${trustee.name} is a ${trustee.capacity} of ${site.shortName}, the ${site.name}, a not-for-profit public charitable trust in ${site.location.city}.`,
     work && `Current role: ${work}.`,
-    "Trustees serve in an honorary capacity, without payment.",
-    trustee.officeTitle
-      ? ""
-      : "Office titles will be given only when the Board of Trustees elects them.",
+    ...(trustee.capacity === "Founder Member"
+      ? [
+          "Founder members serve on the sub-committees of the Board of Trustees, but are not members of the Board themselves.",
+        ]
+      : [
+          "Trustees serve in an honorary capacity, without payment.",
+          trustee.officeTitle
+            ? ""
+            : "Office titles will be given only when the Board of Trustees elects them.",
+        ]),
   ]
     .filter(Boolean)
     .join(" ");
@@ -100,6 +118,14 @@ export default async function TrusteeProfilePage({
           <div className="flex flex-col gap-6 md:col-span-8">
             {trustee.officeTitle && (
               <p className="font-medium text-ink">{trustee.officeTitle}</p>
+            )}
+            {trustee.committees.length > 0 && (
+              <p className="text-body text-slate-600">
+                {trustee.committees.length === 1
+                  ? "Sub-committee: "
+                  : "Sub-committees: "}
+                {trustee.committees.join(", ")}
+              </p>
             )}
             <p className="max-w-[34em] text-lead text-slate-600">
               {trustee.bio}

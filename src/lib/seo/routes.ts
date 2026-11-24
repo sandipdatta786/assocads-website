@@ -8,6 +8,7 @@ import {
   getGuides,
   getInsights,
   getProgrammes,
+  getFounderMembers,
   getTrustees,
   hasTrusteeProfile,
 } from "@/lib/content/loaders";
@@ -96,9 +97,12 @@ export function siteRoutes(now: number): SiteRoute[] {
       path: `/for/${a.slug}`,
       lastModified: lastCommitDate(a.file),
     })),
-    ...getTrustees()
+    ...[...getTrustees(), ...getFounderMembers()]
       .filter(hasTrusteeProfile)
-      .map((t) => ({ path: `/about/trustees/${t.slug}` })),
+      .map((t) => ({
+        path: `/about/trustees/${t.slug}`,
+        lastModified: lastCommitDate("content/trustees.json"),
+      })),
     ...getCommunities()
       .filter((c) => c.status === "active")
       .map((c) => ({
