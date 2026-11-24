@@ -43,6 +43,7 @@ import {
   getMilestones,
   getTrustees,
   getFounderMembers,
+  getVoices,
 } from "../src/lib/content/loaders.ts";
 import { PLACEHOLDER_PATTERN } from "../src/lib/content/schemas.ts";
 import { site } from "../src/config/site.ts";
@@ -67,6 +68,7 @@ const collections: [string, () => unknown[]][] = [
   ["guides", () => getGuides({ ...all, includeFuture: true })],
   ["opportunities", () => getOpportunities({ ...all, includeFuture: true })],
   ["knowledge hub", () => getHub({ ...all, includeFuture: true })],
+  ["voices", () => getVoices({ ...all, includeFuture: true })],
   ["glossary", () => getGlossary(all)],
   ["faqs", () => getFaqs()],
   ["roadmap stages", () => getRoadmap()],

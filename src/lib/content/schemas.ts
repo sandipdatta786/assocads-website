@@ -499,6 +499,54 @@ export const opportunitySchema = z.object({
   postedDate: isoDate,
   draft,
 });
+export const voiceFormats = [
+  "video",
+  "short",
+  "podcast",
+  "fireside-chat",
+  "interview",
+  "conversation",
+  "talk",
+] as const;
+
+/** An entry in ASSOCADS Voices: a video, podcast or recorded conversation,
+    hosted elsewhere (YouTube or a podcast service) and linked from here.
+    Videos on the ASSOCADS YouTube channel appear by themselves; an entry here
+    is needed only for other recordings, or to add a format and the people
+    taking part to a channel video. */
+export const voiceSchema = z
+  .object({
+    slug,
+    title: z.string().min(1).max(100),
+    /** One or two sentences: what it is about and who takes part. */
+    summary: z.string().min(1).max(240),
+    format: z.enum(voiceFormats),
+    /** Where it is watched or heard: a YouTube address, or a podcast episode page. */
+    url: z.url({
+      protocol: /^https$/,
+      message: "must be a full https:// address",
+    }),
+    publishedDate: isoDate,
+    /** Only people who took part and agreed to be named. */
+    people: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          role: z.string().optional(),
+          organisation: z.string().optional(),
+        }),
+      )
+      .default([]),
+    /** A picture for recordings that are not on YouTube (YouTube's own
+        thumbnail is used otherwise). Stored in public/images/voices/. */
+    image: z.string().startsWith("/").optional(),
+    imageAlt: z.string().optional(),
+    draft,
+  })
+  .refine((v) => !v.image || Boolean(v.imageAlt?.trim()), {
+    message: "an image needs imageAlt, a short description of it",
+    path: ["imageAlt"],
+  });
 
 /** A source for a guide or glossary entry. Prefer primary sources: the law
     itself, the ministry, the university or the organisation concerned. */
@@ -659,6 +707,7 @@ export type Audience = z.infer<typeof audienceSchema>;
 export type ContentEvent = z.infer<typeof eventSchema>;
 export type Community = z.infer<typeof communitySchema>;
 export type Insight = z.infer<typeof insightSchema>;
+export type Voice = z.infer<typeof voiceSchema>;
 export type Guide = z.infer<typeof guideSchema>;
 export type Opportunity = z.infer<typeof opportunitySchema>;
 export type HubEntry = z.infer<typeof hubEntrySchema>;

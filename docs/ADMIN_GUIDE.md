@@ -1,4 +1,4 @@
-# Admin guide: publishing events and news
+# Admin guide: publishing events, news and videos
 
 Admins can add and update events, news and announcements from a web page, without touching any code. The editor is at **`/admin`** on the live site, for example https://assocads-website.vercel.app/admin.
 
@@ -9,6 +9,7 @@ What admins can publish there:
 - **News and announcements**: each gets its own page on the Insights page, in the RSS feed and on the home page under "Announcements".
 - **Knowledge Hub**: articles, white papers, research, case studies, industry insights, AI tools, frameworks and regulation updates, on `/knowledge-hub`. Each names its sources and the Founder Trustee who reviewed it, and is published only after that review.
 - **Career opportunities**: internships, jobs, fellowships, volunteering and industry interactions, on `/mentorship`. Only with the organisation's written permission, which the editor asks you to confirm; each is hidden after its deadline.
+- **Voices (videos and podcasts)**: short videos, podcasts, fireside chats, interviews and conversations, on the Voices page (`/voices`) and on the home page under "Videos and podcasts". Videos uploaded to the ASSOCADS YouTube channel appear there by themselves (section 5a).
 
 The home page section "Latest updates and events" fills itself from these. Until something is published it shows an honest note that nothing has been announced yet.
 
@@ -108,12 +109,34 @@ If the automatic checks fail, the entry cannot harm the live site. Open it again
 
 ---
 
+## 5a. Videos and podcasts (ASSOCADS Voices)
+
+**Videos on the ASSOCADS YouTube channel need no work here.** Once the channel is connected (below), every new upload, including Shorts, appears on `/voices` and on the home page within about an hour, with its YouTube title, date and the start of its description. Only public videos appear; unlisted and private ones never do.
+
+Videos play on the site only when a visitor presses Play. Until then, the site shows the video's picture from its own server, so visiting the page sends nothing to YouTube. The privacy notice explains this.
+
+**Use the editor's "Voices" collection** when:
+
+- the recording is **not on the ASSOCADS channel**: a podcast episode on Spotify or Apple Podcasts, or a talk on another organisation's YouTube channel. Paste its address in **Link**.
+- you want to give a channel video its **format** (fireside chat, interview and so on) and **the people taking part**. Paste the same YouTube address; the entry then replaces the plain channel listing.
+
+Before publishing a recording:
+
+- Everyone named or clearly shown in it agreed to take part and to its publication. Keep that agreement on file.
+- People are listed with their own role and organisation. That does not make the organisation a partner, and no wording may suggest it is.
+- Titles and summaries state what the recording is, without hype words.
+
+**Connecting the YouTube channel** (once, by whoever maintains the site): in YouTube Studio, open **Settings → Channel → Advanced settings** and copy the **Channel ID**, which starts with `UC`. Put it in `youtubeChannelId` in `src/config/site.ts`, and the channel's address in `social.youtube`. The channel's feed needs no API key or password.
+
+---
+
 ## 6. For the person who maintains the site
 
 - The editor is Decap CMS, loaded from `public/admin/index.html`. Its fields are in `public/admin/config.yml` and must match the schemas in `src/lib/content/schemas.ts`. If a schema changes, change the matching field.
 - The sign-in runs through `src/app/api/decap/` (`src/lib/decap-auth.ts`). It asks GitHub only for the `public_repo` permission.
 - Each entry is saved on a branch `cms/...` with a pull request. Publishing merges it into `main` with a squash commit.
 - Fields left empty in the editor are saved as empty values; the content loaders treat them as not given.
+- Voices: `src/lib/youtube.ts` reads the channel feed (the 15 latest uploads) on the server, `src/lib/voices.ts` merges it with `content/voices/` and caches the result for an hour. If YouTube cannot be reached, the page simply shows the entries alone. The player (`src/components/voices/VoicePlayer.tsx`) loads `youtube-nocookie.com` only after Play, which the main Content-Security-Policy allows as a frame; thumbnails go through the site's image service (`images.remotePatterns` in `next.config.ts`).
 - `/admin` has its own, looser Content-Security-Policy (in `next.config.ts`), is excluded in `robots.txt` and sends `noindex`.
 - **Upgrading Decap**: choose a version at least two weeks old, change the version in the script address in `public/admin/index.html`, and replace the integrity hash with the output of:
 

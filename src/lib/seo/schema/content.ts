@@ -261,3 +261,27 @@ export function definedTerm(t: GlossaryTerm): SchemaNode {
     },
   };
 }
+
+/* ------------------------------------------------------------------ voices */
+
+/** A YouTube video in ASSOCADS Voices. Recordings hosted elsewhere get none. */
+export function videoObject(item: {
+  title: string;
+  summary: string;
+  publishedDate: string;
+  youtubeId: string | null;
+  url: string;
+}): SchemaNode | null {
+  if (!item.youtubeId) return null;
+  return {
+    "@type": "VideoObject",
+    name: item.title,
+    description: item.summary || item.title,
+    thumbnailUrl: `https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`,
+    uploadDate: item.publishedDate,
+    contentUrl: item.url,
+    embedUrl: `https://www.youtube-nocookie.com/embed/${item.youtubeId}`,
+    publisher: organisationRef,
+    inLanguage: "en-IN",
+  };
+}

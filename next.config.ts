@@ -26,6 +26,9 @@ const isDev = process.env.NODE_ENV === "development";
 
 /** Cloudflare Turnstile, the spam check on the forms: its script and frame. */
 const TURNSTILE = "https://challenges.cloudflare.com";
+/** YouTube's privacy-enhanced player, loaded only when a visitor presses
+    Play on /voices (src/components/voices/VoicePlayer.tsx). */
+const YOUTUBE_PLAYER = "https://www.youtube-nocookie.com";
 /** Vercel's comment toolbar, shown only on preview deployments. */
 const TOOLBAR = isPreview ? ["https://vercel.live"] : [];
 
@@ -59,7 +62,7 @@ const contentSecurityPolicy = [
     ...(isPreview ? ["https://vercel.live", "wss://ws-us3.pusher.com"] : []),
     ...(isDev ? ["ws:"] : []),
   ].join(" "),
-  ["frame-src", TURNSTILE, ...TOOLBAR].join(" "),
+  ["frame-src", TURNSTILE, YOUTUBE_PLAYER, ...TOOLBAR].join(" "),
   "frame-ancestors 'none'",
   "form-action 'self'",
   "base-uri 'self'",
@@ -159,8 +162,13 @@ const nextConfig: NextConfig = {
   },
   // Photographs are served as AVIF where the browser supports it (about 20%
   // smaller than WebP), then WebP. Graphics are SVG and are not converted.
+  // YouTube thumbnails on /voices are fetched by the site's image service,
+  // so visitors' browsers do not contact YouTube until they press Play.
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
+    ],
   },
   cacheComponents: true,
   partialPrefetching: true,
