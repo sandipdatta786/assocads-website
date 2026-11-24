@@ -8,15 +8,17 @@ Before writing Next.js code, read `AGENTS.md`: this Next.js version differs from
 
 ## Commands
 
-| Command          | What it does                                                      |
-| ---------------- | ----------------------------------------------------------------- |
-| `pnpm dev`       | Start the local site at http://localhost:3000                     |
-| `pnpm build`     | Production build                                                  |
-| `pnpm start`     | Serve the production build                                        |
-| `pnpm lint`      | ESLint                                                            |
-| `pnpm typecheck` | Generate route types, then TypeScript with no output              |
-| `pnpm format`    | Prettier, with Tailwind class sorting                             |
-| `pnpm check`     | Lint, typecheck and build in turn. Must pass before every commit. |
+| Command           | What it does                                                      |
+| ----------------- | ----------------------------------------------------------------- |
+| `pnpm dev`        | Start the local site at http://localhost:3000                     |
+| `pnpm build`      | Production build                                                  |
+| `pnpm start`      | Serve the production build                                        |
+| `pnpm lint`       | ESLint                                                            |
+| `pnpm typecheck`  | Generate route types, then TypeScript with no output              |
+| `pnpm format`     | Prettier, with Tailwind class sorting                             |
+| `pnpm check`      | Lint, typecheck and build in turn. Must pass before every commit. |
+| `pnpm test`       | End-to-end, accessibility and colour tests (Playwright)           |
+| `pnpm lighthouse` | Lighthouse CI budgets on six pages; run `pnpm build` first        |
 
 ## Architecture
 

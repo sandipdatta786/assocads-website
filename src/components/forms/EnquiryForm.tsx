@@ -5,7 +5,7 @@ import { useState, type MouseEvent, type ReactNode } from "react";
 import { TextLink } from "@/components/ui/TextLink";
 import { cn } from "@/lib/cn";
 import type { Choice, ChoiceNote } from "@/lib/enquiries";
-import { MESSAGE_LIMIT, type FormKind } from "@/lib/forms/schemas";
+import { MESSAGE_LIMIT, type FormKind } from "@/lib/forms/limits";
 import { setQuery, useQuery } from "@/lib/query";
 import {
   CheckRow,

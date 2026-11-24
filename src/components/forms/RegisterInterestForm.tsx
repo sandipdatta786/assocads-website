@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { membershipCategories, membershipRoles } from "@/lib/enquiries";
-import { MEMBERSHIP_MESSAGE_LIMIT } from "@/lib/forms/schemas";
+import { MEMBERSHIP_MESSAGE_LIMIT } from "@/lib/forms/limits";
 import {
   CheckRow,
   ChoiceGroup,

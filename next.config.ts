@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Photographs are served as AVIF where the browser supports it (about 20%
+  // smaller than WebP), then WebP. Graphics are SVG and are not converted.
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

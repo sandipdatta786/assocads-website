@@ -1,0 +1,65 @@
+# Checks every pull request and every push to main: lint, type checking,
+# the content check, the production build, the SEO check and the end-to-end
+# tests (which include the accessibility and colour checks). Vercel deploys
+# main on its own; this workflow only reports whether the code is sound.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Content check
+        run: pnpm content:check
+
+      - name: Build
+        run: pnpm build
+
+      - name: SEO check
+        run: pnpm seo:check
+
+      - name: Install the test browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        run: pnpm test
+
+      - name: Keep test traces when something fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7

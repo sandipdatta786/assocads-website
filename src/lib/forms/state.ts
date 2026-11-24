@@ -1,4 +1,4 @@
-import type { FormValues } from "./schemas";
+import type { FormValues } from "./limits";
 
 /**
  * What a form submission returns to the page. Shared by the server action and

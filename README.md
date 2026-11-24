@@ -22,6 +22,14 @@ Before saving work to GitHub, run the full check:
 pnpm check
 ```
 
+The end-to-end tests, including the accessibility checks, run with:
+
+```bash
+pnpm test
+```
+
+To measure speed on a simulated phone, see `docs/PERFORMANCE.md`. GitHub runs the full check and the tests on every pull request and every push to `main`.
+
 ## How content is edited
 
 There is no admin screen and no database. The site's words live in files in this folder, and changes are made by asking Claude Code to edit them.
@@ -64,6 +72,7 @@ To collect profiles, send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLAT
 | `docs/BRAND_GUIDE.md`  | Colours, typefaces, logo rules                                                    |
 | `docs/PLAYBOOK.md`     | The step-by-step build prompts                                                    |
 | `docs/CONTENT_TODO.md` | Outstanding content from the founders                                             |
+| `docs/PERFORMANCE.md`  | Speed targets, how to run Lighthouse, and what keeps the site fast                |
 | `CLAUDE.md`            | The rules Claude Code follows in this project                                     |
 
 ## Important
