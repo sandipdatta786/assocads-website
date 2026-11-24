@@ -789,11 +789,14 @@ Settlor and Founder Trustee
 
 General Secretary
 
-Profile to be added.
+Co-founder and Director, Quantyra Analytics
 
-- AP
+Dr Amit Kumar Das has worked in data science in industry and in academic research and teaching for more than 28 years. He is also Professor and Dean, Industry Consultancy, at the Institute of Engineering & Management, and was previously a Principal Director at LTIMindtree. He holds a PhD in machine learning from the University of Calcutta, has written data science and AI textbooks published by Pearson, and is a Senior Member of IEEE.
 
-Photo to be added
+- Data science
+- Machine learning
+- Deep learning
+- Big data
 
 ## Abhijit Pal
 
@@ -801,7 +804,14 @@ Settlor and Founder Trustee
 
 Vice-President
 
-Profile to be added.
+Director and Chief of Strategy, Growth and Innovation, XEqualTo Analytics
+
+Abhijit Pal has about 27 years of experience in technology consulting, covering IT and digital strategy, implementation and value realisation for clients in India and abroad, across government, retail, healthcare, education, telecommunications and manufacturing. He now leads strategy at an Indian data, analytics and AI company, mentors startups and students, and is an honorary adviser to the IT Committee of the Bengal Chamber of Commerce and Industry. He graduated in Electronics and Instrumentation Engineering from Jadavpur University.
+
+- Technology and digital strategy
+- Enterprise architecture
+- Analytics and AI
+- AI in healthcare
 
 - PN
 
@@ -833,11 +843,14 @@ Founder Trustee
 
 Sub-committee: Strategic collaboration and policies
 
-Profile to be added.
+Former Partner, IBM Consulting
 
-- BC
+Deb Kumar Majumder is a business and technology transformation leader with more than 30 years at PwC and IBM in management consulting, technology leadership and global delivery. At IBM he led service lines in cybersecurity, data and technology, and HR and talent transformation, each spread across several countries. He speaks often on data and AI, cybersecurity and the future of work, and is a member of the IT Committee of the Bengal Chamber of Commerce and Industry.
 
-Photo to be added
+- Cybersecurity and digital trust
+- Data, AI and emerging technologies
+- Telecommunications
+- HR and talent transformation
 
 ## Biswajeet Chaki
 
@@ -875,17 +888,20 @@ Sub-committee: Branding and communication
 
 Profile to be added.
 
-- SD
-
-Photo to be added
-
 ## Sudip Dasgupta
 
 Founder Member
 
 Sub-committee: Branding and communication
 
-Profile to be added.
+Enterprise AI leader, Cognizant
+
+Sudip Dasgupta is an enterprise technology leader and generative and agentic AI architect with more than 26 years of experience, much of it leading large technology programmes for Fortune 500 organisations. At Cognizant he leads enterprise AI work focused on agentic AI, cognitive platforms and responsible AI adoption: taking AI from experiments to systems that are secure, governed and useful. He holds AI-related patents and has published research and books.
+
+- Generative AI
+- Agentic AI
+- Enterprise architecture
+- Responsible AI
 
 - AB
 

@@ -38,14 +38,14 @@ Run `pnpm content:check` for the current list with line numbers. Add one line he
 
 Send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLATE.md`. Each still needs a current role, organisation, a biography of about sixty words in the third person, up to five areas of expertise and a LinkedIn link. Photographs follow the specification in the README and are shown only with `consentToPublish: true`. A trustee gets an individual page once their biography is in.
 
-- [ ] Amit Kumar Das · role, organisation, biography, expertise and LinkedIn needed; photo received (only 525 px; a larger one of at least 800 px is wanted)
-- [ ] Abhijit Pal · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Amit Kumar Das · LinkedIn needed; profile added 24 November 2026; photo received (only 525 px; a larger one of at least 800 px is wanted)
+- [ ] Abhijit Pal · LinkedIn needed; profile, photo and consent received 24 November 2026
 - [ ] Prasun Nandy · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
-- [ ] Sudip Dasgupta · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Sudip Dasgupta · LinkedIn needed; profile, photo and consent received 24 November 2026
 - [ ] Rahul Bhattacharya · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
-- [ ] Biswajeet Chaki · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
+- [ ] Biswajeet Chaki · role, organisation, biography, expertise and LinkedIn needed; photo and consent received 24 November 2026
 - [ ] Sayan Guha · role, organisation, biography, expertise and LinkedIn needed; photo received
-- [ ] Deb Kumar Majumder · role, organisation, biography, expertise and LinkedIn needed; photo received
+- [ ] Deb Kumar Majumder · LinkedIn needed; profile added 24 November 2026; photo received
 - [ ] Sandip Datta · role, organisation, biography, expertise and LinkedIn needed; photo received
 - [ ] Agnimitra Biswas · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
 - [ ] Ayan Chakraborty · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
