@@ -1,19 +1,9 @@
 import Link from "next/link";
 import { Avatar } from "@/components/ui/Avatar";
-import { Placeholder } from "@/components/ui/Callout";
 import { Tag } from "@/components/ui/Tag";
-import { isPlaceholderValue, placeholderNeed } from "@/config/site";
+import { isPlaceholderValue } from "@/config/site";
 import type { Trustee } from "@/lib/content/schemas";
 import { LinkedInLink } from "./LinkedInLink";
-
-/** Shows a filled-in value, or a visible placeholder while it is missing. */
-export function ValueOrPlaceholder({ value }: { value: string }) {
-  return isPlaceholderValue(value) ? (
-    <Placeholder needed={placeholderNeed(value)} />
-  ) : (
-    <>{value}</>
-  );
-}
 
 /** Values that are real, not placeholders. */
 export const filled = (values: string[]) =>
@@ -35,9 +25,8 @@ export function TrusteeCard({
   const photo = trustee.consentToPublish ? trustee.photo : null;
   const expertise = filled(trustee.expertise);
   const linkedin = filled([trustee.linkedin])[0];
-  const roleMissing =
-    isPlaceholderValue(trustee.role) &&
-    isPlaceholderValue(trustee.organisation);
+  const work = filled([trustee.role, trustee.organisation]).join(", ");
+  const bio = filled([trustee.bio])[0];
 
   return (
     <article className="relative flex h-full flex-col gap-5 rounded-l border border-line bg-paper p-5 transition-colors duration-150 has-[a.card-link:hover]:border-indigo sm:p-6">
@@ -87,20 +76,14 @@ export function TrusteeCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-3 text-body text-slate-600">
-        {roleMissing ? (
-          <div className="flex flex-wrap gap-2">
-            <Placeholder needed={placeholderNeed(trustee.role)} />
-            <Placeholder needed={placeholderNeed(trustee.organisation)} />
-          </div>
+        {work && <p className="font-medium text-ink">{work}</p>}
+        {bio ? (
+          <p>{bio}</p>
         ) : (
-          <p className="font-medium text-ink">
-            <ValueOrPlaceholder value={trustee.role} />,{" "}
-            <ValueOrPlaceholder value={trustee.organisation} />
-          </p>
+          // The missing details are listed in docs/CONTENT_TODO.md; a quiet
+          // note reads better on a page of cards than a row of raw markers.
+          !work && <p className="text-small">Profile to be added.</p>
         )}
-        <p>
-          <ValueOrPlaceholder value={trustee.bio} />
-        </p>
       </div>
 
       {(expertise.length > 0 || linkedin) && (

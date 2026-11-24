@@ -28,7 +28,7 @@ Who started it
 
 Meet the trustees
 
-ASSOCADS was started in 2026 by professionals, academics and entrepreneurs in AI, Data Science and Analytics. Its first Board of Trustees has seven Founder Trustees, and five founder members work with them on its sub-committees.
+ASSOCADS was started in 2026 by professionals in AI, Data Science and Analytics. Its first Board of Trustees has seven Founder Trustees, and five founder members work with them on its sub-committees.
 
 Trustees serve without payment. The Board has elected its office bearers, including a President, a General Secretary and a Treasurer.
 
@@ -42,7 +42,7 @@ Scope
 
 ## Across India, beginning with West Bengal
 
-ASSOCADS is building a collaborative ecosystem for AI, Data Science and Analytics professionals across India, beginning with West Bengal. It aims to connect industry, academia, startups, government and society.
+ASSOCADS aims to build a collaborative ecosystem for AI, Data Science and Analytics professionals across India, beginning with West Bengal, and to connect industry, academia, startups, government and society.
 
 Where we sit
 
@@ -53,7 +53,7 @@ ASSOCADS is a public charitable trust open to individuals and broad by design, w
 How ASSOCADS compares with other kinds of organisation in the field
 | Question | Others in the field | ASSOCADS |
 
-| Who can join | Others in the fieldIndustry trade bodies count companies as their members. | ASSOCADSA professional body open to individuals, including students, as well as organisations. |
+| Who can join | Others in the fieldIndustry trade bodies count companies as their members. | ASSOCADSA public charitable trust whose membership, once open, is meant for individuals, including students, as well as organisations. |
 
 | What it is | Others in the fieldCommercial certification providers sell credentials. | ASSOCADSA public charitable trust with named trustees, governed by a trust deed and run for public benefit. |
 
@@ -81,7 +81,7 @@ No. ASSOCADS is an independent public charitable trust. It is not affiliated wit
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 About
 
@@ -110,7 +110,7 @@ About
 
 ASSOCADS, the Association for AI and Data Science, is a not-for-profit public charitable trust established in Kolkata, West Bengal, India, in 2026. This page sets out short, dated facts about its legal status, location, trustees and plans, and the organisations it is not connected with, each written to be quoted on its own.
 
-Last updated 23 November 2026
+Last updated 24 November 2026
 
 Full name: The full name of ASSOCADS is the Association for AI and Data Science.
 
@@ -162,7 +162,7 @@ No. ASSOCADS is an independent public charitable trust. It is not affiliated wit
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 About
 
@@ -754,7 +754,7 @@ No. ASSOCADS is non-political, non-religious and not-for-profit. It is open to e
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
 
 About
 
@@ -789,6 +789,8 @@ Settlor and Founder Trustee
 
 General Secretary
 
+Profile to be added.
+
 - AP
 
 Photo to be added
@@ -798,6 +800,8 @@ Photo to be added
 Settlor and Founder Trustee
 
 Vice-President
+
+Profile to be added.
 
 - PN
 
@@ -809,6 +813,8 @@ Settlor and Founder Trustee
 
 Vice-President
 
+Profile to be added.
+
 - RB
 
 Photo to be added
@@ -819,11 +825,15 @@ Founder Trustee
 
 President
 
+Profile to be added.
+
 ## Deb Kumar Majumder
 
 Founder Trustee
 
 Sub-committee: Strategic collaboration and policies
+
+Profile to be added.
 
 - BC
 
@@ -837,6 +847,8 @@ Treasurer
 
 Sub-committee: Branding and communication
 
+Profile to be added.
+
 ## Sandip Datta
 
 Founder Trustee
@@ -844,6 +856,8 @@ Founder Trustee
 Joint Secretary
 
 Sub-committee: Branding and communication
+
+Profile to be added.
 
 Founder members
 
@@ -859,6 +873,8 @@ Joint Secretary
 
 Sub-committee: Branding and communication
 
+Profile to be added.
+
 - SD
 
 Photo to be added
@@ -868,6 +884,8 @@ Photo to be added
 Founder Member
 
 Sub-committee: Branding and communication
+
+Profile to be added.
 
 - AB
 
@@ -879,6 +897,8 @@ Founder Member
 
 Sub-committee: Strategic collaboration and policies
 
+Profile to be added.
+
 - AC
 
 Photo to be added
@@ -889,11 +909,15 @@ Founder Member
 
 Sub-committee: Membership
 
+Profile to be added.
+
 ## Eshwar Boini
 
 Founder Member
 
 Sub-committee: Membership
+
+Profile to be added.
 
 Questions
 
@@ -949,7 +973,7 @@ This roadmap sets out intentions. Dates and details will be confirmed by the Boa
 
 - Run our first workshops, meetups and hackathons, beginning in West Bengal.
 - Form Special Interest Groups by industry or domain.
-- Publish our first guides and reports, each reviewed by a trustee.
+- Publish our first research reports, each reviewed by a trustee.
 - Start training, mentoring and faculty development programmes with colleges and universities.
 - Build working links between academia, industry, startups and government.
 - Share plain-English guidance on responsible AI.
@@ -1285,7 +1309,7 @@ Plans
 
 ## What this will include
 
-We plan to carry out and publish useful research on AI and data science. The trust deed provides for journals, case studies, benchmark datasets, technical reports and white papers, and for collaborative, open-source and community-driven work. It also allows the trust to set up or support labs, libraries, knowledge repositories and Centres of Excellence, and to create, protect and share intellectual property. Nothing has been published yet; each publication will appear here when it is ready.
+We plan to carry out and publish useful research on AI and data science. The trust deed provides for journals, case studies, benchmark datasets, technical reports and white papers, and for collaborative, open-source and community-driven work. It also allows the trust to set up or support labs, libraries, knowledge repositories and Centres of Excellence, and to create, protect and share intellectual property. No research reports have been published yet; each will appear here when it is ready. Our practical guides are on the guides page.
 
 - Research published as journals, case studies, technical reports and white papers.
 - Benchmark datasets.
@@ -1312,7 +1336,7 @@ Get involved
 
 ## How to get involved
 
-Nothing has been published yet. Register your interest to hear when research work begins. Universities and companies interested in joint research can talk to us about a partnership.
+No research reports have been published yet. Register your interest to hear when research work begins. Universities and companies interested in joint research can talk to us about a partnership.
 
 Register your interestPartner with us
 
@@ -1459,9 +1483,9 @@ Get involved
 
 ## How to get involved
 
-Register your interest to hear when our first guidance is published. Organisations that would like to discuss responsible AI with us can get in touch.
+Our practical guides are published on the guides page, each reviewed by a named trustee. Organisations that would like to discuss responsible AI with us can get in touch.
 
-Register your interestContact us
+Read the guidesContact us
 
 Questions
 
@@ -1477,7 +1501,7 @@ Yes. Responsible AI is one of the principles that bind the trust under its deed,
 
 **Has ASSOCADS published guidance yet?**
 
-Not yet. Each guide will be reviewed by a named trustee before it appears on this site.
+Yes. Practical guides, including ones on India's data protection law and on the regulation of AI, are on the guides page. Each was reviewed by a named trustee before it appeared on this site. Guidance written for organisations by the proposed working group is still a plan.
 
 ## Related programmes
 
@@ -1711,7 +1735,7 @@ Membership
 
 # Membership
 
-The ASSOCADS trust deed provides four kinds of membership: Ordinary and Life membership for individuals, Associate membership for institutions and organisations, and Honorary membership for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.
+The trust deed of ASSOCADS, the Association for AI and Data Science, provides four kinds of membership: Ordinary and Life for individuals, Associate for institutions and organisations, and Honorary for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.
 
 Last updated 23 November 2026
 
@@ -1880,7 +1904,7 @@ Under the trust deed, admission is by application, approval by the Board or a co
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
 
 **Can a company or institution join?**
 
@@ -1970,7 +1994,7 @@ Link to this question
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 Link to this question
 
@@ -2020,7 +2044,7 @@ Link to this question
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
 
 Link to this question
 

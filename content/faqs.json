@@ -67,7 +67,7 @@
   },
   {
     "question": "Can members vote or help manage ASSOCADS?",
-    "answer": "No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Members take part in programmes, Special Interest Groups, events and publications.",
+    "answer": "No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.",
     "category": "membership",
     "pages": ["/faq", "/membership", "/about/governance"]
   },
@@ -109,7 +109,7 @@
   },
   {
     "question": "How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?",
-    "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a professional body governed by a trust deed and open to individuals, including students, as well as to institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
+    "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
     "category": "about",
     "pages": ["/faq", "/about/facts", "/about"]
   },

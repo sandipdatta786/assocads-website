@@ -501,13 +501,22 @@ export function getGlossary(options?: LoadOptions) {
   const items = readMdxCollection("glossary", glossarySchema);
   uniqueSlugs("content/glossary", items);
   const slugs = new Set(items.map((t) => t.slug));
+  const trusteeNames = new Set(
+    getTrustees({ includeDrafts: true }).map((t) => t.name),
+  );
   for (const t of items) {
+    const problems: string[] = [];
     const missing = t.related.filter((r) => !slugs.has(r));
     if (missing.length > 0) {
-      throw new ContentError(t.file, [
-        `related terms not found: ${missing.join(", ")}`,
-      ]);
+      problems.push(`related terms not found: ${missing.join(", ")}`);
     }
+    // Truthfulness rule 10: published only after a named trustee's review.
+    if (!t.draft && !trusteeNames.has(t.reviewedBy)) {
+      problems.push(
+        "an entry that is not a draft needs reviewedBy, a Founder Trustee's name exactly as in content/trustees.json",
+      );
+    }
+    if (problems.length > 0) throw new ContentError(t.file, problems);
   }
   return withoutDrafts(items, options).sort((a, b) =>
     a.term.localeCompare(b.term),

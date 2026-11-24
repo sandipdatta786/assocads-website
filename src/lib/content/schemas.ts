@@ -518,6 +518,9 @@ export const glossarySchema = z.object({
   audiences: z.array(slug).default([]),
   furtherReading: z.array(source).default([]),
   lastReviewed: isoDate,
+  /** The Founder Trustee who reviewed the entry, exactly as in
+      content/trustees.json (truthfulness rule 10). */
+  reviewedBy: z.string().default(""),
   draft,
 });
 

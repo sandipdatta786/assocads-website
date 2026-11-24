@@ -83,7 +83,7 @@ Vercel detects these from the code; they should not need changing.
 
 - **Framework preset:** Next.js
 - **Install command:** `pnpm install` (from `pnpm-lock.yaml`)
-- **Build command:** `next build` (from `package.json`)
+- **Build command:** `pnpm build` (from `package.json`), which runs `pnpm content:check` and then `next build`
 - **Node.js version:** 24, set by `"engines": { "node": "24.x" }` in `package.json`. This overrides the Node.js setting in the Vercel dashboard. GitHub Actions also uses Node.js 24. If you change one, change both: `package.json` and `node-version` in `.github/workflows/*.yml`.
 
 ## 6. Security headers and caching
@@ -107,7 +107,7 @@ Full steps come with the domain prompt (Prompt 27). In outline:
 
 1. In Vercel, open the project, then **Settings → Domains → Add Domain**, and type the domain, for example `example.org`. Add `www.example.org` as well and let Vercel redirect one to the other.
 2. Vercel shows the DNS records to add (an **A** record for the bare domain and a **CNAME** for `www`). Add exactly those values at your domain registrar or DNS provider. Vercel shows **Valid Configuration** once they are working, and issues the security certificate itself.
-3. Change `NEXT_PUBLIC_SITE_URL` (Production and Preview) to `https://example.org` and redeploy.
+3. Change `NEXT_PUBLIC_SITE_URL` (Production and Preview) to `https://example.org` and redeploy. **This build fails on purpose if any "must fill" placeholder remains** (contact details, registered office, privacy details, legal review), and the site stays on the previous version. `pnpm content:check` lists them; `docs/LAUNCH_CHECKLIST.md` says who supplies each one.
 4. In GitHub, add the repository variable `SITE_URL` with the same address (see `docs/INDEXNOW.md`).
 5. Follow `docs/LAUNCH_DAY_SEARCH_SETUP.md` for Google and Bing.
 

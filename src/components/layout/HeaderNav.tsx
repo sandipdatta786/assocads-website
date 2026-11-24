@@ -173,7 +173,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
                   {link.label}
                 </span>
                 {link.description && (
-                  <span className="text-caption text-slate-600">
+                  <span className="text-caption text-slate-600 group-aria-[current=page]:text-ink">
                     {link.description}
                   </span>
                 )}

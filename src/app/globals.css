@@ -97,7 +97,7 @@
   --tone-muted: var(--slate-400);
   --tone-faint: var(--slate-400);
   --tone-link: var(--indigo-bright);
-  --tone-line: #2a3150;
+  --tone-line: var(--slate-600);
   --tone-card: var(--night);
   --tone-focus: var(--indigo-bright);
   --tone-primary-bg: var(--indigo-bright);

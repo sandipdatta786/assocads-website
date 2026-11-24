@@ -1,4 +1,8 @@
-Copyright 2022 The Inter Project Authors (https://github.com/rsms/inter-tight)
+Inter Tight: Copyright 2022 The Inter Project Authors (https://github.com/rsms/inter-tight)
+Inter: Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+JetBrains Mono: Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
+
+Inter-400.woff and JetBrainsMono-500.woff are the Latin subsets published by Fontsource (@fontsource/inter and @fontsource/jetbrains-mono 5.2.8).
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

@@ -159,7 +159,10 @@ export function acknowledgementEmail(
   v: FormValues,
   secretariat: string,
 ): Message {
-  const first = oneLine(String(v.name ?? "")).split(" ")[0] || "there";
+  // Only a plausible first name is echoed back, so the form cannot be used
+  // to send arbitrary text to an address someone else typed in.
+  const word = oneLine(String(v.name ?? "")).split(" ")[0] ?? "";
+  const first = /^\p{L}[\p{L}\p{M}'’.-]{0,29}$/u.test(word) ? word : "there";
   const text = [
     `Dear ${first},`,
     "",

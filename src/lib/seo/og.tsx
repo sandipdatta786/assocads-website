@@ -29,14 +29,14 @@ const logo = `data:image/png;base64,${await readFile(
   "base64",
 )}`;
 
-/** Inter Tight in TrueType, which the image renderer needs, kept in the
-    repository (src/assets/fonts, SIL Open Font Licence) so that the build
-    never depends on the network. next/font loads the same family for the
-    pages. */
-async function interTight(weight: 500 | 700): Promise<ArrayBuffer> {
-  const file = await readFile(
-    join(process.cwd(), `src/assets/fonts/InterTight-${weight}.ttf`),
-  );
+/** The brand typefaces as static font files, which the image renderer needs
+    (it cannot read variable fonts or WOFF2). They are kept in the repository
+    (src/assets/fonts, SIL Open Font Licence) so that the build never depends
+    on the network. next/font loads the same families for the pages. Only
+    approved weights: Inter Tight Bold for the title, JetBrains Mono Medium
+    for the eyebrow, Inter Regular for the name line. */
+async function fontFile(name: string): Promise<ArrayBuffer> {
+  const file = await readFile(join(process.cwd(), "src/assets/fonts", name));
   return file.buffer.slice(
     file.byteOffset,
     file.byteOffset + file.byteLength,
@@ -44,10 +44,14 @@ async function interTight(weight: 500 | 700): Promise<ArrayBuffer> {
 }
 
 /** Read once and cached for every share image. */
-async function fonts(): Promise<[ArrayBuffer, ArrayBuffer]> {
+async function fonts(): Promise<[ArrayBuffer, ArrayBuffer, ArrayBuffer]> {
   "use cache";
   cacheLife("max");
-  return Promise.all([interTight(500), interTight(700)]);
+  return Promise.all([
+    fontFile("InterTight-700.ttf"),
+    fontFile("JetBrainsMono-500.woff"),
+    fontFile("Inter-400.woff"),
+  ]);
 }
 
 const nodes: Array<[number, number]> = [
@@ -94,7 +98,7 @@ export async function ogImage({
   /** A short label above the title, for example "Guide" or "Event". */
   eyebrow?: string;
 }) {
-  const [medium, bold] = await fonts();
+  const [display, mono, body] = await fonts();
   return new ImageResponse(
     <div
       style={{
@@ -153,9 +157,10 @@ export async function ogImage({
           <div
             style={{
               color: INDIGO_BRIGHT,
-              fontSize: 26,
+              fontFamily: "JetBrains Mono",
+              fontSize: 24,
               fontWeight: 500,
-              letterSpacing: 3,
+              letterSpacing: 2,
               textTransform: "uppercase",
             }}
           >
@@ -173,7 +178,14 @@ export async function ogImage({
         >
           {title}
         </div>
-        <div style={{ color: SLATE_400, fontSize: 26, fontWeight: 500 }}>
+        <div
+          style={{
+            color: SLATE_400,
+            fontFamily: "Inter",
+            fontSize: 26,
+            fontWeight: 400,
+          }}
+        >
           {`${site.name} · ${site.location.city}, ${site.location.country}`}
         </div>
       </div>
@@ -181,8 +193,9 @@ export async function ogImage({
     {
       ...ogSize,
       fonts: [
-        { name: "Inter Tight", data: medium, weight: 500, style: "normal" },
-        { name: "Inter Tight", data: bold, weight: 700, style: "normal" },
+        { name: "Inter Tight", data: display, weight: 700, style: "normal" },
+        { name: "JetBrains Mono", data: mono, weight: 500, style: "normal" },
+        { name: "Inter", data: body, weight: 400, style: "normal" },
       ],
     },
   );

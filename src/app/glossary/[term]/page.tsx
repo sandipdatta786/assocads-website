@@ -117,11 +117,12 @@ export default async function TermPage({
                 Also called {term.aliases.join(", ")}.
               </p>
             )}
-            <LastUpdated
-              date={term.lastReviewed}
-              label="Last reviewed"
-              className="-mt-2"
-            />
+            <div className="-mt-2 flex flex-col gap-1">
+              <LastUpdated date={term.lastReviewed} label="Last reviewed" />
+              <p className="font-mono text-small text-slate-600">
+                Reviewed by {term.reviewedBy}
+              </p>
+            </div>
 
             {Body && (
               <Prose className="mt-6">

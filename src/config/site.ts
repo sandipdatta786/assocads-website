@@ -52,7 +52,7 @@ export const site = {
    * change.
    */
   updated: {
-    facts: "2026-11-23",
+    facts: "2026-11-24",
     governance: "2026-11-24",
     membership: "2026-11-23",
   },

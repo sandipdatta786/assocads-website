@@ -361,7 +361,7 @@ export default async function EventPage({
                 past="Missed this one?"
               />
             </h2>
-            <p className="text-body text-slate-600">
+            <p className="text-body text-tone-muted">
               <EventPhase
                 event={event}
                 builtAt={now}
