@@ -16,7 +16,8 @@
     "seo:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/seo-check.ts",
     "test": "playwright test",
     "test:e2e": "playwright test",
-    "indexnow": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/indexnow.ts"
+    "indexnow": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/indexnow.ts",
+    "lighthouse": "lhci autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@lhci/cli": "^0.16.1",
     "@playwright/test": "^1.65.1",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/mdx": "^2.0.14",

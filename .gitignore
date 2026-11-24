@@ -48,3 +48,6 @@ next-env.d.ts
 
 # working copies of planning documents and logo drafts (masters are in docs/)
 /_working/
+
+# Lighthouse CI reports (pnpm lighthouse)
+/.lighthouseci/

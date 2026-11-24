@@ -28,11 +28,17 @@ export function Reveal() {
     const sections = [
       ...document.querySelectorAll<HTMLElement>("main section[data-tone]"),
     ].filter((s) => !s.parentElement?.closest("section[data-tone]"));
-    const targets: { el: HTMLElement; index: number }[] = [];
+    const fold = window.innerHeight;
+    const pending: { el: HTMLElement; index: number }[] = [];
     for (const section of sections.slice(1)) {
       if (section.closest("[data-no-reveal]")) continue;
       const container = section.firstElementChild;
       if (!container) continue;
+      // A section wholly below the fold is not laid out yet (see
+      // content-visibility in globals.css), so its blocks are not measured
+      // one by one: that would force the browser to lay it out now.
+      const below = section.getBoundingClientRect().top > fold;
+      const targets: { el: HTMLElement; index: number }[] = [];
       for (const block of container.children) {
         if (!(block instanceof HTMLElement)) continue;
         const items = [...block.children].filter(
@@ -46,12 +52,12 @@ export function Reveal() {
           targets.push({ el: block, index: 0 });
         }
       }
+      pending.push(
+        ...(below
+          ? targets
+          : targets.filter(({ el }) => el.getBoundingClientRect().top > fold)),
+      );
     }
-
-    const fold = window.innerHeight;
-    const pending = targets.filter(
-      ({ el }) => el.getBoundingClientRect().top > fold,
-    );
     if (pending.length === 0) return;
 
     const observer = new IntersectionObserver(

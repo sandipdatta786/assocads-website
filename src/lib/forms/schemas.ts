@@ -1,6 +1,12 @@
 import { z } from "zod";
 import { PROPOSE_CHAPTER } from "@/components/forms/communityInterest";
 import {
+  MEMBERSHIP_MESSAGE_LIMIT,
+  MESSAGE_LIMIT,
+  type FormKind,
+  type FormValues,
+} from "./limits";
+import {
   contactTopics,
   membershipCategories,
   membershipRoles,
@@ -18,8 +24,8 @@ import {
  * validate exactly the same shape.
  */
 
-export type FormKind =
-  "membership" | "community" | "partner" | "support" | "contact";
+export type { FormKind, FormValues } from "./limits";
+export { MEMBERSHIP_MESSAGE_LIMIT, MESSAGE_LIMIT } from "./limits";
 
 export const formKinds: FormKind[] = [
   "membership",
@@ -38,11 +44,7 @@ const listFields: Record<FormKind, string[]> = {
   contact: [],
 };
 
-export type FormValues = Record<string, string | string[]>;
-
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-export const MESSAGE_LIMIT = 3000;
-export const MEMBERSHIP_MESSAGE_LIMIT = 1000;
 
 function values<T extends readonly Choice[]>(choices: T) {
   return choices.map((c) => c.value) as [

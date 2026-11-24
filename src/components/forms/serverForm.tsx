@@ -11,15 +11,11 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
+import { flushSync } from "react-dom";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { submitForm } from "@/lib/forms/actions";
-import {
-  fromFormData,
-  validateForm,
-  type FormKind,
-  type FormValues,
-} from "@/lib/forms/schemas";
+import type { FormKind, FormValues } from "@/lib/forms/limits";
 import {
   HONEYPOT_FIELD,
   KIND_FIELD,
@@ -33,6 +29,17 @@ import {
    uses this hook for checking, sending, focus and the result messages.
    Without JavaScript the <form action> attribute still posts to the same
    server action, and the page comes back with the result. */
+
+/* The rules are the same Zod schemas the server uses. Zod is about 34 KB,
+   so it loads when someone first moves into a form, not with the page. */
+let rules: Promise<typeof import("@/lib/forms/schemas")> | null = null;
+function loadRules() {
+  rules ??= import("@/lib/forms/schemas").catch((error: unknown) => {
+    rules = null;
+    throw error;
+  });
+  return rules;
+}
 
 export function useServerForm(kind: FormKind) {
   const [state, formAction, pending] = useActionState(
@@ -72,11 +79,20 @@ export function useServerForm(kind: FormKind) {
     requestAnimationFrame(() => target.current?.focus());
   }, [state]);
 
-  function check(): Record<string, string> {
+  /** The first problem with each field. If the rules cannot load (the
+      connection dropped), nothing is flagged and the server checks instead. */
+  async function check(data?: FormData): Promise<Record<string, string>> {
     const form = formRef.current;
-    return form
-      ? validateForm(kind, fromFormData(kind, new FormData(form)))
-      : {};
+    if (!data && !form) return {};
+    try {
+      const { validateForm, fromFormData } = await loadRules();
+      return validateForm(
+        kind,
+        fromFormData(kind, data ?? new FormData(form!)),
+      );
+    } catch {
+      return {};
+    }
   }
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -84,20 +100,32 @@ export function useServerForm(kind: FormKind) {
     // fields are not cleared when the server asks for corrections.
     event.preventDefault();
     if (pending) return;
-    const found = check();
-    setErrors(found);
-    setChecking(true);
-    if (Object.keys(found).length > 0) {
-      requestAnimationFrame(() => summaryRef.current?.focus());
-      return;
-    }
+    // The answers as they were when the visitor pressed send: these are
+    // checked and, if they pass, sent.
     const data = new FormData(event.currentTarget);
-    startTransition(() => formAction(data));
+    void check(data).then((found) => {
+      // The check finishes after the click event, so the error summary is
+      // put on the page at once (flushSync) before focus moves to it.
+      flushSync(() => {
+        setErrors(found);
+        setChecking(true);
+      });
+      if (Object.keys(found).length > 0) {
+        summaryRef.current?.focus();
+        return;
+      }
+      startTransition(() => formAction(data));
+    });
   }
 
   /** Once the visitor has tried to send, re-check as they correct each field. */
   function onChange() {
-    if (checking) setErrors(check());
+    if (checking) void check().then(setErrors);
+  }
+
+  /** Start loading the rules as soon as someone moves into the form. */
+  function onFocus() {
+    void loadRules().catch(() => {});
   }
 
   return {
@@ -117,6 +145,7 @@ export function useServerForm(kind: FormKind) {
       action: formAction,
       onSubmit,
       onChange,
+      onFocus,
       noValidate: true,
     },
   };
@@ -205,26 +234,50 @@ function loadTurnstile(): Promise<void> {
 }
 
 /** Cloudflare Turnstile, rendered explicitly so it survives page changes.
-    It adds a hidden cf-turnstile-response field to the form. */
+    It adds a hidden cf-turnstile-response field to the form. Its script
+    loads only when the form comes within a screen's height of view, or
+    someone moves into the form, so pages open without a third party. */
 function Turnstile({ siteKey }: { siteKey: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
     let id: string | undefined;
     let cancelled = false;
-    loadTurnstile()
-      .then(() => {
-        if (cancelled || !ref.current || !window.turnstile) return;
-        id = window.turnstile.render(ref.current, {
-          sitekey: siteKey,
-          theme: "light",
-          size: "flexible",
-          language: "en",
-          "response-field-name": TURNSTILE_FIELD,
-        });
-      })
-      .catch(() => {});
+    let started = false;
+    const form = el.closest("form");
+    const start = () => {
+      if (started) return;
+      started = true;
+      observer?.disconnect();
+      form?.removeEventListener("focusin", start);
+      loadTurnstile()
+        .then(() => {
+          if (cancelled || !ref.current || !window.turnstile) return;
+          id = window.turnstile.render(ref.current, {
+            sitekey: siteKey,
+            theme: "light",
+            size: "flexible",
+            language: "en",
+            "response-field-name": TURNSTILE_FIELD,
+          });
+        })
+        .catch(() => {});
+    };
+    const observer =
+      "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            (entries) => entries.some((e) => e.isIntersecting) && start(),
+            { rootMargin: "100% 0px" },
+          )
+        : null;
+    if (observer) observer.observe(el);
+    else start();
+    form?.addEventListener("focusin", start);
     return () => {
       cancelled = true;
+      observer?.disconnect();
+      form?.removeEventListener("focusin", start);
       if (id) window.turnstile?.remove(id);
     };
   }, [siteKey]);

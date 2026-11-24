@@ -57,6 +57,13 @@ for (const width of [390, 1440]) {
       const problems: string[] = [];
       for (const path of chunk(await routes(page), part)) {
         await page.goto(path, { waitUntil: "load" });
+        // Sections below the fold render only near the screen
+        // (content-visibility in globals.css). axe measures positions and
+        // background colours as it scrolls, so lay every section out first,
+        // as each one is when a visitor reaches it.
+        await page.addStyleTag({
+          content: "section { content-visibility: visible !important; }",
+        });
         const { violations } = await new AxeBuilder({ page })
           .withTags(AXE_TAGS)
           .analyze();

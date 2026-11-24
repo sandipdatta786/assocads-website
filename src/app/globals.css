@@ -249,6 +249,16 @@
     color: var(--ink);
   }
 
+  /* Sections after the first are laid out and painted only as they come
+     near the screen, which spares a phone most of the work of a long page
+     on load. The browser remembers each section's real height once it has
+     been shown; 640px is the first estimate. Content stays in the page for
+     search engines, screen readers and find-in-page. */
+  :where(main) > section[data-tone] ~ section[data-tone] {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
+  }
+
   :focus-visible {
     outline: 2px solid var(--tone-focus);
     outline-offset: 2px;
