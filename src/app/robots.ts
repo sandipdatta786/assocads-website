@@ -30,8 +30,8 @@ export const AI_AND_SEARCH_CRAWLERS = [
   "CCBot",
 ];
 
-/** Only the internal style guide is kept out. */
-const DISALLOW = ["/styleguide"];
+/** Only the internal style guide, the admin editor and its sign-in are kept out. */
+const DISALLOW = ["/styleguide", "/admin", "/api/"];
 
 /**
  * /robots.txt. A crawler that finds a group naming it ignores the "*" group,

@@ -117,6 +117,23 @@ function readJsonArray<S extends z.ZodType>(
 
 const FRONT_MATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
+/**
+ * Drops fields left empty (null or "") so they count as not given. The admin
+ * editor (/admin) writes an optional field the editor left blank as an empty
+ * value, where a hand-written file would leave the field out.
+ */
+function withoutEmpty(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(withoutEmpty);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .filter(([, v]) => v !== null && v !== "")
+        .map(([k, v]) => [k, withoutEmpty(v)]),
+    );
+  }
+  return value;
+}
+
 function readMdxCollection<S extends z.ZodType>(
   name: string,
   schema: S,
@@ -148,7 +165,7 @@ function readMdxCollection<S extends z.ZodType>(
         ]);
       }
 
-      const result = schema.safeParse(data);
+      const result = schema.safeParse(withoutEmpty(data));
       if (!result.success)
         throw new ContentError(file, formatIssues(result.error));
 
