@@ -296,12 +296,15 @@ for (const c of cases) {
   });
 }
 
+// The spam checks use the contact form. Look it up by name, not by position.
+const contactCase = cases.find((c) => c.kind === "contact")!;
+
 test.describe("spam checks", () => {
   test("refuses a form sent too quickly", async ({ page }) => {
     const email = uniqueEmail("fast");
     await page.goto("/contact");
     await waitForHydration(page);
-    await cases[4].fill(page, email);
+    await contactCase.fill(page, email);
     await page.evaluate(() => {
       const input = document.querySelector<HTMLInputElement>(
         'input[name="started"]',
@@ -320,13 +323,13 @@ test.describe("spam checks", () => {
     await page.goto("/contact");
     await waitForHydration(page);
     for (let i = 0; i < 5; i += 1) {
-      await cases[4].fill(page, uniqueEmail("limit"));
+      await contactCase.fill(page, uniqueEmail("limit"));
       await ageForm(page);
       await page.getByRole("button", { name: "Send message" }).click();
       await page.getByRole("button", { name: "Back to the form" }).click();
     }
     const email = uniqueEmail("limit-over");
-    await cases[4].fill(page, email);
+    await contactCase.fill(page, email);
     await ageForm(page);
     await page.getByRole("button", { name: "Send message" }).click();
     await expect(
