@@ -32,7 +32,7 @@ export function Breadcrumbs({
                 <Link
                   href={item.href}
                   className={cn(
-                    "inline-flex min-h-11 items-center underline-offset-4 hover:text-tone-fg hover:underline",
+                    "inline-flex min-h-11 min-w-11 items-center underline-offset-4 hover:text-tone-fg hover:underline",
                   )}
                 >
                   {item.label}

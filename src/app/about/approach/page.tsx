@@ -154,7 +154,7 @@ export default function Page() {
                         </p>
                         <Link
                           href={`/programmes/${item.programme}`}
-                          className="group mt-auto inline-flex items-center gap-1.5 pt-2 text-small font-medium text-indigo"
+                          className="group mt-auto inline-flex min-h-11 items-center gap-1.5 text-small font-medium text-indigo"
                         >
                           <span className="group-hover:underline group-hover:underline-offset-4">
                             Part of {bySlug(programmes, item.programme)?.title}

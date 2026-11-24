@@ -76,28 +76,49 @@ export default function Page() {
       title: "What has been tested",
       body: (
         <>
-          <p>So far:</p>
+          <p>
+            In November 2026 we audited the website against WCAG 2.2 level AA
+            and fixed what we found. These checks now run automatically before
+            every change goes live:
+          </p>
           <ul>
             <li>
-              each page has been checked at widths of 320, 360 and 1440 pixels,
-              including that nothing scrolls sideways at 320 pixels;
+              an automated accessibility check (axe-core) of every page, at
+              phone width (390 pixels) and desktop width (1440 pixels);
             </li>
             <li>
-              the colour pairs have been checked against the WCAG contrast
-              ratios;
+              that no page scrolls sideways at widths of 320, 360, 390, 414 and
+              768 pixels, on phones held sideways, or with text enlarged to
+              200%;
             </li>
             <li>
-              automated tests check every form: that the list of problems
-              receives focus, that each message is linked to its field, and that
-              the contact form can be sent without JavaScript.
+              that buttons, links and form controls on phones are at least 44 by
+              44 pixels, and that text in form fields is at least 16 pixels, so
+              that phones do not zoom in;
+            </li>
+            <li>
+              keyboard use: the skip link, the menus (including that focus stays
+              inside the mobile menu and that Escape closes it), the expanding
+              questions, a visible outline on everything that can receive focus,
+              and that the sticky header never hides it;
+            </li>
+            <li>
+              every form: that the list of problems receives focus, that each
+              message is linked to its field, and that the contact form can be
+              sent without JavaScript.
             </li>
           </ul>
           <p>
-            Not yet done: an automated accessibility check of every page, a
-            keyboard-only walkthrough of every page, testing with screen
-            readers, and testing by disabled people. We plan to carry out a full
-            audit to WCAG 2.2 level AA before launch, and we will update this
-            statement with what it finds.
+            We also checked by script that every combination of text and
+            background colour in use, including when hovered, focused or empty,
+            is one of the approved pairs in our brand guide, each of which meets
+            the WCAG contrast ratio.
+          </p>
+          <p>
+            Not yet done: testing with screen readers (such as NVDA, VoiceOver
+            and TalkBack), testing in browsers other than Chrome, and testing by
+            disabled people. We plan to do these before launch and will update
+            this statement with what they find.
           </p>
         </>
       ),
@@ -121,6 +142,15 @@ export default function Page() {
             Documents such as reports and policies are not yet published. When
             they are, we aim to publish them as accessible pages or tagged PDF
             files.
+          </li>
+          <li>
+            Some notes and lists of sources use a smaller text size (15 pixels).
+            Main text is 17 pixels. All text can be enlarged with your browser.
+          </li>
+          <li>
+            Wide tables in our guides scroll sideways inside their own box on
+            phones. Links inside table cells are smaller than 44 pixels, but at
+            least 24 pixels, as WCAG 2.2 requires.
           </li>
           <li>
             Links to other websites lead to pages we do not control, which may

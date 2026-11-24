@@ -69,9 +69,7 @@ export function TrusteeCard({
             trustee.name
           )}
         </h2>
-        <p className="text-small font-medium text-indigo-deep">
-          {trustee.capacity}
-        </p>
+        <p className="text-small font-medium text-indigo">{trustee.capacity}</p>
         {trustee.officeTitle && (
           <p className="text-small font-medium text-ink">
             {trustee.officeTitle}

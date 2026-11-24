@@ -65,20 +65,23 @@ export default function ProgrammesPage() {
                 <h3 className="font-display text-h3 font-semibold text-ink md:col-span-4">
                   <Link
                     href={`/programmes/${programme.slug}`}
-                    className="underline-offset-4 hover:text-indigo hover:underline"
+                    className="inline-flex min-h-11 items-center underline-offset-4 hover:text-indigo hover:underline"
                   >
                     {programme.title}
                   </Link>
                 </h3>
-                <ul className="flex flex-col gap-2 md:col-span-8">
+                <ul className="flex flex-col md:col-span-8">
                   {programme.deedObjects.map((n) => (
-                    <li key={n} className="flex gap-3 text-body text-slate-600">
+                    <li
+                      key={n}
+                      className="flex items-baseline gap-3 text-body text-slate-600"
+                    >
                       <span className="w-8 shrink-0 font-mono font-medium text-indigo">
                         {String(n).padStart(2, "0")}
                       </span>
                       <Link
                         href={`/about/objects#object-${n}`}
-                        className="underline-offset-4 hover:text-indigo hover:underline"
+                        className="inline-flex min-h-11 items-center underline-offset-4 hover:text-indigo hover:underline"
                       >
                         <span className="sr-only">Object {n}: </span>
                         {objectTitle(n)}

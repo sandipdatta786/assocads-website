@@ -218,7 +218,7 @@ export default async function TermPage({
             <p className="mt-8 border-t border-line pt-6 text-small text-slate-600">
               <Link
                 href="/glossary"
-                className="font-medium text-indigo underline underline-offset-4"
+                className="inline-flex min-h-11 items-center font-medium text-indigo underline underline-offset-4"
               >
                 All terms
               </Link>

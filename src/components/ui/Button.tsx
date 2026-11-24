@@ -3,8 +3,8 @@ import type { ComponentProps } from "react";
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-pill font-medium whitespace-nowrap " +
-  "transition-[color,background-color,border-color,transform] duration-150 ease-out select-none active:scale-[0.97] " +
+  "inline-flex items-center justify-center gap-2 rounded-pill text-center font-medium " +
+  "transition-[color,background-color,border-color,transform] duration-150 ease-out max-w-full select-none active:scale-[0.97] " +
   "disabled:cursor-not-allowed disabled:opacity-60 aria-disabled:pointer-events-none aria-disabled:opacity-60";
 
 const variants = {
@@ -12,7 +12,7 @@ const variants = {
     "bg-tone-primary-bg text-tone-primary-fg hover:bg-tone-primary-hover " +
     "in-data-[tone=ink]:hover:text-ink",
   secondary:
-    "border border-tone-fg text-tone-fg hover:bg-tone-fg hover:text-tone-bg",
+    "border border-tone-fg text-tone-fg hover:bg-tone-fg hover:text-tone-invert",
   ghost: "text-tone-link hover:underline underline-offset-4",
   marigold:
     "bg-marigold text-ink hover:bg-ink hover:text-marigold " +
@@ -20,8 +20,8 @@ const variants = {
 } as const;
 
 const sizes = {
-  medium: "min-h-11 px-5 text-small",
-  large: "min-h-12 px-7 text-body",
+  medium: "min-h-11 px-5 py-2 text-small",
+  large: "min-h-12 px-7 py-2.5 text-body",
 } as const;
 
 type Shared = {

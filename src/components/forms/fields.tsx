@@ -160,7 +160,11 @@ export function CheckRow({
   children: ReactNode;
 }) {
   return (
-    <div className="flex min-h-11 items-start gap-3 py-2.5">
+    // The whole row is the label, so the tap target is the full row.
+    <label
+      htmlFor={id}
+      className="flex min-h-11 cursor-pointer items-start gap-3 py-2.5 text-body text-ink"
+    >
       <input
         id={id}
         type="checkbox"
@@ -172,10 +176,8 @@ export function CheckRow({
         aria-describedby={describedBy}
         className="mt-0.5 size-5 shrink-0 cursor-pointer accent-indigo"
       />
-      <label htmlFor={id} className="cursor-pointer text-body text-ink">
-        {children}
-      </label>
-    </div>
+      <span>{children}</span>
+    </label>
   );
 }
 
