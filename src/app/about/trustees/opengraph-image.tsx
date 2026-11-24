@@ -1,6 +1,6 @@
 import { ogImage } from "@/lib/seo/og";
 
-export const alt = "Founder Trustees";
+export const alt = "Founder Trustees and founder members";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -19,7 +19,11 @@ import {
   site,
   taxStatusLine,
 } from "@/config/site";
-import { getDocuments, getTrustees } from "@/lib/content/loaders";
+import {
+  getDocuments,
+  getFounderMembers,
+  getTrustees,
+} from "@/lib/content/loaders";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { aboutPage } from "@/lib/seo/schema";
@@ -39,6 +43,16 @@ const officeBearers = [
   "One General Secretary",
   "Up to two Joint Secretaries",
   "One Treasurer",
+];
+
+/** The office titles as they appear in content/trustees.json, with the
+    plural used when two people hold the same office. */
+const officeTitles: [string, string][] = [
+  ["President", "President"],
+  ["Vice-President", "Vice-Presidents"],
+  ["General Secretary", "General Secretary"],
+  ["Joint Secretary", "Joint Secretaries"],
+  ["Treasurer", "Treasurer"],
 ];
 
 /* The ten principles in docs/BLUEPRINT.md, section 7.3. The last one follows
@@ -101,6 +115,19 @@ export default function GovernancePage() {
   const trusteeCount = numberWord(getTrustees().length);
   const documents = getDocuments();
   const elected = site.governance.officeBearersElected;
+  // Who holds each office, in the order of the deed's list of offices.
+  const people = [...getTrustees(), ...getFounderMembers()];
+  const holders = officeTitles
+    .map(([title, plural]) => {
+      const names = people
+        .filter((p) => p.officeTitle === title)
+        .map((p) => p.name);
+      return {
+        title: names.length > 1 ? plural : title,
+        names: names.join(" and "),
+      };
+    })
+    .filter((h) => h.names);
 
   return (
     <>
@@ -200,8 +227,7 @@ export default function GovernancePage() {
                 Office bearers
               </h3>
               <p className="text-body text-slate-600">
-                The Board elects its office bearers from among the trustees, for
-                terms of two years:
+                The Board elects its office bearers for terms of two years:
               </p>
               <ul className="flex flex-col gap-1.5 text-body text-slate-600">
                 {officeBearers.map((role) => (
@@ -214,6 +240,21 @@ export default function GovernancePage() {
                   </li>
                 ))}
               </ul>
+              {elected && holders.length > 0 && (
+                <>
+                  <p className="text-body text-slate-600">
+                    The Board has elected:
+                  </p>
+                  <dl className="flex flex-col gap-1.5 text-body">
+                    {holders.map(({ title, names }) => (
+                      <div key={title} className="flex flex-wrap gap-x-2">
+                        <dt className="font-semibold text-ink">{title}:</dt>
+                        <dd className="text-slate-600">{names}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </>
+              )}
               {!elected && (
                 <p className="text-body text-slate-600">
                   The first office bearers will be elected at the first Board

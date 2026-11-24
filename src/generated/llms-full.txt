@@ -24,13 +24,13 @@ It is a not-for-profit public charitable trust. It is non-political, non-religio
 
 Who started it
 
-## Founded by twelve trustees in Kolkata
+## Founded in Kolkata
 
 Meet the trustees
 
-ASSOCADS was started in 2026 by twelve Founder Trustees: professionals, academics and entrepreneurs in AI, Data Science and Analytics. Together they form its first Board of Trustees.
+ASSOCADS was started in 2026 by professionals, academics and entrepreneurs in AI, Data Science and Analytics. Its first Board of Trustees has seven Founder Trustees, and five founder members work with them on its sub-committees.
 
-They serve without payment. The Board will elect its office bearers from among the trustees at its first meeting after registration.
+Trustees serve without payment. The Board has elected its office bearers, including a President, a General Secretary and a Treasurer.
 
 Vision
 
@@ -90,7 +90,7 @@ About
 - Our approachWhat we want to stand for, and the ideas we plan to build on
 - Aims and objectsThe sixteen objects of the trust deed, in plain English
 - GovernanceHow the trust is run, its principles and documents
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - RoadmapWhat we plan to do, and when
 - At a glanceShort, dated facts about ASSOCADS
 
@@ -126,7 +126,7 @@ Founded: ASSOCADS was established in Kolkata, West Bengal, India, in 2026.
 
 Scope: Across India, beginning with West Bengal. It aims to build a collaborative ecosystem that connects students, professionals, academia, industry, startups and government in AI, Data Science and Analytics across India, beginning with West Bengal.
 
-Founder Trustees: ASSOCADS was founded by twelve Founder Trustees, who form its first Board of Trustees and serve without payment. Office bearers will be elected at the Board's first meeting after registration. See the trustees
+Founder Trustees: The first Board of Trustees of ASSOCADS has seven Founder Trustees, who serve without payment. The Board has elected its office bearers: Rahul Bhattacharya (President), Abhijit Pal (Vice-President), Prasun Nandy (Vice-President), Amit Kumar Das (General Secretary), Sandip Datta (Joint Secretary), Sayan Guha (Joint Secretary), Biswajeet Chaki (Treasurer). Five founder members serve on its sub-committees but are not on the Board. See the trustees
 
 Membership: The trust deed provides for four membership categories: Ordinary Member, Life Member, Associate Member and Honorary Member. Fees have not yet been fixed; they will be set by bye-laws adopted after registration.
 
@@ -172,7 +172,7 @@ About
 - Our approachWhat we want to stand for, and the ideas we plan to build on
 - Aims and objectsThe sixteen objects of the trust deed, in plain English
 - GovernanceHow the trust is run, its principles and documents
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - RoadmapWhat we plan to do, and when
 
 ## Be part of ASSOCADS from the start
@@ -373,7 +373,7 @@ About
 - About ASSOCADSWho we are and why the trust was set up
 - Aims and objectsThe sixteen objects of the trust deed, in plain English
 - GovernanceHow the trust is run, its principles and documents
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - RoadmapWhat we plan to do, and when
 - At a glanceShort, dated facts about ASSOCADS
 
@@ -548,7 +548,7 @@ About
 - About ASSOCADSWho we are and why the trust was set up
 - Our approachWhat we want to stand for, and the ideas we plan to build on
 - GovernanceHow the trust is run, its principles and documents
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - RoadmapWhat we plan to do, and when
 - At a glanceShort, dated facts about ASSOCADS
 
@@ -568,7 +568,7 @@ About
 
 ASSOCADS is governed by its Board of Trustees under a trust deed, and is run on a not-for-profit basis. This page explains who is responsible, the principles that bind the trust, how its money is to be accounted for, and which documents it will publish as they are adopted.
 
-Last updated 23 November 2026
+Last updated 24 November 2026
 
 Registration in progress
 
@@ -592,13 +592,13 @@ ASSOCADS is a public charitable trust. It is non-political, non-religious, not-f
 
 ### The Board of Trustees
 
-The trust is managed by a Board of between seven and fifteen trustees. The first Board has twelve Founder Trustees.
+The trust is managed by a Board of between seven and fifteen trustees. The first Board has seven Founder Trustees.
 
 Meet the trustees
 
 ### Office bearers
 
-The Board elects its office bearers from among the trustees, for terms of two years:
+The Board elects its office bearers for terms of two years:
 
 - One President
 - Up to two Vice-Presidents
@@ -606,7 +606,17 @@ The Board elects its office bearers from among the trustees, for terms of two ye
 - Up to two Joint Secretaries
 - One Treasurer
 
-The first office bearers will be elected at the first Board meeting after registration. Until then, no trustee holds a title.
+The Board has elected:
+
+President:: Rahul Bhattacharya
+
+Vice-Presidents:: Abhijit Pal and Prasun Nandy
+
+General Secretary:: Amit Kumar Das
+
+Joint Secretaries:: Sandip Datta and Sayan Guha
+
+Treasurer:: Biswajeet Chaki
 
 ### Honorary trustees
 
@@ -732,7 +742,7 @@ All questions
 
 **Who runs ASSOCADS?**
 
-ASSOCADS is run by a Board of Trustees. The first Board has twelve Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+ASSOCADS is run by a Board of Trustees. The first Board has seven Founder Trustees, named on the Founder Trustees page. The Board has elected its office bearers: Rahul Bhattacharya is President, Abhijit Pal and Prasun Nandy are Vice-Presidents, Amit Kumar Das is General Secretary, Sandip Datta and Sayan Guha are Joint Secretaries, and Biswajeet Chaki is Treasurer. Five founder members work with the trustees on its sub-committees but are not on the Board.
 
 **Are the trustees paid?**
 
@@ -753,7 +763,7 @@ About
 - About ASSOCADSWho we are and why the trust was set up
 - Our approachWhat we want to stand for, and the ideas we plan to build on
 - Aims and objectsThe sixteen objects of the trust deed, in plain English
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - RoadmapWhat we plan to do, and when
 - At a glanceShort, dated facts about ASSOCADS
 
@@ -769,13 +779,15 @@ Source: {{SITE_URL}}/about/trustees
 
 About
 
-# Founder Trustees
+# Founder Trustees and founder members
 
-The first Board of Trustees of ASSOCADS has twelve Founder Trustees, listed here in the order of the trust deed. Three of them are also Settlors, the people who created the trust. They serve in an honorary capacity, without payment. Office bearers will be elected at the Board's first meeting after registration, so no trustee holds a title yet.
+The first Board of Trustees of ASSOCADS has seven Founder Trustees. Three of them are also Settlors, the people who created the trust. They serve in an honorary capacity, without payment. The Board has elected its office bearers, shown on each card with the sub-committees each person serves on.
 
 ## Amit Kumar Das
 
 Settlor and Founder Trustee
+
+General Secretary
 
 - AP
 
@@ -785,6 +797,8 @@ Photo to be added
 
 Settlor and Founder Trustee
 
+Vice-President
+
 - PN
 
 Photo to be added
@@ -793,13 +807,7 @@ Photo to be added
 
 Settlor and Founder Trustee
 
-- SD
-
-Photo to be added
-
-## Sudip Dasgupta
-
-Founder Trustee
+Vice-President
 
 - RB
 
@@ -809,6 +817,14 @@ Photo to be added
 
 Founder Trustee
 
+President
+
+## Deb Kumar Majumder
+
+Founder Trustee
+
+Sub-committee: Strategic collaboration and policies
+
 - BC
 
 Photo to be added
@@ -817,17 +833,41 @@ Photo to be added
 
 Founder Trustee
 
-## Sayan Guha
+Treasurer
 
-Founder Trustee
-
-## Deb Kumar Majumder
-
-Founder Trustee
+Sub-committee: Branding and communication
 
 ## Sandip Datta
 
 Founder Trustee
+
+Joint Secretary
+
+Sub-committee: Branding and communication
+
+Founder members
+
+## Five founder members
+
+Founder members work with the trustees on the sub-committees shown on each card. They are not members of the Board of Trustees.
+
+## Sayan Guha
+
+Founder Member
+
+Joint Secretary
+
+Sub-committee: Branding and communication
+
+- SD
+
+Photo to be added
+
+## Sudip Dasgupta
+
+Founder Member
+
+Sub-committee: Branding and communication
 
 - AB
 
@@ -835,7 +875,9 @@ Photo to be added
 
 ## Agnimitra Biswas
 
-Founder Trustee
+Founder Member
+
+Sub-committee: Strategic collaboration and policies
 
 - AC
 
@@ -843,11 +885,15 @@ Photo to be added
 
 ## Ayan Chakraborty
 
-Founder Trustee
+Founder Member
+
+Sub-committee: Membership
 
 ## Eshwar Boini
 
-Founder Trustee
+Founder Member
+
+Sub-committee: Membership
 
 Questions
 
@@ -857,7 +903,7 @@ All questions
 
 **Who runs ASSOCADS?**
 
-ASSOCADS is run by a Board of Trustees. The first Board has twelve Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+ASSOCADS is run by a Board of Trustees. The first Board has seven Founder Trustees, named on the Founder Trustees page. The Board has elected its office bearers: Rahul Bhattacharya is President, Abhijit Pal and Prasun Nandy are Vice-Presidents, Amit Kumar Das is General Secretary, Sandip Datta and Sayan Guha are Joint Secretaries, and Biswajeet Chaki is Treasurer. Five founder members work with the trustees on its sub-committees but are not on the Board.
 
 About
 
@@ -893,7 +939,6 @@ This roadmap sets out intentions. Dates and details will be confirmed by the Boa
 ## Getting established
 
 - Complete the registration of the trust.
-- Hold the first Board meeting and elect office bearers.
 - Adopt bye-laws that set membership categories and fees, then open membership.
 - Apply for registration under sections 12AB and 80G of the Income Tax Act.
 - Have our first year's accounts audited and adopt our first annual report after the financial year ends on 31 March.
@@ -938,7 +983,7 @@ About
 - Our approachWhat we want to stand for, and the ideas we plan to build on
 - Aims and objectsThe sixteen objects of the trust deed, in plain English
 - GovernanceHow the trust is run, its principles and documents
-- Founder TrusteesThe twelve people on the first Board
+- Founder TrusteesThe Board, its office bearers and founder members
 - At a glanceShort, dated facts about ASSOCADS
 
 ## Be part of ASSOCADS from the start
@@ -1901,7 +1946,7 @@ Link to this question
 
 **Who runs ASSOCADS?**
 
-ASSOCADS is run by a Board of Trustees. The first Board has twelve Founder Trustees, named on the Founder Trustees page. The Board will elect its office bearers, including a President, a General Secretary and a Treasurer, from among the trustees at its first meeting after registration, so no trustee holds a title yet.
+ASSOCADS is run by a Board of Trustees. The first Board has seven Founder Trustees, named on the Founder Trustees page. The Board has elected its office bearers: Rahul Bhattacharya is President, Abhijit Pal and Prasun Nandy are Vice-Presidents, Amit Kumar Das is General Secretary, Sandip Datta and Sayan Guha are Joint Secretaries, and Biswajeet Chaki is Treasurer. Five founder members work with the trustees on its sub-committees but are not on the Board.
 
 Link to this question
 

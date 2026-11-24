@@ -182,7 +182,8 @@ function withoutDrafts<T extends { draft: boolean }>(
 
 /* ---------- Collections ---------- */
 
-export function getTrustees(options?: LoadOptions) {
+/** Everyone in content/trustees.json: the Board and the founder members. */
+function getPeople(options?: LoadOptions) {
   const file = "content/trustees.json";
   const items = readJsonArray("trustees", trusteeSchema);
   uniqueSlugs(file, items);
@@ -207,6 +208,16 @@ export function getTrustees(options?: LoadOptions) {
     ? items
     : items.filter((t) => t.published);
   return visible.sort((a, b) => a.order - b.order);
+}
+
+/** The Board of Trustees, in the order the Board has set. */
+export function getTrustees(options?: LoadOptions) {
+  return getPeople(options).filter((t) => t.capacity !== "Founder Member");
+}
+
+/** Founder members: they serve on sub-committees but are not on the Board. */
+export function getFounderMembers(options?: LoadOptions) {
+  return getPeople(options).filter((t) => t.capacity === "Founder Member");
 }
 
 export { hasTrusteeProfile } from "./trustees.ts";

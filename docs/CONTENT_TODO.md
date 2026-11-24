@@ -7,7 +7,8 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 - [ ] **Final domain name.** Needed for canonical addresses and email addresses.
 - [ ] **Registered office address.** Needed for the footer, contact page and structured data.
 - [ ] **Public email addresses and a phone number, if any.** Needed for the contact page.
-- [ ] **Trustee profiles.** For each of the twelve Founder Trustees: photograph, current role, sixty-word biography, LinkedIn link, and consent to publish.
+- [ ] **Trustee and founder member profiles.** For each of the seven Founder Trustees and five founder members: photograph, current role, sixty-word biography, LinkedIn link, and consent to publish.
+- [ ] **Date of the Board resolution electing the office bearers.** The site says the Board has elected them, without a date; add it to `docs/BLUEPRINT.md` section 7.4 once supplied.
 - [ ] **Trustee name spellings** confirmed against each trustee's PAN card.
 - [ ] **Registration number and date.** Needed to switch the site from "pending" to "registered".
 - [ ] **Membership fees and any student category**, once fixed by the Board.

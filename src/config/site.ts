@@ -53,7 +53,7 @@ export const site = {
    */
   updated: {
     facts: "2026-11-23",
-    governance: "2026-11-23",
+    governance: "2026-11-24",
     membership: "2026-11-23",
   },
   location: { ...LOCATION, full: PLACE },
@@ -72,8 +72,8 @@ export const site = {
   },
 
   governance: {
-    /** The first office bearers are elected at the first Board meeting after registration. */
-    officeBearersElected: false,
+    /** True: the Board has elected its office bearers (titles are in content/trustees.json). */
+    officeBearersElected: true,
     /** Membership fees are set by bye-laws adopted after registration. */
     feesFixed: false,
   },
@@ -134,7 +134,7 @@ export const site = {
         {
           label: "Founder Trustees",
           href: "/about/trustees",
-          description: "The twelve people on the first Board",
+          description: "The Board, its office bearers and founder members",
         },
         {
           label: "Roadmap",

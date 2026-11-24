@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { Heading } from "@/components/ui/Typography";
 import { site } from "@/config/site";
-import { getTrustees } from "@/lib/content/loaders";
+import { getFounderMembers, getTrustees } from "@/lib/content/loaders";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { aboutPage } from "@/lib/seo/schema";
@@ -49,6 +49,7 @@ const differences = [
 
 export default function AboutPage() {
   const trusteeCount = numberWord(getTrustees().length);
+  const founderMemberCount = getFounderMembers().length;
 
   return (
     <>
@@ -105,7 +106,7 @@ export default function AboutPage() {
             <SectionIntro
               id="founders-heading"
               eyebrow="Who started it"
-              title={`Founded by ${trusteeCount} trustees in ${site.location.city}`}
+              title={`Founded in ${site.location.city}`}
               action={
                 <TextLink href="/about/trustees">Meet the trustees</TextLink>
               }
@@ -114,15 +115,19 @@ export default function AboutPage() {
           </div>
           <div className="flex flex-col gap-5 text-body text-slate-600 lg:col-span-7">
             <p>
-              {site.shortName} was started in {site.foundingYear} by{" "}
-              {trusteeCount} Founder Trustees: professionals, academics and
-              entrepreneurs in AI, Data Science and Analytics. Together they
-              form its first Board of Trustees.
+              {site.shortName} was started in {site.foundingYear} by
+              professionals, academics and entrepreneurs in AI, Data Science and
+              Analytics. Its first Board of Trustees has {trusteeCount} Founder
+              Trustees
+              {founderMemberCount > 0 &&
+                `, and ${numberWord(founderMemberCount)} founder members work with them on its sub-committees`}
+              .
             </p>
             <p>
-              They serve without payment. The Board will elect its office
-              bearers from among the trustees at its first meeting after
-              registration.
+              Trustees serve without payment.{" "}
+              {site.governance.officeBearersElected
+                ? "The Board has elected its office bearers, including a President, a General Secretary and a Treasurer."
+                : "The Board will elect its office bearers from among the trustees at its first meeting after registration."}
             </p>
           </div>
         </Container>
