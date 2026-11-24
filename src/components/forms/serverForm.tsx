@@ -13,6 +13,7 @@ import {
 } from "react";
 import { flushSync } from "react-dom";
 import { Button } from "@/components/ui/Button";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { submitForm } from "@/lib/forms/actions";
 import type { FormKind, FormValues } from "@/lib/forms/limits";
@@ -70,6 +71,8 @@ export function useServerForm(kind: FormKind) {
 
   useEffect(() => {
     if (state.status === "idle") return;
+    // Counts the send for visitor statistics: the kind of form only.
+    if (state.status === "sent") trackEvent("Form sent", { form: kind });
     const target =
       state.status === "sent"
         ? resultRef
@@ -77,7 +80,7 @@ export function useServerForm(kind: FormKind) {
           ? summaryRef
           : noticeRef;
     requestAnimationFrame(() => target.current?.focus());
-  }, [state]);
+  }, [state, kind]);
 
   /** The first problem with each field. If the rules cannot load (the
       connection dropped), nothing is flagged and the server checks instead. */

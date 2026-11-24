@@ -2166,7 +2166,7 @@ Link to this question
 
 **Does this website use cookies?**
 
-ASSOCADS sets no cookies and uses no advertising or tracking tools. The website remembers only that you closed the notice at the top of the page, in your browser, until you close the tab. The privacy notice lists the services that process data for the website.
+No. ASSOCADS sets no cookies and uses no advertising tools. It counts visits and measures page speed with Vercel Web Analytics and Speed Insights, which work without cookies and show us totals, not who you are. The website remembers only that you closed the notice at the top of the page, in your browser, until you close the tab. The privacy notice explains each service.
 
 Link to this question
 

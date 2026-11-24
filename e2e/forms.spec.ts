@@ -192,6 +192,12 @@ for (const c of cases) {
   test.describe(c.kind, () => {
     test("sends a valid submission", async ({ page }) => {
       const email = uniqueEmail("ok");
+      // Stands in for Vercel Web Analytics, which loads only on Vercel.
+      await page.addInitScript(() => {
+        const w = window as unknown as { va: unknown; vaCalls: unknown[] };
+        w.vaCalls = [];
+        w.va = (...args: unknown[]) => w.vaCalls.push(args);
+      });
       await page.goto(c.path);
       await waitForHydration(page);
       await c.fill(page, email);
@@ -202,6 +208,19 @@ for (const c of cases) {
       await expect(status).toBeVisible();
       await expect(status).toBeFocused();
       await expect(status).toContainText("Test mode");
+
+      // The send is counted with the kind of form only, never the answers.
+      const calls = await page.evaluate(
+        () => (window as unknown as { vaCalls: unknown[] }).vaCalls,
+      );
+      expect(calls).toContainEqual([
+        "event",
+        expect.objectContaining({
+          name: "Form sent",
+          data: { form: expect.any(String) },
+        }),
+      ]);
+      expect(JSON.stringify(calls)).not.toContain(email);
 
       await expect.poll(async () => (await sentTo(email)).length).toBe(1);
       const [mail] = await sentTo(email);
