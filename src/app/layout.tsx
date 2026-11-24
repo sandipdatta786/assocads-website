@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AnalyticsEvents } from "@/components/layout/AnalyticsEvents";
 import { Reveal } from "@/components/layout/Reveal";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -9,7 +12,9 @@ import {
 } from "@/components/layout/StatusBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/config/site";
+import { analyticsEnabled } from "@/lib/analytics";
 import { organisation, website } from "@/lib/seo/schema";
+import { verification } from "@/lib/seo/verification";
 import "./globals.css";
 
 // The three brand typefaces, self-hosted by next/font. See docs/BRAND_GUIDE.md.
@@ -47,6 +52,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     siteName: `${site.shortName}, ${site.name}`,
   },
+  // Search engine ownership tags, only when their environment variables are set.
+  verification: verification(),
 };
 
 export const viewport: Viewport = {
@@ -87,6 +94,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <SiteFooter />
         <Reveal />
+        {/* Cookie-free visitor statistics and page-speed measurements from
+            Vercel. Described in the privacy notice. */}
+        <AnalyticsEvents joinHref={site.joinLink.href} />
+        {analyticsEnabled && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

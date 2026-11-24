@@ -88,6 +88,11 @@ export default function Page() {
             sets no cookies.
           </li>
           <li>
+            We count visits and measure page speed with Vercel&rsquo;s
+            cookie-free tools, which give us totals, not a record of who you
+            are.
+          </li>
+          <li>
             You can ask to see, correct or erase your data, and withdraw your
             consent, at any time: write to {dataEmail}.
           </li>
@@ -178,12 +183,39 @@ export default function Page() {
               this until you close the tab. Nothing is sent to us.
             </li>
           </ul>
+          <h3>Visitor statistics and page speed</h3>
           <p>
-            <strong>Visitor statistics.</strong> The website does not use any
-            analytics or tracking tools at present, and sets no cookies. If we
-            add visitor statistics, we plan to use a service that works without
-            cookies, such as Vercel Web Analytics, and we will update this
-            notice before we do.
+            We use two services from our hosting provider, Vercel, to see how
+            the website is used and how fast it loads. Neither sets cookies or
+            stores anything in your browser, and neither is used for
+            advertising. We see only totals, such as how many people visited a
+            page, never a list of individual visitors. We use no other analytics
+            or tracking tools, which is why the website has no cookie banner.
+          </p>
+          <ul>
+            <li>
+              <strong>Vercel Web Analytics</strong> counts page visits. For each
+              visit it records the page address, the website you came from, an
+              approximate location (country, region and city, worked out from
+              your internet address), and your browser, operating system and
+              type of device. To count each visitor once a day without a cookie,
+              it uses a code calculated from details of your request. Vercel
+              discards this code after 24 hours and does not link the statistics
+              to you or to your internet address.
+            </li>
+            <li>
+              <strong>Vercel Speed Insights</strong> measures how quickly each
+              page loads and responds. It records the page, the measurements,
+              your browser, operating system, type of device, network speed and
+              country. It cannot follow you from page to page or identify you.
+            </li>
+          </ul>
+          <p>
+            Web Analytics also counts a few actions, with no personal data: a
+            click on a Join link and where on the page it was; a form sent
+            successfully, recording only which form it was, never what you
+            typed; a click on an event&rsquo;s registration link; and a file
+            download.
           </p>
         </>
       ),
@@ -200,7 +232,9 @@ export default function Page() {
           </p>
           <ul>
             <li>
-              <strong>Vercel</strong> hosts the website and runs the forms.
+              <strong>Vercel</strong> hosts the website, runs the forms, and
+              provides the visitor statistics and page-speed measurements
+              described above.
             </li>
             <li>
               <strong>Resend</strong> delivers the emails sent by the forms:
@@ -260,6 +294,11 @@ export default function Page() {
             <li>
               The scrambled internet address used for the spam limit: at most
               ten minutes.
+            </li>
+            <li>
+              The code Vercel Web Analytics uses to count a visitor once a day:
+              24 hours. The statistics themselves are totals and do not identify
+              you.
             </li>
             <li>
               Hosting logs and email delivery records: for the limited periods

@@ -79,7 +79,12 @@ export default async function EventPage({
       href={register.href}
       size="large"
       {...(register.external
-        ? { target: "_blank", rel: "noopener noreferrer" }
+        ? {
+            target: "_blank",
+            rel: "noopener noreferrer",
+            "data-track": "event-registration",
+            "data-track-event": event.slug,
+          }
         : {})}
     >
       {register.external ? "Register" : "Contact us to register"}

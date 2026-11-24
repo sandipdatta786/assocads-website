@@ -26,7 +26,10 @@ export function TrusteesPreview() {
         />
         <ul className="grid grid-cols-2 gap-x-3 gap-y-8 min-[480px]:grid-cols-3 sm:gap-x-4 md:grid-cols-4 lg:grid-cols-6 lg:gap-x-6">
           {people.map((trustee) => (
-            <li key={trustee.slug} className="flex min-w-0 flex-col items-start gap-3 break-words">
+            <li
+              key={trustee.slug}
+              className="flex min-w-0 flex-col items-start gap-3 break-words"
+            >
               {/* Photographs appear only with consent; until then, initials. */}
               <Avatar
                 name={trustee.name}
