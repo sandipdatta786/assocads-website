@@ -1,6 +1,8 @@
 # How to publish news
 
-News, announcements and reports appear on the Insights page (`/insights`), each with its own page, and in the RSS feed (`/feed.xml`). Each item is one file in `content/insights/`. You do not need to write any code.
+News, announcements and reports appear on the Insights page (`/insights`), each with its own page, and in the RSS feed (`/feed.xml`). Each item is one file in `content/insights/`. The three newest also appear on the home page under "Announcements". You do not need to write any code.
+
+**The easiest way is the admin editor at `/admin`**, which fills in this file for you and has every change reviewed before it goes live. See `docs/ADMIN_GUIDE.md`. This page explains how to edit the file directly.
 
 ## Before you start
 

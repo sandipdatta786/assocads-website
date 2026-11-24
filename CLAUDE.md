@@ -25,6 +25,7 @@ Before writing Next.js code, read `AGENTS.md`: this Next.js version differs from
 - Next.js App Router, TypeScript strict, Tailwind CSS. Package manager: pnpm.
 - Every page is statically generated. There is no database.
 - All editable content lives in `content/` as MDX and JSON.
+- Admins edit events and news at `/admin` (Decap CMS, GitHub sign-in). Each save becomes a pull request that an admin publishes. See `docs/ADMIN_GUIDE.md`.
 - All organisation facts (name, legal status, contact, social links, navigation) come from `src/config/site.ts`. Never type them by hand in a page.
 - `src/app` routes · `src/components` (`ui/`, `layout/`, `sections/`, `forms/`, `seo/`) · `src/lib` helpers, content loaders, SEO helpers · `public/` static files · `docs/` project documents and the master logo files in `docs/logo/`.
 

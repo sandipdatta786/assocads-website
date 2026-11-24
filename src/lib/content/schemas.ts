@@ -311,6 +311,7 @@ export const eventSchema = z
       "meetup",
       "hackathon",
       "webinar",
+      "ceremony",
       "other",
     ]),
     startDate: isoDateOrDateTime,
@@ -346,6 +347,12 @@ export const eventSchema = z
             z.object({
               src: z.string().startsWith("/"),
               alt: z.string().min(1),
+              /** Everyone recognisable in the photo agreed to its publication
+                  (truthfulness rule 9). The admin editor asks for this tick. */
+              consent: z.literal(true, {
+                message:
+                  "publish a photo only once the people shown have agreed (consent: true)",
+              }),
             }),
           )
           .default([]),

@@ -69,6 +69,28 @@ const contentSecurityPolicy = [
   ...(process.env.VERCEL ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
 
+/**
+ * The admin editor at /admin (Decap CMS, public/admin/) is a separate app. It
+ * loads its pinned script from unpkg (checked by an integrity hash), talks to
+ * GitHub's API and shows images from GitHub. It also needs 'unsafe-eval',
+ * because Decap checks its settings with code it compiles at run time. These
+ * looser rules apply only under /admin, which holds no public content and is
+ * never indexed.
+ */
+const adminContentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://*.githubusercontent.com",
+  "font-src 'self' data:",
+  "connect-src 'self' https://api.github.com https://*.githubusercontent.com",
+  "frame-src 'self' blob:",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join("; ");
+
 const securityHeaders = [
   { key: "Content-Security-Policy", value: contentSecurityPolicy },
   // Browsers ignore this on http://, so it is safe locally.
@@ -101,9 +123,25 @@ const nextConfig: NextConfig = {
       permanent: true,
     }));
   },
+  // The admin editor lives in public/admin/index.html; serve it at /admin.
+  async rewrites() {
+    return [{ source: "/admin", destination: "/admin/index.html" }];
+  },
   async headers() {
+    const adminHeaders = [
+      { key: "Content-Security-Policy", value: adminContentSecurityPolicy },
+      { key: "X-Robots-Tag", value: "noindex, nofollow" },
+      { key: "Cache-Control", value: "no-store" },
+    ];
     return [
       { source: "/:path*", headers: securityHeaders },
+      // Later entries override earlier ones for the same header.
+      { source: "/admin", headers: adminHeaders },
+      { source: "/admin/:path*", headers: adminHeaders },
+      {
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         source: "/:dir(brand|images)/:path*",
         headers: [{ key: "Cache-Control", value: publicFileCache }],

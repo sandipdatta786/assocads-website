@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+  The ASSOCADS admin editor (Decap CMS). Admins sign in with GitHub and edit
+  events and news; every change becomes a pull request that is checked and
+  previewed before an admin publishes it. How to use it and how to give
+  someone access: docs/ADMIN_GUIDE.md. Fields: public/admin/config.yml.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ASSOCADS admin</title>
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>The admin editor needs JavaScript.</noscript>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <!-- Pinned version with an integrity hash: the browser refuses the file if
+         it has changed. To upgrade, see docs/ADMIN_GUIDE.md, section 6. -->
+    <script
+      src="https://unpkg.com/decap-cms@3.17.3/dist/decap-cms.js"
+      integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // The sign-in runs through this site's own /api/decap routes, so the
+      // address is whichever one the editor was opened on.
+      window.CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "sandipdatta786/assocads-website",
+            branch: "main",
+            base_url: window.location.origin,
+            auth_endpoint: "api/decap/auth",
+            squash_merges: true,
+            commit_messages: {
+              create: 'Add {{collection}} "{{slug}}" (admin editor)',
+              update: 'Update {{collection}} "{{slug}}" (admin editor)',
+              delete: 'Delete {{collection}} "{{slug}}" (admin editor)',
+              uploadMedia: 'Upload "{{path}}" (admin editor)',
+              deleteMedia: 'Delete "{{path}}" (admin editor)',
+            },
+          },
+          site_url: window.location.origin,
+          display_url: window.location.origin,
+        },
+      });
+    </script>
+  </body>
+</html>

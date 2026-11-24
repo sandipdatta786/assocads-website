@@ -6,7 +6,7 @@ import { Hero } from "@/components/sections/home/Hero";
 import { HomeQuestions } from "@/components/sections/home/HomeQuestions";
 import { RoadmapTeaser } from "@/components/sections/home/RoadmapTeaser";
 import { TrusteesPreview } from "@/components/sections/home/TrusteesPreview";
-import { WhatsNext } from "@/components/sections/home/WhatsNext";
+import { LatestUpdates } from "@/components/sections/home/LatestUpdates";
 import { WhatWeDo } from "@/components/sections/home/WhatWeDo";
 import { OldAnchorRedirect } from "@/components/seo/OldAnchorRedirect";
 import { WhyAssocads } from "@/components/sections/home/WhyAssocads";
@@ -34,7 +34,7 @@ export default function HomePage() {
       <ApproachTeaser />
       <WhyAssocads />
       <TrusteesPreview />
-      <WhatsNext />
+      <LatestUpdates />
       <RoadmapTeaser />
       <HomeQuestions />
       <CallToAction

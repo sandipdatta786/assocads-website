@@ -1,6 +1,8 @@
 # How to add an event
 
-Every event is one file in `content/events/`. The site builds the events page, the event's own page, its status badge and its calendar file from that file. You never edit a page by hand.
+Every event is one file in `content/events/`. The site builds the events page, the event's own page, its status badge, its calendar file and its place in the home page's "Latest updates and events" from that file. You never edit a page by hand.
+
+**The easiest way is the admin editor at `/admin`**, which fills in this file for you and has every change reviewed before it goes live. See `docs/ADMIN_GUIDE.md`. This page explains how to edit the file directly.
 
 ## Before you start
 
@@ -12,7 +14,7 @@ Only add an event that is real and confirmed: a date, a venue (or an online link
 2. **Set the slug.** Change `slug:` to the file name without `.mdx`. The event's address will be `/events/<slug>`.
 3. **Fill in the details.** Each field is explained in a comment in the template. The ones that matter most:
    - `title` and `summary`, a short description shown on cards and in search results.
-   - `type` (workshop, masterclass, hackathon and so on) and `mode` (in-person, online or hybrid).
+   - `type` (workshop, seminar, webinar, conference, ceremony, masterclass, hackathon and so on) and `mode` (in-person, online or hybrid).
    - `startDate` and `endDate`, in Indian Standard Time. Write a date and time as `2027-03-20T10:00:00+05:30`, or a date alone as `2027-03-20`.
    - `venue` and `city`, for in-person and hybrid events.
    - `registrationUrl`, the full address where people register. If you leave it empty, the Register button sends people to the contact page.
@@ -35,7 +37,7 @@ Add a speaker only once they have agreed to speak. A speaker photograph appears 
 The event's page stays live and shows "This event has taken place". Add a `recap` to the file with:
 
 - a short `summary` of what happened,
-- `photos`, each with a description in `alt`, and only with the consent of the people shown,
+- `photos`, each with a description in `alt` and `consent: true`, which means everyone recognisable in it agreed to its publication (the check refuses a photograph without it). The first photograph appears under "Highlights from past events" on the home page,
 - a `slidesUrl`, if the slides are shared.
 
 Until a recap is added, the page shows a visible placeholder.

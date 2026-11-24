@@ -1,0 +1,294 @@
+# The fields of the admin editor at /admin (Decap CMS).
+#
+# These mirror the content schemas in src/lib/content/schemas.ts. If a schema
+# changes, change the matching field here too. The sign-in settings (backend)
+# are in public/admin/index.html. Guide for admins: docs/ADMIN_GUIDE.md.
+#
+# Every save becomes a pull request (editorial workflow). It gets a preview
+# address and the automatic checks, and goes live only when an admin presses
+# Publish. A mistake therefore never reaches the live site.
+
+publish_mode: editorial_workflow
+logo_url: /brand/logo-horizontal.svg
+
+# Uploads not tied to a collection.
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  # ─────────────────────────────── Events ───────────────────────────────
+  - name: events
+    label: Events
+    label_singular: event
+    description: >-
+      Upcoming and past events: workshops, seminars, webinars, conferences,
+      ceremonies and more. Add only confirmed events. After an event, open it
+      again and fill in "After the event" with a summary and photographs.
+    folder: content/events
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    preview_path: "events/{{slug}}"
+    media_folder: /public/images/events
+    public_folder: /images/events
+    summary: "{{title}} ({{startDate}})"
+    sortable_fields: [startDate, title]
+    fields:
+      - label: Web address name
+        name: slug
+        widget: string
+        hint: >-
+          The last part of the event's web address, for example
+          ai-in-healthcare-workshop-2027. Lower-case words joined by hyphens.
+          It cannot be changed after the first save.
+        pattern:
+          ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lower-case words joined by hyphens"]
+      - label: Title
+        name: title
+        widget: string
+        hint: Sentence case, up to 90 characters.
+        pattern: ["^.{1,90}$", "Up to 90 characters"]
+      - label: Summary
+        name: summary
+        widget: text
+        hint: One or two sentences on what the event is and who it is for. Up to 220 characters.
+        pattern: ["^[\\s\\S]{1,220}$", "Up to 220 characters"]
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - { label: Workshop, value: workshop }
+          - { label: Seminar, value: seminar }
+          - { label: Webinar, value: webinar }
+          - { label: Conference, value: conference }
+          - { label: Ceremony, value: ceremony }
+          - { label: Masterclass, value: masterclass }
+          - { label: Meetup, value: meetup }
+          - { label: Hackathon, value: hackathon }
+          - { label: Other, value: other }
+      - label: Starts
+        name: startDate
+        widget: datetime
+        hint: Indian Standard Time.
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+        date_format: "D MMM YYYY"
+        time_format: "HH:mm"
+      - label: Ends
+        name: endDate
+        widget: datetime
+        required: false
+        default: ""
+        hint: Optional. For an event over several days, the last day.
+        format: "YYYY-MM-DDTHH:mm:ssZ"
+        date_format: "D MMM YYYY"
+        time_format: "HH:mm"
+      - label: Mode
+        name: mode
+        widget: select
+        options:
+          - { label: In person, value: in-person }
+          - { label: Online, value: online }
+          - { label: Hybrid, value: hybrid }
+      - label: Venue
+        name: venue
+        widget: string
+        required: false
+        hint: Needed for in-person and hybrid events. Leave empty for online events.
+      - label: City
+        name: city
+        widget: string
+        required: false
+        hint: Needed for in-person and hybrid events.
+      - label: Map link
+        name: mapUrl
+        widget: string
+        required: false
+        hint: Optional. If empty, the site makes a map search link from the venue and city.
+      - label: Registration link
+        name: registrationUrl
+        widget: string
+        required: false
+        hint: >-
+          A full web address, for example a Google Form. If empty, the Register
+          button goes to the contact page.
+      - label: Registration opens
+        name: registrationOpens
+        widget: datetime
+        required: false
+        default: ""
+        hint: Optional. If empty, registration is open as soon as the event is published.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Registration closes
+        name: registrationCloses
+        widget: datetime
+        required: false
+        default: ""
+        hint: Optional. If empty, registration closes when the event starts.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Speakers
+        name: speakers
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        hint: Only people who have agreed to speak.
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Role, name: role, widget: string, required: false }
+          - { label: Organisation, name: organisation, widget: string, required: false }
+          - label: Photograph
+            name: photo
+            widget: image
+            required: false
+            choose_url: false
+          - label: The speaker has given written consent to show their photograph
+            name: photoConsent
+            widget: boolean
+            default: false
+      - label: Agenda
+        name: agenda
+        widget: list
+        required: false
+        summary: "{{fields.time}} {{fields.title}}"
+        fields:
+          - { label: Time, name: time, widget: string, hint: 'For example "10:00 to 11:30", Indian Standard Time.' }
+          - { label: Item, name: title, widget: string }
+          - { label: Detail, name: detail, widget: string, required: false }
+      - label: After the event
+        name: recap
+        widget: object
+        required: false
+        collapsed: true
+        hint: Fill this in once the event has taken place. It appears on the event page and in the home page highlights.
+        fields:
+          - label: What happened
+            name: summary
+            widget: text
+            required: false
+            hint: Only real, confirmed facts. No invented numbers or quotations.
+          - label: Photographs
+            name: photos
+            widget: list
+            required: false
+            summary: "{{fields.alt}}"
+            hint: The first photograph is shown in the home page highlights.
+            fields:
+              - { label: Photograph, name: src, widget: image, choose_url: false }
+              - label: Description
+                name: alt
+                widget: string
+                hint: What the photograph shows, for people who cannot see it.
+              - label: Everyone recognisable in this photograph agreed to its publication
+                name: consent
+                widget: boolean
+                default: false
+                hint: Required. Without this tick the site will not publish the photograph.
+          - label: Slides link
+            name: slidesUrl
+            widget: string
+            required: false
+      - label: Hide from the live site
+        name: draft
+        widget: boolean
+        default: false
+        hint: Tick to keep this event off the live site, even after publishing.
+      - label: Description
+        name: body
+        widget: markdown
+        buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: []
+        modes: [rich_text]
+        hint: Who it is for and what participants will do. Avoid the characters { } < >.
+
+  # ─────────────────────────── News and announcements ───────────────────────────
+  - name: insights
+    label: News and announcements
+    label_singular: news item
+    description: >-
+      Announcements from ASSOCADS, news of what has happened and longer reports.
+      Only real, confirmed facts; plans worded as plans.
+    folder: content/insights
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    preview_path: "insights/{{slug}}"
+    media_folder: /public/images/insights
+    public_folder: /images/insights
+    summary: "{{title}} ({{publishedDate}})"
+    sortable_fields: [publishedDate, title]
+    fields:
+      - label: Web address name
+        name: slug
+        widget: string
+        hint: >-
+          The last part of the web address, for example
+          trust-registration-completed. Lower-case words joined by hyphens.
+          It cannot be changed after the first save.
+        pattern:
+          ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lower-case words joined by hyphens"]
+      - label: Headline
+        name: title
+        widget: string
+        hint: Sentence case, up to 100 characters.
+        pattern: ["^.{1,100}$", "Up to 100 characters"]
+      - label: Summary
+        name: summary
+        widget: text
+        hint: One or two sentences on what happened and why it matters. Up to 240 characters.
+        pattern: ["^[\\s\\S]{1,240}$", "Up to 240 characters"]
+      - label: Kind
+        name: category
+        widget: select
+        options:
+          - { label: "Announcement: something ASSOCADS is announcing", value: announcement }
+          - { label: "News: something that happened", value: news }
+          - { label: "Report: a longer write-up", value: report }
+      - label: Publication date
+        name: publishedDate
+        widget: datetime
+        hint: A date in the future keeps the item hidden until that day.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Updated on
+        name: updatedDate
+        widget: datetime
+        required: false
+        default: ""
+        hint: Only if the item is changed after it was published.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Author
+        name: author
+        widget: string
+        hint: The name as it should appear on the page.
+      - label: Picture
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: Optional. Photographs of people only with their consent.
+      - label: Picture description
+        name: imageAlt
+        widget: string
+        required: false
+        hint: Required with a picture. What it shows, for people who cannot see it.
+      - label: Hide from the live site
+        name: draft
+        widget: boolean
+        default: false
+      - label: Article
+        name: body
+        widget: markdown
+        buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: []
+        modes: [rich_text]
+        hint: Avoid the characters { } < >.
