@@ -312,6 +312,7 @@ export const eventSchema = z
       "hackathon",
       "webinar",
       "ceremony",
+      "pitch-day",
       "other",
     ]),
     startDate: isoDateOrDateTime,

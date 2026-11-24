@@ -35,6 +35,7 @@ const recipientVariables: Record<string, string> = {
   community: "FORMS_TO_COMMUNITIES",
   partner: "FORMS_TO_PARTNERSHIPS",
   support: "FORMS_TO_SUPPORT",
+  innovation: "FORMS_TO_INNOVATION",
   "contact:membership": "FORMS_TO_MEMBERSHIP",
   "contact:partnership": "FORMS_TO_PARTNERSHIPS",
   "contact:events": "FORMS_TO_EVENTS",

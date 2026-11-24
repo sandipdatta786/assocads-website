@@ -11,6 +11,7 @@ export const formIds = {
   partner: "partner-enquiry",
   support: "pledge-or-sponsor",
   contact: "contact-form",
+  innovation: "showcase-idea",
 } as const;
 
 /** The partner types on /partner, which are also the form's "type of organisation". */
@@ -99,4 +100,50 @@ export const organiseOptions = [
   { value: "yes", label: "Yes, I would like to help organise it" },
   { value: "maybe", label: "Maybe, tell me more" },
   { value: "no", label: "No, I would just like to take part" },
+] as const satisfies Choice[];
+
+/** "I am" on the idea submission form. */
+export const innovatorRoles = [
+  { value: "student", label: "A student" },
+  { value: "researcher", label: "A researcher or faculty member" },
+  { value: "founder", label: "A startup founder" },
+  { value: "entrepreneur", label: "An entrepreneur or small business owner" },
+  { value: "professional", label: "A working professional" },
+  { value: "other", label: "Something else" },
+] as const satisfies Choice[];
+
+/** How far the idea has got. */
+export const innovationStages = [
+  { value: "idea", label: "An idea, not yet tested" },
+  { value: "prototype", label: "A prototype or proof of concept" },
+  { value: "pilot", label: "A pilot with real users" },
+  { value: "operating", label: "A product or service in use" },
+] as const satisfies Choice[];
+
+/** The fields an idea can be in, for the submission form. */
+export const innovationAreas = [
+  { value: "health", label: "Health" },
+  { value: "agriculture", label: "Agriculture and rural life" },
+  { value: "education", label: "Education and skills" },
+  { value: "public-services", label: "Public services and governance" },
+  { value: "finance", label: "Finance" },
+  { value: "manufacturing", label: "Manufacturing and logistics" },
+  { value: "climate", label: "Climate and environment" },
+  { value: "other", label: "Something else" },
+] as const satisfies Choice[];
+
+/** What the submitter would like, which the secretariat reads when replying.
+    Each is a plan on ASSOCADS's side; none is promised. */
+export const innovationHelp = [
+  { value: "mentoring", label: "Mentoring from experienced practitioners" },
+  { value: "industry", label: "Introductions to industry" },
+  {
+    value: "investors",
+    label: "Introductions to investors, if the idea is ready",
+  },
+  {
+    value: "pitch-day",
+    label: "A place to pitch at an ASSOCADS Innovation Pitch Day",
+  },
+  { value: "feedback", label: "Feedback on the idea only" },
 ] as const satisfies Choice[];

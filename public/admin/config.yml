@@ -64,6 +64,7 @@ collections:
           - { label: Webinar, value: webinar }
           - { label: Conference, value: conference }
           - { label: Ceremony, value: ceremony }
+          - { label: Pitch day, value: pitch-day }
           - { label: Masterclass, value: masterclass }
           - { label: Meetup, value: meetup }
           - { label: Hackathon, value: hackathon }

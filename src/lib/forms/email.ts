@@ -3,6 +3,10 @@ import { site } from "@/config/site";
 import { getCommunities, getProgrammes } from "@/lib/content/loaders";
 import {
   contactTopics,
+  innovationAreas,
+  innovationHelp,
+  innovationStages,
+  innovatorRoles,
   membershipCategories,
   membershipRoles,
   organisationTypes,
@@ -27,6 +31,7 @@ export const formTitles: Record<FormKind, string> = {
   partner: "Partnership enquiry",
   support: "Pledge or sponsor offer",
   contact: "Contact message",
+  innovation: "Idea or innovation submission",
 };
 
 /** What the acknowledgement says we received. */
@@ -36,6 +41,7 @@ const receivedWhat: Record<FormKind, string> = {
   partner: "your partnership enquiry",
   support: "your offer of support",
   contact: "your message",
+  innovation: "your idea or innovation",
 };
 
 type Row = [label: string, name: string, choices?: Choice[] | "lookup"];
@@ -82,6 +88,19 @@ const rows: Record<FormKind, Row[]> = {
     ["Email", "email"],
     ["Phone", "phone"],
     ["Topic", "topic", [...contactTopics]],
+  ],
+  innovation: [
+    ["Name", "name"],
+    ["Email", "email"],
+    ["Phone", "phone"],
+    ["I am", "role", [...innovatorRoles]],
+    ["Organisation", "organisation"],
+    ["Idea", "title"],
+    ["Area", "area", [...innovationAreas]],
+    ["Stage", "stage", [...innovationStages]],
+    ["Summary", "summary"],
+    ["Link", "link"],
+    ["Would like", "help", [...innovationHelp]],
   ],
 };
 

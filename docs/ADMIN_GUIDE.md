@@ -4,7 +4,7 @@ Admins can add and update events, news and announcements from a web page, withou
 
 What admins can publish there:
 
-- **Events**: workshops, seminars, webinars, conferences, ceremonies, masterclasses, meetups and hackathons. Each gets its own page, appears on the events page and, while it is upcoming, on the home page.
+- **Events**: workshops, seminars, webinars, conferences, ceremonies, pitch days, masterclasses, meetups and hackathons. Each gets its own page, appears on the events page and, while it is upcoming, on the home page.
 - **After an event**: a summary, photographs and a slides link. The first photograph appears under "Highlights from past events" on the home page.
 - **News and announcements**: each gets its own page on the Insights page, in the RSS feed and on the home page under "Announcements".
 
