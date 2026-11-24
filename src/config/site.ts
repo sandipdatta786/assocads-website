@@ -185,6 +185,7 @@ export const site = {
     { label: "Communities", href: "/communities" },
     { label: "Partner with us", href: "/partner" },
     { label: "Support ASSOCADS", href: "/support" },
+    { label: "Showcase your idea", href: "/innovation" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
 
@@ -212,6 +213,7 @@ export const site = {
         { label: "Communities", href: "/communities" },
         { label: "Partner with us", href: "/partner" },
         { label: "Support ASSOCADS", href: "/support" },
+        { label: "Showcase your idea", href: "/innovation" },
       ],
     },
     {

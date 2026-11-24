@@ -167,6 +167,31 @@ const cases: FormCase[] = [
     to: "secretariat@example.org",
   },
   {
+    kind: "idea or innovation",
+    path: "/innovation",
+    formId: "showcase-idea",
+    submit: "Send my idea",
+    async fill(page, email) {
+      await page.locator("#showcase-idea-name").fill("Asha Test");
+      await page.locator("#showcase-idea-email").fill(email);
+      await page.locator("#showcase-idea-role").selectOption("student");
+      await page.locator("#showcase-idea-title").fill("Field soil checker");
+      await page.locator("#showcase-idea-area").selectOption("agriculture");
+      await page.locator("#showcase-idea-stage").selectOption("prototype");
+      await page
+        .locator("#showcase-idea-summary")
+        .fill("A low-cost soil test that farmers can run themselves.");
+      await page.getByLabel("Mentoring from experienced practitioners").check();
+      await page.locator("#showcase-idea-consent").check();
+    },
+    emptyError: {
+      field: "#showcase-idea-title",
+      text: "Give the idea a short name.",
+    },
+    subject: /^Idea or innovation submission from Asha Test$/,
+    to: "secretariat@example.org",
+  },
+  {
     kind: "contact",
     path: "/contact",
     formId: "contact-form",
@@ -271,12 +296,15 @@ for (const c of cases) {
   });
 }
 
+// The spam checks use the contact form. Look it up by name, not by position.
+const contactCase = cases.find((c) => c.kind === "contact")!;
+
 test.describe("spam checks", () => {
   test("refuses a form sent too quickly", async ({ page }) => {
     const email = uniqueEmail("fast");
     await page.goto("/contact");
     await waitForHydration(page);
-    await cases[4].fill(page, email);
+    await contactCase.fill(page, email);
     await page.evaluate(() => {
       const input = document.querySelector<HTMLInputElement>(
         'input[name="started"]',
@@ -295,13 +323,13 @@ test.describe("spam checks", () => {
     await page.goto("/contact");
     await waitForHydration(page);
     for (let i = 0; i < 5; i += 1) {
-      await cases[4].fill(page, uniqueEmail("limit"));
+      await contactCase.fill(page, uniqueEmail("limit"));
       await ageForm(page);
       await page.getByRole("button", { name: "Send message" }).click();
       await page.getByRole("button", { name: "Back to the form" }).click();
     }
     const email = uniqueEmail("limit-over");
-    await cases[4].fill(page, email);
+    await contactCase.fill(page, email);
     await ageForm(page);
     await page.getByRole("button", { name: "Send message" }).click();
     await expect(

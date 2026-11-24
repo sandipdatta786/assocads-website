@@ -37,6 +37,7 @@ export const typeLabels = {
   hackathon: "Hackathon",
   webinar: "Webinar",
   ceremony: "Ceremony",
+  "pitch-day": "Pitch day",
   other: "Event",
 } as const;
 

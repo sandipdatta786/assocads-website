@@ -48,6 +48,13 @@ const forms: {
     why: "To reply to your enquiry and discuss working together.",
   },
   {
+    name: "Showcase your idea",
+    href: "/innovation",
+    collects:
+      "Your name, email address, the role that describes you, your idea's name, area and stage, a description of the idea, your consent, and optionally your phone number, organisation, a link, and the help you would like.",
+    why: "To reply to your idea and, only if you ask for them, to discuss mentoring, industry or investor introductions and a pitch day. We share your details with anyone outside ASSOCADS only with your written permission.",
+  },
+  {
     name: "Pledge or sponsor",
     href: "/support",
     collects:

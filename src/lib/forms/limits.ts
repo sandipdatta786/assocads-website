@@ -6,7 +6,7 @@
  */
 
 export type FormKind =
-  "membership" | "community" | "partner" | "support" | "contact";
+  "membership" | "community" | "partner" | "support" | "contact" | "innovation";
 
 export type FormValues = Record<string, string | string[]>;
 
