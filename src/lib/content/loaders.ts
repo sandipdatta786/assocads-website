@@ -38,6 +38,7 @@ import {
   initiativeSchema,
   successMeasureSchema,
   trusteeSchema,
+  opportunitySchema,
 } from "./schemas.ts";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -457,6 +458,29 @@ export function getInsights(options: PublishedOptions) {
     .sort(
       (a, b) =>
         b.publishedDate.localeCompare(a.publishedDate) ||
+        a.title.localeCompare(b.title),
+    );
+}
+
+/** Career opportunities that are still open: posted, not a draft, and not
+    past their deadline (Indian Standard Time). */
+export function getOpportunities(options: PublishedOptions) {
+  const items = readMdxCollection("opportunities", opportunitySchema);
+  uniqueSlugs("content/opportunities", items);
+  const now = "now" in options ? options.now : Date.now();
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kolkata",
+  }).format(new Date(now));
+  return withoutDrafts(items, options)
+    .filter(
+      (o) =>
+        options.includeFuture ||
+        isPublished({ publishedDate: o.postedDate }, now),
+    )
+    .filter((o) => !o.deadline || o.deadline >= today)
+    .sort(
+      (a, b) =>
+        b.postedDate.localeCompare(a.postedDate) ||
         a.title.localeCompare(b.title),
     );
 }

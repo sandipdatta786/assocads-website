@@ -293,3 +293,89 @@ collections:
         editor_components: []
         modes: [rich_text]
         hint: Avoid the characters { } < >.
+
+  # ─────────────────────── Career opportunities ───────────────────────
+  - name: opportunities
+    label: Career opportunities
+    label_singular: opportunity
+    description: >-
+      Internships, jobs, fellowships, volunteering and industry interactions,
+      listed on /mentorship. Only with the organisation's written permission,
+      which the form asks you to confirm. Each one is hidden after its deadline.
+    folder: content/opportunities
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    summary: "{{title}} ({{organisation}})"
+    sortable_fields: [postedDate, title]
+    fields:
+      - label: Web address name
+        name: slug
+        widget: string
+        hint: A short name, for example data-analyst-internship-acme. Lower-case words joined by hyphens.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lower-case words joined by hyphens"]
+      - label: Title
+        name: title
+        widget: string
+        hint: Up to 100 characters.
+        pattern: ["^.{1,100}$", "Up to 100 characters"]
+      - label: Organisation
+        name: organisation
+        widget: string
+        hint: The name as it should appear on the listing.
+      - label: The organisation has agreed in writing to this listing
+        name: organisationPermission
+        widget: boolean
+        default: false
+        hint: Required. Keep the written agreement on file. Without this tick the listing will not appear.
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - { label: Internship, value: internship }
+          - { label: Job, value: job }
+          - { label: Fellowship, value: fellowship }
+          - { label: Volunteering, value: volunteering }
+          - { label: Industry interaction, value: industry-interaction }
+      - label: Summary
+        name: summary
+        widget: text
+        hint: One or two sentences. Up to 240 characters.
+        pattern: ["^[\\s\\S]{1,240}$", "Up to 240 characters"]
+      - label: Location
+        name: location
+        widget: string
+        hint: For example, Kolkata, or Remote within India.
+      - label: Mode
+        name: mode
+        widget: select
+        options:
+          - { label: In person, value: in-person }
+          - { label: Online, value: online }
+          - { label: Hybrid, value: hybrid }
+      - label: Apply link
+        name: applyUrl
+        widget: string
+        hint: The organisation's own application page. Must start with https://
+        pattern: ["^https://\\S+$", "A full address starting with https://"]
+      - label: Deadline
+        name: deadline
+        widget: datetime
+        required: false
+        default: ""
+        hint: Optional. The listing is hidden after this day.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Date posted
+        name: postedDate
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Hide from the live site
+        name: draft
+        widget: boolean
+        default: false

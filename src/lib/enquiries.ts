@@ -12,6 +12,7 @@ export const formIds = {
   support: "pledge-or-sponsor",
   contact: "contact-form",
   innovation: "showcase-idea",
+  mentorship: "mentorship-signup",
 } as const;
 
 /** The partner types on /partner, which are also the form's "type of organisation". */
@@ -146,4 +147,38 @@ export const innovationHelp = [
     label: "A place to pitch at an ASSOCADS Innovation Pitch Day",
   },
   { value: "feedback", label: "Feedback on the idea only" },
+] as const satisfies Choice[];
+
+/** Who is signing up on the mentorship form. */
+export const mentorshipRoles = [
+  {
+    value: "mentor",
+    label: "I would like to mentor students or young professionals",
+  },
+  { value: "student", label: "I am a student and would like mentoring" },
+  {
+    value: "young-professional",
+    label: "I am an early-career professional and would like mentoring",
+  },
+] as const satisfies Choice[];
+
+/** The subjects a mentor can offer, or a mentee would like help with. */
+export const mentoringAreas = [
+  { value: "data-science", label: "Data science and analytics" },
+  { value: "machine-learning", label: "Machine learning and AI" },
+  { value: "data-engineering", label: "Data engineering and cloud" },
+  { value: "responsible-ai", label: "Responsible AI and governance" },
+  { value: "healthcare-ai", label: "AI in healthcare" },
+  { value: "business-analysis", label: "Business analysis and strategy" },
+  { value: "research", label: "Research and higher studies" },
+  { value: "other", label: "Something else" },
+] as const satisfies Choice[];
+
+/** What a mentee would like, or what a mentor can offer. Requests, not promises. */
+export const careerHelp = [
+  { value: "guidance", label: "Career guidance" },
+  { value: "internship", label: "Help finding an internship" },
+  { value: "job", label: "Help with job applications and interviews" },
+  { value: "industry", label: "Meeting people working in industry" },
+  { value: "skills", label: "Advice on skills and learning paths" },
 ] as const satisfies Choice[];

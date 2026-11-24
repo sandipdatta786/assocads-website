@@ -7,6 +7,7 @@ What admins can publish there:
 - **Events**: workshops, seminars, webinars, conferences, ceremonies, pitch days, masterclasses, meetups and hackathons. Each gets its own page, appears on the events page and, while it is upcoming, on the home page.
 - **After an event**: a summary, photographs and a slides link. The first photograph appears under "Highlights from past events" on the home page.
 - **News and announcements**: each gets its own page on the Insights page, in the RSS feed and on the home page under "Announcements".
+- **Career opportunities**: internships, jobs, fellowships, volunteering and industry interactions, on `/mentorship`. Only with the organisation's written permission, which the editor asks you to confirm; each is hidden after its deadline.
 
 The home page section "Latest updates and events" fills itself from these. Until something is published it shows an honest note that nothing has been announced yet.
 

@@ -192,6 +192,29 @@ const cases: FormCase[] = [
     to: "secretariat@example.org",
   },
   {
+    kind: "mentorship sign-up",
+    path: "/mentorship",
+    formId: "mentorship-signup",
+    submit: "Send my sign-up",
+    async fill(page, email) {
+      await page.locator("#mentorship-signup-name").fill("Asha Test");
+      await page.locator("#mentorship-signup-email").fill(email);
+      await page.locator("#mentorship-signup-city").fill("Kolkata");
+      await page.locator("#mentorship-signup-role").selectOption("student");
+      await page
+        .locator("#mentorship-signup-current")
+        .fill("MSc Statistics, second year");
+      await page.getByLabel("Data science and analytics").check();
+      await page.locator("#mentorship-signup-consent").check();
+    },
+    emptyError: {
+      field: "#mentorship-signup-city",
+      text: "Enter the city where you live or work.",
+    },
+    subject: /^Mentorship sign-up from Asha Test$/,
+    to: "secretariat@example.org",
+  },
+  {
     kind: "contact",
     path: "/contact",
     formId: "contact-form",
