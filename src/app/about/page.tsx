@@ -31,7 +31,7 @@ const differences = [
     aspect: "Who can join",
     others: "Industry trade bodies count companies as their members.",
     assocads:
-      "A professional body open to individuals, including students, as well as organisations.",
+      "A public charitable trust whose membership, once open, is meant for individuals, including students, as well as organisations.",
   },
   {
     aspect: "What it is",
@@ -116,9 +116,8 @@ export default function AboutPage() {
           <div className="flex flex-col gap-5 text-body text-slate-600 lg:col-span-7">
             <p>
               {site.shortName} was started in {site.foundingYear} by
-              professionals, academics and entrepreneurs in AI, Data Science and
-              Analytics. Its first Board of Trustees has {trusteeCount} Founder
-              Trustees
+              professionals in AI, Data Science and Analytics. Its first Board
+              of Trustees has {trusteeCount} Founder Trustees
               {founderMemberCount > 0 &&
                 `, and ${numberWord(founderMemberCount)} founder members work with them on its sub-committees`}
               .
@@ -164,10 +163,10 @@ export default function AboutPage() {
                 Across India, beginning with {site.location.state}
               </Heading>
               <p className="text-body text-slate-400">
-                {site.shortName} is building a collaborative ecosystem for AI,
+                {site.shortName} aims to build a collaborative ecosystem for AI,
                 Data Science and Analytics professionals across India, beginning
-                with {site.location.state}. It aims to connect industry,
-                academia, startups, government and society.
+                with {site.location.state}, and to connect industry, academia,
+                startups, government and society.
               </p>
             </div>
           </div>

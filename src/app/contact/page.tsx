@@ -85,7 +85,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Contact"
         title="Contact us"
-        lead={`The quickest way to reach ${site.shortName} is the form on this page. Choose what your message is about, such as membership, partnerships, events or the media, and it will go to the people who can answer it. The privacy notice explains how the details you send are used.`}
+        lead={`The quickest way to reach ${site.shortName}, the ${site.name}, is the form on this page. Choose what your message is about, such as membership, partnerships, events or the media, and it will go to the people who can answer it. The privacy notice explains how the details you send are used.`}
         breadcrumbs={[{ label: "Contact" }]}
       />
 

@@ -22,6 +22,8 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 
 Run `pnpm content:check` for the current list with line numbers. Add one line here for every new placeholder, in the form `path/to/file` · what is needed.
 
+`pnpm content:check` sorts them into two groups. **Must fill**: everything except the trustee and founder member profiles. A launch build (a production build on the custom domain, or `LAUNCH_CHECK=1`) fails while any of these remain. **Can wait**: the profiles in `content/trustees.json`, which the site shows as "Profile to be added". See `docs/LAUNCH_CHECKLIST.md`.
+
 ### Organisation settings: `src/config/site.ts`
 
 - [ ] `src/config/site.ts` · registered office address in West Bengal (`legal.registeredOffice`)

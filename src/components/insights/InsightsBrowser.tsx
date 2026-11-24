@@ -21,9 +21,22 @@ export type InsightListItem = {
   readingMinutes: number;
 };
 
-function Meta({ item }: { item: InsightListItem }) {
+function Meta({
+  item,
+  featured,
+}: {
+  item: InsightListItem;
+  featured: boolean;
+}) {
+  // Slate 600 is not an approved pairing on Indigo Tint, so the featured
+  // card uses Ink.
   return (
-    <span className="flex flex-wrap gap-x-2 text-small text-slate-600">
+    <span
+      className={cn(
+        "flex flex-wrap gap-x-2 text-small",
+        featured ? "text-ink" : "text-slate-600",
+      )}
+    >
       <time dateTime={item.publishedDate}>
         {formatLongDate(item.publishedDate)}
       </time>
@@ -67,14 +80,15 @@ export function InsightCard({
       </h3>
       <p
         className={cn(
-          "text-slate-600",
-          featured ? "max-w-[34em] text-lead" : "text-body",
+          featured
+            ? "max-w-[34em] text-lead text-ink"
+            : "text-body text-slate-600",
         )}
       >
         {item.summary}
       </p>
       <div className="mt-auto pt-2">
-        <Meta item={item} />
+        <Meta item={item} featured={featured} />
       </div>
     </article>
   );

@@ -131,7 +131,7 @@ export default function Page() {
           <li>
             Some pages still show marked gaps, written as &ldquo;[PLACEHOLDER:
             …]&rdquo;, where information is not yet available. These are filled
-            in before the pages go live.
+            in before the site launches on its own domain.
           </li>
           <li>
             The security check on forms, Cloudflare Turnstile, usually finishes

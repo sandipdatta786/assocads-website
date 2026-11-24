@@ -98,7 +98,7 @@ export default function Page() {
         eyebrow="Membership"
         title="Membership"
         updated={site.updated.membership}
-        lead={`The ${site.shortName} trust deed provides four kinds of membership: Ordinary and Life membership for individuals, Associate membership for institutions and organisations, and Honorary membership for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.`}
+        lead={`The trust deed of ${site.shortName}, the ${site.name}, provides four kinds of membership: Ordinary and Life for individuals, Associate for institutions and organisations, and Honorary for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.`}
         actions={
           <ButtonLink href={site.joinLink.href} size="large">
             Register your interest

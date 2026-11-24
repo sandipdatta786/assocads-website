@@ -121,7 +121,7 @@ export default function Page() {
     {
       icon: FileCheck2,
       title: "Accounts",
-      text: "The trust's accounts are audited every year by a Chartered Accountant, and we will publish the audited accounts here every year.",
+      text: "The trust's accounts are to be audited every year by a Chartered Accountant, and we will publish the audited accounts here every year.",
     },
   ];
 
@@ -130,7 +130,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Get involved"
         title="Support ASSOCADS"
-        lead={`${status ? `${status} ` : ""}You can help now by volunteering, offering a venue, mentoring or pledging support for later. This page explains each way to help, and what the trust can and cannot accept.`}
+        lead={`${status ? `${status} ` : ""}You can help ${site.shortName}, the ${site.name}, now by volunteering, offering a venue, mentoring or pledging support for later. This page explains each way to help, and what the trust can and cannot accept.`}
         actions={
           <ButtonLink href={`#${FORM_ID}`} size="large">
             Pledge or sponsor
