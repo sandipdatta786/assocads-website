@@ -167,6 +167,11 @@ export const site = {
           description: "Careers, Kolkata and policy, reviewed by a trustee",
         },
         {
+          label: "Knowledge Hub",
+          href: "/knowledge-hub",
+          description: "Articles, research, tools and regulation updates",
+        },
+        {
           label: "Glossary",
           href: "/glossary",
           description: "Plain definitions of AI and data terms",
@@ -223,6 +228,7 @@ export const site = {
       links: [
         { label: "Programmes", href: "/programmes" },
         { label: "Insights", href: "/insights" },
+        { label: "Knowledge Hub", href: "/knowledge-hub" },
         { label: "Guides", href: "/guides" },
         { label: "Glossary", href: "/glossary" },
         { label: "All resources", href: "/resources" },

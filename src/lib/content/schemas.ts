@@ -481,6 +481,57 @@ const source = z.object({
   accessed: isoDate,
 });
 
+export const hubKinds = [
+  "article",
+  "white-paper",
+  "research",
+  "case-study",
+  "industry-insight",
+  "tool",
+  "framework",
+  "regulation-update",
+] as const;
+
+/** An entry in the Knowledge Hub: an article, white paper, research
+    publication, case study, industry insight, AI tool, framework, or an
+    update on an emerging technology or regulation. Every entry names its
+    sources, and a trustee who has reviewed it (truthfulness rule 10). */
+export const hubEntrySchema = z
+  .object({
+    slug,
+    title: z.string().min(1).max(100),
+    summary: z.string().min(1).max(240),
+    kind: z.enum(hubKinds),
+    publishedDate: isoDate,
+    updatedDate: isoDate.optional(),
+    /** The date the information is current to, for example a regulation's status
+        or a tool's features. Shown on the page. */
+    asOf: isoDate.optional(),
+    author: z.string().min(1),
+    /** A Founder Trustee's name, exactly as in content/trustees.json. */
+    reviewedBy: z.string().default(""),
+    /** Every entry names where its facts come from. */
+    sources: z.array(source).min(1),
+    /** For tools and frameworks: the official page. */
+    externalUrl: z
+      .url({ protocol: /^https$/, message: "must be a full https:// address" })
+      .optional(),
+    topics: z.array(z.string().min(1).max(40)).max(6).default([]),
+    draft,
+  })
+  .refine((e) => !e.updatedDate || e.updatedDate >= e.publishedDate, {
+    message: "must be on or after publishedDate",
+    path: ["updatedDate"],
+  })
+  .refine(
+    (e) =>
+      !(e.kind === "tool" || e.kind === "framework") || Boolean(e.externalUrl),
+    {
+      message: "a tool or framework needs externalUrl, its official page",
+      path: ["externalUrl"],
+    },
+  );
+
 export const guideThemes = [
   "careers",
   "kolkata",
@@ -579,6 +630,8 @@ export type ContentEvent = z.infer<typeof eventSchema>;
 export type Community = z.infer<typeof communitySchema>;
 export type Insight = z.infer<typeof insightSchema>;
 export type Guide = z.infer<typeof guideSchema>;
+export type Opportunity = z.infer<typeof opportunitySchema>;
+export type HubEntry = z.infer<typeof hubEntrySchema>;
 export type GlossaryTerm = z.infer<typeof glossarySchema>;
 export type Initiative = z.infer<typeof initiativeSchema>;
 export type DeedObject = z.infer<typeof deedObjectSchema>;

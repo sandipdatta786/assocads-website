@@ -7,7 +7,8 @@ export type MdxCollection =
   | "insights"
   | "guides"
   | "glossary"
-  | "communities";
+  | "communities"
+  | "hub";
 
 /**
  * The compiled body of one MDX file, ready to render as <Body />.

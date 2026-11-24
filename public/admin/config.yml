@@ -379,3 +379,113 @@ collections:
         name: draft
         widget: boolean
         default: false
+
+  # ─────────────────────────── Knowledge Hub ───────────────────────────
+  - name: hub
+    label: Knowledge Hub
+    label_singular: Knowledge Hub entry
+    description: >-
+      Articles, white papers, research, case studies, industry insights, AI tools,
+      frameworks and regulation updates. Every entry names its sources and the
+      Founder Trustee who reviewed it, and is published only after that review.
+    folder: content/hub
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    preview_path: "knowledge-hub/{{slug}}"
+    media_folder: /public/images/hub
+    public_folder: /images/hub
+    summary: "{{title}} ({{kind}}, {{publishedDate}})"
+    sortable_fields: [publishedDate, title]
+    fields:
+      - label: Web address name
+        name: slug
+        widget: string
+        hint: Lower-case words joined by hyphens. It cannot be changed after the first save.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lower-case words joined by hyphens"]
+      - label: Title
+        name: title
+        widget: string
+        hint: Sentence case, up to 100 characters.
+        pattern: ["^.{1,100}$", "Up to 100 characters"]
+      - label: Summary
+        name: summary
+        widget: text
+        hint: One or two sentences. Up to 240 characters.
+        pattern: ["^[\\s\\S]{1,240}$", "Up to 240 characters"]
+      - label: Kind
+        name: kind
+        widget: select
+        options:
+          - { label: Article, value: article }
+          - { label: White paper, value: white-paper }
+          - { label: Research publication, value: research }
+          - { label: Case study, value: case-study }
+          - { label: Industry insight, value: industry-insight }
+          - { label: AI tool, value: tool }
+          - { label: Framework, value: framework }
+          - { label: Regulation update, value: regulation-update }
+      - label: Publication date
+        name: publishedDate
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Updated on
+        name: updatedDate
+        widget: datetime
+        required: false
+        default: ""
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Information as of
+        name: asOf
+        widget: datetime
+        required: false
+        default: ""
+        hint: For regulations, tools and figures: the date the information is current to.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: Author
+        name: author
+        widget: string
+      - label: Reviewed by (Founder Trustee)
+        name: reviewedBy
+        widget: string
+        hint: The trustee's name exactly as in the trustees list. Required before the entry is published.
+      - label: Sources
+        name: sources
+        widget: list
+        summary: "{{fields.title}}"
+        hint: At least one. Prefer the law, the ministry, the university or the organisation itself.
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Publisher, name: publisher, widget: string }
+          - { label: Address, name: url, widget: string, hint: Must start with https:// }
+          - { label: Date checked, name: accessed, widget: datetime, format: "YYYY-MM-DD", date_format: "D MMM YYYY", time_format: false }
+      - label: Official page (tools and frameworks)
+        name: externalUrl
+        widget: string
+        required: false
+        default: ""
+        hint: Required for tools and frameworks. Must start with https://
+      - label: Topics
+        name: topics
+        widget: list
+        required: false
+        field: { label: Topic, name: topic, widget: string }
+      - label: Hide from the live site
+        name: draft
+        widget: boolean
+        default: false
+      - label: Body
+        name: body
+        widget: markdown
+        buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote]
+        editor_components: []
+        modes: [rich_text]
+        hint: Avoid the characters { } < >.

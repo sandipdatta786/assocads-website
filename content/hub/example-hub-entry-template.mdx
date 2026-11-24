@@ -1,0 +1,52 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# EXAMPLE KNOWLEDGE HUB ENTRY: A TEMPLATE, NOT A REAL ENTRY
+#
+# This file shows every field a Knowledge Hub entry can have. "draft: true"
+# keeps it off the live site. To publish a real entry, copy this file, rename
+# it to match the slug, replace the values and the body, and remove
+# "draft: true" only after a Founder Trustee has reviewed it.
+#
+# Rules that always apply (CLAUDE.md, truthfulness rules):
+#   - Only real facts from the sources listed. No invented figures or quotations.
+#   - Plans are written as plans. Regulations are described as they stand on "asOf".
+#   - Tools and frameworks are listed for information, never endorsed.
+#   - reviewedBy must be a Founder Trustee's name exactly as in content/trustees.json.
+# ─────────────────────────────────────────────────────────────────────────────
+
+slug: example-hub-entry-template
+title: Example entry title in sentence case
+summary: One or two sentences that say what the entry covers and who it is for. Up to 240 characters.
+
+# One of: article, white-paper, research, case-study, industry-insight, tool, framework, regulation-update
+kind: article
+
+publishedDate: 2026-11-20
+# updatedDate: 2026-11-25
+# The date the information is current to, for regulations, tools and figures.
+# asOf: 2026-11-20
+
+author: Name of the author
+reviewedBy: Name of the Founder Trustee who reviewed it
+
+# Every entry names where its facts come from. At least one is needed.
+sources:
+  - title: Title of the source
+    publisher: Who published it
+    url: https://example.org/source
+    accessed: 2026-11-20
+
+# For tools and frameworks: the official page (https://).
+# externalUrl: https://example.org/tool
+
+topics:
+  - example topic
+
+draft: true
+---
+
+Write the entry here, in ordinary paragraphs. Use `##` for headings.
+
+## What it covers
+
+Explain the subject in plain language, with the facts from the sources above.
