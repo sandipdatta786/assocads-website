@@ -434,6 +434,42 @@ export const insightSchema = z
     path: ["imageAlt"],
   });
 
+export const opportunityTypes = [
+  "internship",
+  "job",
+  "fellowship",
+  "volunteering",
+  "industry-interaction",
+] as const;
+
+/** A career opportunity from an organisation: an internship, job, fellowship,
+    volunteering role or industry interaction. Listed only with the written
+    permission of the organisation, which is recorded here. */
+export const opportunitySchema = z.object({
+  slug,
+  title: z.string().min(1).max(100),
+  /** The organisation offering it, named as it should appear. */
+  organisation: z.string().min(1).max(100),
+  /** Must be true: the organisation has agreed in writing to be listed. */
+  organisationPermission: z.literal(true, {
+    message:
+      "list an opportunity only once the organisation has agreed in writing (organisationPermission: true)",
+  }),
+  type: z.enum(opportunityTypes),
+  summary: z.string().min(1).max(240),
+  location: z.string().min(1).max(100),
+  mode: z.enum(["in-person", "online", "hybrid"]),
+  /** A full https address where people apply. */
+  applyUrl: z.url({
+    protocol: /^https$/,
+    message: "must be a full https:// address",
+  }),
+  /** The last day to apply. After it the listing is hidden. */
+  deadline: isoDate.optional(),
+  postedDate: isoDate,
+  draft,
+});
+
 /** A source for a guide or glossary entry. Prefer primary sources: the law
     itself, the ministry, the university or the organisation concerned. */
 const source = z.object({

@@ -55,6 +55,13 @@ const forms: {
     why: "To reply to your idea and, only if you ask for them, to discuss mentoring, industry or investor introductions and a pitch day. We share your details with anyone outside ASSOCADS only with your written permission.",
   },
   {
+    name: "Mentorship and careers",
+    href: "/mentorship",
+    collects:
+      "Your name, email address, city, whether you would like to mentor or to be mentored, your course and year or current role, areas of interest, what you would like help with, your consent, and optionally your phone number, organisation and a message.",
+    why: "To suggest a mentor or mentee and reply to you. Your details are shared with a mentor or mentee only after you have both agreed to the match. We share them with anyone outside ASSOCADS only with your written permission.",
+  },
+  {
     name: "Pledge or sponsor",
     href: "/support",
     collects:

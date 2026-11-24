@@ -12,6 +12,9 @@ import {
   innovationHelp,
   innovationStages,
   innovatorRoles,
+  careerHelp,
+  mentoringAreas,
+  mentorshipRoles,
   membershipCategories,
   membershipRoles,
   organisationTypes,
@@ -38,6 +41,7 @@ export const formKinds: FormKind[] = [
   "support",
   "contact",
   "innovation",
+  "mentorship",
 ];
 
 /** Field names that hold several values (checkbox groups). */
@@ -48,6 +52,7 @@ const listFields: Record<FormKind, string[]> = {
   support: [],
   contact: [],
   innovation: ["help"],
+  mentorship: ["areas", "help"],
 };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -216,6 +221,25 @@ export const schemas = {
         "Enter a full web address starting with https://, or leave it blank.",
       ),
     help: z.array(z.enum(values(innovationHelp))).max(5),
+    consent,
+  }),
+
+  mentorship: z.object({
+    name: required("Enter your full name."),
+    email,
+    phone,
+    city: required("Enter the city where you live or work.", 100),
+    role: choice(mentorshipRoles, "Choose the option that describes you best."),
+    current: required(
+      "Tell us your course and year, or your current role.",
+      200,
+    ),
+    organisation: optional(),
+    areas: z
+      .array(z.enum(values(mentoringAreas)))
+      .min(1, "Choose at least one area."),
+    help: z.array(z.enum(values(careerHelp))).max(5),
+    message: optional(MESSAGE_LIMIT),
     consent,
   }),
 } satisfies Record<FormKind, z.ZodType>;

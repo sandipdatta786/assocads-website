@@ -40,6 +40,7 @@ const STATIC_PAGES = [
   "/events",
   "/insights",
   "/innovation",
+  "/mentorship",
   "/resources",
   "/guides",
   "/glossary",
