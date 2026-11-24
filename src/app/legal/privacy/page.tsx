@@ -368,11 +368,12 @@ export default function Page() {
       title: "Keeping your data safe",
       body: (
         <p>
-          The website is served only over an encrypted connection. Form messages
-          are not stored on the website. The keys for our email and spam
-          services are kept secret and never placed in the website&rsquo;s code,
-          and access to the secretariat&rsquo;s mailbox is limited to the people
-          who need it.
+          The website is served only over an encrypted connection, and it tells
+          browsers to load nothing except its own files and the spam check, and
+          never to show it inside another website. Form messages are not stored
+          on the website. The keys for our email and spam services are kept
+          secret and never placed in the website&rsquo;s code, and access to the
+          secretariat&rsquo;s mailbox is limited to the people who need it.
         </p>
       ),
     },

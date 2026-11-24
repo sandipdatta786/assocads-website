@@ -21,6 +21,78 @@ const oldPaths: Array<[string, string]> = [
   ["/terms", "/legal/terms"],
 ];
 
+const isPreview = process.env.VERCEL_ENV === "preview";
+const isDev = process.env.NODE_ENV === "development";
+
+/** Cloudflare Turnstile, the spam check on the forms: its script and frame. */
+const TURNSTILE = "https://challenges.cloudflare.com";
+/** Vercel's comment toolbar, shown only on preview deployments. */
+const TOOLBAR = isPreview ? ["https://vercel.live"] : [];
+
+/**
+ * What the site may load. Everything is served from the site itself, except
+ * the Turnstile spam check. Vercel Web Analytics and Speed Insights load from
+ * the site's own /_vercel/ paths. Scripts need 'unsafe-inline' because pages
+ * are built ahead of time with small inline scripts (Next.js page data, the
+ * status banner), and per-request nonces would mean giving that up.
+ */
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  [
+    "script-src 'self' 'unsafe-inline'",
+    TURNSTILE,
+    ...TOOLBAR,
+    ...(isDev ? ["'unsafe-eval'"] : []),
+  ].join(" "),
+  ["style-src 'self' 'unsafe-inline'", ...TOOLBAR].join(" "),
+  [
+    "img-src 'self' data: blob:",
+    ...(isPreview ? ["https://vercel.live", "https://vercel.com"] : []),
+  ].join(" "),
+  [
+    "font-src 'self'",
+    ...(isPreview ? ["https://vercel.live", "https://assets.vercel.com"] : []),
+  ].join(" "),
+  [
+    "connect-src 'self'",
+    TURNSTILE,
+    ...(isPreview ? ["https://vercel.live", "wss://ws-us3.pusher.com"] : []),
+    ...(isDev ? ["ws:"] : []),
+  ].join(" "),
+  ["frame-src", TURNSTILE, ...TOOLBAR].join(" "),
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "manifest-src 'self'",
+  // Only on Vercel: on a local http:// address it would break the page.
+  ...(process.env.VERCEL ? ["upgrade-insecure-requests"] : []),
+].join("; ");
+
+const securityHeaders = [
+  { key: "Content-Security-Policy", value: contentSecurityPolicy },
+  // Browsers ignore this on http://, so it is safe locally.
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains",
+  },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Permissions-Policy",
+    value:
+      "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
+  },
+  // For older browsers; frame-ancestors above does the same in newer ones.
+  { key: "X-Frame-Options", value: "DENY" },
+];
+
+/* Files in public/ keep their names when they change, so browsers keep them
+   for a week rather than a year. Next.js already serves its own build files
+   (/_next/static: scripts, styles, fonts) with a one-year immutable cache,
+   because their names change whenever their contents do. */
+const publicFileCache = "public, max-age=604800, stale-while-revalidate=86400";
+
 const nextConfig: NextConfig = {
   async redirects() {
     return oldPaths.map(([source, destination]) => ({
@@ -30,13 +102,21 @@ const nextConfig: NextConfig = {
     }));
   },
   async headers() {
-    // Preview deployments must never be indexed: only the real domain.
-    if (process.env.VERCEL_ENV !== "preview") return [];
     return [
+      { source: "/:path*", headers: securityHeaders },
       {
-        source: "/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        source: "/:dir(brand|images)/:path*",
+        headers: [{ key: "Cache-Control", value: publicFileCache }],
       },
+      // Preview deployments must never be indexed: only the real domain.
+      ...(isPreview
+        ? [
+            {
+              source: "/:path*",
+              headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+            },
+          ]
+        : []),
     ];
   },
   // Photographs are served as AVIF where the browser supports it (about 20%
