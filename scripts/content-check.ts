@@ -28,6 +28,7 @@ import {
   getCommunities,
   getSuccessMeasures,
   getTrustees,
+  getFounderMembers,
 } from "../src/lib/content/loaders.ts";
 import { PLACEHOLDER_PATTERN } from "../src/lib/content/schemas.ts";
 
@@ -36,6 +37,7 @@ const all = { includeDrafts: true };
 
 const collections: [string, () => unknown[]][] = [
   ["trustees", () => getTrustees(all)],
+  ["founder members", () => getFounderMembers(all)],
   ["programmes", () => getProgrammes()],
   ["audiences", () => getAudiences()],
   ["membership categories", () => getMembershipCategories()],

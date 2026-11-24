@@ -14,7 +14,7 @@ Sources: the reconciled trust deed (Final_ASSOCADS_Trust_Deed_Reconciled_Redraft
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Audiences        | Students, professionals, industry, government bodies                                                                                                                                                             |
 | Language         | English only                                                                                                                                                                                                     |
-| Founding team    | All twelve Founder Trustees as named in the deed, with placeholder photos and biographies                                                                                                                      |
+| Founding team    | The seven Founder Trustees and five founder members, with placeholder photos and biographies                                                                                                                     |
 | Features         | Membership enquiry, partnership enquiry, support and donations page, events, news and articles, downloadable documents, contact form                                                                             |
 | Brand            | New colour and type system, set out in `docs/BRAND_GUIDE.md`                                                                                                                                                     |
 | Content updates  | Made by asking Claude Code to edit files in the repository. No separate content management system.                                                                                                               |
@@ -172,7 +172,7 @@ Plus twenty-five glossary entries, starting with artificial intelligence, machin
 | `/about`                                                                | About                  | The story, vision and why it exists                                                    |
 | `/about/objects`                                                        | Aims and objects       | The sixteen objects from the deed, in plain English                                    |
 | `/about/governance`                                                     | Governance             | How the trust is run, its principles and policies, documents                           |
-| `/about/trustees`                                                       | Founder Trustees       | Twelve cards with photo and biography placeholders                                     |
+| `/about/trustees`                                                       | Founder Trustees       | Trustee and founder member cards with office, sub-committee and photo placeholders     |
 | `/about/roadmap`                                                        | Roadmap                | Near, mid and long-term plans, clearly labelled as plans                               |
 | `/about/facts`                                                          | ASSOCADS at a glance   | Dated, quotable facts for journalists and AI assistants                                |
 | `/programmes`                                                           | Programmes             | Overview of the eight areas of work                                                    |
@@ -252,30 +252,32 @@ Compliance with law; open to all without discrimination; not-for-profit; respons
 
 ### 7.4 Governance
 
-- A Board of Trustees of between seven and fifteen people. The first Board has twelve Founder Trustees.
+- A Board of Trustees of between seven and fifteen people. The first Board has seven Founder Trustees. Five founder members serve on its sub-committees but are not on the Board.
 - Trustees are honorary and receive no remuneration for acting as trustees.
-- Office bearers, elected by the Board from among the trustees for two-year terms: one President, up to two Vice-Presidents, one General Secretary, up to two Joint Secretaries, one Treasurer. **The first office bearers are elected at the first Board meeting after registration, so no trustee holds a title yet.**
+- Office bearers, elected by the Board for two-year terms: one President, up to two Vice-Presidents, one General Secretary, up to two Joint Secretaries, one Treasurer. **The Board has elected its first office bearers (section 7.5).** The date of the resolution is still to be supplied.
 - The Board meets at least once every quarter.
 - Accounts are audited every year by a Chartered Accountant, and the Board adopts an annual report. The financial year runs from 1 April to 31 March.
 - The Board may set up chapters in other states and cities, Special Interest Groups by industry or domain, and advisory councils.
 - On dissolution, assets pass to a similar charitable institution and never to trustees or members.
 
-### 7.5 Founder Trustees, in deed order
+### 7.5 Founder Trustees, founder members and office bearers
 
-| #   | Name               | Capacity                    |
-| --- | ------------------ | --------------------------- |
-| 1   | Amit Kumar Das     | Settlor and Founder Trustee |
-| 2   | Abhijit Pal        | Settlor and Founder Trustee |
-| 3   | Prasun Nandy       | Settlor and Founder Trustee |
-| 4   | Sudip Dasgupta     | Founder Trustee             |
-| 5   | Rahul Bhattacharya | Founder Trustee             |
-| 6   | Biswajeet Chaki    | Founder Trustee             |
-| 7   | Sayan Guha         | Founder Trustee             |
-| 8   | Deb Kumar Majumder | Founder Trustee             |
-| 9   | Sandip Datta       | Founder Trustee             |
-| 10  | Agnimitra Biswas   | Founder Trustee             |
-| 11  | Ayan Chakraborty   | Founder Trustee             |
-| 12  | Eshwar Boini       | Founder Trustee             |
+In the order the Board has set. Supplied by the founders on 24 November 2026; for capacities, offices and sub-committees this list replaces the deed.
+
+| #   | Name               | Capacity                    | Office            | Sub-committee                        |
+| --- | ------------------ | --------------------------- | ----------------- | ------------------------------------ |
+| 1   | Amit Kumar Das     | Settlor and Founder Trustee | General Secretary |                                      |
+| 2   | Abhijit Pal        | Settlor and Founder Trustee | Vice-President    |                                      |
+| 3   | Prasun Nandy       | Settlor and Founder Trustee | Vice-President    |                                      |
+| 4   | Rahul Bhattacharya | Founder Trustee             | President         |                                      |
+| 5   | Deb Kumar Majumder | Founder Trustee             |                   | Strategic collaboration and policies |
+| 6   | Biswajeet Chaki    | Founder Trustee             | Treasurer         | Branding and communication           |
+| 7   | Sandip Datta       | Founder Trustee             | Joint Secretary   | Branding and communication           |
+| 8   | Sayan Guha         | Founder Member              | Joint Secretary   | Branding and communication           |
+| 9   | Sudip Dasgupta     | Founder Member              |                   | Branding and communication           |
+| 10  | Agnimitra Biswas   | Founder Member              |                   | Strategic collaboration and policies |
+| 11  | Ayan Chakraborty   | Founder Member              |                   | Membership                           |
+| 12  | Eshwar Boini       | Founder Member              |                   | Membership                           |
 
 Each card carries placeholders for: photograph, current role and organisation, a short biography of about sixty words, areas of expertise, and a LinkedIn link. Name spellings must be confirmed against each trustee's PAN card before launch.
 

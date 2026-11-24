@@ -20,8 +20,9 @@ export const filled = (values: string[]) =>
   values.filter((v) => v.trim() && !isPlaceholderValue(v));
 
 /**
- * One Founder Trustee. Shows only the name and capacity from the deed, plus
- * what the trustee has supplied. Links to their own page only when they have one.
+ * One Founder Trustee or founder member: name, capacity, the office and
+ * sub-committees the Board assigned, plus what the person has supplied.
+ * Links to their own page only when they have one.
  */
 export function TrusteeCard({
   trustee,
@@ -73,6 +74,14 @@ export function TrusteeCard({
         {trustee.officeTitle && (
           <p className="text-small font-medium text-ink">
             {trustee.officeTitle}
+          </p>
+        )}
+        {trustee.committees.length > 0 && (
+          <p className="text-small text-slate-600">
+            {trustee.committees.length === 1
+              ? "Sub-committee: "
+              : "Sub-committees: "}
+            {trustee.committees.join(", ")}
           </p>
         )}
       </div>

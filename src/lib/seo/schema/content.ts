@@ -30,8 +30,8 @@ export function canDescribeTrustee(t: Trustee): boolean {
 /**
  * A Founder Trustee. Only what the trustee has supplied is included; the role,
  * organisation, expertise and profile link are left out while they are
- * placeholders. Their capacity on the Board is given as a role, never an office
- * title, until the Board elects office bearers.
+ * placeholders. The role is their elected office if they hold one (titles are
+ * set only once the Board has elected office bearers), otherwise their capacity.
  */
 export function person(t: Trustee): SchemaNode | null {
   if (!canDescribeTrustee(t)) return null;
@@ -52,7 +52,7 @@ export function person(t: Trustee): SchemaNode | null {
     sameAs: real(t.linkedin) ? [t.linkedin] : undefined,
     memberOf: {
       "@type": "OrganizationRole",
-      roleName: t.capacity,
+      roleName: t.officeTitle || t.capacity,
       memberOf: organisationRef,
     },
   };

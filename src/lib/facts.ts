@@ -13,6 +13,7 @@ import {
   getFaqs,
   getMembershipCategories,
   getProgrammes,
+  getFounderMembers,
   getTrustees,
 } from "@/lib/content/loaders";
 import { numberWord } from "@/lib/words";
@@ -34,12 +35,32 @@ export const joinAnd = (items: string[]) =>
     : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 
 /** The question in content/faqs.json that names the similar organisations. */
+/** The deed's order of offices, for listing office bearers. */
+const OFFICE_ORDER = [
+  "President",
+  "Vice-President",
+  "General Secretary",
+  "Joint Secretary",
+  "Treasurer",
+];
+const officeRank = (title: string) => {
+  const i = OFFICE_ORDER.indexOf(title);
+  return i === -1 ? OFFICE_ORDER.length : i;
+};
+
 export function affiliationFaq() {
   return getFaqs().find((f) => f.question.startsWith("Is ASSOCADS affiliated"));
 }
 
 export function keyFacts(): Fact[] {
   const trustees = getTrustees();
+  const founderMembers = getFounderMembers();
+  // "Rahul Bhattacharya (President), Abhijit Pal (Vice-President), ..."
+  const officeLine = [...trustees, ...founderMembers]
+    .filter((t) => t.officeTitle)
+    .sort((a, b) => officeRank(a.officeTitle) - officeRank(b.officeTitle))
+    .map((t) => `${t.name} (${t.officeTitle})`)
+    .join(", ");
   const categories = getMembershipCategories();
   const programmes = getProgrammes();
   const planned = programmes.every((p) => p.status === "planned");
@@ -75,7 +96,7 @@ export function keyFacts(): Fact[] {
     },
     {
       label: "Founder Trustees",
-      text: `${site.shortName} was founded by ${numberWord(trustees.length)} Founder Trustees, who form its first Board of Trustees and serve without payment.${site.governance.officeBearersElected ? "" : " Office bearers will be elected at the Board's first meeting after registration."}`,
+      text: `The first Board of Trustees of ${site.shortName} has ${numberWord(trustees.length)} Founder Trustees, who serve without payment.${site.governance.officeBearersElected ? ` The Board has elected its office bearers: ${officeLine}.` : " Office bearers will be elected at the Board's first meeting after registration."}${founderMembers.length > 0 ? ` ${numberWord(founderMembers.length)[0].toUpperCase()}${numberWord(founderMembers.length).slice(1)} founder members serve on its sub-committees but are not on the Board.` : ""}`,
       link: { href: "/about/trustees", label: "See the trustees" },
     },
     {

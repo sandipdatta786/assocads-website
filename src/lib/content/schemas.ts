@@ -38,9 +38,17 @@ export const trusteeSchema = z.object({
   order: z.number().int().positive(),
   name: z.string().min(1),
   slug,
-  capacity: z.enum(["Settlor and Founder Trustee", "Founder Trustee"]),
-  /** Stays empty until the Board elects office bearers. */
+  /** Trustees form the Board. Founder Members are not on the Board. */
+  capacity: z.enum([
+    "Settlor and Founder Trustee",
+    "Founder Trustee",
+    "Founder Member",
+  ]),
+  /** The office the Board elected them to. Stays empty until the Board
+      elects office bearers (site.governance.officeBearersElected). */
   officeTitle: z.string().default(""),
+  /** The sub-committees they serve on, as the Board assigned them. */
+  committees: z.array(z.string().min(1)).default([]),
   role: z.string().min(1),
   organisation: z.string().min(1),
   bio: z.string().min(1),
