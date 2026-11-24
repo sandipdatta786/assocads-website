@@ -134,7 +134,7 @@ export const site = {
         {
           label: "Founder Trustees",
           href: "/about/trustees",
-          description: "The thirteen people on the first Board",
+          description: "The twelve people on the first Board",
         },
         {
           label: "Roadmap",

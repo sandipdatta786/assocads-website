@@ -7,7 +7,7 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 - [ ] **Final domain name.** Needed for canonical addresses and email addresses.
 - [ ] **Registered office address.** Needed for the footer, contact page and structured data.
 - [ ] **Public email addresses and a phone number, if any.** Needed for the contact page.
-- [ ] **Trustee profiles.** For each of the thirteen Founder Trustees: photograph, current role, sixty-word biography, LinkedIn link, and consent to publish.
+- [ ] **Trustee profiles.** For each of the twelve Founder Trustees: photograph, current role, sixty-word biography, LinkedIn link, and consent to publish.
 - [ ] **Trustee name spellings** confirmed against each trustee's PAN card.
 - [ ] **Registration number and date.** Needed to switch the site from "pending" to "registered".
 - [ ] **Membership fees and any student category**, once fixed by the Board.
@@ -45,7 +45,6 @@ Send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLATE.md`. Each still nee
 - [ ] Deb Kumar Majumder · role, organisation, biography, expertise and LinkedIn needed; photo received
 - [ ] Sandip Datta · role, organisation, biography, expertise and LinkedIn needed; photo received
 - [ ] Agnimitra Biswas · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
-- [ ] Kaushik Dey · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
 - [ ] Ayan Chakraborty · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
 - [ ] Eshwar Boini · role, organisation, biography, expertise and LinkedIn needed; photo received
 

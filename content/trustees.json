@@ -8,7 +8,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": "/images/trustees/amit-kumar-das.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": true,
@@ -23,7 +25,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -38,7 +42,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -53,7 +59,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -68,7 +76,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -83,7 +93,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -98,7 +110,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": "/images/trustees/sayan-guha.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": true,
@@ -113,7 +127,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": "/images/trustees/deb-kumar-majumder.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": true,
@@ -128,7 +144,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": "/images/trustees/sandip-datta.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": true,
@@ -143,7 +161,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
@@ -151,21 +171,6 @@
   },
   {
     "order": 11,
-    "name": "Kaushik Dey",
-    "slug": "kaushik-dey",
-    "capacity": "Founder Trustee",
-    "officeTitle": "",
-    "role": "[PLACEHOLDER: current role]",
-    "organisation": "[PLACEHOLDER: current organisation]",
-    "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
-    "photo": null,
-    "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
-    "consentToPublish": false,
-    "published": true
-  },
-  {
-    "order": 12,
     "name": "Ayan Chakraborty",
     "slug": "ayan-chakraborty",
     "capacity": "Founder Trustee",
@@ -173,14 +178,16 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": null,
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": false,
     "published": true
   },
   {
-    "order": 13,
+    "order": 12,
     "name": "Eshwar Boini",
     "slug": "eshwar-boini",
     "capacity": "Founder Trustee",
@@ -188,7 +195,9 @@
     "role": "[PLACEHOLDER: current role]",
     "organisation": "[PLACEHOLDER: current organisation]",
     "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "expertise": [
+      "[PLACEHOLDER: two to four areas of expertise]"
+    ],
     "photo": "/images/trustees/eshwar-boini.jpg",
     "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
     "consentToPublish": true,
