@@ -39,6 +39,8 @@ import {
   getInitiatives,
   getCommunities,
   getSuccessMeasures,
+  getImpactFigures,
+  getMilestones,
   getTrustees,
   getFounderMembers,
 } from "../src/lib/content/loaders.ts";
@@ -71,6 +73,8 @@ const collections: [string, () => unknown[]][] = [
   ["initiatives", () => getInitiatives()],
   ["communities", () => getCommunities()],
   ["success measures", () => getSuccessMeasures()],
+  ["impact figures", () => getImpactFigures()],
+  ["milestones", () => getMilestones()],
   ["documents", () => getDocuments()],
   ["deed objects", () => getDeedObjects()],
 ];

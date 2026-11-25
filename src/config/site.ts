@@ -207,6 +207,7 @@ export const site = {
         { label: "Governance", href: "/about/governance" },
         { label: "Founder Trustees", href: "/about/trustees" },
         { label: "Roadmap", href: "/about/roadmap" },
+        { label: "Achievements and impact", href: "/achievements" },
         { label: "At a glance", href: "/about/facts" },
       ],
     },
