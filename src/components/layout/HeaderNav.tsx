@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { OPEN_SEARCH_EVENT, SiteSearch } from "@/components/search/SiteSearch";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/cn";
@@ -294,6 +295,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
           </nav>
 
           <div className="flex items-center gap-2">
+            <SiteSearch />
             <span className="hidden sm:block">
               <ButtonLink href={join.href} className="whitespace-nowrap">
                 {join.label}
@@ -341,6 +343,20 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
             className="flex-1 overflow-y-auto overscroll-contain"
           >
             <Container className="py-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  // After the menu has closed and handed focus back.
+                  requestAnimationFrame(() =>
+                    window.dispatchEvent(new Event(OPEN_SEARCH_EVENT)),
+                  );
+                }}
+                className="mb-2 flex min-h-12 w-full items-center gap-3 rounded-pill border border-line px-4 text-body text-slate-600 hover:border-ink hover:text-ink"
+              >
+                <Search aria-hidden="true" size={20} strokeWidth={1.5} />
+                Search the site
+              </button>
               <ul className="flex flex-col">
                 {items.map((item) => {
                   const current = sectionIsCurrent(pathname, item);
