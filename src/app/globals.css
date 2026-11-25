@@ -4,25 +4,26 @@
    Never add a colour or a font that is not in the brand guide. */
 
 :root {
-  /* Colour */
-  --ink: #0b1020;
-  --paper: #ffffff;
-  --cloud: #f5f6f8;
-  --night: #141a2e;
-  --indigo: #2f3bd9;
-  --indigo-deep: #232cb0;
-  --indigo-bright: #8791ff;
-  --indigo-tint: #eef0ff;
-  --marigold: #f2a31b;
-  --marigold-tint: #fff6e5;
-  --amber-deep: #9a5b00;
-  --teal: #0b7a6e;
-  --slate-600: #4a5165;
-  --slate-500: #626a7e;
-  --slate-400: #9aa1b2;
-  --line: #d9dce5;
-  --success: #157a3e;
-  --error: #c4281c;
+  /* Colour: the brand values themselves. Components never use these
+     directly; they use the tokens below, which the theme re-points. */
+  --brand-ink: #0b1020;
+  --brand-paper: #ffffff;
+  --brand-cloud: #f5f6f8;
+  --brand-night: #141a2e;
+  --brand-indigo: #2f3bd9;
+  --brand-indigo-deep: #232cb0;
+  --brand-indigo-bright: #8791ff;
+  --brand-indigo-tint: #eef0ff;
+  --brand-marigold: #f2a31b;
+  --brand-marigold-tint: #fff6e5;
+  --brand-amber-deep: #9a5b00;
+  --brand-teal: #0b7a6e;
+  --brand-slate-600: #4a5165;
+  --brand-slate-500: #626a7e;
+  --brand-slate-400: #9aa1b2;
+  --brand-line: #d9dce5;
+  --brand-success: #157a3e;
+  --brand-error: #c4281c;
 
   /* Type sizes */
   --text-display-xl: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
@@ -44,7 +45,37 @@
   /* Layout */
   --content-max: 1200px;
   --reading-max: 720px;
+}
 
+/* The tokens components use, as they are in the light theme. A
+   [data-theme="light"] element inside a dark page (forms, the brand kit)
+   takes these again, so it looks exactly as it does in the light theme. */
+:root,
+[data-theme="light"],
+:root[data-theme="dark"] [data-tone="ink"] {
+  --ink: var(--brand-ink);
+  --paper: var(--brand-paper);
+  --cloud: var(--brand-cloud);
+  --night: var(--brand-night);
+  --indigo: var(--brand-indigo);
+  --indigo-deep: var(--brand-indigo-deep);
+  --indigo-bright: var(--brand-indigo-bright);
+  --indigo-tint: var(--brand-indigo-tint);
+  --marigold: var(--brand-marigold);
+  --marigold-tint: var(--brand-marigold-tint);
+  --amber-deep: var(--brand-amber-deep);
+  --teal: var(--brand-teal);
+  --slate-600: var(--brand-slate-600);
+  --slate-500: var(--brand-slate-500);
+  --slate-400: var(--brand-slate-400);
+  --line: var(--brand-line);
+  --success: var(--brand-success);
+  --error: var(--brand-error);
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
   /* Tone: the colours a component should use for the surface it sits on.
      Section sets data-tone and these change with it. */
   --tone-bg: var(--paper);
@@ -62,6 +93,63 @@
      or Ink on Paper in ink sections. Both are approved pairings. */
   --tone-invert: var(--paper);
 }
+
+/* ---------- Dark theme ----------
+   The root layout sets data-theme on <html> before the first paint: the
+   visitor's choice if they made one, otherwise the system setting.
+   Components keep their classes; the tokens are re-pointed so that every
+   light pairing becomes a dark one that passes WCAG AA. The pairings and
+   their ratios are in docs/BRAND_GUIDE.md, section 2.7. */
+:root[data-theme="dark"],
+:root[data-theme="dark"]
+  [data-tone="ink"]:not([data-theme="light"] *)
+  :is([data-tone="paper"], [data-tone="cloud"], [data-tone="tint"]) {
+  color-scheme: dark;
+  --paper: var(--brand-ink);
+  --cloud: var(--brand-night);
+  --ink: var(--brand-paper);
+  --indigo: var(--brand-indigo-bright);
+  --indigo-deep: var(--brand-paper);
+  --indigo-tint: var(--brand-night);
+  --marigold-tint: var(--brand-night);
+  --amber-deep: var(--brand-marigold);
+  --slate-600: var(--brand-slate-400);
+  --slate-500: var(--brand-slate-400);
+  --line: var(--brand-slate-600);
+}
+
+/* Links in tint sections are Indigo Deep on Indigo Tint in the light
+   theme; on Night they would be white like the text, so Indigo Bright. */
+:root[data-theme="dark"] [data-tone="tint"]:not([data-theme="light"] *) {
+  --tone-link: var(--brand-indigo-bright);
+}
+
+/* Ink sections keep their light-theme look in the dark theme (the token
+   reset is in the block above), on Night so they stand apart from the
+   Ink page, with Ink cards. */
+:root[data-theme="dark"] [data-tone="ink"]:not([data-theme="light"] *) {
+  --night: var(--brand-ink);
+  --tone-bg: var(--brand-night);
+  --tone-card: var(--brand-ink);
+}
+
+/* A form or other light island that has no surface of its own gets a
+   Paper card in the dark theme. (Error and success colours have no dark
+   pairing in the brand guide, so forms stay light.) */
+:root[data-theme="dark"] .light-island {
+  border-radius: var(--radius-l);
+  background: var(--brand-paper);
+  padding: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  :root[data-theme="dark"] .light-island {
+    padding: 2.5rem;
+  }
+}
+
+/* dark: applies in the dark theme, except inside a light island. */
+@custom-variant dark (&:where([data-theme="dark"] *):not(:where([data-theme="light"], [data-theme="light"] *)));
 
 [data-tone="cloud"] {
   --tone-bg: var(--cloud);
@@ -133,6 +221,10 @@
   --color-line: var(--line);
   --color-success: var(--success);
   --color-error: var(--error);
+  /* The same Ink and Paper, but never re-pointed by the theme: for text on
+     Marigold, and overlays on photographs. */
+  --color-ink-fixed: var(--brand-ink);
+  --color-paper-fixed: var(--brand-paper);
   --color-transparent: transparent;
   --color-current: currentColor;
 
@@ -431,6 +523,23 @@
 [data-tone="ink"]
   :is([data-tone="paper"], [data-tone="cloud"], [data-tone="tint"])
   .logo-on-dark {
+  display: none;
+}
+
+/* In the dark theme every tone is dark, except inside a light island. */
+:root[data-theme="dark"] .logo-on-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .logo-on-dark {
+  display: block;
+}
+
+:root[data-theme="dark"] [data-theme="light"] .logo-on-light {
+  display: block;
+}
+
+:root[data-theme="dark"] [data-theme="light"] .logo-on-dark {
   display: none;
 }
 

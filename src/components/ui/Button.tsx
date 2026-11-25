@@ -15,7 +15,7 @@ const variants = {
     "border border-tone-fg text-tone-fg hover:bg-tone-fg hover:text-tone-invert",
   ghost: "text-tone-link hover:underline underline-offset-4",
   marigold:
-    "bg-marigold text-ink hover:bg-ink hover:text-marigold " +
+    "bg-marigold text-ink-fixed hover:bg-ink-fixed hover:text-marigold " +
     "in-data-[tone=ink]:hover:bg-paper in-data-[tone=ink]:hover:text-ink",
 } as const;
 

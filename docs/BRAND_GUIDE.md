@@ -129,6 +129,44 @@ Aim for roughly **70% Paper and Cloud, 20% Ink, 8% Indigo, 2% Marigold** across 
 
 Charts use colours in this order: Indigo `#2F3BD9`, Teal `#0B7A6E`, Marigold `#F2A31B`, Slate 600 `#4A5165`, Indigo Bright `#8791FF`. Always label series directly so that colour is never the only way to tell them apart.
 
+### 2.7 Dark theme pairings
+
+The website has a dark theme. It follows the visitor's system setting, and a switch in the header and footer overrides it. It uses only the palette above: Ink becomes the page, Night the alternate surface, and text turns light. Ink sections keep their usual look, on Night. Forms and the brand kit stay light in the dark theme, because Error, Success and Teal have no pairing on dark backgrounds that passes for text.
+
+These are the text pairings the dark theme uses, in addition to those in 2.3. Most already appear in 2.3; they are listed again so that the dark theme can be checked against one table.
+
+| Text                    | Background              | Ratio  | Result                              |
+| ----------------------- | ----------------------- | ------ | ----------------------------------- |
+| Paper `#FFFFFF`         | Ink `#0B1020`           | 18.9:1 | AAA (body text and headings)        |
+| Paper `#FFFFFF`         | Night `#141A2E`         | 17.3:1 | AAA (alternate sections, tags)      |
+| Slate 400 `#9AA1B2`     | Ink `#0B1020`           | 7.3:1  | AAA (secondary text)                |
+| Slate 400 `#9AA1B2`     | Night `#141A2E`         | 6.7:1  | AA                                  |
+| Indigo Bright `#8791FF` | Ink `#0B1020`           | 6.8:1  | AA (links)                          |
+| Indigo Bright `#8791FF` | Night `#141A2E`         | 6.2:1  | AA                                  |
+| Ink `#0B1020`           | Indigo Bright `#8791FF` | 6.8:1  | AA (primary button)                 |
+| Ink `#0B1020`           | Paper `#FFFFFF`         | 18.9:1 | AAA (button hover, selected filter) |
+| Marigold `#F2A31B`      | Ink `#0B1020`           | 9.0:1  | AAA                                 |
+| Marigold `#F2A31B`      | Night `#141A2E`         | 8.2:1  | AAA (notices and "planned" tags)    |
+| Ink `#0B1020`           | Marigold `#F2A31B`      | 9.0:1  | AAA (marigold button)               |
+
+Not for text in the dark theme: Slate 600 on Ink (2.4:1), Slate 500 on Ink (3.5:1), Teal on Ink (3.6:1), Success on Ink (3.5:1) and Error on Ink (3.3:1). Teal and Success pass 3:1, so they may be used for dots and icons next to a text label.
+
+### 2.8 Dark theme tokens
+
+How each website token changes in the dark theme. Tokens not listed keep their value.
+
+| Token used in the light theme | In the dark theme | Why                              |
+| ----------------------------- | ----------------- | -------------------------------- |
+| Paper (page, cards)           | Ink               | The page                         |
+| Cloud (alternate sections)    | Night             | The alternate surface            |
+| Ink (text)                    | Paper             | Text                             |
+| Slate 600 and Slate 500       | Slate 400         | Secondary text on dark           |
+| Indigo (links, buttons)       | Indigo Bright     | Links and buttons on dark        |
+| Indigo Deep (hover)           | Paper             | Button hover, as in Ink sections |
+| Indigo Tint and Marigold Tint | Night             | Panels, tags and notices         |
+| Amber Deep                    | Marigold          | Marigold-family text on dark     |
+| Line                          | Slate 600         | Hairlines on dark (decorative)   |
+
 ---
 
 ## 3. Typography

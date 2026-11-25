@@ -178,7 +178,11 @@ export default function Page() {
             </p>
           </div>
 
-          <div id={FORM_ID} className="scroll-mt-24">
+          <div
+            id={FORM_ID}
+            data-theme="light"
+            className="light-island scroll-mt-24"
+          >
             <EnquiryForm
               formId={FORM_ID}
               kind="innovation"

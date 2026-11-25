@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { OPEN_SEARCH_EVENT, SiteSearch } from "@/components/search/SiteSearch";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/cn";
@@ -296,6 +297,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
 
           <div className="flex items-center gap-2">
             <SiteSearch />
+            <ThemeToggle className="hidden sm:inline-flex" />
             <span className="hidden sm:block">
               <ButtonLink href={join.href} className="whitespace-nowrap">
                 {join.label}

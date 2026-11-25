@@ -40,7 +40,7 @@ export function VoicePlayer({ id, title }: { id: string; title: string }) {
         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
         className="object-cover"
       />
-      <span className="absolute inset-0 flex items-center justify-center bg-ink/20 transition-colors group-hover:bg-ink/35">
+      <span className="absolute inset-0 flex items-center justify-center bg-ink-fixed/20 transition-colors group-hover:bg-ink-fixed/35">
         <span className="flex size-16 items-center justify-center rounded-pill bg-tone-primary-bg text-tone-primary-fg shadow-card transition-transform group-hover:scale-105">
           <Play
             aria-hidden="true"

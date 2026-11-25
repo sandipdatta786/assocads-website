@@ -1,3 +1,4 @@
+import { ThemeChoices } from "@/components/theme/ThemeToggle";
 import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { Placeholder } from "@/components/ui/Callout";
@@ -129,14 +130,17 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="mt-6 flex flex-col gap-2 border-t border-tone-line pt-6 text-caption text-slate-400">
-          <p>{legalStatusLabel()}.</p>
-          {office && !isPlaceholderValue(office) && (
-            <p>Registered office: {office}</p>
-          )}
-          <p>
-            © <CopyrightYear /> {site.name}.
-          </p>
+        <div className="mt-6 flex flex-col gap-6 border-t border-tone-line pt-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-2 text-caption text-slate-400">
+            <p>{legalStatusLabel()}.</p>
+            {office && !isPlaceholderValue(office) && (
+              <p>Registered office: {office}</p>
+            )}
+            <p>
+              © <CopyrightYear /> {site.name}.
+            </p>
+          </div>
+          <ThemeChoices />
         </div>
       </Container>
     </footer>

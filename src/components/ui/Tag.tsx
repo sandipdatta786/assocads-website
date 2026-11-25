@@ -26,7 +26,9 @@ export function Tag({ variant = "indigo", className, ...props }: TagProps) {
 }
 
 const statuses = {
-  open: { label: "Open", dot: "bg-teal", text: "text-teal" },
+  // Teal text has no dark pairing; in the dark theme the label is the
+  // text colour and the teal dot carries the colour (3.6:1 on Ink).
+  open: { label: "Open", dot: "bg-teal", text: "text-teal dark:text-ink" },
   upcoming: { label: "Upcoming", dot: "bg-indigo", text: "text-indigo" },
   closed: { label: "Closed", dot: "bg-slate-500", text: "text-slate-600" },
   planned: { label: "Planned", dot: "bg-amber-deep", text: "text-amber-deep" },

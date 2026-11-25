@@ -51,7 +51,10 @@ export default function Page() {
       />
       <Section tone="cloud" spacing="none" className="py-12 lg:py-20">
         <Container className="grid gap-12 lg:grid-cols-12">
-          <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
+          <div
+            data-theme="light"
+            className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8"
+          >
             <RegisterInterestForm
               programmes={programmes}
               categories={categories}

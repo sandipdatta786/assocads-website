@@ -235,7 +235,7 @@
   },
   {
     "question": "Does this website use cookies?",
-    "answer": "No. ASSOCADS sets no cookies and uses no advertising tools. It counts visits and measures page speed with Vercel Web Analytics and Speed Insights, which work without cookies and show us totals, not who you are. In your browser, until you close the tab, the website remembers only that you closed the notice at the top of the page, and your answers on the membership form until you send it. The privacy notice explains each service.",
+    "answer": "No. ASSOCADS sets no cookies and uses no advertising tools. It counts visits and measures page speed with Vercel Web Analytics and Speed Insights, which work without cookies and show us totals, not who you are. In your browser, until you close the tab, the website remembers only that you closed the notice at the top of the page, and your answers on the membership form until you send it. If you choose a light or dark theme, your browser keeps that choice until you change it. The privacy notice explains each service.",
     "category": "website",
     "pages": ["/faq", "/legal/privacy"]
   },

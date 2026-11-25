@@ -233,7 +233,10 @@ export default function Page() {
               stacked
             />
           </div>
-          <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
+          <div
+            data-theme="light"
+            className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8"
+          >
             <CommunityInterestForm
               groups={sigs.map((c) => ({ value: c.slug, label: c.name }))}
               chapters={activeChapters.map((c) => ({
