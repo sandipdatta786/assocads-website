@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CalendarDays } from "lucide-react";
 import { EventStatusBadge } from "@/components/events/EventStatusBadge";
 import { SectionIntro } from "@/components/sections/SectionIntro";
+import { VoiceCard } from "@/components/voices/VoiceCard";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { DotGrid } from "@/components/ui/Decor";
@@ -20,6 +21,7 @@ import {
   typeLabels,
 } from "@/lib/events";
 import { formatLongDate, insightCategoryLabels } from "@/lib/publishing";
+import { voiceItems } from "@/lib/voices";
 
 /**
  * Latest updates and events: the next events, the newest announcements and
@@ -41,10 +43,13 @@ export async function LatestUpdates() {
     .filter((e) => e.recap && e.recap.photos.length > 0)
     .slice(0, 3);
 
+  const voices = (await voiceItems()).slice(0, 3);
+
   const empty =
     nextEvents.length === 0 &&
     announcements.length === 0 &&
-    highlights.length === 0;
+    highlights.length === 0 &&
+    voices.length === 0;
 
   return (
     <Section tone="cloud" aria-labelledby="latest-heading">
@@ -113,6 +118,22 @@ export async function LatestUpdates() {
                     </h4>
                     <p className="text-body text-slate-600">{item.summary}</p>
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </Part>
+        )}
+
+        {voices.length > 0 && (
+          <Part
+            id="latest-voices"
+            title="Videos and podcasts"
+            action={<TextLink href="/voices">All of ASSOCADS Voices</TextLink>}
+          >
+            <ul className="grid gap-4 md:grid-cols-3 lg:gap-6">
+              {voices.map((item) => (
+                <li key={item.key}>
+                  <VoiceCard item={item} headingLevel={4} />
                 </li>
               ))}
             </ul>
@@ -196,12 +217,13 @@ function NothingYet() {
       <div className="flex max-w-xl flex-col gap-4">
         <Icon icon={CalendarDays} size={32} className="text-indigo" />
         <h3 className="font-display text-h3 font-semibold text-ink">
-          No events or announcements yet
+          No events, announcements or recordings yet
         </h3>
         <p className="text-body text-slate-600">
           We plan to announce our first programme calendar after the trust is
-          registered. Upcoming events, news and highlights from past events will
-          appear here. Register your interest and we will let you know.
+          registered. Upcoming events, news, videos, podcasts and highlights
+          from past events will appear here. Register your interest and we will
+          let you know.
         </p>
       </div>
       <ButtonLink

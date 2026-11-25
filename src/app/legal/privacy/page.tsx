@@ -106,7 +106,8 @@ export default function Page() {
           </li>
           <li>
             We do not sell your data or use it for advertising. {site.shortName}{" "}
-            sets no cookies.
+            sets no cookies. A video you choose to play comes from YouTube,
+            which has its own rules.
           </li>
           <li>
             We count visits and measure page speed with Vercel&rsquo;s
@@ -237,6 +238,21 @@ export default function Page() {
             successfully, recording only which form it was, never what you
             typed; a click on an event&rsquo;s registration link; and a file
             download.
+          </p>
+          <h3>Videos from YouTube</h3>
+          <p>
+            Videos on the Voices page and the home page are hosted on YouTube, a
+            Google service. Until you press Play, your browser does not contact
+            YouTube: the preview picture is served by this website. When you
+            press Play, the video loads from YouTube&rsquo;s privacy-enhanced
+            player (youtube-nocookie.com), and YouTube receives your internet
+            address and details of your browser, and may store information in
+            your browser, under{" "}
+            <a href="https://policies.google.com/privacy">
+              Google&rsquo;s privacy policy
+            </a>
+            . The same applies if you follow a link to watch on YouTube or to
+            listen on a podcast service.
           </p>
         </>
       ),

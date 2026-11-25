@@ -14,6 +14,7 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 - [ ] **Membership fees and any student category**, once fixed by the Board.
 - [ ] **Real upcoming events** with date, venue and registration method.
 - [ ] **Official social media links.** Needed for the footer and structured data.
+- [ ] **YouTube channel ID** (`youtubeChannelId` in `src/config/site.ts`), once the channel exists. The channel's videos then appear on /voices and the home page by themselves. See `docs/ADMIN_GUIDE.md`, section 5a.
 - [ ] **Signed permissions** for any partner names or logos.
 - [ ] **Board adoption of the logo in `docs/logo/`, and a trademark check.**
 - [ ] **Bank details and 80G status.** Needed for donations, later.

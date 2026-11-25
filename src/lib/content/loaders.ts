@@ -42,6 +42,7 @@ import {
   hubEntrySchema,
   impactFigureSchema,
   milestoneSchema,
+  voiceSchema,
 } from "./schemas.ts";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -528,6 +529,18 @@ export function getHub(options: PublishedOptions) {
       ]);
     }
   }
+  return withoutFuture(withoutDrafts(items, options), options).sort(
+    (a, b) =>
+      b.publishedDate.localeCompare(a.publishedDate) ||
+      a.title.localeCompare(b.title),
+  );
+}
+
+/** ASSOCADS Voices entries written by hand or in the admin editor, newest
+    first. Videos from the YouTube channel are added by src/lib/voices.ts. */
+export function getVoices(options: PublishedOptions) {
+  const items = readMdxCollection("voices", voiceSchema);
+  uniqueSlugs("content/voices", items);
   return withoutFuture(withoutDrafts(items, options), options).sort(
     (a, b) =>
       b.publishedDate.localeCompare(a.publishedDate) ||

@@ -489,3 +489,101 @@ collections:
         editor_components: []
         modes: [rich_text]
         hint: Avoid the characters { } < >.
+
+  # ─────────────────────────── ASSOCADS Voices ───────────────────────────
+  - name: voices
+    label: Voices (videos and podcasts)
+    label_singular: recording
+    description: >-
+      Videos, podcasts, fireside chats, interviews and conversations. Videos on
+      the ASSOCADS YouTube channel appear on the site by themselves within about
+      an hour. Add an entry here for recordings elsewhere (a podcast service,
+      another YouTube channel), or to give a channel video its format and the
+      people taking part.
+    folder: content/voices
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    media_folder: /public/images/voices
+    public_folder: /images/voices
+    summary: "{{title}} ({{publishedDate}})"
+    sortable_fields: [publishedDate, title]
+    fields:
+      - label: Web address name
+        name: slug
+        widget: string
+        hint: >-
+          A short name for this entry, for example fireside-chat-ai-in-healthcare.
+          Lower-case words joined by hyphens. It cannot be changed after the first save.
+        pattern:
+          ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lower-case words joined by hyphens"]
+      - label: Title
+        name: title
+        widget: string
+        hint: Sentence case, up to 100 characters.
+        pattern: ["^.{1,100}$", "Up to 100 characters"]
+      - label: Summary
+        name: summary
+        widget: text
+        hint: One or two sentences on what it is about. Up to 240 characters.
+        pattern: ["^[\\s\\S]{1,240}$", "Up to 240 characters"]
+      - label: Format
+        name: format
+        widget: select
+        options:
+          - { label: Video, value: video }
+          - { label: Short video, value: short }
+          - { label: Podcast, value: podcast }
+          - { label: Fireside chat, value: fireside-chat }
+          - { label: Interview, value: interview }
+          - { label: Conversation, value: conversation }
+          - { label: Talk, value: talk }
+      - label: Link
+        name: url
+        widget: string
+        hint: >-
+          Where it is watched or heard: the YouTube address (it then plays on the
+          site), or the podcast episode's page. Must start with https://
+        pattern: ["^https://\\S+$", "A full address starting with https://"]
+      - label: Publication date
+        name: publishedDate
+        widget: datetime
+        hint: A date in the future keeps it hidden until that day.
+        format: "YYYY-MM-DD"
+        date_format: "D MMM YYYY"
+        time_format: false
+      - label: People taking part
+        name: people
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        hint: Only people who took part and agreed to be named.
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Role, name: role, widget: string, required: false }
+          - { label: Organisation, name: organisation, widget: string, required: false }
+      - label: Picture
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: Only for recordings not on YouTube (YouTube's own picture is used otherwise). Photographs of people only with their consent.
+      - label: Picture description
+        name: imageAlt
+        widget: string
+        required: false
+        hint: Required with a picture. What it shows.
+      - label: Hide from the live site
+        name: draft
+        widget: boolean
+        default: false
+      - label: Notes
+        name: body
+        widget: markdown
+        required: false
+        buttons: [bold, italic, link]
+        editor_components: []
+        modes: [rich_text]
+        hint: Optional, not shown on the site. For example, where the consent of the people taking part is kept.

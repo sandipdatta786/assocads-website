@@ -94,6 +94,12 @@ export const site = {
     replyTime: "[PLACEHOLDER: expected reply time agreed by the founders]",
   },
 
+  /** The official YouTube channel's ID (it starts with "UC"; YouTube Studio →
+      Settings → Channel → Advanced settings). Once set, the channel's latest
+      videos appear on /voices and the home page by themselves. Also fill in
+      social.youtube with the channel's address. */
+  youtubeChannelId: "",
+
   social: {
     linkedin: "",
     youtube: "",
@@ -159,7 +165,7 @@ export const site = {
         {
           label: "All resources",
           href: "/resources",
-          description: "Guides, glossary, documents and the brand kit",
+          description: "Guides, videos, glossary, documents and the brand kit",
         },
         {
           label: "Guides",
@@ -170,6 +176,11 @@ export const site = {
           label: "Knowledge Hub",
           href: "/knowledge-hub",
           description: "Articles, research, tools and regulation updates",
+        },
+        {
+          label: "Voices",
+          href: "/voices",
+          description: "Videos, podcasts and conversations",
         },
         {
           label: "Glossary",
@@ -235,6 +246,7 @@ export const site = {
         { label: "Programmes", href: "/programmes" },
         { label: "Insights", href: "/insights" },
         { label: "Knowledge Hub", href: "/knowledge-hub" },
+        { label: "Voices", href: "/voices" },
         { label: "Guides", href: "/guides" },
         { label: "Glossary", href: "/glossary" },
         { label: "All resources", href: "/resources" },
