@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionIntro } from "@/components/sections/SectionIntro";
@@ -57,35 +58,60 @@ export function Ecosystem() {
           title="Five communities, one shared purpose"
           lead={`${site.shortName} connects these groups around a common mission: to advance Artificial Intelligence and Data Science in India.`}
         />
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        {/* Each card and its spoke and node are linked through data-eco
+            indexes: hovering or focusing one highlights the other (CSS :has,
+            see globals.css). The diagram's node links repeat the card links
+            for pointer users, so they are hidden from assistive technology
+            and taken out of the tab order. */}
+        <div className="eco grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <svg
             viewBox="0 0 480 480"
             aria-hidden="true"
             focusable="false"
-            className="mx-auto w-full max-w-[460px]"
+            className="mx-auto w-full max-w-[460px] overflow-visible"
           >
-            {communities.map((c) => (
-              <line
-                key={c.title}
-                x1={CENTRE.x}
-                y1={CENTRE.y}
-                x2={c.x}
-                y2={c.y}
-                stroke="var(--indigo)"
-                strokeOpacity="0.35"
-                strokeWidth="1.5"
-              />
+            {communities.map((c, i) => (
+              <g key={c.title} style={{ "--i": i } as CSSProperties}>
+                <line
+                  className="eco-spoke"
+                  pathLength={1}
+                  x1={CENTRE.x}
+                  y1={CENTRE.y}
+                  x2={c.x}
+                  y2={c.y}
+                  data-eco-spoke={i}
+                />
+                <line
+                  className="eco-sweep"
+                  pathLength={1}
+                  x1={CENTRE.x}
+                  y1={CENTRE.y}
+                  x2={c.x}
+                  y2={c.y}
+                  data-eco-sweep={i}
+                />
+              </g>
             ))}
-            {communities.map((c) => (
-              <circle
+            {communities.map((c, i) => (
+              <a
                 key={`node-${c.title}`}
-                cx={c.x}
-                cy={c.y}
-                r="12"
-                fill="var(--paper)"
-                stroke="var(--indigo)"
-                strokeWidth="1.5"
-              />
+                href={c.href}
+                tabIndex={-1}
+                aria-label={c.title}
+                data-eco-node={i}
+                className="eco-node"
+              >
+                {/* A transparent target around the visible node, at least 44px
+                    across on a 360px-wide phone (brand guide: touch targets). */}
+                <circle cx={c.x} cy={c.y} r="36" fill="transparent" />
+                <circle
+                  className="eco-dot"
+                  cx={c.x}
+                  cy={c.y}
+                  r="12"
+                  style={{ "--i": i } as CSSProperties}
+                />
+              </a>
             ))}
             <circle cx={CENTRE.x} cy={CENTRE.y} r="46" fill="var(--indigo)" />
             <text
@@ -102,9 +128,10 @@ export function Ecosystem() {
             </text>
           </svg>
           <ul className="grid gap-4 sm:grid-cols-2 lg:gap-5">
-            {communities.map((c) => (
+            {communities.map((c, i) => (
               <li
                 key={c.title}
+                data-eco-card={i}
                 className={
                   c.title === "Government and institutions"
                     ? "sm:col-span-2"
