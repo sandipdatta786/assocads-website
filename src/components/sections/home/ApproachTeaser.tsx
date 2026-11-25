@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { SectionIntro } from "@/components/sections/SectionIntro";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -39,11 +40,23 @@ export function ApproachTeaser() {
           lead="Four stages, each one building on the last. Each is something we plan to do, and we say on the site when it has begun."
           action={<TextLink href="/about/approach">Our approach</TextLink>}
         />
-        <ol className="relative grid gap-8 lg:grid-cols-4 lg:gap-6">
-          {/* A single rule joins the stages on desktop only. */}
+        {/* A rule joins the stages: across on desktop, down on phones. As
+            the list scrolls into view, the rule fills with indigo and each
+            number fills in turn (scroll-driven CSS, see .approach-* in
+            globals.css). Without support, or with reduced motion, it stays
+            as drawn here. */}
+        <ol className="approach-steps relative grid gap-8 lg:grid-cols-4 lg:gap-6">
           <span
             aria-hidden="true"
             className="absolute top-[18px] left-[18px] hidden h-px w-[calc(100%-36px)] bg-indigo/30 lg:block"
+          />
+          <span
+            aria-hidden="true"
+            className="approach-fill absolute top-[18px] left-[18px] hidden h-px w-[calc(100%-36px)] origin-left bg-indigo"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute top-[18px] bottom-[18px] left-[17.5px] w-px bg-indigo/30 lg:hidden"
           />
           {stages.map((stage, index) => (
             <li
@@ -52,7 +65,8 @@ export function ApproachTeaser() {
             >
               <span
                 aria-hidden="true"
-                className="relative z-10 flex size-9 shrink-0 items-center justify-center rounded-pill border border-indigo bg-paper font-mono text-caption font-medium text-indigo"
+                style={{ "--i": index } as CSSProperties}
+                className="approach-badge relative z-10 flex size-9 shrink-0 items-center justify-center rounded-pill border border-indigo bg-paper font-mono text-caption font-medium text-indigo"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>

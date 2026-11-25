@@ -711,6 +711,71 @@
   --eco-on: 1;
 }
 
+/* Scroll-driven progress (Approach steps and the header reading bar). The
+   position follows the reader's own scrolling, so nothing moves on its own.
+   Only where the browser supports scroll timelines and motion is allowed;
+   otherwise the static design shows. */
+@keyframes fill-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* A step from outline to filled, with no in-between colours, so the
+   number is always Indigo on Paper or Paper on Indigo. */
+@keyframes badge-on {
+  from {
+    background-color: var(--paper);
+    color: var(--indigo);
+  }
+  to {
+    background-color: var(--indigo);
+    color: var(--paper);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reading-progress {
+      display: block;
+      animation: fill-x linear both;
+      animation-timeline: scroll(root block);
+    }
+
+    /* Desktop: the rule fills between 20% and 50% of the list's passage
+       through the screen, and each number fills as the rule reaches it. */
+    .approach-steps {
+      view-timeline: --approach block;
+    }
+
+    .approach-fill {
+      animation: fill-x linear both;
+      animation-timeline: --approach;
+      animation-range: cover 20% cover 50%;
+    }
+
+    .approach-badge {
+      animation: badge-on steps(1, end) both;
+      animation-timeline: view(block);
+      animation-range: entry 0% cover 50%;
+    }
+
+    @media (width >= 64rem) {
+      .approach-fill {
+        display: block;
+      }
+
+      .approach-badge {
+        animation-timeline: --approach;
+        animation-range: cover 19% cover calc(20% + var(--i, 0) * 10%);
+      }
+    }
+  }
+}
+
 /* Accordions open and close with a 300ms ease where the browser supports
    animating details; elsewhere they open instantly. */
 @supports selector(::details-content) {
