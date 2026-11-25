@@ -13,7 +13,28 @@ export const formIds = {
   contact: "contact-form",
   innovation: "showcase-idea",
   mentorship: "mentorship-signup",
+  collaboration: "collaboration-enquiry",
 } as const;
+
+/** The kinds of organisation that can propose a collaboration. */
+export const collaboratorTypes = [
+  { value: "corporate", label: "Corporate or industry organisation" },
+  { value: "technology", label: "Technology company or startup" },
+  { value: "academic", label: "Academic institution" },
+  { value: "research", label: "Research organisation" },
+  { value: "other", label: "Something else" },
+] as const satisfies Choice[];
+
+/** What a collaboration could cover. Each is a request to explore, not a commitment. */
+export const collaborationAreas = [
+  { value: "workshops", label: "Workshops or seminars" },
+  { value: "training", label: "Training or certification" },
+  { value: "research", label: "Joint research or publications" },
+  { value: "innovation", label: "Innovation or pitch days" },
+  { value: "projects", label: "An industry project or problem statement" },
+  { value: "internships", label: "Internships or hiring" },
+  { value: "other", label: "Something else" },
+] as const satisfies Choice[];
 
 /** The partner types on /partner, which are also the form's "type of organisation". */
 export const organisationTypes = [

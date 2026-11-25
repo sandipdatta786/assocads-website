@@ -10,6 +10,8 @@ import {
   careerHelp,
   mentoringAreas,
   mentorshipRoles,
+  collaboratorTypes,
+  collaborationAreas,
   membershipCategories,
   membershipRoles,
   organisationTypes,
@@ -36,6 +38,7 @@ export const formTitles: Record<FormKind, string> = {
   contact: "Contact message",
   innovation: "Idea or innovation submission",
   mentorship: "Mentorship sign-up",
+  collaboration: "Industry or academic collaboration enquiry",
 };
 
 /** What the acknowledgement says we received. */
@@ -47,6 +50,7 @@ const receivedWhat: Record<FormKind, string> = {
   contact: "your message",
   innovation: "your idea or innovation",
   mentorship: "your mentorship sign-up",
+  collaboration: "your collaboration enquiry",
 };
 
 type Row = [label: string, name: string, choices?: Choice[] | "lookup"];
@@ -118,6 +122,17 @@ const rows: Record<FormKind, Row[]> = {
     ["Areas", "areas", [...mentoringAreas]],
     ["Would like", "help", [...careerHelp]],
     ["Message", "message"],
+  ],
+  collaboration: [
+    ["Name", "name"],
+    ["Email", "email"],
+    ["Phone", "phone"],
+    ["Organisation", "organisation"],
+    ["Role", "role"],
+    ["Type of organisation", "type", [...collaboratorTypes]],
+    ["Would like to explore", "areas", [...collaborationAreas]],
+    ["Summary", "summary"],
+    ["Link", "link"],
   ],
 };
 

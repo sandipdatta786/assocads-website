@@ -7,6 +7,8 @@ import {
   type FormValues,
 } from "./limits";
 import {
+  collaboratorTypes,
+  collaborationAreas,
   contactTopics,
   innovationAreas,
   innovationHelp,
@@ -42,6 +44,7 @@ export const formKinds: FormKind[] = [
   "contact",
   "innovation",
   "mentorship",
+  "collaboration",
 ];
 
 /** Field names that hold several values (checkbox groups). */
@@ -53,6 +56,7 @@ const listFields: Record<FormKind, string[]> = {
   contact: [],
   innovation: ["help"],
   mentorship: ["areas", "help"],
+  collaboration: ["areas"],
 };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -240,6 +244,30 @@ export const schemas = {
       .min(1, "Choose at least one area."),
     help: z.array(z.enum(values(careerHelp))).max(5),
     message: optional(MESSAGE_LIMIT),
+    consent,
+  }),
+
+  collaboration: z.object({
+    name: required("Enter your full name."),
+    email,
+    phone,
+    organisation: required("Enter the name of your organisation."),
+    role: required("Enter your role or title, for example Head of Research."),
+    type: choice(collaboratorTypes, "Choose the type of organisation."),
+    areas: z
+      .array(z.enum(values(collaborationAreas)))
+      .min(1, "Choose at least one area you would like to explore."),
+    summary: message(
+      "Describe what you have in mind, and what you hope it would achieve.",
+    ),
+    link: z
+      .string()
+      .trim()
+      .max(300, "Keep the link under 300 characters.")
+      .refine(
+        (v) => !v || /^https?:\/\/\S+$/.test(v),
+        "Enter a full web address starting with https://, or leave it blank.",
+      ),
     consent,
   }),
 } satisfies Record<FormKind, z.ZodType>;
