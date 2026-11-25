@@ -4,7 +4,8 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { getProgrammes } from "@/lib/content/loaders";
+import { membershipCategories } from "@/lib/enquiries";
+import { getMembershipCategories, getProgrammes } from "@/lib/content/loaders";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -19,6 +20,23 @@ export default function Page() {
     value: p.slug,
     label: p.title,
   }));
+  // The categories someone can register interest in, from the same content
+  // as the comparison on /membership. Honorary is by invitation, so it is left out.
+  const content = getMembershipCategories();
+  const categories = membershipCategories.flatMap((option) => {
+    const c = content.find((x) => x.slug === option.value);
+    return c
+      ? [
+          {
+            value: option.value,
+            name: c.name,
+            eligibility: c.eligibility,
+            admission: c.admission,
+            payment: c.payment,
+          },
+        ]
+      : [];
+  });
 
   return (
     <>
@@ -34,7 +52,10 @@ export default function Page() {
       <Section tone="cloud" spacing="none" className="py-12 lg:py-20">
         <Container className="grid gap-12 lg:grid-cols-12">
           <div className="rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
-            <RegisterInterestForm programmes={programmes} />
+            <RegisterInterestForm
+              programmes={programmes}
+              categories={categories}
+            />
           </div>
           <aside
             aria-labelledby="apply-aside-heading"

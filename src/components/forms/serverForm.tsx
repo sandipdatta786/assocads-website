@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
   useSyncExternalStore,
+  type FocusEvent,
   type FormEvent,
   type ReactNode,
 } from "react";
@@ -42,7 +43,29 @@ function loadRules() {
   return rules;
 }
 
-export function useServerForm(kind: FormKind) {
+/** Only the entries of `found` whose keys are in `names`. */
+function pick(found: Record<string, string>, names: readonly string[]) {
+  return Object.fromEntries(
+    Object.entries(found).filter(([k]) => names.includes(k)),
+  );
+}
+
+function fieldOf(target: EventTarget): HTMLInputElement | null {
+  const el = target as HTMLInputElement;
+  return el && typeof el.name === "string" && el.name ? el : null;
+}
+
+type Options = {
+  /** The fields that may show errors while the visitor corrects them. A
+      form in steps passes the steps already reached; null means every field. */
+  scope?: readonly string[] | null;
+  /** Called when a send is refused, with every problem found, before the
+      error summary takes focus: a form in steps moves to the first one. */
+  onInvalid?: (errors: Record<string, string>) => void;
+};
+
+export function useServerForm(kind: FormKind, options: Options = {}) {
+  const { scope = null, onInvalid } = options;
   const [state, formAction, pending] = useActionState(
     submitForm,
     initialFormState,
@@ -112,6 +135,7 @@ export function useServerForm(kind: FormKind) {
       flushSync(() => {
         setErrors(found);
         setChecking(true);
+        if (Object.keys(found).length > 0) onInvalid?.(found);
       });
       if (Object.keys(found).length > 0) {
         summaryRef.current?.focus();
@@ -121,9 +145,65 @@ export function useServerForm(kind: FormKind) {
     });
   }
 
-  /** Once the visitor has tried to send, re-check as they correct each field. */
-  function onChange() {
-    if (checking) void check().then(setErrors);
+  /** Check some fields now, for example one step of a longer form. Shows
+      their problems, keeps the others, and returns what it found. */
+  async function validate(names: readonly string[]) {
+    const found = pick(await check(), names);
+    flushSync(() => {
+      setErrors((prev) => ({
+        ...Object.fromEntries(
+          Object.entries(prev).filter(([k]) => !names.includes(k)),
+        ),
+        ...found,
+      }));
+      setChecking(true);
+    });
+    return found;
+  }
+
+  /** Re-check one field and update only its message. */
+  function recheck(name: string) {
+    void check().then((found) =>
+      setErrors((prev) => {
+        if (prev[name] === found[name]) return prev;
+        const next = { ...prev };
+        if (found[name]) next[name] = found[name];
+        else delete next[name];
+        return next;
+      }),
+    );
+  }
+
+  /** Once the visitor has tried to send, re-check as they correct each field.
+      Before that, a field that is already flagged is re-checked as they type,
+      so its message goes as soon as it is right. */
+  function onChange(event: FormEvent<HTMLFormElement>) {
+    if (checking) {
+      void check().then((found) =>
+        setErrors(scope ? pick(found, scope) : found),
+      );
+      return;
+    }
+    const field = fieldOf(event.target);
+    if (field && errors[field.name]) recheck(field.name);
+  }
+
+  /** Inline checking: when someone leaves a field they have typed in, tell
+      them at once if it is not right (an email address without an @, say).
+      An empty field is never flagged here; that waits until they send. */
+  function onBlur(event: FocusEvent<HTMLFormElement>) {
+    if (checking) return;
+    const field = fieldOf(event.target);
+    if (
+      !field ||
+      field.type === "checkbox" ||
+      field.type === "radio" ||
+      field.type === "hidden" ||
+      !field.value.trim()
+    ) {
+      return;
+    }
+    recheck(field.name);
   }
 
   /** Start loading the rules as soon as someone moves into the form. */
@@ -139,6 +219,7 @@ export function useServerForm(kind: FormKind) {
     returned: state.values ?? ({} as FormValues),
     done: state.status === "sent" && dismissed !== state,
     dismiss: () => setDismissed(state),
+    validate,
     attempt,
     summaryRef,
     resultRef,
@@ -148,6 +229,7 @@ export function useServerForm(kind: FormKind) {
       action: formAction,
       onSubmit,
       onChange,
+      onBlur,
       onFocus,
       noValidate: true,
     },
@@ -385,6 +467,7 @@ export function SentPanel({
   resultRef,
   title,
   children,
+  next,
   onBack,
   backLabel = "Back to the form",
 }: {
@@ -392,6 +475,8 @@ export function SentPanel({
   resultRef: React.RefObject<HTMLDivElement | null>;
   title: string;
   children: ReactNode;
+  /** "What happens next", one step per item, in order. */
+  next?: ReactNode[];
   onBack: () => void;
   backLabel?: string;
 }) {
@@ -411,6 +496,26 @@ export function SentPanel({
       />
       <h2 className="font-display text-h3 font-semibold text-ink">{title}</h2>
       <div className="text-body text-ink">{children}</div>
+      {next && next.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-body font-semibold text-ink">
+            What happens next
+          </h3>
+          <ol className="flex flex-col gap-3 text-body text-ink">
+            {next.map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  aria-hidden="true"
+                  className="flex size-7 shrink-0 items-center justify-center rounded-full bg-paper font-mono text-small font-semibold text-indigo"
+                >
+                  {i + 1}
+                </span>
+                <span className="pt-0.5">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
       {local && (
         <p className={cn("rounded-s bg-marigold-tint p-4 text-small text-ink")}>
           <strong>

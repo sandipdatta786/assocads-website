@@ -78,6 +78,8 @@ type FormCase = {
   fill: (page: Page, email: string) => Promise<void>;
   /** A message the empty form must show, tied to a field. */
   emptyError: { field: string; text: string };
+  /** The button that checks an empty form, when it is not the send button. */
+  emptyButton?: string;
   subject: RegExp;
   to: string;
 };
@@ -93,13 +95,16 @@ const cases: FormCase[] = [
       await page.locator("#register-interest-email").fill(email);
       await page.locator("#register-interest-city").fill("Kolkata");
       await page.getByLabel("A student").check();
-      await page.getByLabel("Ordinary membership").check();
+      await page.getByRole("button", { name: "Continue" }).click();
+      await page.getByLabel("Ordinary Member", { exact: true }).check();
+      await page.getByRole("button", { name: "Continue" }).click();
       await page.locator("#register-interest-consent").check();
     },
     emptyError: {
       field: "#register-interest-city",
       text: "Enter the city where you live or work.",
     },
+    emptyButton: "Continue",
     subject: /^Membership interest from Asha Test$/,
     to: "secretariat@example.org",
   },
@@ -329,7 +334,9 @@ for (const c of cases) {
     test("shows validation errors and sends nothing", async ({ page }) => {
       await page.goto(c.path);
       await waitForHydration(page);
-      await page.getByRole("button", { name: c.submit }).click();
+      await page
+        .getByRole("button", { name: c.emptyButton ?? c.submit })
+        .click();
 
       const summary = page.getByRole("alert").filter({ hasText: "problem" });
       await expect(summary).toBeVisible();
@@ -427,6 +434,178 @@ test.describe("without JavaScript", () => {
     await page.locator("#contact-form-message").fill("Without scripts.");
     await page.locator("#contact-form-consent").check();
     await page.getByRole("button", { name: "Send message" }).click();
+    await expect(
+      page.getByRole("status").filter({ hasText: "Thank you" }),
+    ).toBeVisible();
+    await expect.poll(async () => (await sentTo(email)).length).toBe(1);
+  });
+});
+
+test.describe("membership form in steps", () => {
+  const field = (name: string) => `#register-interest-${name}`;
+  const cont = (page: Page) =>
+    page.getByRole("button", { name: "Continue" }).click();
+
+  async function fillAboutYou(page: Page) {
+    await page.locator(field("name")).fill("Asha Test");
+    await page.locator(field("email")).fill("asha@example.com");
+    await page.locator(field("city")).fill("Kolkata");
+    await page.getByLabel("A student").check();
+  }
+
+  test("moves step by step, keeps answers and shows progress", async ({
+    page,
+  }) => {
+    await page.goto("/membership/apply");
+    await waitForHydration(page);
+    const steps = page.getByRole("list", { name: "Form steps" });
+    await expect(steps.locator('[aria-current="step"]')).toContainText(
+      "About you",
+    );
+    // Later steps are not on screen yet.
+    await expect(page.locator(field("consent"))).toBeHidden();
+
+    await fillAboutYou(page);
+    await cont(page);
+    const heading = page.getByRole("heading", { name: /Step 2 of 3/ });
+    await expect(heading).toBeFocused();
+    await expect(steps.locator('[aria-current="step"]')).toContainText(
+      "Category",
+    );
+
+    // Category is required before moving on, and its card is a radio.
+    await cont(page);
+    await expect(
+      page.getByRole("alert").filter({ hasText: "Choose a category" }),
+    ).toBeFocused();
+    await page.getByLabel("Life Member", { exact: true }).check();
+    await expect(page.getByText("There is one problem")).toBeHidden();
+
+    // Back keeps what was typed; the done step is a button.
+    await page.getByRole("button", { name: /Step 1, done/ }).click();
+    await expect(page.locator(field("city"))).toHaveValue("Kolkata");
+    await cont(page);
+    await expect(page.getByLabel("Life Member", { exact: true })).toBeChecked();
+    await cont(page);
+    await expect(
+      page.getByRole("heading", { name: /Step 3 of 3/ }),
+    ).toBeFocused();
+    await expect(
+      page.getByRole("button", { name: "Register your interest" }),
+    ).toBeVisible();
+    // Arriving on the last step flags nothing until it is sent.
+    await expect(page.locator(field("consent"))).not.toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+  });
+
+  test("Enter in a field continues instead of sending", async ({ page }) => {
+    await page.goto("/membership/apply");
+    await waitForHydration(page);
+    await fillAboutYou(page);
+    await page.locator(field("city")).press("Enter");
+    await expect(
+      page.getByRole("heading", { name: /Step 2 of 3/ }),
+    ).toBeFocused();
+  });
+
+  test("checks a field as soon as someone leaves it", async ({ page }) => {
+    await page.goto("/membership/apply");
+    await waitForHydration(page);
+    const email = page.locator(field("email"));
+    // An empty field is not flagged on leaving it.
+    await page.locator(field("name")).focus();
+    await page.locator(field("name")).blur();
+    await expect(page.locator(field("name"))).not.toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    await email.fill("asha.example.com");
+    await email.blur();
+    await expect(email).toHaveAttribute("aria-invalid", "true");
+    await expect(page.locator(`${field("email")}-error`)).toContainText(
+      "name@example.com",
+    );
+    // Fixing it clears the message as they type.
+    await email.fill("asha@example.com");
+    await expect(email).not.toHaveAttribute("aria-invalid", "true");
+  });
+
+  test("keeps a draft in the tab, never the consent, and clears it", async ({
+    page,
+  }) => {
+    await page.goto("/membership/apply");
+    await waitForHydration(page);
+    await fillAboutYou(page);
+    await cont(page);
+    await page.getByLabel("Ordinary Member", { exact: true }).check();
+    await cont(page);
+    await page.locator(field("consent")).check();
+
+    await page.reload();
+    await waitForHydration(page);
+    await expect(
+      page.getByText("We have filled in the answers you started earlier"),
+    ).toBeVisible();
+    await expect(page.locator(field("name"))).toHaveValue("Asha Test");
+    const stored = await page.evaluate(() =>
+      sessionStorage.getItem("assocads:membership-draft"),
+    );
+    expect(stored).toContain("Kolkata");
+    expect(stored).not.toContain("consent");
+    expect(
+      await page.evaluate(() => localStorage.length),
+      "nothing is kept in local storage",
+    ).toBe(0);
+
+    await page
+      .getByRole("button", { name: "Clear them and start again" })
+      .click();
+    await expect(page.locator(field("name"))).toHaveValue("");
+    expect(
+      await page.evaluate(() =>
+        sessionStorage.getItem("assocads:membership-draft"),
+      ),
+    ).toBeNull();
+  });
+
+  test("removes the draft once sent and says what happens next", async ({
+    page,
+  }) => {
+    const email = uniqueEmail("steps");
+    await page.goto("/membership/apply");
+    await waitForHydration(page);
+    await cases[0].fill(page, email);
+    await ageForm(page);
+    await page.getByRole("button", { name: "Register your interest" }).click();
+    const status = page.getByRole("status").filter({ hasText: "Thank you" });
+    await expect(status).toBeFocused();
+    await expect(status).toContainText("What happens next");
+    expect(
+      await page.evaluate(() =>
+        sessionStorage.getItem("assocads:membership-draft"),
+      ),
+    ).toBeNull();
+    await expect.poll(async () => (await sentTo(email)).length).toBe(1);
+  });
+});
+
+test.describe("membership form without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("shows every step at once and sends", async ({ page }) => {
+    await page.goto("/membership/apply");
+    await expect(page.getByRole("list", { name: "Form steps" })).toBeHidden();
+    await expect(page.getByRole("button", { name: "Continue" })).toBeHidden();
+    const email = uniqueEmail("nojs-steps");
+    await page.locator("#register-interest-name").fill("Asha Test");
+    await page.locator("#register-interest-email").fill(email);
+    await page.locator("#register-interest-city").fill("Kolkata");
+    await page.getByLabel("A student").check();
+    await page.getByLabel("Ordinary Member", { exact: true }).check();
+    await page.locator("#register-interest-consent").check();
+    await page.getByRole("button", { name: "Register your interest" }).click();
     await expect(
       page.getByRole("status").filter({ hasText: "Thank you" }),
     ).toBeVisible();

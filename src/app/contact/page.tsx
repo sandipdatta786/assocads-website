@@ -159,6 +159,11 @@ export default function Page() {
               consent="reply to my message"
               submitLabel="Send message"
               successText="We have received your message and will reply by email."
+              successSteps={[
+                "We have emailed you a short acknowledgement. If it has not arrived, look in your spam folder.",
+                "We read every message and reply by email, to the address you gave.",
+                "Nothing more is needed from you now.",
+              ]}
               fields={[
                 {
                   kind: "text",

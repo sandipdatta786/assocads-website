@@ -185,6 +185,12 @@ export default function Page() {
               consent="reply to me about my idea and, only if I ask for them, discuss introductions and a pitch day"
               submitLabel="Send my idea"
               successText="Thank you. We have received your idea and will reply. Nothing has been shared publicly."
+              successSteps={[
+                "We have emailed you a short acknowledgement. If it has not arrived, look in your spam folder.",
+                "We read your idea and reply by email, perhaps with a few questions about it.",
+                "We will not share the details publicly without asking you first.",
+                "Introductions and a pitch day are discussed only if you asked for them.",
+              ]}
               fields={[
                 {
                   kind: "text",

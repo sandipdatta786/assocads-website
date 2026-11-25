@@ -211,6 +211,14 @@ export default function Page() {
               close the notice at the top of the page, your browser remembers
               this until you close the tab. Nothing is sent to us.
             </li>
+            <li>
+              <strong>Your answers on the membership form.</strong> While you
+              fill in the form to register your interest in membership, your
+              browser keeps your answers in its session storage, so that a
+              reload does not lose them. They stay on your device, are removed
+              when you send the form or close the tab, and you can clear them on
+              the form at any time. Your consent is never kept.
+            </li>
           </ul>
           <h3>Visitor statistics and page speed</h3>
           <p>
