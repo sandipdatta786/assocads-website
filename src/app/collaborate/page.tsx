@@ -170,7 +170,11 @@ export default function Page() {
               enough to start. Fields marked optional can be left blank.
             </p>
           </div>
-          <div id={FORM_ID} className="scroll-mt-24">
+          <div
+            id={FORM_ID}
+            data-theme="light"
+            className="light-island scroll-mt-24"
+          >
             <EnquiryForm
               formId={FORM_ID}
               kind="collaboration"

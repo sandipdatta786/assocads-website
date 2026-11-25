@@ -3,8 +3,10 @@ import { expect, test, type Page } from "@playwright/test";
 
 /*
  * Every text and background combination in use must be one of the approved
- * pairings in docs/BRAND_GUIDE.md (section 2.3), which is read here so the
- * guide stays the one source of truth. Checked on every page at 390px, and
+ * pairings in docs/BRAND_GUIDE.md (section 2.3, and in the dark theme also
+ * section 2.7), which is read here so the guide stays the one source of
+ * truth. The dark theme is reached through the system setting, as most
+ * visitors will reach it. Checked on every page at 390px, and
  * at 1440px also with links, buttons and fields forced into their hover and
  * focus states. Field placeholder text is included.
  */
@@ -24,21 +26,27 @@ function brand() {
       m[2].toLowerCase(),
     );
   }
-  const section = md.slice(md.indexOf("### 2.3"), md.indexOf("### 2.4"));
+  const table = (from: string, to: string) =>
+    md.slice(md.indexOf(from), md.indexOf(to, md.indexOf(from)));
   const approved = new Set<string>();
+  const dark = new Set<string>();
   const hex = (cell: string) => {
     const inline = cell.match(/#[0-9A-Fa-f]{6}/)?.[0];
     if (inline) return inline.toLowerCase();
     return hexByName.get(cell.replace(/`.*`/, "").trim().toLowerCase());
   };
-  for (const row of section.split("\n").filter((l) => l.startsWith("| "))) {
-    const [text, background] = row.split("|").slice(1, 3);
-    const t = hex(text);
-    const b = hex(background);
-    if (t && b) approved.add(`${t} on ${b}`);
-  }
+  const read = (section: string, into: Set<string>) => {
+    for (const row of section.split("\n").filter((l) => l.startsWith("| "))) {
+      const [text, background] = row.split("|").slice(1, 3);
+      const t = hex(text);
+      const b = hex(background);
+      if (t && b) into.add(`${t} on ${b}`);
+    }
+  };
+  read(table("### 2.3", "### 2.4"), approved);
+  read(table("### 2.7", "### 2.8"), dark);
   const nameByHex = new Map([...hexByName].map(([n, h]) => [h, n]));
-  return { approved, nameByHex };
+  return { approved, dark, nameByHex };
 }
 
 let cachedRoutes: string[] | undefined;
@@ -143,75 +151,101 @@ function collectPairs({
   return out;
 }
 
-const { approved, nameByHex } = brand();
+const { approved, dark, nameByHex } = brand();
+/* In the dark theme, light islands (forms, the brand kit) still use the
+   light pairings, so both tables apply. */
+const allowed = {
+  light: approved,
+  dark: new Set([...approved, ...dark]),
+} as const;
+/* Translucent surfaces (the frosted header) are mixed in oklab, and the
+   round trip back to sRGB can land one step away from the brand colour:
+   #0b101f for Ink. Snap anything within two steps per channel. */
+const brandHexes = [...nameByHex.keys()];
+const snap = (pair: string) =>
+  pair.replace(/#[0-9a-f]{6}/g, (h) => {
+    const rgb = (x: string) =>
+      [1, 3, 5].map((i) => parseInt(x.slice(i, i + 2), 16));
+    const c = rgb(h);
+    return (
+      brandHexes.find((b) => rgb(b).every((v, i) => Math.abs(v - c[i]) <= 2)) ??
+      h
+    );
+  });
 const named = (p: string) =>
   p.replace(/#[0-9a-f]{6}/g, (h) => nameByHex.get(h) ?? h);
 
-test("the brand guide's pairings table could be read", () => {
+test("the brand guide's pairings tables could be read", () => {
   expect(approved.size).toBeGreaterThan(20);
   expect(approved.has("#0b1020 on #ffffff")).toBe(true);
+  expect(dark.size).toBeGreaterThan(5);
+  expect(dark.has("#ffffff on #0b1020")).toBe(true);
 });
 
-for (let part = 0; part < CHUNKS; part++) {
-  test(`colour pairs on every page (part ${part + 1} of ${CHUNKS})`, async ({
-    browser,
-  }) => {
-    test.setTimeout(300_000);
-    const problems = new Set<string>();
-    for (const width of [390, 1440]) {
-      const context = await browser.newContext({
-        viewport: { width, height: 900 },
-        reducedMotion: "reduce",
-      });
-      const page = await context.newPage();
-      const cdp = await context.newCDPSession(page);
-      const all = await routes(page);
-      for (const path of all.filter((_, i) => i % CHUNKS === part)) {
-        await page.goto(path, { waitUntil: "load" });
-        const report = (rows: [string, string][], state = "") => {
-          for (const [p, where] of rows)
-            if (!approved.has(p))
-              problems.add(
-                `${named(p)}${state}: ${where} on ${path} at ${width}px`,
-              );
-        };
-        report(
-          await page.evaluate(collectPairs, {
-            interactiveOnly: false,
-            selector: INTERACTIVE,
-          }),
-        );
-        if (width !== 1440) continue;
-        await cdp.send("DOM.enable");
-        await cdp.send("CSS.enable");
-        const { root } = await cdp.send("DOM.getDocument", { depth: -1 });
-        const { nodeIds } = await cdp.send("DOM.querySelectorAll", {
-          nodeId: root.nodeId,
-          selector: INTERACTIVE,
+for (const theme of ["light", "dark"] as const)
+  for (let part = 0; part < CHUNKS; part++) {
+    test(`${theme} theme: colour pairs on every page (part ${part + 1} of ${CHUNKS})`, async ({
+      browser,
+    }) => {
+      test.setTimeout(300_000);
+      const problems = new Set<string>();
+      for (const width of [390, 1440]) {
+        const context = await browser.newContext({
+          viewport: { width, height: 900 },
+          reducedMotion: "reduce",
+          colorScheme: theme,
         });
-        for (const state of [["hover"], ["focus", "focus-visible"]]) {
-          for (const nodeId of nodeIds)
-            await cdp.send("CSS.forcePseudoState", {
-              nodeId,
-              forcedPseudoClasses: state,
-            });
+        const page = await context.newPage();
+        const cdp = await context.newCDPSession(page);
+        const all = await routes(page);
+        for (const path of all.filter((_, i) => i % CHUNKS === part)) {
+          await page.goto(path, { waitUntil: "load" });
+          const report = (rows: [string, string][], state = "") => {
+            for (const [raw, where] of rows) {
+              const p = snap(raw);
+              if (!allowed[theme].has(p))
+                problems.add(
+                  `${named(p)}${state}: ${where} on ${path} at ${width}px`,
+                );
+            }
+          };
           report(
             await page.evaluate(collectPairs, {
-              interactiveOnly: true,
+              interactiveOnly: false,
               selector: INTERACTIVE,
             }),
-            ` (${state.at(-1)})`,
           );
-          for (const nodeId of nodeIds)
-            await cdp.send("CSS.forcePseudoState", {
-              nodeId,
-              forcedPseudoClasses: [],
-            });
+          if (width !== 1440) continue;
+          await cdp.send("DOM.enable");
+          await cdp.send("CSS.enable");
+          const { root } = await cdp.send("DOM.getDocument", { depth: -1 });
+          const { nodeIds } = await cdp.send("DOM.querySelectorAll", {
+            nodeId: root.nodeId,
+            selector: INTERACTIVE,
+          });
+          for (const state of [["hover"], ["focus", "focus-visible"]]) {
+            for (const nodeId of nodeIds)
+              await cdp.send("CSS.forcePseudoState", {
+                nodeId,
+                forcedPseudoClasses: state,
+              });
+            report(
+              await page.evaluate(collectPairs, {
+                interactiveOnly: true,
+                selector: INTERACTIVE,
+              }),
+              ` (${state.at(-1)})`,
+            );
+            for (const nodeId of nodeIds)
+              await cdp.send("CSS.forcePseudoState", {
+                nodeId,
+                forcedPseudoClasses: [],
+              });
+          }
         }
+        await context.close();
       }
-      await context.close();
-    }
-    const list = [...problems];
-    expect(list, list.join("\n")).toEqual([]);
-  });
-}
+      const list = [...problems];
+      expect(list, list.join("\n")).toEqual([]);
+    });
+  }

@@ -210,7 +210,8 @@ function ToneDemo({ tone }: { tone: Tone }) {
 
 export default function StyleGuidePage() {
   return (
-    <main>
+    // The style guide shows the brand as specified, so it stays light.
+    <main data-theme="light">
       <Section>
         <Container className="flex flex-col gap-20">
           <header className="flex flex-col gap-5">

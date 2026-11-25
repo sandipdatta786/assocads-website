@@ -38,7 +38,8 @@ export function SiteHeader() {
 
   const logo = (
     <Link href="/" className="inline-flex min-h-11 items-center rounded-s">
-      <Logo layout="horizontal" version="colour" height={34} />
+      {/* "auto": the on-dark artwork in the dark theme (brand guide 4.2). */}
+      <Logo layout="horizontal" version="auto" height={34} />
     </Link>
   );
 

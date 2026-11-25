@@ -190,8 +190,11 @@ export default async function Page() {
       </Section>
 
       {/* Brand kit */}
+      {/* Light in both themes: logo files and colours are shown on the
+          backgrounds they are made for. */}
       <Section
         tone="paper"
+        data-theme="light"
         id="brand-kit"
         aria-labelledby="brand-heading"
         className="scroll-mt-20"

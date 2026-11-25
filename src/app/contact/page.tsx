@@ -146,7 +146,10 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6 rounded-l bg-paper p-6 sm:p-10 lg:col-span-8">
+          <div
+            data-theme="light"
+            className="flex flex-col gap-6 rounded-l bg-paper p-6 sm:p-10 lg:col-span-8"
+          >
             <h2
               id="contact-form-heading"
               className="font-display text-h2 font-semibold text-ink"
