@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { ApproachTeaser } from "@/components/sections/home/ApproachTeaser";
-import { AudienceRouting } from "@/components/sections/home/AudienceRouting";
+import { AboutSplit } from "@/components/sections/home/AboutSplit";
+import { Ecosystem } from "@/components/sections/home/Ecosystem";
 import { Hero } from "@/components/sections/home/Hero";
 import { HomeQuestions } from "@/components/sections/home/HomeQuestions";
 import { RoadmapTeaser } from "@/components/sections/home/RoadmapTeaser";
@@ -30,20 +31,21 @@ export default function HomePage() {
     <>
       <OldAnchorRedirect />
       <Hero />
-      <AudienceRouting />
+      <AboutSplit />
+      <Ecosystem />
       <WhatWeDo />
       <ApproachTeaser />
       <WhyAssocads />
       <TrusteesPreview />
+      <RoadmapTeaser />
       <LatestUpdates />
       <ShowcaseIdea />
-      <RoadmapTeaser />
       <HomeQuestions />
       <CallToAction
-        title="Be part of it from the start"
-        text="Membership opens once the Board has adopted bye-laws after registration. Tell us you are interested and we will be in touch."
+        title="The future of AI is a shared responsibility."
+        text="Connect with a community committed to advancing AI and Data Science through knowledge, collaboration and responsible innovation."
         primary={{ label: "Become a member", href: "/membership" }}
-        secondary={{ label: "Partner with us", href: "/partner" }}
+        secondary={{ label: "Partner with ASSOCADS", href: "/partner" }}
       />
     </>
   );

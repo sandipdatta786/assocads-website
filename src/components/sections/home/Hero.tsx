@@ -3,13 +3,16 @@ import { Container } from "@/components/ui/Container";
 import { NodeLines } from "@/components/ui/Decor";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow, Heading, Lead } from "@/components/ui/Typography";
-import { registrationLine, site } from "@/config/site";
+import { site } from "@/config/site";
 
 const HEADLINE = [
   "Connecting talent,",
   "knowledge, innovation",
-  "and opportunity in AI",
+  "and opportunity.",
 ];
+
+const SUPPORT =
+  "ASSOCADS brings together students, professionals, academia and industry to advance Artificial Intelligence and Data Science in India, beginning in West Bengal.";
 
 export function Hero() {
   return (
@@ -39,14 +42,14 @@ export function Hero() {
             ))}
           </Heading>
           <Lead className="hero-follow">
-            {site.description} {site.mission} {registrationLine()}
+            {site.description} {SUPPORT}
           </Lead>
           <div className="hero-follow-late mt-4 flex flex-wrap gap-3">
             <ButtonLink href="/membership" size="large">
               Become a member
             </ButtonLink>
-            <ButtonLink href="/programmes" size="large" variant="secondary">
-              See what we do
+            <ButtonLink href="/about" size="large" variant="secondary">
+              Explore ASSOCADS
             </ButtonLink>
           </div>
         </div>
