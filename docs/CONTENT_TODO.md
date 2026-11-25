@@ -47,7 +47,7 @@ Send each trustee the form in `docs/TRUSTEE_PROFILE_TEMPLATE.md`. Each still nee
 - [ ] Biswajeet Chaki · role, organisation, biography, expertise and LinkedIn needed; photo and consent received 24 November 2026
 - [ ] Sayan Guha · role, organisation, biography, expertise and LinkedIn needed; photo received
 - [ ] Deb Kumar Majumder · LinkedIn needed; profile added 24 November 2026; photo received
-- [ ] Sandip Datta · role, organisation, biography, expertise and LinkedIn needed; photo received
+- [x] Sandip Datta · profile, LinkedIn and photo received; profile added 25 November 2026 from his resume
 - [ ] Agnimitra Biswas · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
 - [ ] Ayan Chakraborty · role, organisation, biography, expertise and LinkedIn needed; photo and consent needed
 - [ ] Eshwar Boini · role, organisation, biography, expertise and LinkedIn needed; photo received
