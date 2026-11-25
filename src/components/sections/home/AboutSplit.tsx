@@ -40,10 +40,10 @@ export function AboutSplit() {
             research, industry collaboration and support for startups, each one
             open to people from every background.
           </p>
+          {/* That trustees are unpaid and the assets can never be shared is
+              said under "Why ASSOCADS", so it is not repeated here. */}
           <p className="max-w-[720px] text-body text-slate-600">
-            {registrationLine()} The trust&rsquo;s trustees serve without
-            payment, and its assets can never be shared among trustees or
-            members.
+            {registrationLine()}
           </p>
         </div>
       </Container>

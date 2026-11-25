@@ -33,7 +33,8 @@ export function RoadmapTeaser() {
                 {stage.title}
               </h3>
               <ul className="flex flex-col gap-3">
-                {stage.items.slice(0, 3).map((item) => (
+                {/* The first two of each stage; the roadmap page has them all. */}
+                {stage.items.slice(0, 2).map((item) => (
                   <li
                     key={item}
                     className="flex gap-3 text-body text-slate-600"
