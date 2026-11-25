@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { NodeLines } from "@/components/ui/Decor";
 import { Section } from "@/components/ui/Section";
+import { HeroNetwork } from "@/components/sections/home/HeroNetwork";
 import { Eyebrow, Heading, Lead } from "@/components/ui/Typography";
 import { site } from "@/config/site";
 
@@ -21,12 +21,13 @@ export function Hero() {
       spacing="none"
       className="relative isolate overflow-hidden pt-16 pb-20 sm:pt-24 lg:pt-32 lg:pb-36"
     >
-      {/* Decorative network, faded towards the text so it never competes with it. */}
+      {/* Decorative network, faded towards the text so it never competes with
+          it. It draws in once and, with a mouse, leans towards the pointer. */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 bottom-0 -z-10 h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_60%)] opacity-50 lg:inset-y-0 lg:right-0 lg:left-auto lg:h-full lg:w-1/2 lg:[mask-image:linear-gradient(to_right,transparent,black_70%)] lg:opacity-80"
       >
-        <NodeLines />
+        <HeroNetwork />
       </div>
 
       <Container>

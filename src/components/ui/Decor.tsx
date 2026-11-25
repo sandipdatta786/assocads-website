@@ -19,7 +19,8 @@ export function DotGrid({ className }: { className?: string }) {
   );
 }
 
-const nodes: Array<[number, number]> = [
+/** Node positions in the 580 x 320 viewBox, shared with the hero network. */
+export const nodes: Array<[number, number]> = [
   [40, 210],
   [130, 120],
   [215, 185],
@@ -31,7 +32,8 @@ const nodes: Array<[number, number]> = [
   [330, 250],
   [180, 270],
 ];
-const links: Array<[number, number]> = [
+/** Pairs of node indexes that are joined by a line. */
+export const links: Array<[number, number]> = [
   [0, 1],
   [1, 2],
   [2, 3],
