@@ -55,6 +55,13 @@ const forms: {
     why: "To reply to your idea and, only if you ask for them, to discuss mentoring, industry or investor introductions and a pitch day. We share your details with anyone outside ASSOCADS only with your written permission.",
   },
   {
+    name: "Industry and academic collaboration",
+    href: "/collaborate",
+    collects:
+      "Your name, email address, role, organisation and its type, what you would like to explore, a summary of your proposal, your consent, and optionally your phone number and a link.",
+    why: "To reply to your proposal and discuss whether a collaboration would suit both sides. We name an organisation in connection with a collaboration only with its written permission, and share your details with anyone outside ASSOCADS only with your written permission.",
+  },
+  {
     name: "Mentorship and careers",
     href: "/mentorship",
     collects:

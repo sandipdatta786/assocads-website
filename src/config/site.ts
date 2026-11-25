@@ -192,6 +192,7 @@ export const site = {
     { label: "Support ASSOCADS", href: "/support" },
     { label: "Showcase your idea", href: "/innovation" },
     { label: "Mentorship and careers", href: "/mentorship" },
+    { label: "Industry and academic collaboration", href: "/collaborate" },
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
 
@@ -222,6 +223,10 @@ export const site = {
         { label: "Support ASSOCADS", href: "/support" },
         { label: "Showcase your idea", href: "/innovation" },
         { label: "Mentorship and careers", href: "/mentorship" },
+        {
+          label: "Industry and academic collaboration",
+          href: "/collaborate",
+        },
       ],
     },
     {

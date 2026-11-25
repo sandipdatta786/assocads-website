@@ -215,6 +215,36 @@ const cases: FormCase[] = [
     to: "secretariat@example.org",
   },
   {
+    kind: "industry or academic collaboration",
+    path: "/collaborate",
+    formId: "collaboration-enquiry",
+    submit: "Send my proposal",
+    async fill(page, email) {
+      await page.locator("#collaboration-enquiry-name").fill("Asha Test");
+      await page.locator("#collaboration-enquiry-email").fill(email);
+      await page
+        .locator("#collaboration-enquiry-organisation")
+        .fill("Salt Lake Analytics");
+      await page
+        .locator("#collaboration-enquiry-role")
+        .fill("Head of Research");
+      await page
+        .locator("#collaboration-enquiry-type")
+        .selectOption("research");
+      await page.getByLabel("Joint research or publications").check();
+      await page
+        .locator("#collaboration-enquiry-summary")
+        .fill("A joint study on data quality in public health records.");
+      await page.locator("#collaboration-enquiry-consent").check();
+    },
+    emptyError: {
+      field: "#collaboration-enquiry-organisation",
+      text: "Enter the name of your organisation.",
+    },
+    subject: /^Industry or academic collaboration enquiry from Asha Test$/,
+    to: "secretariat@example.org",
+  },
+  {
     kind: "contact",
     path: "/contact",
     formId: "contact-form",
