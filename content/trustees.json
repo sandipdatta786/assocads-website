@@ -117,12 +117,17 @@
     "capacity": "Founder Trustee",
     "officeTitle": "Joint Secretary",
     "committees": ["Branding and communication"],
-    "role": "[PLACEHOLDER: current role]",
-    "organisation": "[PLACEHOLDER: current organisation]",
-    "bio": "[PLACEHOLDER: biography of about sixty words]",
-    "expertise": ["[PLACEHOLDER: two to four areas of expertise]"],
+    "role": "Co-founder and Chief Executive Officer",
+    "organisation": "Eyngen.AI Private Limited",
+    "bio": "Sandip Datta is a technology and innovation leader with more than 25 years in AI, data and digital transformation. He founded EYnGen, the generative AI practice at EY, which grew to more than 500 practitioners, and now leads Eyngen.AI. He previously led IBM's Watson IoT business for India and South Asia. He is Dean, Innovation and Entrepreneurship, at SVIST, Kolkata, and author of AI Mastery for All.",
+    "expertise": [
+      "Artificial intelligence and generative AI",
+      "Data science and analytics",
+      "Digital transformation",
+      "Innovation and entrepreneurship"
+    ],
     "photo": "/images/trustees/sandip-datta.jpg",
-    "linkedin": "[PLACEHOLDER: LinkedIn profile link]",
+    "linkedin": "https://www.linkedin.com/in/sadatta",
     "consentToPublish": true,
     "published": true
   },
