@@ -15,7 +15,7 @@ export function WhatWeDo() {
           lead="Each programme comes from the objects in our trust deed. All eight are planned, and each page will say when work begins."
           action={<TextLink href="/programmes">All programmes</TextLink>}
         />
-        <ProgrammeGrid />
+        <ProgrammeGrid rail />
       </Container>
     </Section>
   );

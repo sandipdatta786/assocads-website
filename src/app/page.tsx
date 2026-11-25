@@ -9,6 +9,10 @@ import { RoadmapTeaser } from "@/components/sections/home/RoadmapTeaser";
 import { TrusteesPreview } from "@/components/sections/home/TrusteesPreview";
 import { LatestUpdates } from "@/components/sections/home/LatestUpdates";
 import { ShowcaseIdea } from "@/components/sections/home/ShowcaseIdea";
+import {
+  SectionDots,
+  type DotTarget,
+} from "@/components/sections/home/SectionDots";
 import { WhatWeDo } from "@/components/sections/home/WhatWeDo";
 import { OldAnchorRedirect } from "@/components/seo/OldAnchorRedirect";
 import { WhyAssocads } from "@/components/sections/home/WhyAssocads";
@@ -26,10 +30,25 @@ export const metadata: Metadata = pageMetadata({
   absoluteTitle: true,
 });
 
+/** The homepage's sections, by the id of each heading, for "On this page". */
+const sections: DotTarget[] = [
+  { id: "about-heading", label: "About" },
+  { id: "ecosystem-heading", label: "Communities" },
+  { id: "programmes-heading", label: "Areas of work" },
+  { id: "approach-heading", label: "Approach" },
+  { id: "why-heading", label: `Why ${site.shortName}` },
+  { id: "trustees-heading", label: "The people" },
+  { id: "roadmap-heading", label: "Roadmap" },
+  { id: "latest-heading", label: "Latest updates" },
+  { id: "showcase-heading", label: "Showcase an idea" },
+  { id: "questions-heading", label: "Good to know" },
+];
+
 export default function HomePage() {
   return (
     <>
       <OldAnchorRedirect />
+      <SectionDots sections={sections} />
       <Hero />
       <AboutSplit />
       <Ecosystem />
