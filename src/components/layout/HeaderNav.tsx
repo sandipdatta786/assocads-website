@@ -152,7 +152,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
     <div
       id={`${baseId}-${item.label}`}
       hidden={activeItem?.label !== item.label}
-      className="menu-panel absolute inset-x-0 top-full hidden border-b border-line bg-paper lg:block"
+      className="menu-panel absolute inset-x-0 top-full hidden border-b border-line bg-paper xl:block"
     >
       <Container className="grid grid-cols-12 gap-6 py-10">
         <ul
@@ -231,7 +231,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
           {logo}
 
           {/* Desktop navigation */}
-          <nav aria-label="Main" className="hidden lg:block">
+          <nav aria-label="Main" className="hidden xl:block">
             <ul className="flex items-center gap-1">
               {items.map((item) => {
                 const current = sectionIsCurrent(pathname, item);
@@ -295,7 +295,9 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
 
           <div className="flex items-center gap-2">
             <span className="hidden sm:block">
-              <ButtonLink href={join.href}>{join.label}</ButtonLink>
+              <ButtonLink href={join.href} className="whitespace-nowrap">
+                {join.label}
+              </ButtonLink>
             </span>
             <button
               ref={menuButtonRef}
@@ -303,7 +305,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
               aria-expanded={mobileOpen}
               aria-controls={`${baseId}-mobile`}
               onClick={() => setMobileOpen(true)}
-              className="inline-flex size-11 items-center justify-center rounded-pill text-ink hover:bg-cloud lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-pill text-ink hover:bg-cloud xl:hidden"
             >
               <Menu aria-hidden="true" size={24} strokeWidth={1.5} />
               <span className="sr-only">Open menu</span>
@@ -320,7 +322,7 @@ export function HeaderNav({ items, more, join, logo }: HeaderNavProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
-          className="menu-panel fixed inset-0 z-50 flex h-dvh flex-col bg-paper lg:hidden"
+          className="menu-panel fixed inset-0 z-50 flex h-dvh flex-col bg-paper xl:hidden"
         >
           <Container className="flex h-16 shrink-0 items-center justify-between border-b border-line">
             <span onClick={closeAll}>{logo}</span>
