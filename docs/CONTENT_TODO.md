@@ -92,3 +92,5 @@ Every route in the site map exists, but most show only a heading and `[PLACEHOLD
 - [ ] Founders: work through `docs/GEO_OFFSITE_CHECKLIST.md`, and run its ten test questions each month
 - [ ] `/achievements` · dated milestones confirmed by the founders, for example the date the trust deed was signed and the date of the first public launch. Add them to `content/milestones.json`
 - [ ] `/achievements` · counted figures (members, professionals trained, startups supported, research initiatives, industry collaborations). Each needs a count, the date it is correct as at, how it was counted and the confirming Founder Trustee. Add them to `content/impact.json`
+- [ ] `/digest` · choose the mailing service that will hold subscribers and send the monthly AI Digest, and agree how unsubscribing works. Until then, subscriptions arrive by email at the secretariat address
+- [ ] `/digest` · the first digest needs a trustee to review its content before it is sent

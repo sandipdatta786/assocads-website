@@ -78,6 +78,7 @@ None are set yet, so the live forms cannot send. `docs/DEPLOYMENT.md` section 4 
 - [ ] After the domain is connected: `NEXT_PUBLIC_SITE_URL` changed to it, and the GitHub variable `SITE_URL` added.
 - [ ] For the mentorship sign-up form at `/mentorship`: `FORMS_TO_MENTORSHIP` (or `FORMS_TO`).
 - [ ] For the collaboration proposal form at `/collaborate`: `FORMS_TO_COLLABORATION` (or `FORMS_TO`).
+- [ ] For AI Digest subscriptions at `/digest`: `FORMS_TO_NEWSLETTER` (or `FORMS_TO`), and choose a mailing service before the first digest is sent.
 - [ ] For the idea submission form at `/innovation`: the secretariat address (`FORMS_TO_INNOVATION`, or `FORMS_TO`). Submissions are sent to it, and the form does nothing useful without it.
 - [ ] For the admin editor at `/admin`: the GitHub OAuth App, then `DECAP_GITHUB_CLIENT_ID` and `DECAP_GITHUB_CLIENT_SECRET` (see `docs/ADMIN_GUIDE.md`, section 2). When the domain is connected, update the OAuth App's two addresses.
 - [ ] On launch day: `GOOGLE_SITE_VERIFICATION` and `BING_SITE_VERIFICATION` (see `docs/LAUNCH_DAY_SEARCH_SETUP.md`).

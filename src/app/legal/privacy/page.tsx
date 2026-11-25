@@ -55,6 +55,13 @@ const forms: {
     why: "To reply to your idea and, only if you ask for them, to discuss mentoring, industry or investor introductions and a pitch day. We share your details with anyone outside ASSOCADS only with your written permission.",
   },
   {
+    name: "AI Digest subscription",
+    href: "/digest",
+    collects:
+      "Your email address, optionally your name, the sections of the digest you would like to read about, and your consent. Subscribers can ask to stop at any time, and every digest explains how.",
+    why: "To send you the monthly ASSOCADS AI Digest. We do not share your address outside ASSOCADS without your written permission.",
+  },
+  {
     name: "Industry and academic collaboration",
     href: "/collaborate",
     collects:
