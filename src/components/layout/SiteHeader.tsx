@@ -50,6 +50,13 @@ export function SiteHeader() {
         join={site.joinLink}
         logo={logo}
       />
+      {/* How far down the page the reader is, along the header's lower edge.
+          Scroll-driven CSS (.reading-progress in globals.css); hidden where
+          unsupported or with reduced motion. */}
+      <div
+        aria-hidden="true"
+        className="reading-progress pointer-events-none absolute inset-x-0 bottom-0 hidden h-0.5 origin-left bg-indigo"
+      />
     </header>
   );
 }
