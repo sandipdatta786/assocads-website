@@ -169,24 +169,59 @@ function icsText(text: string): string {
     .replace(/[,;]/g, (c) => `\\${c}`);
 }
 
-/** An iCalendar (.ics) file for one event, for "Add to calendar". */
-export function icsFile(
-  event: EventDates & {
-    slug: string;
-    title: string;
-    summary: string;
-    venue: string;
-    city: string;
-  },
+/**
+ * Folds a content line to at most 75 octets per physical line (RFC 5545,
+ * 3.1), continuing with CRLF and a space. Counts UTF-8 bytes, so titles in
+ * Bengali or with symbols such as the rupee sign are never split mid-character.
+ */
+function icsFold(line: string): string {
+  const encoder = new TextEncoder();
+  const parts: string[] = [];
+  let current = "";
+  let bytes = 0;
+  for (const char of line) {
+    const size = encoder.encode(char).length;
+    const limit = parts.length === 0 ? 75 : 74; // continuation lines start with a space
+    if (bytes + size > limit) {
+      parts.push(current);
+      current = "";
+      bytes = 0;
+    }
+    current += char;
+    bytes += size;
+  }
+  parts.push(current);
+  return parts.join("\r\n ");
+}
+
+/** Joins content lines into an iCalendar body, folding long lines. */
+function icsJoin(lines: string[]): string {
+  return lines.map(icsFold).join("\r\n");
+}
+
+type IcsEvent = EventDates & {
+  slug: string;
+  title: string;
+  summary: string;
+  venue: string;
+  city: string;
+};
+
+const ICS_HEADER = [
+  "BEGIN:VCALENDAR",
+  "VERSION:2.0",
+  "PRODID:-//ASSOCADS//Events//EN",
+  "CALSCALE:GREGORIAN",
+];
+
+/** The VEVENT lines for one event. */
+function icsEventLines(
+  event: IcsEvent,
   pageUrl: string,
   host: string,
-): string {
+): string[] {
   const timed = hasTime(event.startDate);
   const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//ASSOCADS//Events//EN",
-    "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
     `UID:${event.slug}@${host}`,
     `DTSTAMP:${icsStamp(startOf(event.startDate))}`,
@@ -218,7 +253,44 @@ export function icsFile(
     ...(location ? [`LOCATION:${icsText(location)}`] : []),
     `URL:${pageUrl}`,
     "END:VEVENT",
-    "END:VCALENDAR",
   );
-  return lines.join("\r\n");
+  return lines;
+}
+
+/** An iCalendar (.ics) file for one event, for "Add to calendar". */
+export function icsFile(
+  event: IcsEvent,
+  pageUrl: string,
+  host: string,
+): string {
+  return icsJoin([
+    ...ICS_HEADER,
+    ...icsEventLines(event, pageUrl, host),
+    "END:VCALENDAR",
+  ]);
+}
+
+/**
+ * A subscribable calendar of every published event (/events.ics). Calendar
+ * apps refresh it on their own schedule, so a subscriber sees new events
+ * once they are published, and changes to dates or places.
+ */
+export function icsCalendar(
+  events: Array<IcsEvent>,
+  options: { name: string; description: string; baseUrl: string },
+): string {
+  const host = new URL(options.baseUrl).host;
+  return icsJoin([
+    ...ICS_HEADER,
+    "METHOD:PUBLISH",
+    `X-WR-CALNAME:${icsText(options.name)}`,
+    `X-WR-CALDESC:${icsText(options.description)}`,
+    "X-WR-TIMEZONE:Asia/Kolkata",
+    "REFRESH-INTERVAL;VALUE=DURATION:P1D",
+    "X-PUBLISHED-TTL:P1D",
+    ...events.flatMap((event) =>
+      icsEventLines(event, `${options.baseUrl}/events/${event.slug}`, host),
+    ),
+    "END:VCALENDAR",
+  ]);
 }
