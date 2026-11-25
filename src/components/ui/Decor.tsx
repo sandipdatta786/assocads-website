@@ -83,3 +83,59 @@ export function NodeLines({ className }: { className?: string }) {
     </svg>
   );
 }
+
+/** Nodes that are not joined yet, drawn as dashed outlines. */
+const pendingNodes = new Set([5, 6, 7]);
+
+/** The connected-node motif with its last few nodes still dashed outlines:
+    a network that is still being built. Used beside "nothing published yet"
+    notes. Decorative only. */
+export function PendingNodes({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 580 320"
+      preserveAspectRatio="xMidYMid slice"
+      className={cn("pointer-events-none size-full text-tone-link", className)}
+    >
+      <g stroke="currentColor" strokeWidth="1" opacity="0.4">
+        {links.map(([a, b]) => (
+          <line
+            key={`${a}-${b}`}
+            x1={nodes[a][0]}
+            y1={nodes[a][1]}
+            x2={nodes[b][0]}
+            y2={nodes[b][1]}
+            strokeDasharray={
+              pendingNodes.has(a) || pendingNodes.has(b) ? "4 6" : undefined
+            }
+          />
+        ))}
+      </g>
+      {nodes.map(([x, y], i) =>
+        pendingNodes.has(i) ? (
+          <circle
+            key={i}
+            cx={x}
+            cy={y}
+            r="7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeDasharray="3 3"
+            opacity="0.7"
+          />
+        ) : (
+          <circle
+            key={i}
+            cx={x}
+            cy={y}
+            r={i === 3 ? 6 : 4}
+            fill={i === 3 ? "var(--marigold)" : "currentColor"}
+            opacity={i === 3 ? 1 : 0.7}
+          />
+        ),
+      )}
+    </svg>
+  );
+}

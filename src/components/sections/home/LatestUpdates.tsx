@@ -7,8 +7,7 @@ import { SectionIntro } from "@/components/sections/SectionIntro";
 import { VoiceCard } from "@/components/voices/VoiceCard";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/Decor";
-import { Icon } from "@/components/ui/Icon";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/config/site";
@@ -207,32 +206,23 @@ function Part({
 
 function NothingYet() {
   return (
-    <div className="relative isolate flex flex-col gap-6 overflow-hidden rounded-l border border-line bg-paper p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:p-14">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 -z-10 w-1/2 [mask-image:linear-gradient(to_right,transparent,black)] opacity-60"
-      >
-        <DotGrid />
-      </div>
-      <div className="flex max-w-xl flex-col gap-4">
-        <Icon icon={CalendarDays} size={32} className="text-indigo" />
-        <h3 className="font-display text-h3 font-semibold text-ink">
-          No events, announcements or recordings yet
-        </h3>
-        <p className="text-body text-slate-600">
-          We plan to announce our first programme calendar after the trust is
-          registered. Upcoming events, news, videos, podcasts and highlights
-          from past events will appear here. Register your interest and we will
-          let you know.
-        </p>
-      </div>
-      <ButtonLink
-        href={site.joinLink.href}
-        size="large"
-        className="w-fit shrink-0"
-      >
-        Register your interest
-      </ButtonLink>
-    </div>
+    <EmptyState
+      icon={CalendarDays}
+      title="No events, announcements or recordings yet"
+      headingLevel={3}
+      surface="paper"
+      actions={
+        <ButtonLink href={site.joinLink.href} size="large">
+          Register your interest
+        </ButtonLink>
+      }
+    >
+      <p>
+        We plan to announce our first programme calendar after the trust is
+        registered. Upcoming events, news, videos, podcasts and highlights from
+        past events will appear here. Register your interest and we will let you
+        know.
+      </p>
+    </EmptyState>
   );
 }
