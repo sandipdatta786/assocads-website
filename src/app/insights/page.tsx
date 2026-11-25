@@ -4,14 +4,14 @@ import { InsightsBrowser } from "@/components/insights/InsightsBrowser";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { DotGrid } from "@/components/ui/Decor";
-import { Icon } from "@/components/ui/Icon";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/config/site";
 import { builtAt } from "@/lib/clock";
 import { getInsights } from "@/lib/content/loaders";
 import { pageMetadata } from "@/lib/seo/metadata";
+import { relatedWithContent } from "@/lib/related";
 
 export const metadata: Metadata = pageMetadata({
   title: "Insights: news and announcements",
@@ -21,7 +21,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default async function Page() {
-  const items = getInsights({ now: await builtAt() }).map((i) => ({
+  const now = await builtAt();
+  const items = getInsights({ now }).map((i) => ({
     slug: i.slug,
     title: i.title,
     summary: i.summary,
@@ -44,31 +45,28 @@ export default async function Page() {
           {items.length > 0 ? (
             <InsightsBrowser items={items} />
           ) : (
-            <div className="relative isolate flex flex-col gap-6 overflow-hidden rounded-l border border-line bg-cloud p-8 sm:p-10 lg:p-14">
-              <div
-                aria-hidden="true"
-                className="absolute inset-y-0 right-0 -z-10 w-1/2 [mask-image:linear-gradient(to_right,transparent,black)] opacity-60"
-              >
-                <DotGrid />
-              </div>
-              <Icon icon={Newspaper} size={32} className="text-indigo" />
-              <div className="flex max-w-2xl flex-col gap-4">
-                <h2 className="font-display text-h2 font-semibold text-ink">
-                  News and announcements will appear here
-                </h2>
-                <p className="text-body text-slate-600">
-                  Nothing has been published yet. Practical guides on careers,
-                  learning and AI policy, each reviewed by a named trustee, are
-                  published separately.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
-                <ButtonLink href="/guides" size="large">
-                  Read the guides
-                </ButtonLink>
-                <TextLink href="/events">See events</TextLink>
-              </div>
-            </div>
+            <EmptyState
+              icon={Newspaper}
+              title="News and announcements will appear here"
+              actions={
+                <>
+                  <ButtonLink href="/guides" size="large">
+                    Read the guides
+                  </ButtonLink>
+                  <TextLink href="/events">See events</TextLink>
+                </>
+              }
+              related={relatedWithContent(
+                ["guides", "glossary", "programmes"],
+                now,
+              )}
+            >
+              <p>
+                Nothing has been published yet. Practical guides on careers,
+                learning and AI policy, each reviewed by a named trustee, are
+                published separately.
+              </p>
+            </EmptyState>
           )}
 
           <p className="flex items-center gap-2 text-small text-slate-600">
