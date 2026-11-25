@@ -6,6 +6,7 @@ import {
   getEvents,
   getGlossary,
   getGuides,
+  getHub,
   getInsights,
   getProgrammes,
   getFounderMembers,
@@ -41,6 +42,7 @@ const STATIC_PAGES = [
   "/insights",
   "/innovation",
   "/mentorship",
+  "/knowledge-hub",
   "/resources",
   "/guides",
   "/glossary",
@@ -118,6 +120,10 @@ export function siteRoutes(now: number): SiteRoute[] {
     ...getInsights({ now }).map((i) => ({
       path: `/insights/${i.slug}`,
       lastModified: i.updatedDate ?? i.publishedDate,
+    })),
+    ...getHub({ now }).map((e) => ({
+      path: `/knowledge-hub/${e.slug}`,
+      lastModified: e.updatedDate ?? e.publishedDate,
     })),
     ...getGuides({ now }).map((g) => ({
       path: `/guides/${g.slug}`,

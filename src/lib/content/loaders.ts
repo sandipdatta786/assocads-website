@@ -39,6 +39,7 @@ import {
   successMeasureSchema,
   trusteeSchema,
   opportunitySchema,
+  hubEntrySchema,
 } from "./schemas.ts";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -483,6 +484,28 @@ export function getOpportunities(options: PublishedOptions) {
         b.postedDate.localeCompare(a.postedDate) ||
         a.title.localeCompare(b.title),
     );
+}
+
+/** Knowledge Hub entries, newest first. A published entry must name a
+    trustee who reviewed it, and the trustee must be in content/trustees.json. */
+export function getHub(options: PublishedOptions) {
+  const items = readMdxCollection("hub", hubEntrySchema);
+  uniqueSlugs("content/hub", items);
+  const trusteeNames = new Set(
+    getTrustees({ includeDrafts: true }).map((t) => t.name),
+  );
+  for (const e of items) {
+    if (!e.draft && !trusteeNames.has(e.reviewedBy)) {
+      throw new ContentError(e.file, [
+        "an entry that is not a draft needs reviewedBy, a Founder Trustee's name exactly as in content/trustees.json",
+      ]);
+    }
+  }
+  return withoutFuture(withoutDrafts(items, options), options).sort(
+    (a, b) =>
+      b.publishedDate.localeCompare(a.publishedDate) ||
+      a.title.localeCompare(b.title),
+  );
 }
 
 export function getGuides(options: PublishedOptions) {
