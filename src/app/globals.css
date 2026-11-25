@@ -582,6 +582,135 @@
   opacity: 1;
 }
 
+/* The home "Five communities" diagram. Spokes draw out from the centre as
+   the diagram is revealed (Reveal.tsx adds and removes .reveal-pending).
+   Hovering or focusing a card, or hovering its node, sets --eco-on on that
+   card, spoke and node: the spoke brightens, a single indigo stroke sweeps
+   out from the centre, the node fills, and the card takes its hover state.
+   Nothing loops. */
+.eco-spoke {
+  stroke: var(--indigo);
+  stroke-width: 1.5;
+  stroke-opacity: calc(0.35 + var(--eco-on, 0) * 0.3);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition:
+    stroke-dashoffset var(--dur-slow) var(--ease-out)
+      calc(150ms + var(--i, 0) * 80ms),
+    stroke-opacity var(--dur-fast) var(--ease-out);
+}
+
+.reveal-pending .eco-spoke {
+  stroke-dashoffset: 1;
+}
+
+.eco-sweep {
+  stroke: var(--indigo);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--eco-on, 0));
+  transition: stroke-dashoffset var(--dur-base) var(--ease-out);
+}
+
+.eco-node {
+  cursor: pointer;
+}
+
+.eco-dot {
+  fill: color-mix(
+    in srgb,
+    var(--indigo) calc(var(--eco-on, 0) * 100%),
+    var(--paper)
+  );
+  stroke: var(--indigo);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  scale: calc(1 + var(--eco-on, 0) * 0.25);
+  transition:
+    fill var(--dur-fast) var(--ease-out),
+    scale var(--dur-base) var(--ease-out);
+}
+
+.reveal-pending .eco-dot {
+  scale: 0.4;
+}
+
+/* A card whose node is hovered looks as it does when hovered itself. */
+[data-eco-card] .card-link {
+  border-color: color-mix(
+    in srgb,
+    var(--tone-link) calc(var(--eco-on, 0) * 100%),
+    var(--tone-line)
+  );
+}
+
+.eco:has(
+    [data-eco-card="0"] a:is(:hover, :focus-visible),
+    [data-eco-node="0"]:hover
+  )
+  :is(
+    [data-eco-spoke="0"],
+    [data-eco-sweep="0"],
+    [data-eco-node="0"],
+    [data-eco-card="0"]
+  ) {
+  --eco-on: 1;
+}
+
+.eco:has(
+    [data-eco-card="1"] a:is(:hover, :focus-visible),
+    [data-eco-node="1"]:hover
+  )
+  :is(
+    [data-eco-spoke="1"],
+    [data-eco-sweep="1"],
+    [data-eco-node="1"],
+    [data-eco-card="1"]
+  ) {
+  --eco-on: 1;
+}
+
+.eco:has(
+    [data-eco-card="2"] a:is(:hover, :focus-visible),
+    [data-eco-node="2"]:hover
+  )
+  :is(
+    [data-eco-spoke="2"],
+    [data-eco-sweep="2"],
+    [data-eco-node="2"],
+    [data-eco-card="2"]
+  ) {
+  --eco-on: 1;
+}
+
+.eco:has(
+    [data-eco-card="3"] a:is(:hover, :focus-visible),
+    [data-eco-node="3"]:hover
+  )
+  :is(
+    [data-eco-spoke="3"],
+    [data-eco-sweep="3"],
+    [data-eco-node="3"],
+    [data-eco-card="3"]
+  ) {
+  --eco-on: 1;
+}
+
+.eco:has(
+    [data-eco-card="4"] a:is(:hover, :focus-visible),
+    [data-eco-node="4"]:hover
+  )
+  :is(
+    [data-eco-spoke="4"],
+    [data-eco-sweep="4"],
+    [data-eco-node="4"],
+    [data-eco-card="4"]
+  ) {
+  --eco-on: 1;
+}
+
 /* Accordions open and close with a 300ms ease where the browser supports
    animating details; elsewhere they open instantly. */
 @supports selector(::details-content) {
