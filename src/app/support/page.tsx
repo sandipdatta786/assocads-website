@@ -267,6 +267,11 @@ export default function Page() {
               consent="reply to me about my offer and tell me when giving opens"
               submitLabel="Send my offer"
               successText="Thank you. We have noted your offer and will be in touch."
+              successSteps={[
+                "We have emailed you a short acknowledgement. If it has not arrived, look in your spam folder.",
+                "A pledge is not a payment. Nothing is paid now, and no payment details are needed.",
+                "We will write to you when giving opens, and you decide then.",
+              ]}
               fields={[
                 {
                   kind: "text",

@@ -109,6 +109,7 @@ export function EnquiryForm({
   submitLabel,
   successTitle = "Thank you",
   successText,
+  successSteps,
 }: {
   kind: FormKind;
   /** Prefix for field ids, and the id of the section that holds the form. */
@@ -120,6 +121,8 @@ export function EnquiryForm({
   successTitle?: string;
   /** Shown after sending. */
   successText: string;
+  /** "What happens next" after sending, one step per item. */
+  successSteps?: string[];
 }) {
   const form = useServerForm(kind);
   const { errors, returned } = form;
@@ -180,6 +183,7 @@ export function EnquiryForm({
         resultRef={form.resultRef}
         title={successTitle}
         onBack={form.dismiss}
+        next={successSteps}
       >
         <p>{successText}</p>
       </SentPanel>
