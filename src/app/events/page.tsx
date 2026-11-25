@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CalendarDays } from "lucide-react";
+import { CalendarDays, CalendarPlus } from "lucide-react";
 import { EventsBrowser } from "@/components/events/EventsBrowser";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { PageHeader } from "@/components/sections/PageHeader";
@@ -46,7 +46,7 @@ export default async function Page() {
       />
 
       <Section tone="paper" spacing="none" className="pb-16 lg:pb-28">
-        <Container>
+        <Container className="flex flex-col gap-10">
           {events.length > 0 ? (
             <EventsBrowser events={events} builtAt={now} />
           ) : (
@@ -78,6 +78,35 @@ export default async function Page() {
               </p>
             </EmptyState>
           )}
+
+          {/* A subscription, not a download: calendar apps refresh it, so
+              new and changed events appear without visiting the site. */}
+          <p className="flex items-start gap-2 text-small text-slate-600">
+            <CalendarPlus
+              aria-hidden="true"
+              size={16}
+              strokeWidth={1.5}
+              className="mt-[0.2em] shrink-0"
+            />
+            <span>
+              Add every {site.shortName} event to your own calendar as it is
+              announced:{" "}
+              <a
+                href={`webcal://${new URL(site.url).host}/events.ics`}
+                className="font-medium text-indigo underline underline-offset-4"
+              >
+                Subscribe to the events calendar
+              </a>{" "}
+              (or copy{" "}
+              <a
+                href="/events.ics"
+                className="font-medium text-indigo underline underline-offset-4"
+              >
+                the calendar address
+              </a>{" "}
+              into Google Calendar or Outlook).
+            </span>
+          </p>
         </Container>
       </Section>
 
