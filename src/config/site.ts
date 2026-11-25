@@ -207,7 +207,10 @@ export const site = {
     { label: "Contact", href: "/contact" },
   ] satisfies NavLink[],
 
-  joinLink: { label: "Join", href: "/membership/apply" } satisfies NavLink,
+  joinLink: {
+    label: "Become a member",
+    href: "/membership/apply",
+  } satisfies NavLink,
 
   footer: [
     {

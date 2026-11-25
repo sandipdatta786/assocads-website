@@ -23,12 +23,14 @@ async function events(page: Page) {
   return calls.filter(([kind]) => kind === "event").map(([, e]) => e);
 }
 
-test("a Join click is counted with its place on the page", async ({ page }) => {
+test("a membership click from the header is counted with its place on the page", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/about");
   await page
     .getByRole("banner")
-    .getByRole("link", { name: "Join", exact: true })
+    .getByRole("link", { name: "Become a member", exact: true })
     .click();
   await expect(page).toHaveURL(/\/membership\/apply$/);
   expect(await events(page)).toContainEqual({
