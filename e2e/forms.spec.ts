@@ -245,6 +245,24 @@ const cases: FormCase[] = [
     to: "secretariat@example.org",
   },
   {
+    kind: "AI Digest subscription",
+    path: "/digest",
+    formId: "digest-subscribe",
+    submit: "Subscribe",
+    async fill(page, email) {
+      await page.locator("#digest-subscribe-name").fill("Asha Test");
+      await page.locator("#digest-subscribe-email").fill(email);
+      await page.getByLabel("Upcoming events").check();
+      await page.locator("#digest-subscribe-consent").check();
+    },
+    emptyError: {
+      field: "#digest-subscribe-email",
+      text: "Enter your email address.",
+    },
+    subject: /^AI Digest subscription from Asha Test$/,
+    to: "secretariat@example.org",
+  },
+  {
     kind: "contact",
     path: "/contact",
     formId: "contact-form",

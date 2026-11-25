@@ -13,7 +13,8 @@ export type FormKind =
   | "contact"
   | "innovation"
   | "mentorship"
-  | "collaboration";
+  | "collaboration"
+  | "newsletter";
 
 export type FormValues = Record<string, string | string[]>;
 

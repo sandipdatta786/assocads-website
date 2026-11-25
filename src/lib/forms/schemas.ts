@@ -9,6 +9,7 @@ import {
 import {
   collaboratorTypes,
   collaborationAreas,
+  digestInterests,
   contactTopics,
   innovationAreas,
   innovationHelp,
@@ -45,6 +46,7 @@ export const formKinds: FormKind[] = [
   "innovation",
   "mentorship",
   "collaboration",
+  "newsletter",
 ];
 
 /** Field names that hold several values (checkbox groups). */
@@ -57,6 +59,7 @@ const listFields: Record<FormKind, string[]> = {
   innovation: ["help"],
   mentorship: ["areas", "help"],
   collaboration: ["areas"],
+  newsletter: ["interests"],
 };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -268,6 +271,14 @@ export const schemas = {
         (v) => !v || /^https?:\/\/\S+$/.test(v),
         "Enter a full web address starting with https://, or leave it blank.",
       ),
+    consent,
+  }),
+  newsletter: z.object({
+    name: optional(),
+    email,
+    interests: z
+      .array(z.enum(values(digestInterests)))
+      .max(4, "Choose from the four sections of the digest."),
     consent,
   }),
 } satisfies Record<FormKind, z.ZodType>;

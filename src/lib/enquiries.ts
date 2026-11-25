@@ -14,6 +14,7 @@ export const formIds = {
   innovation: "showcase-idea",
   mentorship: "mentorship-signup",
   collaboration: "collaboration-enquiry",
+  newsletter: "digest-subscribe",
 } as const;
 
 /** The kinds of organisation that can propose a collaboration. */
@@ -202,4 +203,12 @@ export const careerHelp = [
   { value: "job", label: "Help with job applications and interviews" },
   { value: "industry", label: "Meeting people working in industry" },
   { value: "skills", label: "Advice on skills and learning paths" },
+] as const satisfies Choice[];
+
+/** What subscribers can ask to hear about in the monthly AI Digest. These match its four sections. */
+export const digestInterests = [
+  { value: "industry", label: "Industry developments" },
+  { value: "events", label: "Upcoming events" },
+  { value: "achievements", label: "Member achievements" },
+  { value: "opportunities", label: "Opportunities" },
 ] as const satisfies Choice[];
