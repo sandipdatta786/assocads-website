@@ -125,6 +125,36 @@ export const roadmapSchema = z.object({
   items: z.array(z.string().min(1)).min(1),
 });
 
+/** The categories of counted impact on /achievements. Events are counted from the events list, not here. */
+export const impactCategories = [
+  { value: "members", label: "Members" },
+  { value: "trained", label: "Professionals trained" },
+  { value: "startups", label: "Startups supported" },
+  { value: "research", label: "Research initiatives" },
+  { value: "collaborations", label: "Industry collaborations" },
+] as const;
+
+/** A counted figure. Shown only once a trustee has confirmed it and said how it was counted. */
+export const impactFigureSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9-]{1,80}$/),
+  category: z.enum(impactCategories.map((c) => c.value)),
+  value: z.number().int().min(0),
+  /** The date the count is correct as at, YYYY-MM-DD. */
+  asOf: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  /** How the figure was counted, for example "Attendance registers from the 2027 workshops". */
+  method: z.string().min(1).max(300),
+  /** The Founder Trustee who confirmed the figure. Must match content/trustees.json. */
+  confirmedBy: z.string().min(1),
+});
+
+/** A dated milestone. Only real, confirmed events belong here. */
+export const milestoneSchema = z.object({
+  /** YYYY, YYYY-MM or YYYY-MM-DD. */
+  date: z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/),
+  title: z.string().min(1).max(120),
+  text: z.string().min(1).max(400),
+});
+
 /** The groups on /about/approach, in reading order. */
 export const initiativeGroups = [
   { slug: "learn", title: "Learn by doing" },

@@ -40,6 +40,8 @@ import {
   trusteeSchema,
   opportunitySchema,
   hubEntrySchema,
+  impactFigureSchema,
+  milestoneSchema,
 } from "./schemas.ts";
 
 export const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -335,6 +337,31 @@ export function getInitiatives() {
       .map((i) => `${i.slug}: programme "${i.programme}" not found`),
   );
   return items;
+}
+
+/** Counted figures for /achievements. Each must be confirmed by a Founder Trustee. */
+export function getImpactFigures() {
+  const file = "content/impact.json";
+  const items = readJsonArray("impact", impactFigureSchema);
+  uniqueSlugs(file, items);
+  const trustees = new Set(getTrustees().map((t) => t.name));
+  check(
+    file,
+    items
+      .filter((i) => !trustees.has(i.confirmedBy))
+      .map(
+        (i) =>
+          `${i.slug}: confirmedBy "${i.confirmedBy}" must match a Founder Trustee in content/trustees.json`,
+      ),
+  );
+  return items;
+}
+
+/** Dated milestones, oldest first. */
+export function getMilestones() {
+  return readJsonArray("milestones", milestoneSchema).sort((a, b) =>
+    a.date.localeCompare(b.date),
+  );
 }
 
 export function getSuccessMeasures() {
