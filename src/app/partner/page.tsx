@@ -362,9 +362,11 @@ export default function Page() {
       <Section tone="tint" spacing="tight">
         <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-body text-ink">
-            Institutions and companies can also become Associate Members.
+            Institutions and companies can also become organisational members.
           </p>
-          <TextLink href="/membership">How membership works</TextLink>
+          <TextLink href="/membership#organisations">
+            Organisational membership
+          </TextLink>
         </Container>
       </Section>
     </>

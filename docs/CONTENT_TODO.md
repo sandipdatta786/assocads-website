@@ -11,7 +11,9 @@ Everything the site is waiting for from the founders. Tick an item when it has b
 - [ ] **Date of the Board resolution electing the office bearers.** The site says the Board has elected them, without a date; add it to `docs/BLUEPRINT.md` section 7.4 once supplied.
 - [ ] **Trustee name spellings** confirmed against each trustee's PAN card.
 - [ ] **Registration number and date.** Needed to switch the site from "pending" to "registered".
-- [ ] **Membership fees and any student category**, once fixed by the Board.
+- [x] **Membership categories and fees.** The Board approved the membership framework in November 2026; it is in `content/membership.json`.
+- [ ] **Date of the Board resolution approving the membership framework.** The site says November 2026; add the exact date to `docs/BLUEPRINT.md` once supplied.
+- [ ] **Code of Conduct for members.** The membership rules say applicants accept it, so it must be published before applications open.
 - [ ] **Real upcoming events** with date, venue and registration method.
 - [ ] **Official social media links.** Needed for the footer and structured data.
 - [ ] **YouTube channel ID** (`youtubeChannelId` in `src/config/site.ts`), once the channel exists. The channel's videos then appear on /voices and the home page by themselves. See `docs/ADMIN_GUIDE.md`, section 5a.

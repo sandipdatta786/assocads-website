@@ -43,49 +43,49 @@
   },
   {
     "question": "Who can join ASSOCADS?",
-    "answer": "The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.",
+    "answer": "Individuals and organisations. Individuals can join as Community (free), Student, Academic, Professional (Early-career, Mid-career, or Senior or Leader), Independent or Public-interest members. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Honorary recognition, such as Fellow, is by invitation of the Board. Membership opens after the trust is registered.",
     "category": "membership",
     "pages": ["/", "/faq", "/membership", "/for/students", "/for/professionals"]
   },
   {
     "question": "How much does membership cost?",
-    "answer": "Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.",
+    "answer": "The Board approved the fees in November 2026. For individuals, Community membership is free, Student membership is ₹600 a year and Professional membership is ₹1,500 to ₹6,000 a year, depending on experience. Organisations pay from ₹5,000 a year for a startup to ₹4,00,000 a year for a large company. Fees are before any applicable taxes, and longer terms and concessions cost less. The membership page lists every category. No fee is collected until membership opens after registration.",
     "category": "membership",
     "pages": ["/", "/faq", "/membership"]
   },
   {
     "question": "Is there a student membership?",
-    "answer": "Not yet. The trust deed allows a student category, but it has to be created by bye-laws adopted after registration. Students aged eighteen or over may be eligible for Ordinary membership once it opens. Anyone can register their interest now.",
+    "answer": "Yes. Student membership is for anyone enrolled in an undergraduate, postgraduate, PhD or diploma course, with a valid ID. It costs ₹600 a year, or ₹300 through a member institution, and students can join for the length of their course at 15% off. Membership opens after the trust is registered, and you can register your interest now.",
     "category": "membership",
     "pages": ["/faq", "/membership", "/for/students"]
   },
   {
     "question": "How do I become a member?",
-    "answer": "Under the trust deed, admission is by application, approval by the Board or a committee it appoints, and payment of the fee. Because fees are not fixed yet, applications are not open. You can register your interest on the membership page, and we will contact you when membership opens.",
+    "answer": "Membership opens after the trust is registered. You will then apply online with your category, proof of eligibility and acceptance of the Code of Conduct. The Membership sub-committee decides on individual applications within 7 days, and organisations hear within 21 days. Until then, you can register your interest on the membership page, and we will write to you when applications open.",
     "category": "membership",
     "pages": ["/faq", "/membership", "/membership/apply"]
   },
   {
     "question": "Can members vote or help manage ASSOCADS?",
-    "answer": "No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.",
+    "answer": "No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Membership gives access to programmes and benefits, but no ownership, no share of any surplus and no seat on the Board. Some members may be invited to advisory councils, which advise the Board.",
     "category": "membership",
     "pages": ["/faq", "/membership", "/about/governance"]
   },
   {
     "question": "Can a company or institution join?",
-    "answer": "Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.",
+    "answer": "Yes. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Each membership includes seats for people the organisation names. The membership page lists the bands and fees. Applications open after the trust is registered.",
     "category": "membership",
     "pages": ["/faq", "/membership", "/for/industry"]
   },
   {
     "question": "How does a membership end?",
-    "answer": "Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.",
+    "answer": "A membership ends if it is not renewed: after a 30-day grace period, the member returns to free Community membership, and rejoining within 12 months keeps their seniority. The Board can also end a membership for a breach of the Code of Conduct or for acting against the trust's objects, after written notice and a chance to respond. In that case there is no refund.",
     "category": "membership",
     "pages": ["/faq", "/membership"]
   },
   {
     "question": "Are membership fees refundable?",
-    "answer": "No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.",
+    "answer": "A pro-rata refund is available within 30 days of joining. After that, fees are not refundable, but an organisation's membership can be transferred within the same organisation. No fee is collected until membership opens after registration.",
     "category": "membership",
     "pages": ["/faq", "/membership"]
   },
@@ -109,7 +109,7 @@
   },
   {
     "question": "How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?",
-    "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
+    "answer": "NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, which opens after registration, is for individuals, including students, as well as institutions and companies. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.",
     "category": "about",
     "pages": ["/faq", "/about/facts", "/about"]
   },
@@ -127,7 +127,7 @@
   },
   {
     "question": "Do I need to be a member to join a group?",
-    "answer": "Under the trust deed, members may take part in Special Interest Groups as the Board decides. Who else can take part will be decided when each group is set up.",
+    "answer": "Special Interest Groups are part of what members can take part in. Who else can join each group will be decided when it is set up.",
     "category": "membership",
     "pages": ["/faq", "/communities"]
   },
@@ -150,8 +150,8 @@
     "pages": ["/faq", "/partner"]
   },
   {
-    "question": "Is a partnership the same as Associate membership?",
-    "answer": "No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.",
+    "question": "Is a partnership the same as organisational membership?",
+    "answer": "No. Organisational membership is a category of membership, with an annual fee, that gives an organisation's people access to programmes and benefits. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.",
     "category": "partnership",
     "pages": ["/faq", "/partner", "/membership"]
   },

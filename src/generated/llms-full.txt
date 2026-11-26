@@ -81,7 +81,7 @@ No. ASSOCADS is an independent public charitable trust. It is not affiliated wit
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, which opens after registration, is for individuals, including students, as well as institutions and companies. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 About
 
@@ -128,7 +128,7 @@ Scope: Across India, beginning with West Bengal. It aims to build a collaborativ
 
 Founder Trustees: The first Board of Trustees of ASSOCADS has seven Founder Trustees, who serve without payment. The Board has elected its office bearers: Rahul Bhattacharya (President), Abhijit Pal (Vice-President), Prasun Nandy (Vice-President), Amit Kumar Das (General Secretary), Sandip Datta (Joint Secretary), Sayan Guha (Joint Secretary), Biswajeet Chaki (Treasurer). Five founder members serve on its sub-committees but are not on the Board. See the trustees
 
-Membership: The trust deed provides for four membership categories: Ordinary Member, Life Member, Associate Member and Honorary Member. Fees have not yet been fixed; they will be set by bye-laws adopted after registration.
+Membership: Eight individual and six organisational membership categories, approved by the Board in November 2026, from free Community membership upwards. Membership opens after registration. Honorary recognition, such as Fellow, is by invitation of the Board and is never bought. Categories and fees
 
 Programme areas: Eight areas of work: training and certification, events and community, research and publications, industry and academia collaboration, responsible AI, startups and innovation, policy and advisory and recognition and AI for social good. All are planned; none has started yet.
 
@@ -162,7 +162,7 @@ No. ASSOCADS is an independent public charitable trust. It is not affiliated wit
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, which opens after registration, is for individuals, including students, as well as institutions and companies. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 About
 
@@ -718,7 +718,7 @@ To be published
 
 ### Bye-laws
 
-The rules for membership, fees and committees, adopted by the Board after registration.
+The trust's rules, including membership and committees, adopted by the Board after registration.
 
 To be published
 
@@ -754,7 +754,7 @@ No. ASSOCADS is non-political, non-religious and not-for-profit. It is open to e
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Membership gives access to programmes and benefits, but no ownership, no share of any surplus and no seat on the Board. Some members may be invited to advisory councils, which advise the Board.
 
 About
 
@@ -988,7 +988,7 @@ This roadmap sets out intentions. Dates and details will be confirmed by the Boa
 ## Getting established
 
 - Complete the registration of the trust.
-- Adopt bye-laws that set membership categories and fees, then open membership.
+- Open membership in the categories, at the fees, that the Board approved in November 2026.
 - Apply for registration under sections 12AB and 80G of the Income Tax Act.
 - Have our first year's accounts audited and adopt our first annual report after the financial year ends on 31 March.
 
@@ -1760,150 +1760,514 @@ Membership
 
 # Membership
 
-The trust deed of ASSOCADS, the Association for AI and Data Science, provides four kinds of membership: Ordinary and Life for individuals, Associate for institutions and organisations, and Honorary for people of eminence. Membership opens after the Board adopts its bye-laws. This page explains who can join, how admission works, and what membership does and does not mean.
+Membership of ASSOCADS, the Association for AI and Data Science, is for individuals and organisations: students, academics, professionals, independents, institutions, startups, companies and public bodies. The Board approved these categories and fees in November 2026. Membership opens after the trust is registered.
 
-Last updated 23 November 2026
+Last updated 26 November 2026
 
 Register your interest
 
-Membership is not open yet
+Membership opens after registration
 
-Membership will open after the trust is registered and the Board has adopted its bye-laws. Register your interest now and we will write to you when applications open.
+The categories and fees on this page are approved, but no fee is collected yet. Register your interest and we will write to you when applications open. Benefits begin as each programme starts.
 
-From the trust deed
+## How membership is organised
 
-## Who can join
+Each member is either an individual or an organisation, and belongs to one of six verticals.
 
-- Individuals
+The six verticals, with the individual and organisational category in each
+| Vertical | Individual | Organisation |
 
-### Ordinary Member
+| Education | Student (undergraduate, postgraduate, PhD or diploma) | Academic Institution (school, college or university) |
 
-An individual aged eighteen or over.
+| Academia and research | Academic (faculty, researchers and post-doctoral fellows) | Research Lab or Institute |
 
-- Admission is by application and approval by the Board or a committee it appoints.
-- Pays an annual subscription fixed by the Board.
+| Industry | Professional (Early-career, Mid-career, or Senior or Leader) | Corporate (MSME, Mid-size or Enterprise) |
 
-Fee to be fixed by the Board
+| Entrepreneurship | Independent (freelancers, consultants and founders) | Startup (DPIIT-recognised, or under five years old) |
 
-- Individuals
+| Public and social | Public-interest (NGO staff, journalists, public servants and retired professionals) | Non-profit, Government or PSU body |
 
-### Life Member
+| Ecosystem | Not applicable | Community, Event or Media Partner |
 
-An individual recommended by two trustees.
+- Education
 
-- Admission is by application and approval by the Board or a committee it appoints.
-- Pays a one-time amount fixed by the Board.
+Individual: Student (undergraduate, postgraduate, PhD or diploma)
 
-Fee to be fixed by the Board
+Organisation: Academic Institution (school, college or university)
 
-- Institutions and organisations
+- Academia and research
 
-### Associate Member
+Individual: Academic (faculty, researchers and post-doctoral fellows)
 
-An institution, organisation, society or company.
+Organisation: Research Lab or Institute
 
-- Admission is by application and approval by the Board or a committee it appoints.
-- Pays a fee fixed by the Board.
-- Is represented by an official it nominates.
+- Industry
 
-Fee to be fixed by the Board
+Individual: Professional (Early-career, Mid-career, or Senior or Leader)
 
-- People of eminence
+Organisation: Corporate (MSME, Mid-size or Enterprise)
 
-### Honorary Member
+- Entrepreneurship
 
-A person of eminence.
+Individual: Independent (freelancers, consultants and founders)
 
-- Admitted without a fee by a resolution passed by two-thirds of the Board.
-- Membership lasts three years and may be renewed.
+Organisation: Startup (DPIIT-recognised, or under five years old)
 
-By invitation of the Board
+- Public and social
 
-## What members can take part in
+Individual: Public-interest (NGO staff, journalists, public servants and retired professionals)
 
-Under the trust deed, members may take part in these activities, as the Board decides.
+Organisation: Non-profit, Government or PSU body
 
-- ProgrammesTraining, research, events and the other programmes ASSOCADS plans to run.
-- Special Interest GroupsGroups by industry or domain, which the Board may set up under the trust deed.
-- EventsConferences, seminars, workshops, meetups and hackathons.
-- PublicationsCase studies, reports, white papers and other research.
+- Ecosystem
+
+Individual: Not applicable
+
+Organisation: Community, Event or Media Partner
+
+For individuals
+
+## Individual membership
+
+All fees are in Indian rupees, for one year and before any applicable taxes, unless stated otherwise.
+
+### Community
+
+Anyone who registers.
+
+Free
+
+Includes: Newsletter, public events, viewing the job board, and the forum.
+
+### Student
+
+Enrolled in an undergraduate, postgraduate, PhD or diploma course, with a valid ID.
+
+₹600 a year₹300 through a member institution
+
+Includes: Competitions, hackathons, mentorship, the learning library and the internship board.
+
+### Academic
+
+Faculty, researchers and post-doctoral fellows.
+
+₹2,000 a year
+
+Includes: Faculty development programmes at the member price, research collaboration, the publication and reviewer pool, and academic forums.
+
+### Professional: Early-career
+
+Under five years of experience.
+
+₹1,500 a year
+
+Includes: Networking, discounted events and training, posting on the job board, and the mentee track.
+
+### Professional: Mid-career
+
+Five to twelve years of experience.
+
+₹3,000 a year
+
+Includes: Early-career benefits, plus the speaker pool, the mentor track and certification discounts.
+
+### Professional: Senior or Leader
+
+Over twelve years of experience, or a CXO, Director or Principal.
+
+₹6,000 a year
+
+Includes: Mid-career benefits, plus leadership roundtables and advisory panels.
+
+### Independent
+
+Freelancers, consultants, solo founders and people changing careers.
+
+₹2,000 a year
+
+Includes: Professional benefits, plus the consultant directory and the referral board.
+
+### Public-interest
+
+NGO staff, journalists, public servants and retired professionals.
+
+₹1,000 a year
+
+Includes: Professional benefits, plus the AI-for-good and policy working groups.
+
+Every paid individual member receives a digital membership certificate and a member ID that can be verified.
+
+For organisations
+
+## Organisational membership
+
+All fees are in Indian rupees, for one year and before any applicable taxes, unless stated otherwise. Each membership includes seats for the people the organisation names.
+
+Organisational membership: band, annual fee, seats included and benefits
+| Category | Band | Annual fee | Seats included | Includes |
+
+| Academic Institution | School or Tier-3 college | ₹15,000 a year | 1 faculty member and 50 students | A campus chapter, competitions and guest lectures. |
+
+| Academic Institution | College or Tier-2 university | ₹40,000 a year | 5 faculty members and 200 students | The above, plus two faculty development programmes a year, curriculum advice and placement connections. |
+
+| Academic Institution | University or autonomous institute | ₹1,00,000 a year | 15 faculty members and 500 students | The above, plus co-branded research and eligibility for a Centre of Excellence. |
+
+| Research Lab or Institute | Any | ₹50,000 a year | 10 | Dataset collaboration, joint publications and problems from industry. |
+
+| Startup | DPIIT-recognised, or under five years old | ₹5,000 a yearFirst year free for incubator cohorts | 3 | Demo days, mentor hours, investor connections and partner credits. |
+
+| Corporate | MSME: turnover under ₹50 crore | ₹50,000 a year | 10 | Branding, access to hiring and speaking slots. |
+
+| Corporate | Mid-size: turnover of ₹50 crore to ₹500 crore | ₹1,50,000 a year | 25 | The above, plus custom workshops, campus hiring drives and research sponsorship. |
+
+| Corporate | Enterprise: turnover above ₹500 crore, or a multinational | ₹4,00,000 a year | 50 | The above, plus a seat on the Industry Advisory Council and partnership in the flagship conference. |
+
+| Non-profit, Government or PSU | Any | ₹10,000 a yearGovernment bodies by MoU | 5 | AI-for-good projects, policy advice and capacity building. |
+
+| Community, Event or Media Partner | Any | No fee, by MoU | 2 | Cross-promotion, co-hosted meetups and logo placement. |
+
+- Academic Institution
+
+Band: School or Tier-3 college
+
+Annual fee: ₹15,000 a year
+
+Seats included: 1 faculty member and 50 students
+
+Includes: A campus chapter, competitions and guest lectures.
+
+- Academic Institution
+
+Band: College or Tier-2 university
+
+Annual fee: ₹40,000 a year
+
+Seats included: 5 faculty members and 200 students
+
+Includes: The above, plus two faculty development programmes a year, curriculum advice and placement connections.
+
+- Academic Institution
+
+Band: University or autonomous institute
+
+Annual fee: ₹1,00,000 a year
+
+Seats included: 15 faculty members and 500 students
+
+Includes: The above, plus co-branded research and eligibility for a Centre of Excellence.
+
+- Research Lab or Institute
+
+Band: Any
+
+Annual fee: ₹50,000 a year
+
+Seats included: 10
+
+Includes: Dataset collaboration, joint publications and problems from industry.
+
+- Startup
+
+Band: DPIIT-recognised, or under five years old
+
+Annual fee: ₹5,000 a yearFirst year free for incubator cohorts
+
+Seats included: 3
+
+Includes: Demo days, mentor hours, investor connections and partner credits.
+
+- Corporate
+
+Band: MSME: turnover under ₹50 crore
+
+Annual fee: ₹50,000 a year
+
+Seats included: 10
+
+Includes: Branding, access to hiring and speaking slots.
+
+- Corporate
+
+Band: Mid-size: turnover of ₹50 crore to ₹500 crore
+
+Annual fee: ₹1,50,000 a year
+
+Seats included: 25
+
+Includes: The above, plus custom workshops, campus hiring drives and research sponsorship.
+
+- Corporate
+
+Band: Enterprise: turnover above ₹500 crore, or a multinational
+
+Annual fee: ₹4,00,000 a year
+
+Seats included: 50
+
+Includes: The above, plus a seat on the Industry Advisory Council and partnership in the flagship conference.
+
+- Non-profit, Government or PSU
+
+Band: Any
+
+Annual fee: ₹10,000 a yearGovernment bodies by MoU
+
+Seats included: 5
+
+Includes: AI-for-good projects, policy advice and capacity building.
+
+- Community, Event or Media Partner
+
+Band: Any
+
+Annual fee: No fee, by MoU
+
+Seats included: 2
+
+Includes: Cross-promotion, co-hosted meetups and logo placement.
+
+Event sponsorships are priced for each event and are separate from membership. Members receive a discount on sponsorship.
+
+## How long you can join for
+
+Join for one year, or for longer at a lower price.
+
+Membership tenure: duration, price and extras
+| Tenure | Duration | Price | Extras |
+
+| Annual | 12 months | The annual fee | None |
+
+| Multi-year | 3 years | 2.7 times the annual fee (a 10% saving) | The fee is locked for the term. |
+
+| Long-term | 5 years, the longest available | 4 times the annual fee (a 20% saving) | The fee is locked, plus a Long-Term Member badge, priority seats at events and one free upgrade of category. |
+
+| Course-duration (students only) | Until the course ends, up to 4 years | The annual fee for each year, less 15% | Converts to Early-career Professional at half price for the first year after graduation. |
+
+- Annual
+
+Duration: 12 months
+
+Price: The annual fee
+
+Extras: None
+
+- Multi-year
+
+Duration: 3 years
+
+Price: 2.7 times the annual fee (a 10% saving)
+
+Extras: The fee is locked for the term.
+
+- Long-term
+
+Duration: 5 years, the longest available
+
+Price: 4 times the annual fee (a 20% saving)
+
+Extras: The fee is locked, plus a Long-Term Member badge, priority seats at events and one free upgrade of category.
+
+- Course-duration (students only)
+
+Duration: Until the course ends, up to 4 years
+
+Price: The annual fee for each year, less 15%
+
+Extras: Converts to Early-career Professional at half price for the first year after graduation.
+
+For example, a Mid-career Professional pays ₹3,000 for one year, ₹8,100 for three years or ₹12,000 for five years. There is no lifetime membership.
+
+## Concessions
+
+Ways to pay less, so that cost does not keep anyone out.
+
+### Access seats
+
+Each year, 10% of paid seats are free or half price for students from economically weaker backgrounds, students at rural and Tier-3 institutions, women returning to work, persons with disabilities and first-generation graduates.
+
+### Founding cohort
+
+The first 500 individuals and the first 25 organisations in the first year get 30% off any tenure, and a Founding Cohort badge.
+
+### Referral
+
+Bring in three paid members and your next year is free.
+
+### Group
+
+Ten or more individuals from one employer get 15% off.
+
+### International
+
+Individuals outside India pay USD 50 a year as a Professional or USD 20 as a Student. Organisations outside India pay by quotation.
+
+### Upgrade credit
+
+When you move to a higher category during your term, the unused value of your membership is credited.
 
 To be clear
 
 ## What membership is not
 
-Members do not own a share of the trust or its funds. They do not manage it, and they do not vote on its affairs, unless bye-laws later provide otherwise.
+ASSOCADS is a charitable trust. Membership gives access to programmes and benefits. It gives no ownership, no share of any surplus and no seat on the Board of Trustees.
 
 This is normal for a public charitable trust. Unlike a society or a company, a trust has no shareholders or voting members. It is run by its Board of Trustees, who must use its money only for its charitable objects.
 
 Membership is a way to take part in what ASSOCADS does, not to own or control it. How the trust is run
 
-## How admission works
+## Honorary recognition
+
+Honorary recognition is separate from paid membership and is never bought.
+
+Honorary recognition: how each tier is granted, its fee and its recognition
+| Tier | How it is granted | Fee | Recognition |
+
+| Founder Member | The 12 founders named in the trust deed. | No fee | All benefits. The Board of Trustees and its office bearers come from among them. |
+
+| Fellow (FASSOCADS) | By invitation of the Board, for people with over ten years in the field and a visible contribution to it. Up to ten new Fellows a year. | No fee | The post-nominal title FASSOCADS, advisory councils and priority for keynotes. |
+
+| Distinguished or Honorary Member | By resolution of the Board, for eminent figures. | No fee | Advisory work and a presence at flagship events. |
+
+| Patron | A donation of ₹5,00,000 or more, once the trust can accept donations. | The donation | A named lecture, scholarship or award, and the Patron Circle. |
+
+| Volunteer Leader | Volunteers who have served a chapter, Special Interest Group or committee for over 12 months. | Fee waived while serving | A leadership certificate and recognition. |
+
+- Founder Member
+
+How it is granted: The 12 founders named in the trust deed.
+
+Fee: No fee
+
+Recognition: All benefits. The Board of Trustees and its office bearers come from among them.
+
+- Fellow (FASSOCADS)
+
+How it is granted: By invitation of the Board, for people with over ten years in the field and a visible contribution to it. Up to ten new Fellows a year.
+
+Fee: No fee
+
+Recognition: The post-nominal title FASSOCADS, advisory councils and priority for keynotes.
+
+- Distinguished or Honorary Member
+
+How it is granted: By resolution of the Board, for eminent figures.
+
+Fee: No fee
+
+Recognition: Advisory work and a presence at flagship events.
+
+- Patron
+
+How it is granted: A donation of ₹5,00,000 or more, once the trust can accept donations.
+
+Fee: The donation
+
+Recognition: A named lecture, scholarship or award, and the Patron Circle.
+
+- Volunteer Leader
+
+How it is granted: Volunteers who have served a chapter, Special Interest Group or committee for over 12 months.
+
+Fee: Fee waived while serving
+
+Recognition: A leadership certificate and recognition.
+
+### Rights by kind of membership
+
+Rights by kind of membership
+| Right | Community | Paid individual | Organisation | Fellow | Founder |
+
+| Attend public events | Yes | Yes | Yes | Yes | Yes |
+
+| A seat on an advisory council | No | No | Enterprise band only | Yes | Yes |
+
+| A seat on the Board of Trustees | No | No | No | No | Founder Trustees only |
+
+- Attend public events
+
+Community: Yes
+
+Paid individual: Yes
+
+Organisation: Yes
+
+Fellow: Yes
+
+Founder: Yes
+
+- A seat on an advisory council
+
+Community: No
+
+Paid individual: No
+
+Organisation: Enterprise band only
+
+Fellow: Yes
+
+Founder: Yes
+
+- A seat on the Board of Trustees
+
+Community: No
+
+Paid individual: No
+
+Organisation: No
+
+Fellow: No
+
+Founder: Founder Trustees only
+
+## Joining and membership rules
 
 - 01
 
 ### Apply
 
-Fill in the membership application once applications open. Life Members also need a recommendation from two trustees.
+Fill in the online form with your category, proof of eligibility and acceptance of the Code of Conduct.
 
 - 02
 
 ### Approval
 
-The Board of Trustees, or a committee it appoints, considers the application.
+The Membership sub-committee decides on individual applications within 7 days. Organisations hear within 21 days, with the sign-off of one Board member.
 
 - 03
 
-### Pay the fee
+### Onboarding
 
-Once approved, you pay the fee for your category. The Board will fix the fees in the bye-laws after registration.
+You receive a receipt, a digital certificate and a member ID, and are invited to a welcome session within 30 days.
 
-Honorary Members do not apply. The Board admits them by a resolution passed by two-thirds of its members.
+- 04
 
-## The four categories side by side
+### Renewal
 
-Membership categories compared: who can join, how they are admitted, and what they cost
-| Category | Who can join | How they are admitted | What it costs |
+We remind you 60, 30 and 7 days before your membership ends. A 30-day grace period follows, with your benefits intact.
 
-| Ordinary Member | An individual aged eighteen or over. | Application and approval by the Board or its committee | Annual subscription, to be fixed by the Board |
+- 05
 
-| Life Member | An individual recommended by two trustees. | Recommendation by two trustees, then application and approval | One-time amount, to be fixed by the Board |
+### Lapse
 
-| Associate Member | An institution, organisation, society or company. | Application and approval by the Board or its committee | Fee to be fixed by the Board |
+After the grace period you return to free Community membership. If you rejoin within 12 months, you keep your seniority.
 
-| Honorary Member | A person of eminence. | By invitation of the Board, through a two-thirds resolution | No fee. Lasts three years and may be renewed |
+- 06
 
-### Ordinary Member
+### Upgrade
 
-Who can join: An individual aged eighteen or over.
+You can move to a higher category at any time, and the unused value is credited.
 
-How they are admitted: Application and approval by the Board or its committee
+- 07
 
-What it costs: Annual subscription, to be fixed by the Board
+### Termination
 
-### Life Member
+For a breach of the Code of Conduct or acting against the trust's objects, by resolution of the Board, after written notice and a chance to respond. There is no refund.
 
-Who can join: An individual recommended by two trustees.
+- 08
 
-How they are admitted: Recommendation by two trustees, then application and approval
+### Refunds
 
-What it costs: One-time amount, to be fixed by the Board
-
-### Associate Member
-
-Who can join: An institution, organisation, society or company.
-
-How they are admitted: Application and approval by the Board or its committee
-
-What it costs: Fee to be fixed by the Board
-
-### Honorary Member
-
-Who can join: A person of eminence.
-
-How they are admitted: By invitation of the Board, through a two-thirds resolution
-
-What it costs: No fee. Lasts three years and may be renewed
+A pro-rata refund within 30 days of joining. After that, fees are not refundable, but an organisation's membership can be transferred within the same organisation.
 
 Questions
 
@@ -1913,43 +2277,43 @@ All questions
 
 **Who can join ASSOCADS?**
 
-The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.
+Individuals and organisations. Individuals can join as Community (free), Student, Academic, Professional (Early-career, Mid-career, or Senior or Leader), Independent or Public-interest members. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Honorary recognition, such as Fellow, is by invitation of the Board. Membership opens after the trust is registered.
 
 **How much does membership cost?**
 
-Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.
+The Board approved the fees in November 2026. For individuals, Community membership is free, Student membership is ₹600 a year and Professional membership is ₹1,500 to ₹6,000 a year, depending on experience. Organisations pay from ₹5,000 a year for a startup to ₹4,00,000 a year for a large company. Fees are before any applicable taxes, and longer terms and concessions cost less. The membership page lists every category. No fee is collected until membership opens after registration.
 
 **Is there a student membership?**
 
-Not yet. The trust deed allows a student category, but it has to be created by bye-laws adopted after registration. Students aged eighteen or over may be eligible for Ordinary membership once it opens. Anyone can register their interest now.
+Yes. Student membership is for anyone enrolled in an undergraduate, postgraduate, PhD or diploma course, with a valid ID. It costs ₹600 a year, or ₹300 through a member institution, and students can join for the length of their course at 15% off. Membership opens after the trust is registered, and you can register your interest now.
 
 **How do I become a member?**
 
-Under the trust deed, admission is by application, approval by the Board or a committee it appoints, and payment of the fee. Because fees are not fixed yet, applications are not open. You can register your interest on the membership page, and we will contact you when membership opens.
+Membership opens after the trust is registered. You will then apply online with your category, proof of eligibility and acceptance of the Code of Conduct. The Membership sub-committee decides on individual applications within 7 days, and organisations hear within 21 days. Until then, you can register your interest on the membership page, and we will write to you when applications open.
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Membership gives access to programmes and benefits, but no ownership, no share of any surplus and no seat on the Board. Some members may be invited to advisory councils, which advise the Board.
 
 **Can a company or institution join?**
 
-Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.
+Yes. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Each membership includes seats for people the organisation names. The membership page lists the bands and fees. Applications open after the trust is registered.
 
 **How does a membership end?**
 
-Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.
+A membership ends if it is not renewed: after a 30-day grace period, the member returns to free Community membership, and rejoining within 12 months keeps their seniority. The Board can also end a membership for a breach of the Code of Conduct or for acting against the trust's objects, after written notice and a chance to respond. In that case there is no refund.
 
 **Are membership fees refundable?**
 
-No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.
+A pro-rata refund is available within 30 days of joining. After that, fees are not refundable, but an organisation's membership can be transferred within the same organisation. No fee is collected until membership opens after registration.
 
-**Is a partnership the same as Associate membership?**
+**Is a partnership the same as organisational membership?**
 
-No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
+No. Organisational membership is a category of membership, with an annual fee, that gives an organisation's people access to programmes and benefits. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
 
 ## Be among the first members
 
-Membership opens after registration. Register your interest now and we will write to you when applications open.
+Membership opens after registration. Register your interest now and we will write to you when applications open. The first 500 individuals and 25 organisations get 30% off.
 
 Register your interestPartner with us
 
@@ -2019,7 +2383,7 @@ Link to this question
 
 **How is ASSOCADS different from industry bodies such as NASSCOM and IAMAI?**
 
-NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, once open, is meant for individuals, including students, as well as institutions. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
+NASSCOM and IAMAI are industry bodies whose members are companies. ASSOCADS is a public charitable trust governed by a trust deed, and its membership, which opens after registration, is for individuals, including students, as well as institutions and companies. Its work covers training, research, responsible AI, startups, policy and social good across academia, industry and government.
 
 Link to this question
 
@@ -2045,49 +2409,49 @@ Link to this question
 
 **Who can join ASSOCADS?**
 
-The trust deed provides four kinds of membership: Ordinary Members, who are individuals aged eighteen or over; Life Members, who are individuals recommended by two trustees; Associate Members, which are institutions, organisations, societies or companies; and Honorary Members, who are people of eminence admitted by the Board. Membership is open without discrimination.
+Individuals and organisations. Individuals can join as Community (free), Student, Academic, Professional (Early-career, Mid-career, or Senior or Leader), Independent or Public-interest members. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Honorary recognition, such as Fellow, is by invitation of the Board. Membership opens after the trust is registered.
 
 Link to this question
 
 **How much does membership cost?**
 
-Membership fees have not been fixed yet. Under the trust deed they are set by the Board through bye-laws, which will be adopted after the trust is registered. Fees will be published on this site once the Board has decided them.
+The Board approved the fees in November 2026. For individuals, Community membership is free, Student membership is ₹600 a year and Professional membership is ₹1,500 to ₹6,000 a year, depending on experience. Organisations pay from ₹5,000 a year for a startup to ₹4,00,000 a year for a large company. Fees are before any applicable taxes, and longer terms and concessions cost less. The membership page lists every category. No fee is collected until membership opens after registration.
 
 Link to this question
 
 **Is there a student membership?**
 
-Not yet. The trust deed allows a student category, but it has to be created by bye-laws adopted after registration. Students aged eighteen or over may be eligible for Ordinary membership once it opens. Anyone can register their interest now.
+Yes. Student membership is for anyone enrolled in an undergraduate, postgraduate, PhD or diploma course, with a valid ID. It costs ₹600 a year, or ₹300 through a member institution, and students can join for the length of their course at 15% off. Membership opens after the trust is registered, and you can register your interest now.
 
 Link to this question
 
 **How do I become a member?**
 
-Under the trust deed, admission is by application, approval by the Board or a committee it appoints, and payment of the fee. Because fees are not fixed yet, applications are not open. You can register your interest on the membership page, and we will contact you when membership opens.
+Membership opens after the trust is registered. You will then apply online with your category, proof of eligibility and acceptance of the Code of Conduct. The Membership sub-committee decides on individual applications within 7 days, and organisations hear within 21 days. Until then, you can register your interest on the membership page, and we will write to you when applications open.
 
 Link to this question
 
 **Can members vote or help manage ASSOCADS?**
 
-No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Under the trust deed, membership gives no share in the trust's funds and no right to manage the trust or to vote, unless bye-laws later provide otherwise. Once membership opens, members may take part in programmes, Special Interest Groups, events and publications.
+No. ASSOCADS is a trust, not a society, so it is managed by its Board of Trustees. Membership gives access to programmes and benefits, but no ownership, no share of any surplus and no seat on the Board. Some members may be invited to advisory councils, which advise the Board.
 
 Link to this question
 
 **Can a company or institution join?**
 
-Yes. The trust deed provides for Associate Members, which can be institutions, organisations, societies or companies. Each is represented by an official it nominates, and pays a fee fixed by the Board. Applications open with the other categories.
+Yes. Organisations can join as an Academic Institution, Research Lab or Institute, Startup, Corporate, Non-profit, Government or PSU body, or Community, Event or Media Partner. Each membership includes seats for people the organisation names. The membership page lists the bands and fees. Applications open after the trust is registered.
 
 Link to this question
 
 **How does a membership end?**
 
-Honorary membership lasts three years and may be renewed. The other rules on how a membership ends will be set out in the bye-laws adopted after registration, and published on this site.
+A membership ends if it is not renewed: after a 30-day grace period, the member returns to free Community membership, and rejoining within 12 months keeps their seniority. The Board can also end a membership for a breach of the Code of Conduct or for acting against the trust's objects, after written notice and a chance to respond. In that case there is no refund.
 
 Link to this question
 
 **Are membership fees refundable?**
 
-No fees have been fixed yet, so no refund policy exists. The rules on refunds will be set by the bye-laws and published on this site before any fee is collected.
+A pro-rata refund is available within 30 days of joining. After that, fees are not refundable, but an organisation's membership can be transferred within the same organisation. No fee is collected until membership opens after registration.
 
 Link to this question
 
@@ -2105,7 +2469,7 @@ Link to this question
 
 **Do I need to be a member to join a group?**
 
-Under the trust deed, members may take part in Special Interest Groups as the Board decides. Who else can take part will be decided when each group is set up.
+Special Interest Groups are part of what members can take part in. Who else can join each group will be decided when it is set up.
 
 Link to this question
 
@@ -2155,9 +2519,9 @@ Only after a written agreement approved by the Board is in place, and with your 
 
 Link to this question
 
-**Is a partnership the same as Associate membership?**
+**Is a partnership the same as organisational membership?**
 
-No. Associate membership is a category of membership for institutions, organisations, societies and companies, with a fee fixed by the Board. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
+No. Organisational membership is a category of membership, with an annual fee, that gives an organisation's people access to programmes and benefits. A partnership is a written agreement to work together on something specific, such as a series of workshops or a research project.
 
 Link to this question
 

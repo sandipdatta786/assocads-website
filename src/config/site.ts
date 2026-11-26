@@ -54,7 +54,7 @@ export const site = {
   updated: {
     facts: "2026-11-24",
     governance: "2026-11-24",
-    membership: "2026-11-23",
+    membership: "2026-11-26",
   },
   location: { ...LOCATION, full: PLACE },
 
@@ -74,8 +74,9 @@ export const site = {
   governance: {
     /** True: the Board has elected its office bearers (titles are in content/trustees.json). */
     officeBearersElected: true,
-    /** Membership fees are set by bye-laws adopted after registration. */
-    feesFixed: false,
+    /** True: the Board has approved the membership framework and its fees
+        (content/membership.json). */
+    feesFixed: true,
   },
 
   money: {

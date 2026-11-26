@@ -60,25 +60,93 @@ export const trusteeSchema = z.object({
   published: z.boolean().default(true),
 });
 
-export const membershipCategorySchema = z.object({
-  slug,
-  name: z.string().min(1),
-  who: z.string().min(1),
-  eligibility: z.string().min(1),
-  /** One line for the comparison table: how someone is admitted. */
-  admission: z.string().min(1),
-  /** One line for the comparison table: what it costs. Never a figure until the Board fixes fees. */
-  payment: z.string().min(1),
-  terms: z.array(z.string().min(1)).min(1),
-  /** Null until the Board fixes fees. */
-  fee: z
-    .object({
-      amount: z.number().nonnegative(),
-      currency: z.literal("INR"),
-      period: z.enum(["annual", "one-time", "none"]),
-    })
-    .nullable(),
-  benefits: z.array(z.string().min(1)),
+/** A fee in rupees for one year. 0 is free; null is no fee, with a note. */
+const membershipFee = z.object({
+  /** Null until the Board fixes fees (site.governance.feesFixed). */
+  amount: z.number().int().nonnegative().nullable(),
+  /** A concession or condition shown under the fee. */
+  note: z.string().min(1).optional(),
+});
+
+const sentence = z.string().min(1);
+
+/** content/membership.json: the membership framework the Board approved. */
+export const membershipSchema = z.object({
+  /** When the Board approved it, in words: "November 2026". */
+  approved: sentence,
+  basis: sentence,
+  feeTerms: sentence,
+  structure: z
+    .array(
+      z.object({
+        vertical: sentence,
+        individual: sentence.nullable(),
+        organisation: sentence,
+      }),
+    )
+    .min(1),
+  individual: z
+    .array(
+      z.object({
+        slug,
+        name: sentence,
+        eligibility: sentence,
+        fee: membershipFee,
+        benefits: sentence,
+      }),
+    )
+    .min(1),
+  individualNote: sentence,
+  organisation: z
+    .array(
+      z.object({
+        slug,
+        name: sentence,
+        eligibility: sentence,
+        bands: z
+          .array(
+            z.object({
+              band: sentence,
+              fee: membershipFee,
+              seats: sentence,
+              benefits: sentence,
+            }),
+          )
+          .min(1),
+      }),
+    )
+    .min(1),
+  organisationNote: sentence,
+  tenures: z
+    .array(
+      z.object({
+        name: sentence,
+        duration: sentence,
+        price: sentence,
+        extras: sentence,
+      }),
+    )
+    .min(1),
+  tenureNote: sentence,
+  honorary: z
+    .array(
+      z.object({
+        name: sentence,
+        granted: sentence,
+        fee: sentence,
+        recognition: sentence,
+      }),
+    )
+    .min(1),
+  honoraryNote: sentence,
+  rights: z.object({
+    columns: z.array(sentence).min(1),
+    rows: z
+      .array(z.object({ right: sentence, values: z.array(sentence) }))
+      .min(1),
+  }),
+  concessions: z.array(z.object({ name: sentence, details: sentence })).min(1),
+  rules: z.array(z.object({ title: sentence, text: sentence })).min(1),
 });
 
 export const faqSchema = z.object({
@@ -698,7 +766,8 @@ export const glossarySchema = z.object({
 });
 
 export type Trustee = z.infer<typeof trusteeSchema>;
-export type MembershipCategory = z.infer<typeof membershipCategorySchema>;
+export type Membership = z.infer<typeof membershipSchema>;
+export type MembershipFee = Membership["individual"][number]["fee"];
 export type Faq = z.infer<typeof faqSchema>;
 export type ContentDocument = z.infer<typeof documentSchema>;
 export type RoadmapStage = z.infer<typeof roadmapSchema>;
