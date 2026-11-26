@@ -1,6 +1,6 @@
 # ASSOCADS Brand Guide
 
-**Version 1.1 · November 2026 · For the website, social channels, presentations, documents and event material**
+**Version 1.2 · November 2026 · For the website, social channels, presentations, documents and event material**
 
 This guide fixes the colours, fonts and usage rules for the Association for AI and Data Science so that every channel looks like the same organisation. It is also the design source of truth for the website build: copy it into the website repository as `docs/BRAND_GUIDE.md`.
 
@@ -131,9 +131,11 @@ Charts use colours in this order: Indigo `#2F3BD9`, Teal `#0B7A6E`, Marigold `#F
 
 ### 2.7 Dark theme pairings
 
+The founders approved the dark theme pairings in this section and the tokens in 2.8 on 26 November 2026.
+
 The website has a dark theme. It follows the visitor's system setting, and a switch in the header and footer overrides it. It uses only the palette above: Ink becomes the page, Night the alternate surface, and text turns light. Ink sections keep their usual look, on Night. Forms and the brand kit stay light in the dark theme, because Error, Success and Teal have no pairing on dark backgrounds that passes for text.
 
-These are the text pairings the dark theme uses, in addition to those in 2.3. Most already appear in 2.3; they are listed again so that the dark theme can be checked against one table.
+These are the approved text pairings for the dark theme, in addition to those in 2.3. Most already appear in 2.3; they are listed again so that the dark theme can be checked against one table.
 
 | Text                    | Background              | Ratio  | Result                              |
 | ----------------------- | ----------------------- | ------ | ----------------------------------- |
