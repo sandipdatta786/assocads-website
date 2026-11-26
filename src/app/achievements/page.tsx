@@ -44,7 +44,7 @@ const pending: Record<
 > = {
   members: {
     icon: Users,
-    text: "Membership opens once the trust's bye-laws and fees are in place. Figures will appear here after that.",
+    text: "Membership opens after the trust is registered. Figures will appear here after that.",
   },
   trained: {
     icon: GraduationCap,

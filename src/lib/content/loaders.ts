@@ -31,7 +31,7 @@ import {
   glossarySchema,
   guideSchema,
   insightSchema,
-  membershipCategorySchema,
+  membershipSchema,
   programmeSchema,
   roadmapSchema,
   communitySchema,
@@ -244,20 +244,68 @@ export function getFounderMembers(options?: LoadOptions) {
 
 export { hasTrusteeProfile } from "./trustees.ts";
 
-export function getMembershipCategories() {
-  const file = "content/membership.json";
-  const items = readJsonArray("membership", membershipCategorySchema);
-  uniqueSlugs(file, items);
-  check(
-    file,
-    items
-      .filter((c) => c.fee !== null && !site.governance.feesFixed)
+/** The membership framework the Board approved: content/membership.json. */
+export function getMembership() {
+  const absolute = path.join(CONTENT_DIR, "membership.json");
+  const file = relative(absolute);
+  let raw: unknown;
+  try {
+    raw = JSON.parse(fs.readFileSync(absolute, "utf8"));
+  } catch (error) {
+    throw new ContentError(file, [
+      `not valid JSON: ${(error as Error).message}`,
+    ]);
+  }
+  const result = membershipSchema.safeParse(raw);
+  if (!result.success) throw new ContentError(file, formatIssues(result.error));
+  const m = result.data;
+
+  uniqueSlugs(file, [...m.individual, ...m.organisation]);
+  const fees = [
+    ...m.individual.map((c) => ({ name: c.name, fee: c.fee })),
+    ...m.organisation.flatMap((c) =>
+      c.bands.map((b) => ({ name: `${c.name} (${b.band})`, fee: b.fee })),
+    ),
+  ];
+  check(file, [
+    ...fees
+      .filter((f) => f.fee.amount !== null && !site.governance.feesFixed)
       .map(
-        (c) =>
-          `${c.name}: fee must stay null until the Board fixes fees (site.governance.feesFixed)`,
+        (f) =>
+          `${f.name}: amount must stay null until the Board fixes fees (site.governance.feesFixed)`,
       ),
-  );
-  return items;
+    ...fees
+      .filter((f) => f.fee.amount === null && !f.fee.note)
+      .map((f) => `${f.name}: a fee with no amount needs a note`),
+    ...m.rights.rows
+      .filter((r) => r.values.length !== m.rights.columns.length)
+      .map(
+        (r) =>
+          `rights: "${r.right}" needs ${m.rights.columns.length} values, one for each column`,
+      ),
+  ]);
+  return m;
+}
+
+/** Categories someone can register interest in, individuals first. */
+export function getMembershipCategories() {
+  const m = getMembership();
+  return [
+    ...m.individual.map((c) => ({
+      slug: c.slug,
+      group: "individual" as const,
+      name: c.name,
+      eligibility: c.eligibility,
+      fees: [c.fee],
+    })),
+    ...m.organisation.map((c) => ({
+      slug: c.slug,
+      group: "organisation" as const,
+      name: c.name,
+      eligibility: c.eligibility,
+      fees: c.bands.map((b) => b.fee),
+    })),
+  ];
 }
 
 const FAQ_TOKENS: Record<string, () => string> = {

@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
 import { membershipCategories } from "@/lib/enquiries";
 import { getMembershipCategories, getProgrammes } from "@/lib/content/loaders";
+import { feeRange } from "@/lib/membership";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,29 +22,31 @@ export default function Page() {
     label: p.title,
   }));
   // The categories someone can register interest in, from the same content
-  // as the comparison on /membership. Honorary is by invitation, so it is left out.
+  // as /membership. Honorary recognition is by invitation, so it is left out.
   const content = getMembershipCategories();
-  const categories = membershipCategories.flatMap((option) => {
-    const c = content.find((x) => x.slug === option.value);
-    return c
-      ? [
-          {
-            value: option.value,
-            name: c.name,
-            eligibility: c.eligibility,
-            admission: c.admission,
-            payment: c.payment,
-          },
-        ]
-      : [];
-  });
+  const listed = membershipCategories.filter((o) => o.value !== "not-sure");
+  const missing = [
+    ...listed.filter((o) => !content.some((c) => c.slug === o.value)),
+    ...content.filter((c) => !listed.some((o) => o.value === c.slug)),
+  ].map((x) => ("value" in x ? x.value : x.slug));
+  if (missing.length > 0)
+    throw new Error(
+      `membershipCategories in src/lib/enquiries.ts and content/membership.json differ: ${missing.join(", ")}`,
+    );
+  const categories = content.map((c) => ({
+    value: c.slug,
+    group: c.group,
+    name: c.name,
+    eligibility: c.eligibility,
+    payment: feeRange(c.fees),
+  }));
 
   return (
     <>
       <PageHeader
         eyebrow="Membership"
         title="Register your interest"
-        lead="Membership opens after the trust is registered and the Board has adopted its bye-laws. Tell us you would like to join, and we will write to you when applications open. Registering interest is not an application for membership, and you can ask us to erase your details at any time."
+        lead="Membership opens after the trust is registered. Tell us you would like to join, and we will write to you when applications open. Registering interest is not an application for membership, and you can ask us to erase your details at any time."
         breadcrumbs={[
           { label: "Membership", href: "/membership" },
           { label: "Register your interest" },
@@ -75,15 +78,15 @@ export default function Page() {
                 Registering your interest is free and commits you to nothing.
               </li>
               <li>
-                It is not an application. Applications open once the Board has
-                fixed the fees.
+                It is not an application, and no fee is collected. Applications
+                open after the trust is registered.
               </li>
               <li>
                 We use your details only to contact you about membership, and to
                 send news if you ask for it.
               </li>
             </ul>
-            <TextLink href="/membership">How membership works</TextLink>
+            <TextLink href="/membership">Categories and fees</TextLink>
           </aside>
         </Container>
       </Section>

@@ -11,7 +11,7 @@ import {
 } from "@/config/site";
 import {
   getFaqs,
-  getMembershipCategories,
+  getMembership,
   getProgrammes,
   getFounderMembers,
   getTrustees,
@@ -61,7 +61,7 @@ export function keyFacts(): Fact[] {
     .sort((a, b) => officeRank(a.officeTitle) - officeRank(b.officeTitle))
     .map((t) => `${t.name} (${t.officeTitle})`)
     .join(", ");
-  const categories = getMembershipCategories();
+  const membership = getMembership();
   const programmes = getProgrammes();
   const planned = programmes.every((p) => p.status === "planned");
   const affiliation = affiliationFaq();
@@ -101,7 +101,8 @@ export function keyFacts(): Fact[] {
     },
     {
       label: "Membership",
-      text: `The trust deed provides for ${numberWord(categories.length)} membership categories: ${joinAnd(categories.map((c) => c.name))}.${site.governance.feesFixed ? "" : " Fees have not yet been fixed; they will be set by bye-laws adopted after registration."}`,
+      text: `${capitalise(numberWord(membership.individual.length))} individual and ${numberWord(membership.organisation.length)} organisational membership categories, approved by the Board in ${membership.approved}, from free Community membership upwards. Membership opens after registration. Honorary recognition, such as Fellow, is by invitation of the Board and is never bought.`,
+      link: { href: "/membership", label: "Categories and fees" },
     },
     {
       label: "Programme areas",

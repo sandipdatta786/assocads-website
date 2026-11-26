@@ -37,9 +37,10 @@ const FORM_ID = "register-interest";
 /** One category, as the comparison on the category step shows it. */
 export type CategoryCard = {
   value: string;
+  group: "individual" | "organisation";
   name: string;
   eligibility: string;
-  admission: string;
+  /** What it costs, in words. */
   payment: string;
 };
 
@@ -306,8 +307,8 @@ export function RegisterInterestForm({
         backLabel="Register someone else"
         next={[
           "We have emailed you a short acknowledgement. If it has not arrived, look in your spam folder.",
-          "Membership opens after the trust is registered and the Board has adopted its bye-laws. We will write to you then.",
-          "You can then apply in the category that suits you. The Board will fix the fees before applications open.",
+          "Membership opens after the trust is registered. We will write to you then.",
+          "You can then apply in the category that suits you, at the fees on the membership page.",
           <>
             Until then, nothing more is needed from you. To change or erase your
             details at any time,{" "}
@@ -754,8 +755,8 @@ function Progress({
   );
 }
 
-/** The categories as cards side by side, each a radio button, with who can
-    join, how they are admitted and what it costs. "Not sure yet" below. */
+/** The categories as cards, individuals then organisations, each a radio
+    button with who can join and what it costs. "Not sure yet" below. */
 function CategoryChoice({
   categories,
   value,
@@ -783,58 +784,63 @@ function CategoryChoice({
         Category of interest
       </legend>
       <p id={`${base}-hint`} className="-mt-2 text-small text-slate-600">
-        Choose the one that fits you best. Honorary membership is by invitation
+        Choose the one that fits you best. Honorary recognition is by invitation
         of the Board, so it is not listed.
       </p>
       {error && <ErrorText id={`${base}-error`}>{error}</ErrorText>}
-      <div className="grid gap-3 md:grid-cols-3">
-        {categories.map((c, i) => {
-          const rid = radioId(i, c.value);
-          return (
-            <div
-              key={c.value}
-              className={cn(
-                "relative flex flex-col gap-4 rounded-m border bg-paper p-4 transition-[border-color,background-color] duration-150 ease-out",
-                "has-[:checked]:border-indigo has-[:checked]:bg-indigo-tint has-[:checked]:shadow-[inset_0_0_0_1px_var(--indigo)]",
-                "has-[:focus-visible]:shadow-[0_0_0_4px_var(--indigo-tint)]",
-                error ? "border-error" : "border-line hover:border-ink",
-              )}
-            >
-              <label
-                htmlFor={rid}
-                className="flex min-h-11 cursor-pointer items-center gap-3 font-display text-body font-semibold text-ink after:absolute after:inset-0 after:rounded-m"
-              >
-                <input
-                  id={rid}
-                  type="radio"
-                  name="category"
-                  value={c.value}
-                  checked={value === c.value}
-                  onChange={() => onChange(c.value)}
-                  aria-describedby={`${rid}-details`}
-                  className="relative z-1 size-5 shrink-0 accent-indigo"
-                />
-                {c.name}
-              </label>
-              <dl
-                id={`${rid}-details`}
-                className="flex flex-col gap-3 text-small"
-              >
-                {[
-                  ["Who can join", c.eligibility],
-                  ["How you are admitted", c.admission],
-                  ["What it costs", c.payment],
-                ].map(([term, detail]) => (
-                  <div key={term} className="flex flex-col gap-0.5">
-                    <dt className="font-semibold text-ink">{term}</dt>
-                    <dd className="text-slate-600">{detail}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          );
-        })}
-      </div>
+      {(
+        [
+          ["individual", "For individuals"],
+          ["organisation", "For organisations"],
+        ] as const
+      ).map(([group, heading]) => (
+        <div key={group} className="flex flex-col gap-3">
+          <p className="mt-2 font-mono text-eyebrow font-medium text-slate-600 uppercase">
+            {heading}
+          </p>
+          <div className="grid gap-3 md:grid-cols-2">
+            {categories.map((c, i) => {
+              if (c.group !== group) return null;
+              const rid = radioId(i, c.value);
+              return (
+                <div
+                  key={c.value}
+                  className={cn(
+                    "relative flex flex-col gap-2 rounded-m border bg-paper p-4 transition-[border-color,background-color] duration-150 ease-out",
+                    "has-[:checked]:border-indigo has-[:checked]:bg-indigo-tint has-[:checked]:shadow-[inset_0_0_0_1px_var(--indigo)]",
+                    "has-[:focus-visible]:shadow-[0_0_0_4px_var(--indigo-tint)]",
+                    error ? "border-error" : "border-line hover:border-ink",
+                  )}
+                >
+                  <label
+                    htmlFor={rid}
+                    className="flex min-h-11 cursor-pointer items-center gap-3 font-display text-body font-semibold text-ink after:absolute after:inset-0 after:rounded-m"
+                  >
+                    <input
+                      id={rid}
+                      type="radio"
+                      name="category"
+                      value={c.value}
+                      checked={value === c.value}
+                      onChange={() => onChange(c.value)}
+                      aria-describedby={`${rid}-details`}
+                      className="relative z-1 size-5 shrink-0 accent-indigo"
+                    />
+                    {c.name}
+                  </label>
+                  <p
+                    id={`${rid}-details`}
+                    className="flex flex-col gap-1 pl-8 text-small text-slate-600"
+                  >
+                    <span>{c.eligibility}</span>
+                    <span className="font-medium text-ink">{c.payment}</span>
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
       <label
         htmlFor={`${base}-not-sure`}
         className="flex min-h-11 cursor-pointer items-center gap-3 text-body text-ink"

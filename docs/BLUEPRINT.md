@@ -181,7 +181,7 @@ Plus twenty-five glossary entries, starting with artificial intelligence, machin
 | `/for/professionals`                                                    | For professionals      | Including faculty and researchers                                                      |
 | `/for/industry`                                                         | For industry           | Hiring, training, research partnerships, sponsorship                                   |
 | `/for/government`                                                       | For government bodies  | Policy support, capacity building, AI for public good                                  |
-| `/membership`                                                           | Membership             | The four categories from the deed, benefits, questions                                 |
+| `/membership`                                                           | Membership             | The approved categories and fees, tenure, concessions, rules, questions                |
 | `/membership/apply`                                                     | Register your interest | Form                                                                                   |
 | `/events` and `/events/[slug]`                                          | Events                 | Upcoming and past, with filters                                                        |
 | `/communities`                                                          | Communities            | Special Interest Groups and chapters, with an interest form                            |
@@ -293,7 +293,7 @@ Each card carries placeholders for: photograph, current role and organisation, a
 - Admission is by application, approval by the Board or a committee, and payment of the fee.
 - Members may take part in programmes, Special Interest Groups, events and publications as the Board decides.
 - Membership gives no share in the trust's funds and **no right to manage the trust or to vote**, unless bye-laws later provide otherwise.
-- **Fees are not yet fixed.** They are set by bye-laws adopted after registration. A student category is possible under the deed but must be created by bye-law.
+- **Membership framework approved, November 2026.** The Board approved a membership framework with fees: eight individual categories (Community, Student, Academic, three Professional bands, Independent, Public-interest), six organisational categories with bands, tenure options, honorary recognition, concessions and joining rules. The website shows this framework, from `content/membership.json`, and `site.governance.feesFixed` is true. The table above records what the deed itself says. The framework has no Life membership, and describes honorary recognition differently from the deed's Honorary Member; the founders should make sure the bye-laws reconcile the two.
 
 ### 7.7 Money
 

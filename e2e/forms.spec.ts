@@ -96,7 +96,7 @@ const cases: FormCase[] = [
       await page.locator("#register-interest-city").fill("Kolkata");
       await page.getByLabel("A student").check();
       await page.getByRole("button", { name: "Continue" }).click();
-      await page.getByLabel("Ordinary Member", { exact: true }).check();
+      await page.getByLabel("Student", { exact: true }).check();
       await page.getByRole("button", { name: "Continue" }).click();
       await page.locator("#register-interest-consent").check();
     },
@@ -478,14 +478,16 @@ test.describe("membership form in steps", () => {
     await expect(
       page.getByRole("alert").filter({ hasText: "Choose a category" }),
     ).toBeFocused();
-    await page.getByLabel("Life Member", { exact: true }).check();
+    await page.getByLabel("Professional: Mid-career", { exact: true }).check();
     await expect(page.getByText("There is one problem")).toBeHidden();
 
     // Back keeps what was typed; the done step is a button.
     await page.getByRole("button", { name: /Step 1, done/ }).click();
     await expect(page.locator(field("city"))).toHaveValue("Kolkata");
     await cont(page);
-    await expect(page.getByLabel("Life Member", { exact: true })).toBeChecked();
+    await expect(
+      page.getByLabel("Professional: Mid-career", { exact: true }),
+    ).toBeChecked();
     await cont(page);
     await expect(
       page.getByRole("heading", { name: /Step 3 of 3/ }),
@@ -539,7 +541,7 @@ test.describe("membership form in steps", () => {
     await waitForHydration(page);
     await fillAboutYou(page);
     await cont(page);
-    await page.getByLabel("Ordinary Member", { exact: true }).check();
+    await page.getByLabel("Student", { exact: true }).check();
     await cont(page);
     await page.locator(field("consent")).check();
 
@@ -603,7 +605,7 @@ test.describe("membership form without JavaScript", () => {
     await page.locator("#register-interest-email").fill(email);
     await page.locator("#register-interest-city").fill("Kolkata");
     await page.getByLabel("A student").check();
-    await page.getByLabel("Ordinary Member", { exact: true }).check();
+    await page.getByLabel("Student", { exact: true }).check();
     await page.locator("#register-interest-consent").check();
     await page.getByRole("button", { name: "Register your interest" }).click();
     await expect(

@@ -109,12 +109,42 @@ export const membershipRoles = [
   { value: "other", label: "Other" },
 ] as const satisfies Choice[];
 
-/** Membership categories a visitor can register interest in. Honorary
-    membership is by invitation of the Board, so it is not listed. */
+/** Membership categories a visitor can register interest in, as in
+    content/membership.json (the apply page checks they match). Honorary
+    recognition is by invitation of the Board, so it is not listed. */
 export const membershipCategories = [
-  { value: "ordinary", label: "Ordinary membership" },
-  { value: "life", label: "Life membership" },
-  { value: "associate", label: "Associate membership (for organisations)" },
+  { value: "community", label: "Community (individual)" },
+  { value: "student", label: "Student (individual)" },
+  { value: "academic", label: "Academic (individual)" },
+  {
+    value: "professional-early-career",
+    label: "Professional: Early-career (individual)",
+  },
+  {
+    value: "professional-mid-career",
+    label: "Professional: Mid-career (individual)",
+  },
+  {
+    value: "professional-senior",
+    label: "Professional: Senior or Leader (individual)",
+  },
+  { value: "independent", label: "Independent (individual)" },
+  { value: "public-interest", label: "Public-interest (individual)" },
+  {
+    value: "academic-institution",
+    label: "Academic Institution (organisation)",
+  },
+  { value: "research-lab", label: "Research Lab or Institute (organisation)" },
+  { value: "startup", label: "Startup (organisation)" },
+  { value: "corporate", label: "Corporate (organisation)" },
+  {
+    value: "non-profit-government",
+    label: "Non-profit, Government or PSU (organisation)",
+  },
+  {
+    value: "ecosystem-partner",
+    label: "Community, Event or Media Partner (organisation)",
+  },
   { value: "not-sure", label: "Not sure yet" },
 ] as const satisfies Choice[];
 

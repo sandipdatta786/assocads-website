@@ -436,12 +436,12 @@ export default function StyleGuidePage() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Ordinary Member</td>
-                      <td>An individual aged eighteen or over</td>
+                      <td>Student</td>
+                      <td>Enrolled in a course, with a valid ID</td>
                     </tr>
                     <tr>
-                      <td>Associate Member</td>
-                      <td>An institution or organisation</td>
+                      <td>Corporate</td>
+                      <td>A company, banded by turnover</td>
                     </tr>
                   </tbody>
                 </table>

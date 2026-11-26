@@ -1,67 +1,384 @@
-[
-  {
-    "slug": "ordinary",
-    "name": "Ordinary Member",
-    "who": "Individuals",
-    "eligibility": "An individual aged eighteen or over.",
-    "admission": "Application and approval by the Board or its committee",
-    "payment": "Annual subscription, to be fixed by the Board",
-    "terms": [
-      "Admission is by application and approval by the Board or a committee it appoints.",
-      "Pays an annual subscription fixed by the Board."
+{
+  "approved": "November 2026",
+  "basis": "ASSOCADS is a charitable trust. Membership gives access to programmes and benefits. It gives no ownership, no share of any surplus and no seat on the Board of Trustees.",
+  "feeTerms": "All fees are in Indian rupees, for one year and before any applicable taxes, unless stated otherwise.",
+  "structure": [
+    {
+      "vertical": "Education",
+      "individual": "Student (undergraduate, postgraduate, PhD or diploma)",
+      "organisation": "Academic Institution (school, college or university)"
+    },
+    {
+      "vertical": "Academia and research",
+      "individual": "Academic (faculty, researchers and post-doctoral fellows)",
+      "organisation": "Research Lab or Institute"
+    },
+    {
+      "vertical": "Industry",
+      "individual": "Professional (Early-career, Mid-career, or Senior or Leader)",
+      "organisation": "Corporate (MSME, Mid-size or Enterprise)"
+    },
+    {
+      "vertical": "Entrepreneurship",
+      "individual": "Independent (freelancers, consultants and founders)",
+      "organisation": "Startup (DPIIT-recognised, or under five years old)"
+    },
+    {
+      "vertical": "Public and social",
+      "individual": "Public-interest (NGO staff, journalists, public servants and retired professionals)",
+      "organisation": "Non-profit, Government or PSU body"
+    },
+    {
+      "vertical": "Ecosystem",
+      "individual": null,
+      "organisation": "Community, Event or Media Partner"
+    }
+  ],
+  "individual": [
+    {
+      "slug": "community",
+      "name": "Community",
+      "eligibility": "Anyone who registers.",
+      "fee": {
+        "amount": 0
+      },
+      "benefits": "Newsletter, public events, viewing the job board, and the forum."
+    },
+    {
+      "slug": "student",
+      "name": "Student",
+      "eligibility": "Enrolled in an undergraduate, postgraduate, PhD or diploma course, with a valid ID.",
+      "fee": {
+        "amount": 600,
+        "note": "₹300 through a member institution"
+      },
+      "benefits": "Competitions, hackathons, mentorship, the learning library and the internship board."
+    },
+    {
+      "slug": "academic",
+      "name": "Academic",
+      "eligibility": "Faculty, researchers and post-doctoral fellows.",
+      "fee": {
+        "amount": 2000
+      },
+      "benefits": "Faculty development programmes at the member price, research collaboration, the publication and reviewer pool, and academic forums."
+    },
+    {
+      "slug": "professional-early-career",
+      "name": "Professional: Early-career",
+      "eligibility": "Under five years of experience.",
+      "fee": {
+        "amount": 1500
+      },
+      "benefits": "Networking, discounted events and training, posting on the job board, and the mentee track."
+    },
+    {
+      "slug": "professional-mid-career",
+      "name": "Professional: Mid-career",
+      "eligibility": "Five to twelve years of experience.",
+      "fee": {
+        "amount": 3000
+      },
+      "benefits": "Early-career benefits, plus the speaker pool, the mentor track and certification discounts."
+    },
+    {
+      "slug": "professional-senior",
+      "name": "Professional: Senior or Leader",
+      "eligibility": "Over twelve years of experience, or a CXO, Director or Principal.",
+      "fee": {
+        "amount": 6000
+      },
+      "benefits": "Mid-career benefits, plus leadership roundtables and advisory panels."
+    },
+    {
+      "slug": "independent",
+      "name": "Independent",
+      "eligibility": "Freelancers, consultants, solo founders and people changing careers.",
+      "fee": {
+        "amount": 2000
+      },
+      "benefits": "Professional benefits, plus the consultant directory and the referral board."
+    },
+    {
+      "slug": "public-interest",
+      "name": "Public-interest",
+      "eligibility": "NGO staff, journalists, public servants and retired professionals.",
+      "fee": {
+        "amount": 1000
+      },
+      "benefits": "Professional benefits, plus the AI-for-good and policy working groups."
+    }
+  ],
+  "individualNote": "Every paid individual member receives a digital membership certificate and a member ID that can be verified.",
+  "organisation": [
+    {
+      "slug": "academic-institution",
+      "name": "Academic Institution",
+      "eligibility": "Schools, colleges and universities.",
+      "bands": [
+        {
+          "band": "School or Tier-3 college",
+          "fee": {
+            "amount": 15000
+          },
+          "seats": "1 faculty member and 50 students",
+          "benefits": "A campus chapter, competitions and guest lectures."
+        },
+        {
+          "band": "College or Tier-2 university",
+          "fee": {
+            "amount": 40000
+          },
+          "seats": "5 faculty members and 200 students",
+          "benefits": "The above, plus two faculty development programmes a year, curriculum advice and placement connections."
+        },
+        {
+          "band": "University or autonomous institute",
+          "fee": {
+            "amount": 100000
+          },
+          "seats": "15 faculty members and 500 students",
+          "benefits": "The above, plus co-branded research and eligibility for a Centre of Excellence."
+        }
+      ]
+    },
+    {
+      "slug": "research-lab",
+      "name": "Research Lab or Institute",
+      "eligibility": "Research labs and institutes.",
+      "bands": [
+        {
+          "band": "Any",
+          "fee": {
+            "amount": 50000
+          },
+          "seats": "10",
+          "benefits": "Dataset collaboration, joint publications and problems from industry."
+        }
+      ]
+    },
+    {
+      "slug": "startup",
+      "name": "Startup",
+      "eligibility": "Startups recognised by DPIIT, or under five years old.",
+      "bands": [
+        {
+          "band": "DPIIT-recognised, or under five years old",
+          "fee": {
+            "amount": 5000,
+            "note": "First year free for incubator cohorts"
+          },
+          "seats": "3",
+          "benefits": "Demo days, mentor hours, investor connections and partner credits."
+        }
+      ]
+    },
+    {
+      "slug": "corporate",
+      "name": "Corporate",
+      "eligibility": "Companies, in three bands by turnover.",
+      "bands": [
+        {
+          "band": "MSME: turnover under ₹50 crore",
+          "fee": {
+            "amount": 50000
+          },
+          "seats": "10",
+          "benefits": "Branding, access to hiring and speaking slots."
+        },
+        {
+          "band": "Mid-size: turnover of ₹50 crore to ₹500 crore",
+          "fee": {
+            "amount": 150000
+          },
+          "seats": "25",
+          "benefits": "The above, plus custom workshops, campus hiring drives and research sponsorship."
+        },
+        {
+          "band": "Enterprise: turnover above ₹500 crore, or a multinational",
+          "fee": {
+            "amount": 400000
+          },
+          "seats": "50",
+          "benefits": "The above, plus a seat on the Industry Advisory Council and partnership in the flagship conference."
+        }
+      ]
+    },
+    {
+      "slug": "non-profit-government",
+      "name": "Non-profit, Government or PSU",
+      "eligibility": "Non-profits, government bodies and public sector undertakings.",
+      "bands": [
+        {
+          "band": "Any",
+          "fee": {
+            "amount": 10000,
+            "note": "Government bodies by MoU"
+          },
+          "seats": "5",
+          "benefits": "AI-for-good projects, policy advice and capacity building."
+        }
+      ]
+    },
+    {
+      "slug": "ecosystem-partner",
+      "name": "Community, Event or Media Partner",
+      "eligibility": "Communities, event organisers and media organisations.",
+      "bands": [
+        {
+          "band": "Any",
+          "fee": {
+            "amount": null,
+            "note": "No fee, by MoU"
+          },
+          "seats": "2",
+          "benefits": "Cross-promotion, co-hosted meetups and logo placement."
+        }
+      ]
+    }
+  ],
+  "organisationNote": "Event sponsorships are priced for each event and are separate from membership. Members receive a discount on sponsorship.",
+  "tenures": [
+    {
+      "name": "Annual",
+      "duration": "12 months",
+      "price": "The annual fee",
+      "extras": "None"
+    },
+    {
+      "name": "Multi-year",
+      "duration": "3 years",
+      "price": "2.7 times the annual fee (a 10% saving)",
+      "extras": "The fee is locked for the term."
+    },
+    {
+      "name": "Long-term",
+      "duration": "5 years, the longest available",
+      "price": "4 times the annual fee (a 20% saving)",
+      "extras": "The fee is locked, plus a Long-Term Member badge, priority seats at events and one free upgrade of category."
+    },
+    {
+      "name": "Course-duration (students only)",
+      "duration": "Until the course ends, up to 4 years",
+      "price": "The annual fee for each year, less 15%",
+      "extras": "Converts to Early-career Professional at half price for the first year after graduation."
+    }
+  ],
+  "tenureNote": "For example, a Mid-career Professional pays ₹3,000 for one year, ₹8,100 for three years or ₹12,000 for five years. There is no lifetime membership.",
+  "honorary": [
+    {
+      "name": "Founder Member",
+      "granted": "The 12 founders named in the trust deed.",
+      "fee": "No fee",
+      "recognition": "All benefits. The Board of Trustees and its office bearers come from among them."
+    },
+    {
+      "name": "Fellow (FASSOCADS)",
+      "granted": "By invitation of the Board, for people with over ten years in the field and a visible contribution to it. Up to ten new Fellows a year.",
+      "fee": "No fee",
+      "recognition": "The post-nominal title FASSOCADS, advisory councils and priority for keynotes."
+    },
+    {
+      "name": "Distinguished or Honorary Member",
+      "granted": "By resolution of the Board, for eminent figures.",
+      "fee": "No fee",
+      "recognition": "Advisory work and a presence at flagship events."
+    },
+    {
+      "name": "Patron",
+      "granted": "A donation of ₹5,00,000 or more, once the trust can accept donations.",
+      "fee": "The donation",
+      "recognition": "A named lecture, scholarship or award, and the Patron Circle."
+    },
+    {
+      "name": "Volunteer Leader",
+      "granted": "Volunteers who have served a chapter, Special Interest Group or committee for over 12 months.",
+      "fee": "Fee waived while serving",
+      "recognition": "A leadership certificate and recognition."
+    }
+  ],
+  "honoraryNote": "Honorary recognition is separate from paid membership and is never bought.",
+  "rights": {
+    "columns": [
+      "Community",
+      "Paid individual",
+      "Organisation",
+      "Fellow",
+      "Founder"
     ],
-    "fee": null,
-    "benefits": [
-      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
+    "rows": [
+      {
+        "right": "Attend public events",
+        "values": ["Yes", "Yes", "Yes", "Yes", "Yes"]
+      },
+      {
+        "right": "A seat on an advisory council",
+        "values": ["No", "No", "Enterprise band only", "Yes", "Yes"]
+      },
+      {
+        "right": "A seat on the Board of Trustees",
+        "values": ["No", "No", "No", "No", "Founder Trustees only"]
+      }
     ]
   },
-  {
-    "slug": "life",
-    "name": "Life Member",
-    "who": "Individuals",
-    "eligibility": "An individual recommended by two trustees.",
-    "admission": "Recommendation by two trustees, then application and approval",
-    "payment": "One-time amount, to be fixed by the Board",
-    "terms": [
-      "Admission is by application and approval by the Board or a committee it appoints.",
-      "Pays a one-time amount fixed by the Board."
-    ],
-    "fee": null,
-    "benefits": [
-      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
-    ]
-  },
-  {
-    "slug": "associate",
-    "name": "Associate Member",
-    "who": "Institutions and organisations",
-    "eligibility": "An institution, organisation, society or company.",
-    "admission": "Application and approval by the Board or its committee",
-    "payment": "Fee to be fixed by the Board",
-    "terms": [
-      "Admission is by application and approval by the Board or a committee it appoints.",
-      "Pays a fee fixed by the Board.",
-      "Is represented by an official it nominates."
-    ],
-    "fee": null,
-    "benefits": [
-      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
-    ]
-  },
-  {
-    "slug": "honorary",
-    "name": "Honorary Member",
-    "who": "People of eminence",
-    "eligibility": "A person of eminence.",
-    "admission": "By invitation of the Board, through a two-thirds resolution",
-    "payment": "No fee. Lasts three years and may be renewed",
-    "terms": [
-      "Admitted without a fee by a resolution passed by two-thirds of the Board.",
-      "Membership lasts three years and may be renewed."
-    ],
-    "fee": null,
-    "benefits": [
-      "Take part in programmes, Special Interest Groups, events and publications, as the Board decides."
-    ]
-  }
-]
+  "concessions": [
+    {
+      "name": "Access seats",
+      "details": "Each year, 10% of paid seats are free or half price for students from economically weaker backgrounds, students at rural and Tier-3 institutions, women returning to work, persons with disabilities and first-generation graduates."
+    },
+    {
+      "name": "Founding cohort",
+      "details": "The first 500 individuals and the first 25 organisations in the first year get 30% off any tenure, and a Founding Cohort badge."
+    },
+    {
+      "name": "Referral",
+      "details": "Bring in three paid members and your next year is free."
+    },
+    {
+      "name": "Group",
+      "details": "Ten or more individuals from one employer get 15% off."
+    },
+    {
+      "name": "International",
+      "details": "Individuals outside India pay USD 50 a year as a Professional or USD 20 as a Student. Organisations outside India pay by quotation."
+    },
+    {
+      "name": "Upgrade credit",
+      "details": "When you move to a higher category during your term, the unused value of your membership is credited."
+    }
+  ],
+  "rules": [
+    {
+      "title": "Apply",
+      "text": "Fill in the online form with your category, proof of eligibility and acceptance of the Code of Conduct."
+    },
+    {
+      "title": "Approval",
+      "text": "The Membership sub-committee decides on individual applications within 7 days. Organisations hear within 21 days, with the sign-off of one Board member."
+    },
+    {
+      "title": "Onboarding",
+      "text": "You receive a receipt, a digital certificate and a member ID, and are invited to a welcome session within 30 days."
+    },
+    {
+      "title": "Renewal",
+      "text": "We remind you 60, 30 and 7 days before your membership ends. A 30-day grace period follows, with your benefits intact."
+    },
+    {
+      "title": "Lapse",
+      "text": "After the grace period you return to free Community membership. If you rejoin within 12 months, you keep your seniority."
+    },
+    {
+      "title": "Upgrade",
+      "text": "You can move to a higher category at any time, and the unused value is credited."
+    },
+    {
+      "title": "Termination",
+      "text": "For a breach of the Code of Conduct or acting against the trust's objects, by resolution of the Board, after written notice and a chance to respond. There is no refund."
+    },
+    {
+      "title": "Refunds",
+      "text": "A pro-rata refund within 30 days of joining. After that, fees are not refundable, but an organisation's membership can be transferred within the same organisation."
+    }
+  ]
+}
