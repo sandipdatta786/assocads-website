@@ -17,7 +17,8 @@
     "test": "playwright test",
     "test:e2e": "playwright test",
     "indexnow": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/indexnow.ts",
-    "lighthouse": "lhci autorun --config=lighthouserc.cjs"
+    "lighthouse": "lhci autorun --config=lighthouserc.cjs",
+    "lighthouse:desktop": "LIGHTHOUSE_PROFILE=desktop lhci autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

@@ -119,6 +119,8 @@ const securityHeaders = [
 const publicFileCache = "public, max-age=604800, stale-while-revalidate=86400";
 
 const nextConfig: NextConfig = {
+  // No "X-Powered-By: Next.js" header: it tells visitors nothing they need.
+  poweredByHeader: false,
   async redirects() {
     return oldPaths.map(([source, destination]) => ({
       source,

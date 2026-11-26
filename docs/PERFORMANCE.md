@@ -19,7 +19,7 @@ pnpm build
 pnpm lighthouse
 ```
 
-It starts the production build on port 3400 and runs Lighthouse five times on each of six pages: the home page, a programme page, the trustees page, a guide, the membership page and the contact page. It uses Lighthouse's standard mobile profile: a mid-range phone on slow 4G, with the processor slowed four times. For each budget, the middle value of the five runs must pass, or the command fails:
+It starts the production build on port 3400 and runs Lighthouse five times on each of seven pages: the home page, the programmes page, a programme page, the trustees page, a guide, the membership page and the contact page. It uses Lighthouse's standard mobile profile: a mid-range phone on slow 4G, with the processor slowed four times. For each budget, the middle value of the five runs must pass, or the command fails:
 
 | Budget                   | Limit               |
 | ------------------------ | ------------------- |
@@ -32,6 +32,14 @@ It starts the production build on port 3400 and runs Lighthouse five times on ea
 | Total Blocking Time      | 200 ms (a warning)  |
 
 Total Blocking Time stands in for Interaction to Next Paint, which can only be measured with real visitors.
+
+The same pages and budgets on Lighthouse's desktop profile:
+
+```bash
+pnpm lighthouse:desktop
+```
+
+Its reports go to `.lighthouseci/desktop/`.
 
 The reports are saved in `.lighthouseci/`, which is not committed. Open any `lhr-*.html` file in a browser to read one. The budgets and the list of pages are in `lighthouserc.cjs`.
 
@@ -52,15 +60,20 @@ If something fails, it keeps the Playwright traces for a week as a download on t
 
 ## What keeps the site fast
 
-**Every page is static.** All 74 pages in the sitemap are built ahead of time and served from Vercel's cache. The only parts that render on request are the shells for addresses that do not exist (an unknown guide or event, for example), which show the 404 page.
+**Every page is static.** All 86 pages in the sitemap are built ahead of time and served from Vercel's cache. The only parts that render on request are the shells for addresses that do not exist (an unknown guide or event, for example), which show the 404 page.
 
 **Server components by default.** Only these parts send JavaScript to the browser, because each one reacts to the visitor:
 
 | Component                                                                       | Why it runs in the browser                                                        |
 | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `HeaderNav`                                                                     | Desktop dropdowns and the mobile menu: opening, closing, focus and Escape         |
+| `SiteSearch`                                                                    | The search dialog (⌘K or Ctrl+K); its index loads only when the dialog opens      |
+| `ThemeToggle`, `ThemeChoices`                                                   | Switching between the light and dark themes and saving the choice                 |
+| `AnalyticsEvents`                                                               | Counting clicks on Join links and downloads, with no personal data                |
 | `DismissBanner`                                                                 | The button that hides the registration banner for the session                     |
 | `Reveal`                                                                        | Sections fading in as they scroll into view                                       |
+| `HeroNetwork`, `SectionDots`, `PersonPeek`                                      | The homepage: the hero graphic, the "On this page" dots and the trustee cards     |
+| `VoicePlayer`                                                                   | Playing a video only after someone asks for it                                    |
 | Forms (`EnquiryForm`, `RegisterInterestForm`, `CommunityInterestForm`, helpers) | Checking answers, showing errors, sending without a page reload, Turnstile        |
 | `FaqBrowser`, `GlossaryIndex`                                                   | Searching and filtering the list as you type                                      |
 | `EventsBrowser`, `InsightsBrowser`, `FilterGroup`                               | Filters kept in the address so a filtered list can be shared                      |
