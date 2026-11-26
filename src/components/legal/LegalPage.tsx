@@ -30,6 +30,12 @@ const SITE_INFORMATION: RelatedLink[] = [
     description: "General information, not advice. Plans may change.",
   },
   {
+    label: "Code of Conduct",
+    href: "/membership/code-of-conduct",
+    description:
+      "How we expect everyone to behave, and how to raise a concern.",
+  },
+  {
     label: "Accessibility statement",
     href: "/accessibility",
     description: "The standard we aim for, and how to report a problem.",
@@ -65,6 +71,8 @@ export function LegalPage({
   breadcrumbs,
   effective,
   reviewNote,
+  reviewTitle = "Draft for legal review",
+  effectiveLabel = "Effective from",
   sections,
   path,
 }: {
@@ -78,6 +86,10 @@ export function LegalPage({
       passes it itself, so that the pre-launch content check finds it.
       Leave it out once the advisor has approved the page. */
   reviewNote?: ReactNode;
+  /** The review note's heading. */
+  reviewTitle?: string;
+  /** The words before the date, for a page not yet in force. */
+  effectiveLabel?: string;
   sections: LegalSection[];
   /** This page's path, left out of the related pages. */
   path: string;
@@ -93,12 +105,12 @@ export function LegalPage({
       <Container className="grid gap-10 pb-24 lg:grid-cols-12 lg:gap-12">
         <div className="flex flex-col gap-4 lg:col-span-8 lg:col-start-5 lg:row-start-1">
           {reviewNote && (
-            <Callout variant="status" title="Draft for legal review">
+            <Callout variant="status" title={reviewTitle}>
               <div className="mt-2">{reviewNote}</div>
             </Callout>
           )}
           <p className="text-small text-slate-600">
-            Effective from{" "}
+            {effectiveLabel}{" "}
             <time dateTime={effective} className="font-medium text-ink">
               {formatShortDate(effective)}
             </time>

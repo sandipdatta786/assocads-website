@@ -76,6 +76,7 @@ export const contactTopics = [
   { value: "partnership", label: "Partnership" },
   { value: "events", label: "Events" },
   { value: "media", label: "Media" },
+  { value: "conduct", label: "A concern about conduct" },
   { value: "other", label: "Something else" },
 ] as const satisfies Choice[];
 
@@ -97,6 +98,11 @@ export const contactTopicNotes: Record<string, ChoiceNote> = {
     text: "Announced events, with their dates and how to register, are on the events page.",
     href: "/events",
     linkLabel: "See events",
+  },
+  conduct: {
+    text: "Concerns are treated in confidence. The Code of Conduct explains how they are handled, and what you can expect.",
+    href: "/membership/code-of-conduct#reporting",
+    linkLabel: "Read the Code of Conduct",
   },
 };
 

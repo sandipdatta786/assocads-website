@@ -7,4 +7,5 @@ export const legalDates = {
   terms: "2026-11-23",
   disclaimer: "2026-11-23",
   accessibility: "2026-11-24",
+  codeOfConduct: "2026-11-26",
 } as const;

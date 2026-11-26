@@ -407,6 +407,17 @@ export default function Page() {
               </li>
             ))}
           </ol>
+          <p className="mt-10 max-w-[40em] text-body text-slate-600">
+            Every member, and everyone at our events and in our online spaces,
+            follows the{" "}
+            <Link
+              href="/membership/code-of-conduct"
+              className="font-medium text-indigo underline underline-offset-4"
+            >
+              Code of Conduct
+            </Link>
+            .
+          </p>
         </Container>
       </Section>
 
