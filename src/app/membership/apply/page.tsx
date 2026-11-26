@@ -87,6 +87,9 @@ export default function Page() {
               </li>
             </ul>
             <TextLink href="/membership">Categories and fees</TextLink>
+            <TextLink href="/membership/code-of-conduct">
+              Code of Conduct
+            </TextLink>
           </aside>
         </Container>
       </Section>

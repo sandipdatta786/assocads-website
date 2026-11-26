@@ -43,6 +43,7 @@ const recipientVariables: Record<string, string> = {
   "contact:partnership": "FORMS_TO_PARTNERSHIPS",
   "contact:events": "FORMS_TO_EVENTS",
   "contact:media": "FORMS_TO_MEDIA",
+  "contact:conduct": "FORMS_TO_CONDUCT",
   "contact:other": "FORMS_TO_CONTACT",
 };
 

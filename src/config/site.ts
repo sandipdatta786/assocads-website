@@ -267,6 +267,7 @@ export const site = {
         { label: "Terms", href: "/legal/terms" },
         { label: "Disclaimer", href: "/legal/disclaimer" },
         { label: "Accessibility", href: "/accessibility" },
+        { label: "Code of Conduct", href: "/membership/code-of-conduct" },
       ],
     },
   ] satisfies FooterGroup[],
