@@ -1,6 +1,6 @@
 "use client";
 
-import { Monitor, Moon, Sun } from "lucide-react";
+import { Monitor, Moon, Sun, SunMoon } from "lucide-react";
 import { cn } from "@/lib/cn";
 import type { ThemeChoice } from "@/lib/theme";
 import { setThemeChoice, useTheme } from "./themeStore";
@@ -41,12 +41,14 @@ export function ThemeToggle({ className }: { className?: string }) {
 }
 
 const choices: { value: ThemeChoice; label: string; icon: typeof Sun }[] = [
+  { value: "time", label: "Time of day", icon: SunMoon },
   { value: "system", label: "System", icon: Monitor },
   { value: "light", label: "Light", icon: Sun },
   { value: "dark", label: "Dark", icon: Moon },
 ];
 
-/** The footer's choice of System, Light or Dark. */
+/** The footer's choice of Time of day (the default: dark from 7 pm to
+    7 am on the visitor's clock), System, Light or Dark. */
 export function ThemeChoices() {
   const theme = useTheme();
   return (
@@ -58,7 +60,7 @@ export function ThemeChoices() {
       <span id="theme-choices-label" className="text-small text-tone-muted">
         Theme
       </span>
-      <div className="flex rounded-pill border border-tone-line p-0.5">
+      <div className="grid grid-cols-2 rounded-l border border-tone-line p-0.5 sm:flex sm:rounded-pill">
         {choices.map(({ value, label, icon: Icon }) => {
           const on = theme?.choice === value;
           return (
@@ -66,6 +68,11 @@ export function ThemeChoices() {
               key={value}
               type="button"
               aria-pressed={theme ? on : undefined}
+              title={
+                value === "time"
+                  ? "Dark from 7 pm to 7 am, by your device's clock"
+                  : undefined
+              }
               onClick={() => setThemeChoice(value)}
               className={cn(
                 "inline-flex min-h-11 items-center gap-1.5 rounded-pill px-3.5 text-small font-medium transition-colors duration-150",

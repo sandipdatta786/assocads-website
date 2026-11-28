@@ -1,7 +1,12 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { THEME_STORAGE_KEY, type ThemeChoice } from "@/lib/theme";
+import {
+  DEFAULT_THEME_CHOICE,
+  THEME_STORAGE_KEY,
+  isNightHour,
+  type ThemeChoice,
+} from "@/lib/theme";
 
 /* One store for every theme control on the page, so the header and footer
    controls always agree. */
@@ -12,9 +17,11 @@ const DARK_QUERY = "(prefers-color-scheme: dark)";
 function readChoice(): ThemeChoice {
   try {
     const v = localStorage.getItem(THEME_STORAGE_KEY);
-    return v === "light" || v === "dark" ? v : "system";
+    return v === "light" || v === "dark" || v === "system" || v === "time"
+      ? v
+      : DEFAULT_THEME_CHOICE;
   } catch {
-    return "system";
+    return DEFAULT_THEME_CHOICE;
   }
 }
 
@@ -24,8 +31,23 @@ function systemDark(): boolean {
 
 /** Puts the theme for this choice on <html>. */
 function apply(choice: ThemeChoice) {
-  const dark = choice === "dark" || (choice === "system" && systemDark());
-  document.documentElement.dataset.theme = dark ? "dark" : "light";
+  const dark =
+    choice === "dark" ||
+    (choice === "system" && systemDark()) ||
+    (choice === "time" && isNightHour(new Date().getHours()));
+  const next = dark ? "dark" : "light";
+  if (document.documentElement.dataset.theme !== next)
+    document.documentElement.dataset.theme = next;
+}
+
+/* Following the clock: check once a minute, and when the tab comes back
+   into view, so the theme turns at 7 pm and 7 am without a reload. */
+function followClock() {
+  if (readChoice() !== "time") return;
+  const before = document.documentElement.dataset.theme;
+  apply("time");
+  if (document.documentElement.dataset.theme !== before)
+    listeners.forEach((l) => l());
 }
 
 let started = false;
@@ -43,6 +65,10 @@ function start() {
     apply(readChoice());
     listeners.forEach((l) => l());
   });
+  window.setInterval(followClock, 60_000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") followClock();
+  });
 }
 
 function subscribe(listener: () => void) {
@@ -53,8 +79,7 @@ function subscribe(listener: () => void) {
 
 export function setThemeChoice(choice: ThemeChoice) {
   try {
-    if (choice === "system") localStorage.removeItem(THEME_STORAGE_KEY);
-    else localStorage.setItem(THEME_STORAGE_KEY, choice);
+    localStorage.setItem(THEME_STORAGE_KEY, choice);
   } catch {
     // Storage blocked: the theme still changes for this page.
   }

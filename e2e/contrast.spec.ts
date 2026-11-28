@@ -5,8 +5,8 @@ import { expect, test, type Page } from "@playwright/test";
  * Every text and background combination in use must be one of the approved
  * pairings in docs/BRAND_GUIDE.md (section 2.3, and in the dark theme also
  * section 2.7), which is read here so the guide stays the one source of
- * truth. The dark theme is reached through the system setting, as most
- * visitors will reach it. Checked on every page at 390px, and
+ * truth. The theme under test is saved as the visitor's choice before
+ * each page loads. Checked on every page at 390px, and
  * at 1440px also with links, buttons and fields forced into their hover and
  * focus states. Field placeholder text is included.
  */
@@ -195,6 +195,11 @@ for (const theme of ["light", "dark"] as const)
           reducedMotion: "reduce",
           colorScheme: theme,
         });
+        // The default follows the clock; pin the theme to the one under test.
+        await context.addInitScript(
+          (t) => localStorage.setItem("assocads:theme", t),
+          theme,
+        );
         const page = await context.newPage();
         const cdp = await context.newCDPSession(page);
         const all = await routes(page);

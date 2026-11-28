@@ -133,7 +133,7 @@ Charts use colours in this order: Indigo `#2F3BD9`, Teal `#0B7A6E`, Marigold `#F
 
 The founders approved the dark theme pairings in this section and the tokens in 2.8 on 26 November 2026.
 
-The website has a dark theme. It follows the visitor's system setting, and a switch in the header and footer overrides it. It uses only the palette above: Ink becomes the page, Night the alternate surface, and text turns light. Ink sections keep their usual look, on Night. Forms and the brand kit stay light in the dark theme, because Error, Success and Teal have no pairing on dark backgrounds that passes for text.
+The website has a dark theme. By default it follows the visitor's own clock: dark from 7 pm to 7 am, light at other times. The footer lets the visitor choose "Time of day", "System" (the device's setting), "Light" or "Dark", and the header switch sets light or dark. The browser remembers the choice. It uses only the palette above: Ink becomes the page, Night the alternate surface, and text turns light. Ink sections keep their usual look, on Night. Forms and the brand kit stay light in the dark theme, because Error, Success and Teal have no pairing on dark backgrounds that passes for text.
 
 These are the approved text pairings for the dark theme, in addition to those in 2.3. Most already appear in 2.3; they are listed again so that the dark theme can be checked against one table.
 

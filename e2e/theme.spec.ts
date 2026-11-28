@@ -1,17 +1,39 @@
 import { expect, test } from "@playwright/test";
 
-/* Light and dark themes: the system setting by default, a saved choice
+/* Light and dark themes: time of day by default, a saved choice
    applied before the first paint, controls in the header and footer that
    agree, and forms that stay light. */
 
 const theme = (page: import("@playwright/test").Page) =>
   page.evaluate(() => document.documentElement.dataset.theme);
 
-test("follows the system setting when nothing is chosen", async ({
+test("follows the visitor's clock when nothing is chosen", async ({
+  browser,
+}) => {
+  for (const [time, expected] of [
+    ["2026-11-28T21:30:00", "dark"],
+    ["2026-11-28T13:00:00", "light"],
+  ] as const) {
+    // The system setting says the opposite, so the clock must win.
+    const context = await browser.newContext({
+      colorScheme: expected === "dark" ? "light" : "dark",
+    });
+    const page = await context.newPage();
+    await page.clock.install({ time: new Date(time) });
+    await page.goto("/");
+    expect(await theme(page)).toBe(expected);
+    await context.close();
+  }
+});
+
+test("the system setting is followed when the visitor chooses it", async ({
   browser,
 }) => {
   for (const scheme of ["light", "dark"] as const) {
     const context = await browser.newContext({ colorScheme: scheme });
+    await context.addInitScript(() =>
+      localStorage.setItem("assocads:theme", "system"),
+    );
     const page = await context.newPage();
     await page.goto("/");
     expect(await theme(page)).toBe(scheme);
@@ -54,16 +76,17 @@ test("header and footer controls agree and the choice is kept", async ({
     viewport: { width: 1440, height: 900 },
   });
   const page = await context.newPage();
+  // Daytime, so the default (time of day) starts light.
+  await page.clock.install({ time: new Date("2026-11-28T13:00:00") });
   await page.goto("/");
   const toggle = page.getByRole("banner").getByRole("button", {
     name: "Dark theme",
   });
   const footer = page.getByRole("group", { name: "Theme" });
   await expect(toggle).toHaveAttribute("aria-pressed", "false");
-  await expect(footer.getByRole("button", { name: "System" })).toHaveAttribute(
-    "aria-pressed",
-    "true",
-  );
+  await expect(
+    footer.getByRole("button", { name: "Time of day" }),
+  ).toHaveAttribute("aria-pressed", "true");
 
   await toggle.click();
   expect(await theme(page)).toBe("dark");
@@ -80,12 +103,15 @@ test("header and footer controls agree and the choice is kept", async ({
   expect(await theme(page)).toBe("light");
   expect(
     await page.evaluate(() => localStorage.getItem("assocads:theme")),
-  ).toBeNull();
+  ).toBe("system");
   await context.close();
 });
 
 test("forms stay light in the dark theme", async ({ browser }) => {
   const context = await browser.newContext({ colorScheme: "dark" });
+  await context.addInitScript(() =>
+    localStorage.setItem("assocads:theme", "dark"),
+  );
   const page = await context.newPage();
   await page.goto("/contact");
   expect(await theme(page)).toBe("dark");
@@ -101,5 +127,51 @@ test("forms stay light in the dark theme", async ({ browser }) => {
     "background-color",
     "rgb(11, 16, 32)",
   );
+  await context.close();
+});
+
+test("time of day: dark at night, light by day, by the visitor's clock", async ({
+  browser,
+}) => {
+  // Four full page loads: allow longer than the default 30 seconds.
+  test.setTimeout(90_000);
+  for (const [time, expected] of [
+    ["2026-11-28T21:30:00", "dark"],
+    ["2026-11-28T06:59:00", "dark"],
+    ["2026-11-28T07:00:00", "light"],
+    ["2026-11-28T13:00:00", "light"],
+  ] as const) {
+    // The system setting says the opposite, so the clock must win.
+    const context = await browser.newContext({
+      colorScheme: expected === "dark" ? "light" : "dark",
+    });
+    await context.addInitScript(() =>
+      localStorage.setItem("assocads:theme", "time"),
+    );
+    const page = await context.newPage();
+    await page.clock.install({ time: new Date(time) });
+    await page.goto("/");
+    expect(await theme(page)).toBe(expected);
+    await expect(
+      page
+        .getByRole("group", { name: "Theme" })
+        .getByRole("button", { name: "Time of day" }),
+    ).toHaveAttribute("aria-pressed", "true");
+    await context.close();
+  }
+});
+
+test("time of day turns dark at 7 pm without a reload", async ({ browser }) => {
+  const context = await browser.newContext({ colorScheme: "light" });
+  const page = await context.newPage();
+  await page.clock.install({ time: new Date("2026-11-28T18:58:30") });
+  await page.goto("/");
+  await page
+    .getByRole("group", { name: "Theme" })
+    .getByRole("button", { name: "Time of day" })
+    .click();
+  expect(await theme(page)).toBe("light");
+  await page.clock.runFor(3 * 60_000);
+  expect(await theme(page)).toBe("dark");
   await context.close();
 });
