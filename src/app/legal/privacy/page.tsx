@@ -220,11 +220,13 @@ export default function Page() {
               the form at any time. Your consent is never kept.
             </li>
             <li>
-              <strong>Your choice of light or dark theme.</strong> If you choose
-              a theme with the switch in the header or footer, your browser
-              keeps that one word (&ldquo;light&rdquo; or &ldquo;dark&rdquo;) in
+              <strong>Your choice of light or dark theme.</strong> By default
+              the website turns dark from 7 pm to 7 am on the clock of your
+              device. If you choose a theme in the header or footer, your
+              browser keeps that one word (&ldquo;light&rdquo;,
+              &ldquo;dark&rdquo;, &ldquo;system&rdquo; or &ldquo;time&rdquo;) in
               its local storage, so the website looks the same next time.
-              Choosing &ldquo;System&rdquo; removes it. Nothing is sent to us.
+              Nothing is sent to us.
             </li>
           </ul>
           <h3>Visitor statistics and page speed</h3>
